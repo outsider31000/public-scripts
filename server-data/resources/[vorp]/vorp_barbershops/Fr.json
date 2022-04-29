@@ -1,0 +1,19 @@
+{
+  "PressToOpen": "Appuyez sur [~e~Espace~q~] pour accéder au barbier",
+
+  "TitleBarberMenu": "Salon de coiffure",
+  "SubTitleBarberMenu": "Coupes de cheveux",
+  "BeardList": "Coupes de barbe",
+  "BeardDesc": "Choisissez la coupe que vous aimez le plus.",
+  "Beard": "Barbe #",
+  "NoBeard": "Sans barbe",
+  "HairList": "Coupes de cheveux",
+  "HairDesc": "Choisissez la coupe que vous aimez le plus.",
+  "Hair": "Les cheveux #",
+  "NoHair": "Sans cheveux",
+  "NoExist": "Il n'y a pas",
+  "FinishBtn": "Réduction de salaire pour {0} $",
+  "SubFinishBtn": "Terminer et payer",
+  "NoMoney": "Vous n'avez pas assez d'argent",
+  "Bought": "Vous avez payé {0} $ au coiffeur"
+}
