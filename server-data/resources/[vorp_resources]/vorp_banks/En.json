@@ -1,0 +1,5 @@
+﻿{
+  "Interaction": "Press [~e~Space~q~] to talk to the banker",
+  "InsuficientMoneyInstatnTrasference": "You don't have enough money for the taxes for an instant transaction",
+  "InsuficientMoneyTrasference": "You don't have enough money for the transaction"
+}

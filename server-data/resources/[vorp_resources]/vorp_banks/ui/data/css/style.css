@@ -1,0 +1,158 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/rdrlino-regular-webfont.woff);
+}
+
+@font-face {
+    font-family: ancient;
+    src: url(../fonts/AncientAd.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: cher;
+    src: url(../fonts/Cherolina.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: wwi;
+    src: url(../fonts/WWI.ttf);
+    font-weight: normal;
+}
+
+* {
+    font-family: myFirstFont;
+    box-sizing: inherit;
+    touch-action: manipulation;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+}
+
+input[type="number"] {
+    background: transparent;
+    border: none;
+    width: 8vh;
+}
+
+input[type="text"] {
+    background: transparent;
+    width: 19vh;
+    border-bottom: 1px solid;
+}
+
+.cont-content {
+    height: 40vh;
+    background-size: cover;
+    width: 82vh;
+    background-image: url(../background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20VH;
+    margin-left: -41vh;
+    box-shadow: 5px 10px;
+}
+
+.balance {
+    position: relative;
+    text-align: center;
+    float: center;
+    margin-top: -20px;
+}
+
+table {
+    text-align: center;
+    float: center;
+    width: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.deposit-info {
+    position: relative;
+    text-align: center;
+    float: center;
+    margin-top: -20px;
+    font-size: 1.4vw;
+}
+
+.transfers-info {
+    position: relative;
+    text-align: center;
+    float: center;
+    margin-top: -20px;
+    font-size: 0.9vw;
+}
+
+.transfer-info {
+    position: relative;
+    text-align: center;
+    float: center;
+    margin-top: -20px;
+    font-size: 0.8vw;
+}
+
+#dollars {
+    text-decoration: underline;
+    font-size: 1.2vw;
+}
+
+#gold {
+    text-decoration: underline;
+    font-size: 1.2vw;
+}
+
+#iconGold {
+    font-family: wwi;
+    text-decoration: underline;
+    font-size: 1.4vw;
+}
+
+#iconGold2 {
+    font-family: wwi;
+}
+
+.btn-options {
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.btn-options-deposit {
+    position: relative;
+    text-align: center;
+}
+
+.btn:hover {
+    text-decoration: underline;
+}
+
+#bankName {
+    text-align: center;
+    font-family: ancient;
+    font-size: 2.2vw;
+}
+
+#bankDesc {
+    text-align: center;
+    font-family: cher;
+    font-size: 2.5vw;
+}
+
+#textinfo {
+    color: white;
+    font-size: 0.8vw;
+}
+
+#textid {
+    color: white;
+    font-size: 0.8vw;
+}

@@ -1,0 +1,52 @@
+{
+  "defaultlang": "En", // Set your language
+  "key": "0x446258B6", // Set the key to open menu->Default:PageUp
+  "TpviewDelviewKey": "0xCEE12B50",
+
+  //Commands administration side
+  "Freeze": "freeze",
+  "Slap": "slap",
+  "Kick": "k",
+  "Ban": "ban",
+  "ThorP": "thorp",
+  "FireP": "firep",
+  "Cblip": "cblip",
+  "SpectateOn": "son",
+  "SpectateOff": "soff",
+  "Revive": "revive",
+  "Heal": "heal",
+
+  //Comands booster side
+  "Golden": "golden",
+  "Gm": "gm",
+  "Noclip": "n",
+  "Mclip": "m",
+  "Thor": "thor",
+
+  //Commands notifications side
+  "PMessage": "pm",
+  "BMessage": "bc",
+
+  //Commands teleports side
+  "TpWayPoint": "tpwayp",
+  "TpCoords": "tpcoords",
+  "TpPlayer": "tpplayer",
+  "TpBring": "tpbring",
+  "TpBack": "tpback",
+  "DelBack": "delback",
+  "Guarma": "guarma",
+  "TpView": "tpview",
+
+  //Commands database side
+  "AddMoney": "money",
+  "DelMoney": "delmoney",
+  "AddXp": "addxp",
+  "DelXp": "delxp",
+  "AddItem": "additem",
+  "AddWeapon": "addweapon",
+  "AddAmmo": "addammo",
+  "InfiniteAmmoOn": "infammon",
+  "InfiniteAmmoOff": "infammoff",
+  "Horse": "horse",
+  "Veh": "veh"
+}

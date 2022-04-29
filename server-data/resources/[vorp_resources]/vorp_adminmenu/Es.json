@@ -1,0 +1,162 @@
+﻿{
+  //Shared
+  "ID": "ID del jugador",
+
+
+
+  //Texts
+
+  "MenuMainTitle": "VORP AdminMenu",
+  "MenuMainDesc": "AdminMenu",
+
+
+
+  "MenuAdministrationTitle": "Administración",
+  "MenuAdministrationDesc": "Menú de administración",
+
+
+  "KickPlayerTitle": "Expulsar jugador",
+  "KickPlayerDesc": "Pulsa aqui para expulsar a un jugador del servidor o: Commando:/k id.",
+
+  "BanPlayerTitle": "Banear jugador",
+  "BanPlayerDesc": "Banear a un jugador del servidor",
+  "BanPlayerTime": "Tiempo",
+  "BanPlayerReason": "Razón",
+  "YouArePermanentBanned": "Has obtenido un ban permanente.",
+  "YouAreTempBanned": "Tu ban expira en {0} días {1} hora {2} minutos.",
+  "YouHasBeenBanned": "Has sido baneado por ({0}) | Expiración: ({1})",
+  "Permament": "Permanente",
+  "SyntaxIncorrect": "Por favor, usa bien la sintaxis [ 0=Permanente, 10Y=10 Años, 10M=10 Meses, 10D=10 Días, 10H=10 Horas, 10m=10 Minutos ]",
+
+  "ReviveTitle": "Revivir jugador",
+  "ReviveDesc": "Revive a un jugador",
+
+  "HealTitle": "Curar jugador",
+  "HealDesc": "Cura a un jugador",
+
+  "FreezeTitle": "Congelar jugador",
+  "FreezeDesc": "Congela a un jugador",
+
+  "SlapTitle": "Hacer volar",
+  "SlapDesc": "Hacer volar a un jugador",
+
+  "LightningTitle": "Lanzar rayo",
+  "LightningDesc": "Lanzar un rayo",
+
+  "FireTitle": "Quemar jugador",
+  "FireDesc": "Quema a un jugador hasta que muera",
+
+  "SpectateTitle": "Observar jugador",
+  "SpectateDesc": "Observa a un jugador",
+
+  "SpectateTitleOff": "Dejar de observar",
+  "SpectateDescOff": "Dejar de observar a un jugador",
+
+  "PlayersBlipsTitle": "Jugadores en el mapa",
+  "PlayersBlipsDesc": "Observa a todos los jugadores en el mapa",
+
+  "PlayersListTitle": "Jugadores",
+  "PlayersListDesc": "Lista de jugadores",
+
+  "MenuNotificationsTitle": "Notificaciones",
+  "MenuNotificationsDesc": "Menu de notificaciones",
+
+  "MenuBoostersTitle": "Potenciadores",
+  "MenuBoostersDesc": "Menu de potenciadores",
+
+  "GodModeTitle": "Modo dios",
+  "GodModeDesc": "Nunca morirás, a no ser que sea por arte de magia :)",
+
+  "ThorTitle": "Thor",
+  "ThorDesc": "Thor",
+
+  "NoClipTitle": "Noclip",
+  "NoClipDesc": "Noclip",
+
+  "NoClip2Title": "NoclipV2",
+  "NoClip2Desc": "Noclip mejorado",
+
+  "GoldenTitle": "Dorado",
+  "GoldenDesc": "Modo dorado",
+
+  "HorseTitle": "Caballo",
+  "HorseDesc": "Sacar caballo",
+  "VehicleTitle": "Vehículo",
+  "VehicleDesc": "Sacar un vehículo",
+
+  "InfiniteAmmoOnTitle": "Munición infinita activada",
+  "InfiniteAmmoOnDesc": "Encender",
+  "InfiniteAmmoOffTitle": "Munición infinita desactivada",
+  "InfiniteAmmoOffDesc": "Desactivar",
+
+  "Quantity": "cantidad",
+
+  "MenuDatabaseTitle": "Base de datos",
+  "MenuDatabaseDesc": "Menu db",
+
+  "AddMoneyTitle": "Añadir dinero",
+  "AddMoneyDesc": "Añadir dinero",
+
+  "TypeOfMoneyTitle": "Tipo:0-dolar,1-oro,2-puntos de rol",
+  "TypeOfMoneyDesc": "tipo",
+
+  "DelMoneyTitle": "Eliminar dinero",
+  "DelMoneyDesc": "Eliminar dinero",
+
+  "AddXpTitle": "Añadir Xp",
+  "AddXpDesc": "Añadir Xp",
+
+  "DelXpTitle": "Eliminar Xp",
+  "DelXpDesc": "Eliminar Xp",
+
+  "AddItemTitle": "Añadir Item",
+  "AddItemDesc": "Añadir Item",
+
+  "ItemName": "Nombre del item",
+
+  "AddWeaponTitle": "Añadir arma",
+  "AddWeaponDesc": "Añadir arma",
+
+  "WeaponName": "Nombre del arma",
+  "Weaponammo": "tipo de munición",
+
+  "InventoryTitle": "Inventario",
+  "InventoryListTitle": "Inventario",
+  "InventoryListDesc": "Inventario",
+
+  "LoadingTitle": "Cargando",
+  "LoadingDesc": "Cargando",
+
+  "NeedWeaponOnHand": "Debes tener un arma en tus manos",
+
+
+
+  "PrivateMessageTitle": "Mensaje privado a un jugador",
+  "PrivateMessageDesc": "Pulsa aqui para enviar un mensaje privado",
+  "PMDesc": "mensaje",
+  "BroadcastMessageTitle": "Mensaje global",
+  "BroadcastMessageDesc": "Pulsa aqui para enviar un mensaje a todos los usuarios conectados",
+  "BMDesc": "mensaje",
+
+  "MenuTeleportsTitle": "Teletransporte",
+  "MenuTeleportsDesc": "Menu de teletransporte",
+
+  "TpToCursorTitle": "Tp al cursor",
+  "TpToCursorDesc": "Teletransportarse al cursor.",
+  "TpToWaypointTitle": "Tp al punto marcado",
+  "TpToWaypointDesc": "Teletransporte al punto marcado.\nAñade un punto en el mapa antes.",
+  "TpToCoordsTitle": "Tp a coordenadas",
+  "TpToCoordsDesc": "Teletransporte a coordenadas.",
+  "XCoord": "Coordenada X",
+  "YCoord": "Coordenada Y",
+  "TpToPlayerTitle": "Tp a jugador",
+  "TpToPlayerDesc": "Teletransporte a un jugador.",
+  "BringPlayerTitle": "Traer jugador a ti",
+  "BringPlayerDesc": "Teletransporte a un jugador a tu posición.",
+  "TpBackTitle": "Volver al primer tp",
+  "TpBackDesc": "Te devuelve a tu anterior posición y elimina el punto en el mapa.",
+  "DelBackTitle": "Eliminar coordenada del primer tp",
+  "DelBackDesc": "Eliminar la marca y la posición de la primera posición de tp.",
+  "GuarmaTitle": "Guarma",
+  "GuarmaDesc": "Teletransporta a guarma. Usalo de nuevo para volver al mapa normal"
+}
