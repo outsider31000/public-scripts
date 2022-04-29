@@ -1,0 +1,233 @@
+
+/* MADE BY SLIZZARN - DISCORD: slizzarn#1144 GITHUB: https://github.com/slizzarn-fivem */
+
+@font-face {
+	font-family: crock;
+	src: url(../fonts/crock.ttf) format('truetype')
+}
+
+@font-face {
+	font-family: HapnaSlabSerif-Medium;
+	src: url(../fonts/HapnaSlabSerif-Medium.ttf) format('truetype')
+}
+
+.menu {
+	font-family: "crock", crock, serif;
+	min-width: 380px;
+	color: #fff;
+	position: absolute;
+	padding: 8px;
+	background-image: url(inkroller_1a.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.topline {
+	width: 90%;
+	height:4px;
+	margin: auto auto;
+	background-image: url(divider_line.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	opacity:0.6;
+}
+
+.scrollbottom {
+	width: 90%;
+	height:59px;
+	margin-left: auto ;
+	margin-right: auto ;
+	margin-top:-20px;
+	background-image: url(scroller_right_bottom.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	opacity:0.6;
+}
+.head {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.menu .head {
+	text-align: center;
+	height: 80px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 25px;
+  background-image: url(menu_header_1a.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 90% 100%;
+	margin-bottom:10px;
+	margin-top:10px;
+}
+
+.menu .menu-items {
+	min-height: 275px;
+	max-height: 405px;
+	overflow-y: hidden;
+	font-weight: 500;
+}
+
+.menu .menu-items .menu-item {
+	width:87%;
+	height:2vh;
+	display: block;
+  padding: 7px;
+    font-size: 18px;
+ text-align: left;
+  text-indent: 5px;
+  margin-top: 6px;
+  margin-left:auto;
+  margin-right:auto;
+  background-image: url(selection_box_bg_1d.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 110%;
+		font-family: "HapnaSlabSerif-Medium", HapnaSlabSerif-Medium, serif;
+
+}
+
+.menu .menu-items .menu-item.selected {
+    background-image: url(selsected.png),url(selection_box_bg_1d.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+.menu .menu-items .menu-item.slider {
+   min-height:2.5vh;
+   font-size: 16px;
+}
+ #slider-label{
+    width:40%;
+	float:left;
+	text-align: center;
+}
+
+i{
+	float:left;
+	font-size:18px;
+	margin-top:3%;
+}
+.desciption {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	
+	
+}
+.options-amount {
+	float:right;
+	opacity:0.8;
+	font-size:14px;
+	margin-top:-7%;
+	margin-right:7%;
+}
+
+
+
+.head > span {
+  position: relative;
+  display: inline-block;
+  top: 50%;                    
+  transform: translate(0, -50%)
+}
+
+.head > span::before,
+
+.head > span::before {
+  right: 105%;
+  margin-right: 15px;
+}
+
+.head > span::after {
+  left: 105%;
+  margin-left: 15px;
+}
+
+.arrows {
+ width:25%;
+ float:left;
+}
+#item-label {
+ width:75%;
+ float:left;
+}
+
+
+.menu.align-left {
+	left: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-top-left {
+	left: 40;
+	top: 40;
+}
+
+.menu.align-top {
+	left: 50%;
+	top: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-top-right {
+	right: 10;
+	top: 40;
+}
+
+.menu.align-right {
+	right: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-bottom-right {
+	right: 40;
+	bottom: 40;
+}
+
+.menu.align-bottom {
+	left: 50%;
+	bottom: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-bottom-left {
+	left: 40;
+	bottom: 40;
+}
+
+.menu.align-center {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* WebKit scrollbar properties */
+::-webkit-scrollbar {
+  width: 8px;
+  border-left: 4px solid #272733;
+}
+::-webkit-scrollbar-track {
+  background: #272733;
+  border-left: 4px solid #272733;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a242d;
+  border-left: 4px solid #272733;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a242d;
+  border-left: 4px solid #272733;
+}
+
+/* MADE BY SLIZZARN - DISCORD: slizzarn#1144 GITHUB: https://github.com/slizzarn-fivem */
