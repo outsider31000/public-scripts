@@ -1,0 +1,33 @@
+#input{
+  width: 16vw;
+position: relative;
+top: 31%;
+left: 17%;
+height: 2vh;
+border: 1px solid black;
+}
+.container{
+  background: url('background.png') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;width: 25%;
+  height: 15%;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  top: 15vw;
+  left: 35vw;
+  border: solid transparent;
+
+}
+#submit { 
+  height: 2vw;
+  width: 5vw;
+  margin-top: 1vw;
+  margin-left: 10vw;
+  border: solid transparent;
+  background-size: 100% 100%!important;
+  color: rgb(255, 255, 255);
+  float: left; 
+  background: url('buttonv.png') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

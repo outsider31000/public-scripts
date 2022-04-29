@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template</title>
+    <meta charset="utf-8">
+    <style>
+      
+
+      @keyframes flickerAnimation { /* flame pulses */
+        0%   { opacity:1; }
+        50%  { opacity:0.25; }
+        100% { opacity:1; }
+      }
+
+
+      * {
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: 'chinese_rocksregular';
+        src: url('chineser-webfont.woff2') format('woff2'),
+        url('chineser-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+
+      body {
+        margin:0;
+        padding: 0;
+        font-family: 'chinese_rocksregular';
+
+      }
+      button {
+        cursor: pointer;
+        border:none;        
+      }
+      select {
+        border: none;
+      }
+      .info {
+        position: absolute;
+        left: 50%;
+        top: 30px;
+        text-align: center;
+        transform: translateX(-50%);
+        font-size: 20pt;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0px 0px 2px black;
+      }
+      .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        -background-color: rgb(36, 36, 36);
+        -background-image: url("https://cdn.discordapp.com/attachments/549952050251825162/715070183336706098/TEXTURE_B.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .off {
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+      }
+
+      
+
+      .w_button {
+        height: 50px;
+        min-width: 50px;
+        background-color: #f2f2f2;
+        margin: 5px;
+        border-radius: 3px;
+      }
+      .w_button:hover {
+        background-color: rgb(233, 233, 233);
+      }
+      .w_dropdown {
+        margin: 5px;
+        min-width: 200px;
+        background-color: #f2f2f2;
+        border-radius: 3px;
+      }
+
+      .w_page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+
+      .w_texteditor {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 80%;
+        height: 80%;
+        overflow: auto;
+      }
+      
+      #suneditor_editor_classic {
+        height: 100%;
+      }
+
+      .w_book {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+      .w_bookpage {
+        -padding: 30px;
+        background-size: cover;
+        -background-color: white;
+        background-image: url("https://cdn.discordapp.com/attachments/549952050251825162/715070183336706098/TEXTURE_B.jpg");
+        -height: 100%;
+        background-position: center;
+      }
+
+      .w_settings {
+        position: absolute;
+        top: calc( 100vh * 0.4 );
+        left: 50%;
+        width: 100%;
+        z-index: 100;
+        background-color: white;
+        transform: translateX(-50%) translateY(-50%);
+        box-shadow: 5px 5px 15px #0003;
+        display: grid;
+        border-radius: 15px;
+        padding: 30px;
+        padding-top: 50px;
+        grid-gap: 5px;
+        max-width: 450px;
+      }
+      .w_close {
+        position: absolute;
+        border-radius: 50%;
+        background-color:red;
+        box-shadow: inset -2px -2px 5px #6d1e1e;
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+      }
+      .w_close:hover {
+        background-color: rgb(218, 0, 0);
+      }
+
+      .w_pagebutton {
+
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 0.5;
+        border-radius: 50%;
+        border: 3px solid black;
+        background-color: white;
+        transition: all 0.5s;
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .w_pagebutton:hover {
+        background-color: rgb(211, 211, 211);
+        opacity: 1;
+      }
+
+      .w_addbutton {
+        top: 50px;
+        left: calc( 50% + 50px );
+        -background-image: url("add.png")
+      }
+      .w_editbutton {
+        top: 50px;
+        left: calc( 50% - 100px );
+        -background-image: url("edit.png")        
+      }
+      .w_deletebutton {
+        top: 50px;
+        left: calc( 50% + 150px );
+        -background-image: url("delete.png")        
+      }
+
+      .w_nextbutton {
+        top: 50px;
+        left: calc( 50% + 100px );
+        background-image: url("next.png")
+      }
+      .w_prevbutton {
+        top: 50px;
+        left: calc( 50% - 0px );
+        -background-image: url("prev.png")
+      }
+     
+
+      .w_headerbutton {
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 5px;
+        display: block;
+        opacity: 0.5;
+        float: left;
+      }
+      
+      .w_settingsbutton {       
+        -background-image: url("settings.png");
+      }
+      .w_savebutton {       
+        -background-image: url("save.png");
+      }
+
+      .w_pagecontent {
+        padding: 30px 60px;
+        pointer-events: none;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently*/
+      }
+
+      .w_stopeditbutton {       
+        float: right;
+        position: absolute;
+        border-radius: 50%;
+        background-color: red;
+        box-shadow: inset -2px -2px 5px #6d1e1e;
+        top: 7.5px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+        opacity: 1;
+      }
+      .w_stopeditbutton:hover {
+        
+        background-color: rgb(218, 0, 0);
+      } 
+      
+      .w_editorcontainer {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        padding-top: 50px;
+      }
+
+      .se-dialog.sun-editor-common {
+        position: absolute !important;
+      }
+
+      .w_head {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+      }
+
+      .w_inputcontainer {
+        display: flex;
+      }
+
+      .w_name {
+        margin: 10px;
+        width: 50%;
+        color: black;
+      }
+
+      
+      
+      .w_input {
+        border-radius: 5px;
+        border: 1px #b3b3b3 solid;
+        padding: 10px;
+        background-color: #fbfbfb;
+        margin: 10px;
+        width: 100%;
+      }
+
+      .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+
+      .w_flip {
+        position: absolute;
+        bottom: 0px;
+        right: -80px;
+        width: 64px;
+        height: 64px;
+        background-size: cover;
+        opacity: 0.5;
+        animation: flickerAnimation 3s infinite;
+      }
+
+      .w_exportbutton {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        -background-image: url("export.png");
+        width: 64px;
+        height: 64px;
+        background-size: cover;
+        background-color: transparent !important;
+        
+      }
+
+      .w_inportbutton {
+        
+        position: absolute;
+        top: 60px;
+        right: 90px;
+        background-color: black;
+        background-image: url("inport.png");
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        background-color: transparent !important;
+      }
+
+
+
+    </style>
+  </head>
+
+
+  <body>
+    <!--debug-->
+    <div id="debugonly">
+        <div class="background"></div>
+    </div>
+
+    <div class="w_content">
+
+      <div class="w_page">
+
+        <!--book view-->
+        <div class="w_book off">
+          <div class="w_flip"></div>
+          <div class="flipbook">
+            <div></div>
+          </div>
+        </div>
+
+        <div class="w_settings off">
+          <input id = "frontimage" class="w_input"></input>
+          <input id = "midimage" class="w_input"></input>
+          <input id = "backimage" class="w_input"></input>
+          <button id = "closesettingsbutton" class="w_close"></button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" type="text/javascript"></script> 
+  <script type="text/javascript" src="turnjs4/extras/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="turnjs4/extras/modernizr.2.5.3.min.js"></script>
+  <script type="text/javascript" src="turnjs4/lib/turn.js"></script>
+  <script type="text/javascript" src="client.js" ></script>
+  
+</html>

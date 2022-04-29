@@ -1,0 +1,64 @@
+@font-face { 
+	font-family: crock; 
+	src: url('crock.ttf'); 
+}
+
+html {
+	color: #fff;
+}
+
+#wrap {
+	width: 25%;
+	height: 90%;
+	margin-top: 2%;
+	margin-left: 2%;
+	/* box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12); */
+    color: rgba(255, 255, 255, 0.9);
+	/* background-color: rgba(7, 7, 7, 0.5); Table Heading Background Color */
+	background-image: url("images/bgPanel.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+}
+
+table {
+	text-align: left;
+}
+
+th, td {
+	padding-left: 20px;
+}
+
+th {
+	padding-top: 10px;
+	height: 40px;
+}
+
+tr {
+	font-size: 120%;
+	font-family: 'Crock';
+}
+
+tr.heading {
+		color: #e81b00; /* Table Heading Text Color */
+		font-weight: 500; /* Makes the header font bold */
+		padding-top: 20px;
+}
+
+#title {
+	font-family: 'Crock';
+	text-align:center;
+	font-size: 40px;
+	margin-top: 10%;
+	color: white;
+}
+
+#title2 {
+		color: #ffffff; /* Table Heading Text Color */
+		font-weight: 500; /* Makes the header font bold */
+		font-size: 120%;
+		font-family: 'Crock';
+		padding-top: 30px;
+}
