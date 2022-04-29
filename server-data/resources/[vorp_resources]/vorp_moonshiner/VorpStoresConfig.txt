@@ -1,0 +1,43 @@
+{
+      "name": "Moonshiner Store",
+      "BlipIcon": 1475879922,
+      "EnterStore": [ 2010.65, -503.81, 41.69, 1.0 ],
+      "CameraMain": [ 2012.500, -499.0, 42.41834, -30.48834, 0.0, -52.49266 ],
+      "NPCStore": [ 2011.53, -505.29, 41.07, 64.49 ],
+      "SpawnObjectStore": [ 2013.02, -498.90, 41.07, 64.29 ],
+      "NPCModel": "U_M_M_ValGenStoreOwner_01",
+      "ItemsBuy": [
+        {
+          "Name": "mp001_p_mp_still02x", // name in DB Items
+          "BuyPrice": 125.75,
+          "ObjectModel": "mp001_p_mp_still02x"
+        },
+        {
+          "Name": "p_barrelmoonshine", // name in DB Items
+          "BuyPrice": 75,
+          "ObjectModel": "p_barrelmoonshine"
+        },
+        {
+          "Name": "soborno", // name in DB Items
+          "BuyPrice": 22.5,
+          "ObjectModel": "s_craftedmedicine_01x"
+        }
+      ],
+      "ItemsSell": [
+        {
+          "Name": "tropicalPunchMoonshine", // name in DB Items
+          "SellPrice": 52.0,
+          "ObjectModel": "s_craftedmedicine_01x"
+        },
+        {
+          "Name": "wildCiderMoonshine", // name in DB Items
+          "SellPrice": 52.0,
+          "ObjectModel": "s_craftedmedicine_01x"
+        },
+        {
+          "Name": "appleCrumbMoonshine", // name in DB Items
+          "SellPrice": 52.0,
+          "ObjectModel": "s_craftedmedicine_01x"
+        }
+      ]
+    },

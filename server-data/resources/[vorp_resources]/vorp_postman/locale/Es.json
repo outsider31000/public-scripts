@@ -1,0 +1,11 @@
+﻿{
+  "PressToStart": "Pulsa [~e~Espacio~q~] para comenzar trabajo",
+  "PressToStop": "Pulsa [~e~Espacio~q~] para terminar de trabajar",
+  "VehicleBlip": "Vehículo de trabajo",
+  "ReturnToOffice": "Regrese a la oficina y devuelva su carro, todos los paquetes entregados.",
+  "DriveTo": "Conduce hasta {0} y deja el paquete",
+  "DeliverIn": "dejar paquete en {0}",
+  "KeyTo": "[ENTER]",
+  "PickPackage": "Coger paquete",
+  "YouReceive": "Has recibido {0}$ y {1}Xp"
+}

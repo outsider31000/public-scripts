@@ -1,0 +1,11 @@
+﻿{
+  "PressToStart": "Appuyez sur [~e~Espace~q~] pour démarrer le travail",
+  "PressToStop": "Appuyez sur [~e~Espace~q~] pour terminer le travail",
+  "VehicleBlip": "Véhicule de travail",
+  "ReturnToOffice": "Retournez au bureau et renvoyez votre panier, tous les colis livrés.",
+  "DriveTo": "Conduire jusque {0} Et livrer le colis",
+  "DeliverIn": "Livrer le colis dans {0}",
+  "KeyTo": "[ENTRER]",
+  "PickPackage": "Prenez le colis",
+  "YouReceive": "Tu as reçu {0}$ et {1}Xp"
+}
