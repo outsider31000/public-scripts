@@ -1,0 +1,172 @@
+@font-face {
+	font-family: "Chinese Rocks";
+	src: url('CHINESER.TTF');
+}
+
+html, body {
+	background: none;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#forecast {
+	display: none;
+	position: absolute;
+	top: 50vh;
+	right: 0vw;
+	transform: translate(0, -50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding-top: 0.25vw;
+	padding-bottom: 0.25vw;
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	font-size: 1.7vw;
+	font-family: "Chinese Rocks";
+}
+
+.forecast-hour {
+	display: table-row;
+}
+
+.forecast-time {
+	display: table-cell;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.forecast-weather {
+	display: table-cell;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.forecast-wind {
+	display: table-cell;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 50%;
+}
+
+#temperature {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-size: 1.7vw;
+	font-family: "Chinese Rocks";
+	padding: 0.5vh 0.5vw;
+}
+
+#wind {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-size: 1.7vw;
+	font-family: "Chinese Rocks";
+	padding: 0.5vh 0.5vw;
+}
+
+#admin-ui {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-size: 0.75vw;
+	font-family: "Chinese Rocks";
+	padding: 0.5vh 0.5vw;
+}
+
+.admin-ui-option-group {
+	display: block;
+	border-bottom: solid 1px white;
+	border-collapse: collapse;
+	padding: 0.5vh 0.5vw;
+}
+
+.input-group {
+	display: table;
+	width: 100%;
+}
+
+.labelled-input {
+	display: table-row;
+}
+
+.labelled-input .label, .labelled-input .input {
+	display: table-cell;
+	padding: 0.25vh 0.25vw;
+	font-size: inherit;
+}
+
+.input * {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+.input input[type=number], .input input[type=text], .input select {
+	width: 100%;
+}
+
+.input *[readonly] {
+	background: none;
+	border: none;
+	color: white;
+}
+
+.admin-ui-option-group-controls {
+	padding: 1vh 0;
+}
+
+button {
+	font-size: inherit;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: solid 1px white;
+	padding: 0.3vh 0.3vw;
+	font-family: inherit;
+	outline: none;
+}
+
+button:hover, button:focus {
+	background-color: rgba(255, 0, 0, 0.5);
+	color: white;
+}
+
+button:active {
+	background-color: rgba(255, 255, 255, 1.0);
+	color: black;
+}
+
+.admin-ui-option-group .title {
+	display: block;
+	font-size: 1vw;
+}
+
+.time {
+	display: table-row;
+}
+
+.time .label {
+	display: table-cell;
+}
+
+.time input {
+	display: table-cell;
+}
+
+.admin-ui-controls {
+	text-align: center;
+	padding: 1vh 1vw;
+}

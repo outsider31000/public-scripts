@@ -1,0 +1,906 @@
+<html>
+	<head>
+		<title>Spooner</title>
+		<script src="https://kit.fontawesome.com/5537a772c3.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="gta5.css">
+		<link rel="stylesheet" href="rdr3.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div id="hud">
+			<div id="crosshair" class="inactive">+</div>
+			<div id="info">
+				<div id="entity-info"><span id="entity-type"></span>: <span id="entity-id"></span> (<span id="model-name"></span>) <span id="entity-net-id"></span></div>
+				<div id="spawn-info">Spawn: <span id="spawn-id"></span></div>
+				<div>Speed: <span id="speed"></span></div>
+				<div>Mouse Adjust: <span id="adjust-mode"></span> - Speed: <span id="adjust-speed"></span></div>
+				<div>Rotate: <span id="rotate-mode"></span> - Speed: <span id="rotate-speed"></span></div>
+				<div id="focus-info" style="display: none">Focus: <span id="focus-target"></span> (<span id="focus-mode"></span>)</div>
+				<div id="place-on-ground-container">Snap to Ground: <span id="place-on-ground"></span></div>
+				<div id="controls">
+					<div id="basic-controls" class="control-set">
+						<div class="control-and-help">
+							<div class="control">WASD</div>
+							<div class="control-help">Move</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">wg</div>
+							<div class="control-help">Up/Down</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">E</div>
+							<div class="control-help">Spawn</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">F</div>
+							<div class="control-help">Spawn Menu</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">X</div>
+							<div class="control-help">Database</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">J</div>
+							<div class="control-help">Saved DBs</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">vu</div>
+							<div>Speed +/-</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">R</div>
+							<div class="control-help">Select Speed</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">c</div>
+							<div class="control-help">Focus Mode</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">M</div>
+							<div class="control-help">Entity Handles</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">H</div>
+							<div class="control-help">Help</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">k</div>
+							<div class="control-help">Exit</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">1</div>
+							<div class="control-help">Hide Controls</div>
+						</div>
+					</div>
+					<div id="entity-controls" class="control-set" style="display: none;">
+						<div class="control-and-help">
+							<div>[LMB]</div>
+							<div class="control-help">Select</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">QZ</div>
+							<div class="arrow-keys">
+								<div>q</div>
+								<div>r</div>
+								<div>s</div>
+								<div>t</div>
+							</div>
+							<div class="control-help">Adjust</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">78I</div>
+							<div class="control-help">Mouse Mode</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">U</div>
+							<div class="control-help">Snap</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">CV</div>
+							<div class="control-help">Rotate</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">B</div>
+							<div class="control-help">Axis</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">e</div>
+							<div class="control-help">Properties</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">G</div>
+							<div class="control-help">Clone</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">b</div>
+							<div class="control-help">Focus</div>
+						</div>
+						<div class="control-and-help">
+							<div class="control">c</div>
+							<div class="control-help">Focus Mode</div>
+						</div>
+						<div class="control-and-help">
+							<div>[RMB]</div>
+							<div class="control-help">Delete</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="cam-cursor-info">
+				<div id="cam-info">
+					<div>Camera:</div>
+					<div>X: <span id="cam-x"></span></div>
+					<div>Y: <span id="cam-y"></span></div>
+					<div>Z: <span id="cam-z"></span></div>
+					<div>Heading: <span id="cam-heading"></span></div>
+				</div>
+				<div id="cursor-info">
+					<div>Cursor:</div>
+					<div>X: <span id="cursor-x"></span></div>
+					<div>Y: <span id="cursor-y"></span></div>
+					<div>Z: <span id="cursor-z"></span></div>
+				</div>
+			</div>
+		</div>
+		<div id="spawn-menu" class="menu">
+			<div id="spawn-categories">
+				<div class="spawn-category">
+					<button id="spawn-menu-peds">Peds</button>
+				</div>
+				<div class="spawn-category">
+					<button id="spawn-menu-vehicles">Vehicles</button>
+				</div>
+				<div class="spawn-category">
+					<button id="spawn-menu-objects">Objects</button>
+				</div>
+				<div class="spawn-category">
+					<button id="spawn-menu-propsets">Propsets</button>
+				</div>
+				<div class="spawn-category">
+					<button id="spawn-menu-pickups">Pickups</button>
+				</div>
+			</div>
+			<button id="spawn-menu-close">Close</button>
+		</div>
+		<div id="ped-menu" class="menu">
+			<div id="ped-search" class="search">
+				<input type="text" id="ped-search-filter" class="search-filter" value="">
+				<button id="favourite-peds" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="ped-list" class="list"></div>
+			<button id="ped-spawn-by-name" class="spawn-by-name">Spawn By Name</button>
+			<button id="ped-menu-close-btn">Back</button>
+		</div>
+		<div id="vehicle-menu" class="menu">
+			<div id="vehicle-search" class="search">
+				<input type="text" id="vehicle-search-filter" class="search-filter" value="">
+				<button id="favourite-vehicles" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="vehicle-list" class="list"></div>
+			<button id="vehicle-spawn-by-name" class="spawn-by-name">Spawn By Name</button>
+			<button id="vehicle-menu-close-btn">Back</button>
+		</div>
+		<div id="object-menu" class="menu">
+			<div id="object-search" class="search">
+				<input type="text" id="object-search-filter" class="search-filter" value="">
+				<button id="favourite-objects" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="object-list" class="list"></div>
+			<button id="object-spawn-by-name" class="spawn-by-name">Spawn By Name</button>
+			<button id="object-menu-close-btn">Back</button>
+		</div>
+		<div id="object-database" class="menu">
+			<div id="object-database-stats">
+				<div class="object-database-stat">All: <span id="object-database-total-entities"></span></div>
+				<div class="object-database-stat">Net: <span id="object-database-total-networked"></span></div>
+				<div class="object-database-stat">Ped: <span id="object-database-total-peds"></span></div>
+				<div class="object-database-stat">Veh: <span id="object-database-total-vehicles"></span></div>
+				<div class="object-database-stat">Obj: <span id="object-database-total-objects"></span></div>
+			</div>
+			<div id="object-database-list" class="list"></div>
+			<button id="add-to-db-btn">Add to DB</button>
+			<button id="object-database-delete-all-btn">Delete All</button>
+			<button id="object-database-close-btn">Close</button>
+		</div>
+		<div id="add-to-db-menu" class="menu">
+			<div id="add-to-db-options">
+				<span>Handle:</span>
+				<input id="custom-entity-handle">
+				<button id="add-custom-entity-btn">Add</button>
+			</div>
+			<button id="add-to-db-menu-close">Back</button>
+		</div>
+		<div id="attachment-options-menu" class="menu">
+			<button id="attachment-options-detach">Detach</button>
+			<div id="attach-to-list" class="list"></div>
+			<div>
+				<div class="property">
+					<div class="label">Bone</div>
+					<div id="attachment-bone-container">
+						<select class="set-attach" id="attachment-bone-name"></select>
+						<input class="set-attach" id="attachment-bone-index" type="number" min="0" step="1" value="0">
+					</div>
+				</div>
+				<div class="property">
+					<div class="label">Position</div>
+					<div class="labelled-input-group">
+						<div class="labelled-input">
+							<div class="input-label">Speed</div>
+							<input type="number" class="adjust-speed" step="0.01">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">X</div>
+							<input type="number" class="set-attach adjust-input" id="attachment-x" step="0.01">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Y</div>
+							<input type="number" class="set-attach adjust-input" id="attachment-y" step="0.01">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Z</div>
+							<input type="number" class="set-attach adjust-input" id="attachment-z" step="0.01">
+						</div>
+						<button id="copy-attachment-position" class="copy-button">
+							<i class="fas fa-clipboard"></i>
+						</button>
+					</div>
+				</div>
+				<div class="property">
+					<div class="label">Rotation</div>
+					<div class="labelled-input-group">
+						<div class="labelled-input">
+							<div class="input-label">Speed</div>
+							<input type="number" class="rotate-speed" step="0.1">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Pitch</div>
+							<input type="number" class="set-attach rotate-input" id="attachment-pitch" step="1.0" min="-359" max="359">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Roll</div>
+							<input type="number" class="set-attach rotate-input" id="attachment-roll" step="1.0" min="-359" max="359">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Yaw</div>
+							<input type="number" class="set-attach rotate-input" id="attachment-yaw" step="1.0" min="-359" max="359">
+						</div>
+						<button id="copy-attachment-rotation" class="copy-button">
+							<i class="fas fa-clipboard"></i>
+						</button>
+					</div>
+				</div>
+				<div class="attachment-option">
+					<input type="checkbox" id="attachment-keep-pos">
+					<span>Keep world position</span>
+				</div>
+				<div class="attachment-option">
+					<input class="set-attach" type="checkbox" id="attachment-use-soft-pinning">
+					<span>Use soft pinning</span>
+				</div>
+				<div class="attachment-option">
+					<input class="set-attach" type="checkbox" id="attachment-collision" checked>
+					<span>Collision</span>
+				</div>
+				<div class="attachment-option">
+					<div class="input-label">Vertex</div>
+					<input class="set-attach" type="number" id="attachment-vertex" min="0" step="1">
+				</div>
+				<div class="attachment-option">
+					<input class="set-attach" type="checkbox" id="attachment-fixed-rot" checked>
+					<span>Fixed rotation</span>
+				</div>
+			</div>
+			<button id="attachment-options-menu-close">Back</button>
+		</div>
+		<div id="properties-menu" class="menu">
+			<div id="properties-menu-entity">
+				<div class="label">Properties for <span id="properties-menu-entity-type"></span></div>
+				<div class="value" id="properties-menu-entity-id"></div>
+			</div>
+			<div id="properties" class="list">
+				<div class="property" id="properties-model-container">
+					<div class="label">Model</div>
+					<div class="value" id="properties-model"></div>
+					<button id="copy-model-name" class="copy-button">
+						<i class="fas fa-clipboard" aria-hidden="true"></i>
+					</button>
+				</div>
+				<div class="property multiple">
+					<button id="properties-select">Select</button>
+					<button id="properties-focus">Focus</button>
+				</div>
+				<div class="property">
+					<button id="properties-add-to-db" class="add-remove-db">Add to DB</button>
+					<button id="properties-remove-from-db" class="add-remove-db">Remove from DB</button>
+				</div>
+				<div class="property">
+					<button id="properties-freeze">Freeze</button>
+					<button id="properties-unfreeze">Unfreeze</button>
+				</div>
+				<div class="property">
+					<div class="label">Position</div>
+					<div class="labelled-input-group">
+						<div class="labelled-input">
+							<div class="input-label">Speed</div>
+							<input type="number" class="adjust-speed" step="0.01">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">X</div>
+							<input type="number" class="set-coords adjust-input" id="properties-x" step="0.01">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Y</div>
+							<input type="number" class="set-coords adjust-input" id="properties-y" step="0.01">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Z</div>
+							<input type="number" class="set-coords adjust-input" id="properties-z" step="0.01">
+						</div>
+						<button id="copy-position" class="copy-button">
+							<i class="fas fa-clipboard"></i>
+						</button>
+					</div>
+				</div>
+				<div class="property multiple">
+					<button id="properties-place-here">Place Here</button>
+					<button id="properties-goto">Go To</button>
+				</div>
+				<div class="property">
+					<div class="label">Rotation</div>
+					<div class="labelled-input-group">
+						<div class="labelled-input">
+							<div class="input-label">Speed</div>
+							<input type="number" class="rotate-speed" step="0.1">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Pitch</div>
+							<input type="number" class="set-rotation rotate-input" id="properties-pitch" min="-359" max="359" step="1">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Roll</div>
+							<input type="number" class="set-rotation rotate-input" id="properties-roll" min="-359" max="359" step="1">
+						</div>
+						<div class="labelled-input">
+							<div class="input-label">Yaw</div>
+							<input type="number" class="set-rotation rotate-input" id="properties-yaw" min="-359" max="359" step="1">
+						</div>
+						<button id="copy-rotation" class="copy-button">
+							<i class="fas fa-clipboard"></i>
+						</button>
+					</div>
+				</div>
+				<div class="property">
+					<button id="properties-reset-rotation">Reset Rotation</button>
+				</div>
+				<div class="property">
+					<div class="label">Health</div>
+					<input type="number" id="properties-health" min="0" step="1">
+				</div>
+				<div class="property multiple">
+					<button id="properties-invincible-on">Invincibility On</button>
+					<button id="properties-invincible-off">Invincibility Off</button>
+				</div>
+				<div class="property">
+					<button id="properties-visible">Visibility On</button>
+					<button id="properties-invisible">Visibility Off</button>
+				</div>
+				<div class="property multiple">
+					<button id="properties-gravity-on">Gravity On</button>
+					<button id="properties-gravity-off">Gravity Off</button>
+				</div>
+				<div class="property">
+					<button id="properties-collision-on">Collision On</button>
+					<button id="properties-collision-off">Collision Off</button>
+				</div>
+				<div class="property">
+					<button id="properties-clone">Clone</button>
+				</div>
+				<div class="property">
+					<button id="properties-attach">Attachment Options</button>
+				</div>
+				<div class="property ped-property">
+					<button id="properties-ped-options">Ped Options</button>
+				</div>
+				<div class="property vehicle-property">
+					<button id="properties-vehicle-options">Vehicle Options</button>
+				</div>
+				<div class="property object-property">
+					<button id="properties-lights-options">Light Options</button>
+				</div>
+				<div class="property">
+					<button id="properties-register-as-networked">Register as Networked</button>
+					<button id="properties-request-control">Request Control</button>
+				</div>
+				<div class="property">
+					<button id="properties-delete">Delete</button>
+				</div>
+			</div>
+			<button id="properties-menu-close-btn">Close</button>
+		</div>
+		<div id="ped-options-menu" class="menu">
+			<div id="ped-options" class="list">
+				<div class="property player-property">
+					<button id="properties-player-model">Change Model</button>
+				</div>
+				<div class="property">
+					<div class="label">Outfit</div>
+					<input type="number" id="properties-outfit" min="-1" step="1">
+				</div>
+				<div class="property">
+					<button id="properties-add-to-group">Add to Group</button>
+					<button id="properties-remove-from-group">Remove from Group</button>
+				</div>
+				<div class="property">
+					<button id="properties-scenario">Scenarios</button>
+				</div>
+				<div class="property">
+					<button id="properties-animation">Animations</button>
+				</div>
+				<div class="property">
+					<button id="properties-clear-ped-tasks">Clear Tasks</button>
+				</div>
+				<div class="property">
+					<button id="properties-clear-ped-tasks-immediately">Clear Tasks Immediately</button>
+				</div>
+				<div class="property">
+					<button id="properties-give-weapon">Give Weapon</button>
+				</div>
+				<div class="property">
+					<button id="properties-remove-all-weapons">Remove All Weapons</button>
+				</div>
+				<div class="property">
+					<button id="properties-set-on-mount">Set On Mount</button>
+				</div>
+				<div class="property">
+					<button id="properties-enter-vehicle">Enter Vehicle</button>
+				</div>
+				<div class="property">
+					<button id="properties-resurrect-ped">Resurrect</button>
+				</div>
+				<div class="property multiple">
+					<button id="properties-ai-on">AI On</button>
+					<button id="properties-ai-off">AI Off</button>
+				</div>
+				<div class="property">
+					<button id="properties-clean">Clean</button>
+				</div>
+				<div class="property">
+					<button id="properties-knock-off-props">Knock Off Props</button>
+				</div>
+				<div class="property">
+					<button id="properties-walk-style">Walk Style</button>
+				</div>
+				<div class="property">
+					<button id="properties-clone-ped">Clone</button>
+				</div>
+				<div class="property">
+					<button id="properties-clone-to-target">Clone To Target</button>
+				</div>
+				<div class="property multiple">
+					<button id="properties-look-at-entity">Look At</button>
+					<button id="properties-clear-look-at">Clear Look</button>
+				</div>
+				<div class="property">
+					<button id="properties-go-to-waypoint">Go To Waypoint</button>
+				</div>
+				<div class="property">
+					<button id="properties-go-to-entity">Go To Entity</button>
+				</div>
+				<div class="property">
+					<button id="properties-attack">Attack</button>
+				</div>
+				<div class="property local">
+					<div class="label">Scale (local)</div>
+					<input type="number" id="properties-scale" min="0.1" max="10.0" step="0.1" value="1.0">
+				</div>
+				<div class="property local">
+					<button id="properties-config-flags">Config Flags</button>
+				</div>
+			</div>
+			<button id="ped-options-menu-close">Back</button>
+		</div>
+		<div id="entity-select-menu" class="menu"></div>
+		<div id="walk-style-menu" class="menu">
+			<div id="walk-style-search" class="search">
+				<input type="text" id="walk-style-search-filter" class="search-filter" value="">
+				<button id="favourite-walk-styles" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="walk-style-list" class="list"></div>
+			<button id="walk-style-menu-close">Back</button>
+		</div>
+		<div id="weapon-menu" class="menu">
+			<div id="weapon-search" class="search">
+				<input type="text" id="weapon-search-filter" class="search-filter" value="">
+				<button id="favourite-weapons" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="weapon-list" class="list"></div>
+			<button id="weapon-menu-close">Back</button>
+		</div>
+		<div id="vehicle-options-menu" class="menu">
+			<div id="vehicle-options" class="list">
+				<div class="property">
+					<button id="properties-repair-vehicle">Repair Vehicle</button>
+				</div>
+				<div class="property">
+					<button id="properties-get-in">Get Into Vehicle</button>
+				</div>
+				<div class="property multiple">
+					<button id="properties-engine-on">Engine On</button>
+					<button id="properties-engine-off">Engine Off</button>
+				</div>
+				<div class="property multiple">
+					<button id="properties-vehicle-lights-on">Lights On</button>
+					<button id="properties-vehicle-lights-off">Lights Off</button>
+				</div>
+			</div>
+			<button id="vehicle-options-menu-close">Back</button>
+		</div>
+		<div id="scenario-menu" class="menu">
+			<div id="scenario-search" class="search">
+				<input type="text" id="scenario-search-filter" class="search-filter" value="">
+				<button id="favourite-scenarios" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="scenario-list" class="list"></div>
+			<button id="scenario-stop">Stop Scenario</button>
+			<button id="scenario-menu-close">Back</button>
+		</div>
+		<div id="save-load-db-menu" class="menu">
+			<div id="db-list" class="list"></div>
+			<div id="load-db-options">
+				<div>
+					<input id="load-db-relative" type="checkbox">
+					<span>Load relative to cursor position</span>
+				</div>
+				<div>
+					<input id="replace-db" type="checkbox">
+					<span>Replace current DB</span>
+				</div>
+				<div>
+					<input id="store-deleted" type="checkbox">
+					<span>Save/Load deletions</span>
+				</div>
+			</div>
+			<div id="save-db-options">
+				<input id="save-db-name" type="text">
+				<button id="save-db-btn">Save</button>
+			</div>
+			<button id="import-export-db-btn">Import/Export</button>
+			<button id="save-load-db-menu-close-btn">Close</button>
+		</div>
+		<div id="import-export-db">
+			<div id="import-export-controls">
+				<select id="import-export-format">
+					<option value="spooner-db-json">Spooner DB JSON</option>
+					<option value="map-editor-xml">Map Editor XML</option>
+					<option value="ymap">Ymap</option>
+					<option value="propplacer">propplacer JSON</option>
+					<option value="backup">Spooner Backup</option>
+				</select>
+				<input type="text" id="import-url" placeholder="Import from URL">
+				<button id="import-db">Import</button>
+				<button id="export-db">Export</button>
+			</div>
+			<textarea id="import-export-content" spellcheck="false"></textarea>
+			<button id="import-export-db-close">Close</button>
+		</div>
+		<div id="lights-options-menu" class="menu">
+			<div id="lights-options" class="list">
+				<div class="property">
+					<div class="label">Intensity (local)</div>
+					<input type="number" id="properties-lights-intensity" min="0" step="1">
+				</div>
+				<div class="property">
+					<div class="label">Colour (local)</div>
+					<input type="number" class="lights-colour" id="properties-lights-red" min="0" max="255" step="1">
+					<input type="number" class="lights-colour" id="properties-lights-green" min="0" max="255" step="1">
+					<input type="number" class="lights-colour" id="properties-lights-blue" min="0" max="255" step="1">
+				</div>
+				<div class="property">
+					<div class="label">Type (local)</div>
+					<input type="number" id="properties-lights-type" min="0" max="20" step="1">
+				</div>
+			</div>
+			<button id="lights-options-menu-close">Back</button>
+		</div>
+		<div id="animation-menu" class="menu">
+			<div id="animation-search" class="search">
+				<input type="text" id="animation-search-filter" class="search-filter" value="">
+				<button id="favourite-animations" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="animation-list" class="list"></div>
+			<div id="animation-settings">
+				<div class="property">
+					<div class="label">Max Search Results (Total Results: <span id="animation-search-total-results"></span>)</div>
+					<input type="number" id="animation-search-max-results" value="1000" min="1" step="1">
+				</div>
+				<div class="property">
+					<div class="label">Blend In Speed</div>
+					<input type="number" id="animation-blend-in-speed" value="1.0">
+				</div>
+				<div class="property">
+					<div class="label">Blend Out Speed</div>
+					<input type="number" id="animation-blend-out-speed" value="1.0">
+				</div>
+				<div class="property">
+					<div class="label">Duration</div>
+					<input type="number" id="animation-duration" value="-1">
+				</div>
+				<div class="property">
+					<div class="label">Flag</div>
+					<input type="number" id="animation-flag" min="0" value="1">
+				</div>
+				<div class="property">
+					<div class="label">Playback Rate</div>
+					<input type="number" id="animation-playback-rate" value="0.0">
+				</div>
+			</div>
+			<button id="animation-stop">Stop Animation</button>
+			<button id="animation-menu-close">Back</button>
+		</div>
+		<div id="propset-menu" class="menu">
+			<div id="propset-search" class="search">
+				<input type="text" id="propset-search-filter" class="search-filter" value="">
+				<button id="favourite-propsets" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="propset-list" class="list"></div>
+			<button id="propset-spawn-by-name" class="spawn-by-name">Spawn By Name</button>
+			<button id="propset-menu-close-btn">Back</button>
+		</div>
+		<div id="pickup-menu" class="menu">
+			<div id="pickup-search" class="search">
+				<input type="text" id="pickup-search-filter" class="search-filter" value="">
+				<button id="favourite-pickups" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="pickup-list" class="list"></div>
+			<button id="pickup-spawn-by-name" class="spawn-by-name">Spawn By Name</button>
+			<button id="pickup-menu-close-btn">Back</button>
+		</div>
+		<div id="player-model-menu" class="menu">
+			<div id="player-model-search" class="search">
+				<input type="text" id="player-model-search-filter" class="search-filter" value="">
+				<button id="favourite-player-models" class="favourites">
+					<i class="far fa-star"></i>
+				</button>
+			</div>
+			<div id="player-model-list" class="list"></div>
+			<button id="player-model-spawn-by-name" class="spawn-by-name">Spawn By Name</button>
+			<button id="player-model-menu-close-btn">Back</button>
+		</div>
+		<div id="config-flags-menu" class="menu">
+			<div id="config-flags-list" class="list"></div>
+			<div class="add-config-flag-container">
+				<div id="config-flag-label">Set flag:</div>
+				<input id="config-flag" type="number" min="0" step="1" value="1">
+				<button id="add-config-flag">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+			<button id="close-config-flags-menu">Back</button>
+		</div>
+		<div id="help-menu">
+			<h1>Object Spooner Help</h1>
+			<div id="help-content">
+				<h2>Cursor colours</h2>
+				<table>
+					<tr>
+						<td style="color: #fff">+</td>
+						<td>No entity selected</td>
+					</tr>
+					<tr>
+						<td style="color: #0f0">+</td>
+						<td>Entity highlighted</td>
+					</tr>
+					<tr>
+						<td style="color: #0ff">+</td>
+						<td>Entity attached</td>
+					</tr>
+				</table>
+				<h2>Controls</h2>
+				<table>
+					<tr>
+						<td class="control">WASD</td>
+						<td><strong>Move</strong></td>
+					</tr>
+					<tr>
+						<td class="control">wg</td>
+						<td><strong>Up</strong>/<strong>Down</strong></td>
+					</tr>
+					<tr>
+						<td class="control">E</td>
+						<td><strong>Spawn</strong> entity at cursor position</td>
+					</tr>
+					<tr>
+						<td>Left Click</td>
+						<td>
+							<ul>
+								<li>Entity highlighted: <strong>Attach</strong> to cursor</li>
+								<li>Entity attached to cursor: <strong>Detach</strong> from cursor</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Right Click</td>
+						<td><strong>Delete</strong> selected entity</td>
+					</tr>
+					<tr>
+						<td class="control">CV</td>
+						<td><strong>Rotate</strong></td>
+					</tr>
+					<tr>
+						<td class="control">B</td>
+						<td>Change rotation axis</td>
+					</tr>
+					<tr>
+						<td class="control">QZqrst</td>
+						<td>Adjust selected entity position</td>
+					</tr>
+					<tr>
+						<td class="control">I</td>
+						<td>
+							Cycle between controlled mouse adjustment modes:
+							<ul>
+								<li><strong>X</strong>: Moves attached entity on the X axis</li>
+								<li><strong>Y</strong>: Moves attached entity on the Y axis</li>
+								<li><strong>Z</strong>: Moves attached entity on the Z axis</li>
+								<li><strong>Rotate</strong>: Rotates the entity</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="control">U</td>
+						<td>Toggle whether entities stick to the ground in controlled mouse adjustment modes</td>
+					</tr>
+					<tr>
+						<td class="control">7</td>
+						<td>Turn <strong>Off</strong> mouse adjustment, so the entity can only be moved with C/V/Q/Z/Arrow Keys</td>
+					</tr>
+					<tr>
+						<td class="control">8</td>
+						<td>Return to <strong>Free</strong> mouse adjustment mode</td>
+					</tr>
+					<tr>
+						<td class="control">G</td>
+						<td><strong>Clone</strong> selected entity</td>
+					</tr>
+					<tr>
+						<td class="control">b</td>
+						<td><strong>Focus</strong> on selected entity, attaching the spooner cam to it</td>
+					</tr>
+					<tr>
+						<td class="control">c</td>
+						<td>
+							Toggle <strong>Focus Mode</strong>:
+							<ul>
+								<li><strong>Fixed</strong>: Camera pivots around the focused entity</li>
+								<li><strong>Free</strong>: Camera can be rotated freely</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="control">M</td>
+						<td>Toggle <strong>entity handles</strong></td>
+					</tr>
+					<tr>
+						<td><span class="control">vu</span> Mouse wheel</td>
+						<td>Increase/Decrease currently selected <strong>speed</strong></td>
+					</tr>
+					<tr>
+						<td class="control">R</td>
+						<td>Cycle between which speed to adjust</td>
+					</tr>
+					<tr>
+						<td class="control">F</td>
+						<td>Open the <strong>Spawn</strong> menu</td>
+					</tr>
+					<tr>
+						<td class="control">X</td>
+						<td>Open the <strong>Database</strong> menu</td>
+					</tr>
+					<tr>
+						<td class="control">e</td>
+						<td>Open the <strong>Properties</strong> menu for the selected entity</td>
+					</tr>
+					<tr>
+						<td class="control">J</td>
+						<td>Open the <strong>Save/Load Database</strong> menu</td>
+					</tr>
+					<tr>
+						<td class="control">k</td>
+						<td><strong>Exit</strong> Object Spooner</td>
+					</tr>
+				</table>
+				<h2>Menus</h2>
+				<h3>Spawn menu - <span class="control">F</span></h3>
+				<p>The <strong>Spawn</strong> menu provides searchable lists to select an entity to spawn. Left-clicking on an entity sets it as your current spawn.</p>
+				<p>If an entity is not included in the list, you can still spawn it by entering the full model name in the search field and clicking <strong>Spawn By Name</strong>.</p>
+				<p>Right-clicking an entity in any of the spawn menus will add that entity as a favourite. Clicking the favourites button <i class="fas fa-star"></i> will toggle displaying only your favourited entities.</p>
+				<h3>Database menu - <span class="control">X</span></h3>
+				<p>The <strong>Database</strong> menu stores a list of entities. When an entity is spawned, it is automatically added to the current database. Existing entities can be added/removed from the database via the <strong>Properties</strong> menu.</p>
+				<ul>
+					<li>Left-click on an entity to open it in the <strong>Properties</strong> menu</li>
+					<li>Right-click on an entity to delete it</li>
+					<li>Click <strong>Delete All</strong> to delete all entities in the database</li>
+				</ul>
+				<h3>Properties menu - <span class="control">e</span></h3>
+				<p>The <strong>Properties</strong> menu lists and allows you to edit properties of an entity.</p>
+				<p>Properties labelled as (local) are not synchronized across the network, so changes to these properties will only be visible to you.</p>
+				<h3>Save/Load Database menu - <span class="control">J</span></h3>
+				<p>The <strong>Save/Load Database</strong> menu allows you to store your current database with a name, and then load all the entities from it again later.</p>
+				<ul>
+					<li>To save your current database, enter a name in the field and click <strong>Save</strong>.</li>
+					<li>To load a saved database, left-click on the name of the database.</li>
+					<li>To delete a saved database, right-click on the name of the database.</li>
+					<li>To import a database or export the current database, click <strong>Import/Export</strong>.</li>
+				</ul>
+				<p>Checking the <strong>Load relative to cursor position</strong> box will spawn the entities in the selected database relative to the current cursor position, rather than exactly where they were originally placed.</p>
+				<p>Checking the <strong>Replace current DB</strong> box will replace your current database with the loaded database, rather than merging the two.</p>
+				<p>Checking the <strong>Save/Load deletions</strong> box will save what entities you delete, and delete them again when the database is loaded.</p>
+				<h3>Import/Export menu</h3>
+				<p>The <strong>Import/Export</strong> menu allows you to import and export databases in a number of different formats:</p>
+				<table>
+					<tr>
+						<th>Format</th>
+						<th>Description</th>
+						<th>Export?</th>
+						<th>Import?</th>
+					</tr>
+					<tr>
+						<td>Spooner DB JSON</td>
+						<td>The native format used by the spooner</td>
+						<td>Yes</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>Map Editor XML</td>
+						<td>XML format used by the Lambdarevolution map editor and the objectloader resource</td>
+						<td>Yes</td>
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>Ymap</th>
+						<td>Native map format used by GTA V/RDR2</td>
+						<td>Yes</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>propplacer JSON</td>
+						<td>RedEM:RP propplacer JSON database</td>
+						<td>Yes</td>
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>Spooner Backup</td>
+						<td>Backup of all spooner databases</td>
+						<td>Yes</td>
+						<td>Yes</td>
+					</tr>
+				</table>
+				<p>To export, select the desired format and click <strong>Export</strong>. The output will be displayed in the text box, and you can copy it to save it to an external file.</p>
+				<p>To import, paste the input into the text box, select the appropriate format, and click <strong>Import</strong>. Objects imported will be added to your current database.</p>
+				<p>Entering a URL of a JSON/XML file in the <strong>Import from URL</strong> field and clicking <strong>Import</strong> allows you to import from external web sources, such as pastebin.com, without needing to copy and paste. Be sure that the URL points to the raw version of the file when using such services.</p>
+			</div>
+			<div id="help-menu-controls">
+				<button id="help-menu-close-btn">Close</button>
+			</div>
+		</div>
+	</body>
+</html>

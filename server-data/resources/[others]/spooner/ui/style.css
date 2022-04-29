@@ -1,0 +1,473 @@
+@font-face {
+	font-family: "212 Keyboard";
+	src: url("keyboard.ttf");
+}
+
+* {
+	font-size: inherit;
+	font-family: inherit;
+	user-select: none;
+	color: inherit;
+}
+
+::selection {
+	background-color: #d00;
+}
+
+html, body {
+	background: none;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	font-family: Helvetica;
+}
+
+button {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: solid 1px white;
+	font-size: 2vh;
+}
+
+button:hover:enabled, button:focus:enabled {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+button:active:enabled {
+	background-color: white;
+	color: black;
+}
+
+button:disabled {
+	color: #444;
+	border: solid 1px #444;
+}
+
+input {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: solid 1px white;
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	background: rgba(0, 0, 0, 0.5);
+	height: 1vw;
+	width: 1vw;
+	border: 1px solid white;
+	vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+	background: rgba(255, 0, 0, 0.75);
+}
+
+input:disabled {
+	color: #444;
+	border: solid 1px #444;
+}
+
+#hud {
+	display: none;
+	font-size: 1.5vh;
+}
+
+#info {
+	text-align: center;
+}
+
+#crosshair {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 3.5vh;
+	color: white;
+	font-family: Times;
+}
+
+#crosshair.inactive {
+	color: white;
+}
+
+#crosshair.active {
+	color: #0f0;
+}
+
+#crosshair.attached {
+	color: #0ff;
+}
+
+#info {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	color: white;
+}
+
+#controls {
+	display: flex;
+	justify-content: center;
+	font-size: 1.25vh;
+	padding: 0.25vh 0.25vw;
+	margin-top: 1vh;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.control-set, .control-and-help {
+	display: flex;
+	align-items: center;
+}
+
+.control-and-help {
+	padding: 0 0.25vw;
+}
+
+.control-help {
+	padding-left: 0.25vw;
+}
+
+#cam-cursor-info {
+	position: absolute;
+	top: 50%;
+	left: 1%;
+	transform: translate(0, -50%);
+	color: white;
+}
+
+#cursor-info {
+	margin-top: 1vh;
+}
+
+.menu {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 1%;
+	height: 95%;
+	transform: translate(0, -50%);
+	background-color: rgba(0, 0, 0, 0.9);
+	color: white;
+	font-size: 1.9vh;
+	padding: 0.5vh 0.5vw;
+	flex-flow: column;
+	min-width: 10%;
+	overflow: auto;
+}
+
+#spawn-categories {
+	padding: 1vh 0;
+	display: flex;
+	flex-flow: column;
+	flex-grow: 1;
+}
+
+.spawn-category {
+	padding: 0.25vh 0;
+}
+
+.spawn-category button {
+	width: 100%;
+}
+
+.search {
+	display: flex;
+}
+
+.search-filter {
+	flex-grow: 1;
+	border: solid 1px white;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
+.list {
+	flex-grow: 1;
+	overflow: auto;
+	padding: 0.5vh 0.25vw 0.5vh 0;
+}
+
+::-webkit-scrollbar {
+	background: black;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: white;
+}
+
+.object {
+	padding: 0.25vh 0.25vw;
+}
+
+.object:hover {
+	background-color: white;
+	color: black;
+}
+
+.object.selected {
+	background-color: white;
+	color: black;
+}
+
+.object.favourite {
+	background-color: rgba(255, 215, 0, 0.5);
+}
+
+.object-name, .object-favourite {
+}
+
+.self {
+	background-color: rgba(0, 0, 255, 0.3);
+}
+
+.invalid {
+	background-color: rgba(255, 0, 0, 0.3);
+}
+
+#properties-menu .label, #properties-menu .value {
+	display: inline;
+}
+
+#properties-menu .label::after {
+	content: ": ";
+}
+
+#properties-model-container {
+	display: flex;
+	gap: 0.5em;
+}
+
+.property {
+	padding: 0.5vh 0;
+}
+
+.property.multiple {
+	display: flex;
+}
+
+.property label {
+	display: block;
+}
+
+.property button {
+	display: block;
+	width: 100%;
+	white-space: nowrap;
+}
+
+.property input {
+	display: block;
+	width: 100%;
+}
+
+.add-remove-db {
+	display: none;
+}
+
+#load-db-options, #save-db-options {
+	padding: 1vh 0;
+}
+
+#save-db-options {
+	display: flex;
+}
+
+#save-db-name {
+	flex-grow: 1;
+}
+
+.database {
+	padding: 0.25vh 0.25vw;
+}
+
+.database:hover {
+	background-color: white;
+	color: black;
+}
+
+#help-menu {
+	display: none;
+	flex-flow: column;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.75);
+	color: white;
+	padding: 1vh 1vw;
+	font-size: 1.5vh;
+	max-height: 95%;
+}
+
+#help-content {
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	padding: 0 0.5vw;
+}
+
+td {
+	text-align: left;
+	vertical-align: middle;
+	padding: 0.5vh 0.5vw;
+}
+
+#help-menu-controls {
+	padding: 0.5vh 0;
+}
+
+#help-menu-close-btn {
+	width: 100%;
+	font-size: 2vh;
+}
+
+h1 {
+	font-size: 3vh;
+	color: #b00;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 2.5vh;
+	font-weight: normal;
+}
+
+h3 {
+	font-size: 2vh;
+	font-weight: normal;
+}
+
+strong {
+	color: #b00;
+}
+
+.control {
+	font-family: "212 Keyboard";
+	font-size: 4vh;
+}
+
+#import-export-db {
+	display: none;
+	flex-flow: column;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
+#import-export-controls {
+	display: flex;
+	width: 100%;
+}
+
+select {
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: solid 1px white;
+}
+
+option {
+	background-color: #000;
+}
+
+#import-url {
+	flex-grow: 1;
+}
+
+textarea {
+	width: 100%;
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.75);
+	color: white;
+	resize: none;
+}
+
+.attachment-option {
+	padding: 0.5vh 0;
+}
+
+#attachment-bone-container {
+	display: flex;
+}
+
+.labelled-input-group {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-gap: 0 0.5vw;
+}
+
+.labelled-input {
+	display: contents;
+}
+
+.labelled-input .input-label {
+	display: flex;
+	font-size: 1.25vh;
+	align-items: center;
+}
+
+.copy-button {
+	grid-column: 2;
+}
+
+#object-database-stats {
+	font-size: 1.25vh;
+	border-bottom: 1px solid white;
+}
+
+.object-database-stat {
+	display: inline-block;
+}
+
+.arrow-keys {
+	display: inline-grid;
+	grid-template-columns: repeat(3, max-content);
+	font-family: "212 Keyboard";
+}
+
+.arrow-keys div:first-child {
+	grid-column: 1 / 4;
+}
+
+#config-flags-list {
+	display: grid;
+	grid-template-columns: max-content auto max-content;
+	grid-gap: 0.5vh 0.5vw;
+	text-align: right;
+}
+
+.add-config-flag-container {
+	display: flex;
+}
+
+.config-flag {
+	display: contents;
+}
+
+.config-flag.off {
+	color: #555;
+}
+
+#config-flag-label {
+	padding-right: 0.25vw;
+}
+
+.config-flag-set button {
+	border: none;
+}
+
+#config-flag {
+	flex-grow: 1;
+}
+
+#add-to-db-options {
+	flex-grow: 1;
+}

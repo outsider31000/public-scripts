@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Forecast</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div id="temperature"></div>
+		<div id="forecast"></div>
+		<div id="wind"></div>
+		<div id="admin-ui">
+			<div class="admin-ui-option-group">
+				<div class="title">Time</div>
+				<div class="input-group">
+					<div class="labelled-input">
+						<div class="label">Current time:</div>
+						<div class="input">
+							<input type="number" id="cur-hour" readonly min="0" max="23" step="1">
+							<input type="number" id="cur-min" readonly min="0" max="59" step="1">
+							<input type="number" id="cur-sec" readonly min="0" max="59" step="1">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Set time:</div>
+						<div class="input">
+							<input type="number" id="new-hour" min="0" max="23" step="1" value="0">
+							<input type="number" id="new-min" min="0" max="59" step="1" value="0">
+							<input type="number" id="new-sec" min="0" max="59" step="1" value="0">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Transition:</div>
+						<div class="input">
+							<input type="number" id="time-transition" min="0" step="1000" value="5000">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Freeze time:</div>
+						<div class="input">
+							<input type="checkbox" id="time-freeze">
+						</div>
+					</div>
+				</div>
+				<div class="admin-ui-option-group-controls">
+					<button id="apply-time-btn">Apply</button>
+				</div>
+			</div>
+			<div class="admin-ui-option-group">
+				<div class="title">Timescale</div>
+				<div class="input-group">
+					<div class="labelled-input">
+						<div class="label">Current timescale:</div>
+						<div class="input">
+							<input type="number" id="cur-timescale" min="1" step="1" readonly>
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Set timescale:</div>
+						<div class="input">
+							<input type="number" id="new-timescale" min="1" step="1" value="0">
+						</div>
+					</div>
+				</div>
+				<div class="admin-ui-option-group-controls">
+					<button id="apply-timescale-btn">Apply</button>
+				</div>
+			</div>
+			<div class="admin-ui-option-group">
+				<div class="title">Weather</div>
+				<div class="input-group">
+					<div class="labelled-input">
+						<div class="label">Current type:</div>
+						<div class="input">
+							<input type="text" id="cur-weather-type" readonly>
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Set type:</div>
+						<div class="input">
+							<select id="new-weather-type"></select>
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Transition:</div>
+						<div class="input">
+							<input type="number" id="weather-transition" min="0" step="1" value="5">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Freeze weather:</div>
+						<div class="input">
+							<input type="checkbox" id="weather-freeze">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Permanent Snow:</div>
+						<div class="input">
+							<input type="checkbox" id="weather-permanent-snow">
+						</div>
+					</div>
+				</div>
+				<div class="admin-ui-option-group-controls">
+					<button id="apply-weather-btn">Apply</button>
+				</div>
+			</div>
+			<div class="admin-ui-option-group">
+				<div class="title">Wind</div>
+				<div class="input-group">
+					<div class="labelled-input">
+						<div class="label">Current direction:</div>
+						<div class="input">
+							<input type="number" id="cur-wind-direction" min="0" max="359" step="1" readonly>
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Current speed:</div>
+						<div class="input">
+							<input type="number" id="cur-wind-speed" min="0" max="1000" step="1" readonly>
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Set direction:</div>
+						<div class="input">
+							<input type="number" id="new-wind-direction" min="0" max="359" step="1" value="0">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Set speed:</div>
+						<div class="input">
+							<input type="number" id="new-wind-speed" min="0" max="1000" step="1" value="0">
+						</div>
+					</div>
+					<div class="labelled-input">
+						<div class="label">Freeze wind:</div>
+						<div class="input">
+							<input type="checkbox" id="wind-freeze">
+						</div>
+					</div>
+				</div>
+				<div class="admin-ui-option-group-controls">
+					<button id="apply-wind-btn">Apply</button>
+				</div>
+			</div>
+			<div class="admin-ui-option-group">
+				<div class="title">Sync Delay</div>
+				<div class="input-group">
+					<div class="labelled-input">
+						<div class="input">
+							<input type="number" id="sync-delay">
+						</div>
+					</div>
+				</div>
+				<div class="admin-ui-option-group-controls">
+					<button id="apply-sync-delay-btn">Apply</button>
+				</div>
+			</div>
+			<div class="admin-ui-controls">
+				<button id="admin-ui-close-btn">Close</button>
+			</div>
+		</div>
+	</body>
+</html>
