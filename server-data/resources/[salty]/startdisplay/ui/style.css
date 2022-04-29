@@ -1,0 +1,100 @@
+
+/*-------------- NxT startdisplay css -------------- */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#Volde_startdisplay{
+  display: none;
+}
+
+#Volde_startdisplay .contenair{
+	position:absolute;
+	z-index: 2;    
+	width: 1000px;									
+	height:700px;									
+	left:50%;										
+	top:50%;										
+	margin:-350px 0 0 -500px;    					
+	text-align: center;
+	background: url('img/bg-img.png');				
+	padding: none; 									
+}
+
+#title { 
+	position:absolute;
+	left:45%;										
+	top:25%;										
+	width: 30%;
+	height: 30%;
+	border: solid transparent;
+	word-wrap:break-word;
+	margin-left: -14%;
+	float: left; 
+	color: rgb(0, 0, 0);
+	font-size: 200%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+#title2 { 
+	position:absolute;
+	left:35%;										
+	top:40%;										
+	width: 50%;
+	height: 30%;
+	border: solid transparent;
+	word-wrap:break-word;
+	margin-left: -14%;
+	float: left; 
+	color: rgb(0, 0, 0);
+	font-size: 150%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+#title3 { 
+	position:absolute;
+	left:35%;										
+	top:45%;										
+	width: 50%;
+	height: 30%;
+	border: solid transparent;
+	word-wrap:break-word;
+	margin-left: -14%;
+	float: left; 
+	color: rgb(0, 0, 0);
+	font-size: 150%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+#title4 { 
+	position:absolute;
+	left:35%;										
+	top:55%;
+	width: 50%;
+	height: 30%;
+	border: solid transparent;
+	word-wrap:break-word;
+	margin-left: -14%;
+	float: left; 
+	color: rgb(0, 0, 0);
+	font-size: 100%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+#title5 { 
+	position:absolute;
+	left:35%;										
+	top:63%;
+	width: 50%;
+	height: 30%;
+	border: solid transparent;
+	word-wrap:break-word;
+	margin-left: -14%;
+	float: left; 
+	color: rgb(156, 29, 29);
+	font-size: 200%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}

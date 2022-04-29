@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Salty Chat WebSocket</title>
+
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+</head>
+<body style="display: none; font-family:Arial; font-size:26px; color:white; outline:thin; outline-color:black; text-shadow: 1px 1px 1px black">
+	<div id="demo">
+	</div>
+	
+	<script>
+        let pluginAddress = "127.0.0.1:8088";
+		let isConnected = false;
+        let serverUniqueIdentifierFilter = null;
+
+        // Packet Stats
+        let packetsSent = 0;
+        let packetsReceived = 0;
+        let lastCommand = "";
+
+        function connect(address){
+            if (typeof address === "string"){
+                pluginAddress = address
+
+                console.log("new address: " + address);
+            }
+
+            console.log("connecting...");
+
+            try{
+                window.webSocket = new window.WebSocket(`ws://${pluginAddress}/`);
+            }
+            catch{
+                // do nothing
+            }
+
+            webSocket.onmessage = function (evt) {
+                let object = JSON.parse(evt.data);
+                if (typeof serverUniqueIdentifierFilter === "string")
+                {
+                    if (object.ServerUniqueIdentifier === serverUniqueIdentifierFilter)
+                        sendNuiData("SaltyChat_OnMessage", evt.data);
+                    else if (typeof object.ServerUniqueIdentifier === "undefined")
+                        sendNuiData("SaltyChat_OnError", evt.data);
+                }
+                else
+                {
+                    if (typeof object.ServerUniqueIdentifier === "string")
+                        sendNuiData("SaltyChat_OnMessage", evt.data);
+                    else
+                        sendNuiData("SaltyChat_OnError", evt.data);
+                }
+
+                packetsReceived++;
+                updateHtml();
+            };
+
+            webSocket.onopen = function () {
+                isConnected = true;
+
+                sendNuiData("SaltyChat_OnConnected");
+            };
+
+            webSocket.onclose = function () {
+                isConnected = false;
+
+                sendNuiData("SaltyChat_OnDisconnected");
+
+                connect();
+            }
+        }
+
+        function setWebSocketAddress(address)
+        {
+            if (typeof address === "string")
+                pluginAddress = address;
+        }
+
+        function setServerUniqueIdentifierFilter(serverUniqueIdentifier)
+        {
+            if (typeof serverUniqueIdentifier === "string")
+                serverUniqueIdentifierFilter = serverUniqueIdentifier;
+        }
+		
+		function runCommand(command)
+        {
+            if (!isConnected || typeof command !== "string")
+            {
+                lastCommand = "unexpected command";
+                updateHtml();
+
+                return;
+            }
+            
+            webSocket.send(command);
+
+            packetsSent++;
+            lastCommand = command;
+            updateHtml();
+		}
+
+        function updateHtml()
+        {
+            $("#demo").html(`Last Command: ${lastCommand}</br>Packets Sent: ${packetsSent}</br>Packets Received ${packetsReceived}`);
+        }
+
+        function sendNuiData(event, data)
+        {
+            if (typeof data === "undefined")
+            {
+                $.post(`http://saltychat/${event}`);
+            }
+            else
+            {
+                $.post(`http://saltychat/${event}`, data);
+            }
+        }
+
+        function showBody(show)
+        {
+            if (show)
+            {
+                $("body").show();
+            }
+            else
+            {
+                $("body").hide();
+            }
+        }
+
+        $(function()
+        {
+            window.addEventListener("DOMContentLoaded", function(){
+                //connect();
+                updateHtml();
+
+                sendNuiData("SaltyChat_OnNuiReady");
+            });
+
+            window.addEventListener('message', function(event)
+            {
+                if (typeof event.data.Function === "string")
+                {
+                    if (typeof event.data.Params === "undefined")
+                    {
+                        window[event.data.Function]();
+                    }
+                    else if (Array.isArray(event.data.Params) && event.data.Params.length == 1)
+                    {
+                        window[event.data.Function](event.data.Params[0]);
+                    }
+                    else
+                    {
+                        window[event.data.Function](event.data.Params);
+                    }
+                }
+            }, false);
+        });
+	</script>
+</body>
+</html>
