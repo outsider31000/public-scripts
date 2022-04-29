@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</head>
+<body>
+<style>
+    @font-face {
+        font-family: crock;
+        src: url(crock.ttf);
+    }
+    h3{ margin-bottom:  0px; margin-top: 4px; }
+    .htitle{ text-align: right; }
+    .title{
+        text-align: center;
+        margin-bottom: 0px;
+        margin-top: 4px;
+    }
+    .tp,.winner{
+        text-align:center;
+    }
+    .bet{
+        text-align:center;
+    }
+    .betitem{
+        text-align: left;
+        padding-left: 5px;
+    }
+    .balance > div{
+        text-align: left;
+
+        font-size: initial;
+    }
+    .history > div{
+        text-align: right;
+
+        font-size: initial;
+    }
+    #middle{
+        width: 50%;
+        margin: auto;
+        margin-top: 20px;
+        font-family: "crock", crock, serif;
+    }
+    .content{
+        overflow: hidden;
+        font-size: 26px;
+        /*--*/
+        border-radius: 6px 6px 6px 6px;
+        padding: 10px;
+    }
+    .stats{
+
+    }
+    .stats_left{
+        float:left;
+        width: 460px;
+    }
+    .stats_right{
+        float:right;
+        width: 460px;
+    }
+    .bottom{
+        text-align: center;
+        color: white;
+        font-family: "Arial Black";
+        text-align: right;
+        font-size: 11px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $("document").ready(function () {
+        $("body").hide();
+
+        $("body").on("keyup", function (key) {
+
+            if (key.which == 32) {
+
+                $("body").hide();
+                    CloseNui();
+                }
+
+        });
+        window.addEventListener("message", function (event) {
+
+            if (event.data.type == "refresh") {
+
+                let parse = event.data;
+                let pid = event.data.playerid;
+                let history = event.data.history;
+                let balance = event.data.balance;
+
+                let current_match = parse.data.players[0].fake_name + " VS " + parse.data.players[1].fake_name;
+                $(".title").html(current_match)
+
+                let total_pot = "Current pot: $" + parse.data.bets.pot;
+                $(".tp").html(total_pot)
+
+                // your bets
+                let bet = "you have not placed a bet ..";
+                let yourbet = false;
+                $.each(parse.data.bets.players, function (index, item) {
+                    if(index == pid){
+                        bet = "You bet $ " + item.amount + " on " + parse.data.players[item.winner-1].fake_name + " !";
+                        yourbet = item.winner;
+                    }
+                });
+
+                $(".bet").html(bet);
+
+                if(parse.data.winner != false){
+                    $(".winner").html(parse.data.players[parse.data.winner-1].fake_name + " won the fight ! ");
+
+                if(parse.data.winner == yourbet && parse.data.winner != false){
+                    $(".winner").html(parse.data.players[parse.data.winner-1].fake_name + " won the fight ! ");
+                    $(".winner").append("bet won !");
+                }else if(yourbet == false && parse.data.winner != false){
+                    $(".winner").html(parse.data.players[parse.data.winner-1].fake_name + " won the fight ! ");
+                    $(".winner").append("");
+                }else{
+                    $(".winner").html(parse.data.players[parse.data.winner-1].fake_name + " won the fight ! ");
+                    $(".winner").append("bet lost !");
+                }
+
+                }else{
+                    $(".winner").html("");
+                }
+
+                if(history){
+                    $('.history').html("");
+                    $.each(history, function (index, item) {
+                        $('.history').prepend("<div class='betitem'>"+item+"</div>")
+                    });
+                }
+                if(balance){
+                    $.each(balance, function (index, item) {
+                        $('.'+index).html(index + ": " + item)
+                    });
+                }
+
+
+            }
+
+            if (event.data.type == "show") {
+                //console.log("Opening NUI....");
+                //$("body").fadeIn(750);
+                $("body").show();
+            }
+            if (event.data.type == "close") {
+
+                //$("body").fadeOut(750);
+                //console.log("Closing NUI....");
+                $("body").hide();
+            }
+
+        });
+
+    });
+
+    function CloseNui(){
+        //$.post("http://k_bookie/closeNui", JSON.stringify({ id: _Id, options: _Options }));
+        $.post("http://k_bookie/closeNui",1);
+    }
+
+</script>
+
+<div id="middle">
+    <div class="content" style="background-color: rgba(0,0,0,0.5); color: white;">
+        <div class="header" style="min-height: 160px;">
+            <h1 class="title"></h1>
+            <div class="bet"></div>
+            <div class="tp"></div>
+            <div class="winner"></div>
+        </div>
+        <div class="stats">
+        <div class="stats_left">
+            <h3 class="htitle">History</h3>
+            <div class="history"></div>
+        </div>
+        <div class="stats_right">
+            <h3 class="btitle">Balance</h3>
+            <div class="balance">
+                <div class="spent"></div>
+                <div class="won"></div>
+                <div class="lost" style="display: none;"></div>
+                <div class="diff"></div>
+            </div>
+        </div>
+        </div>
+        </div>
+    <div class="bottom">PRESS <b>[Z]</b> TO CLOSE</div>
+</div>
+
+</body>
+</html>
