@@ -1,0 +1,20 @@
+{
+    "DescMainMenu": "Compra & vendi",
+    "Quantity": "Quantità",
+    "BuyButton": "Compra",
+    "BuyMenuDesc": "Compra articoli",
+    "BuyMenuConfirmDesc": "Conferma",
+    "BuyConfirmButtonYes": "Compra {0} {1} per ${2}",
+    "BuyConfirmButtonNo": "Annulla",
+    "SellButton": "Vendi",
+    "SellMenuDesc": "Vendi articoli",
+    "SellMenuConfirmDesc": "Conferma",
+    "SellConfirmButtonYes": "Vendi {0} {1} per ${2}",
+    "SellConfirmButtonNo": "Annulla",
+    "NoMoney": "Non hai abbastanza soldi",
+    "NoMore": "Non puoi trasportare altro {0}",
+    "NoEnought": "Non hai abbastanza articoli",
+    "Bought": "Hai comprato {0} {1} per ${2}",
+    "Sold": "Hai venduto {0} {1} per ${2}",
+    "PressToOpen": "Premi [~e~Spazio~q~] per accedere al negozio"
+}

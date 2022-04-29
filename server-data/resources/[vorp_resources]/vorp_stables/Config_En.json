@@ -1,0 +1,421 @@
+{
+
+    "defaultlang": "En", // set your language
+
+    "StableSlots": 5, // set max horses for each user
+
+    "SecondsToRespawn": 120, // set horse respawn time
+
+    "ItemsBlacklist": [
+        "anything",
+        "DoYoulike"
+    ],
+
+    "HorseSkillPullUpFailPercent": 20, // 20% of fail and drop out from horse
+    "DistanceToTeleport": 100.0,
+
+    "DefaultMaxWeight": 30, // Can store 30 Items by default
+
+    "CustomMaxWeight": [ // Custom values, add a horse or a carriage to be able to modify the weight limit
+        { "huntercart01": 100 },
+        { "ArmySupplyWagon": 100 },
+        { "buggy01": 100 },
+        { "buggy02": 100 },
+        { "buggy03": 100 },
+        { "cart01": 100 },
+        { "cart02": 100 },
+        { "cart03": 100 },
+        { "cart04": 100 },
+        { "cart05": 100 },
+        { "cart06": 100 },
+        { "cart07": 100 },
+        { "cart08": 100 },
+        { "chuckwagon000x": 100 },
+        { "chuckwagon002x": 100 },
+        { "gatchuck": 100 },
+        { "utilliwag": 100 },
+        { "wagon02x": 100 },
+        { "wagon03x": 100 },
+        { "wagon04x": 100 },
+        { "wagon05x": 100 },
+        { "wagon06x": 100 },
+        { "coach2": 100 },
+        { "coach3": 100 },
+        { "coach4": 100 },
+        { "coach5": 100 },
+        { "coach6": 100 },
+        { "coal_wagon": 100 },
+        { "logwagon": 100 },
+        { "logwagon2": 100 },
+        { "oilWagon01x": 100 },
+        { "oilWagon02x": 100 },
+        { "stagecoach001x": 100 },
+        { "stagecoach002x": 100 },
+        { "stagecoach003x": 100 },
+        { "stagecoach004x": 100 },
+        { "stagecoach005x": 100 },
+        { "stagecoach006x": 100 },
+        { "supplywagon": 100 },
+        { "supplywagon2": 100 },
+        { "wagonarmoured01x": 100 },
+        { "wagonCircus01x": 100 },
+        { "wagonCircus02x": 100 },
+        { "wagondairy01x": 100 },
+        { "wagondoc01x": 100 },
+        { "wagonPrison01x": 100 },
+        { "wagontraveller01x": 100 },
+        { "wagonwork01x": 100 }
+    ],
+
+    "Complements": [{
+        "Blankets": [{
+            "Silwater Shore": ["0x127E0412", "0x20D4A0BF", "0x2A6D33E8", "0xDC87A9F", "0xFFB1DE72", 50.0],
+            "Roanoke Ridge": ["0x19C5E80C", "0x3278996D", "0x3D34F3", "0x64BE7DF8", "0xEC040C89", 50.0],
+            "Brave River": ["0x269583CA", "0x3973A986", "0x4A294AF1", "0x97EBE669", "0xED0190A3", 50.0],
+            "Cholla Springs": ["0x342916F3", "0x6B2084E5", "0x78FB209A", "0x8FAD4DFE", "0x9DE0EA65", 50.0],
+            "Nekoti Rock": ["0x3BA0D76D", "0x4BF1F80F", "0x5F0F9E4A", "0x71DFC3EA", "0xF506CA32", 50.0],
+            "Manzanita": ["0x4655E362", "0xAD283105", "0xC2EF5C93", "0xC8A467FD", "0xDBEF0E96", 50.0],
+            "Cotorra Spring": ["0x508B80B9", "0x67CAAF37", "0xEBB4B70D", 50.0],
+            "Bayou": ["0x533A022A", "0x823A602A", "0xB0F7BDA4", "0xBBF05395", "0xFDC3D6D3", 50.0],
+            "Owanjila": ["0x53B325B7", "0x7D637917", "0x90A31F96", "0x9AD633FC", "0xB19B4519", "0xC073E2CA", "0xC7688D20", 50.0],
+            "Millesani": ["0x5894FB24", "0x9E468686", "0xAB302059", "0xD9E17DBB", "0xE32A1050", 50.0],
+            "Devil's Crag": ["0x7951D487", "0xA3D5298D", "0xEDCB3D78", 50.0],
+            "Iron Cloud": ["0xC097E12C", "0xCDD2FB96", "0xD333865B", "0xE409A807", "0xF6484C84", 50.0]
+        }],
+        "Horns": [{
+            "Birch Dally": ["0x107D9598", "0x2A28C8BE", 50.0],
+            "Torquemada Maple": ["0x333CDC06", 50.0],
+            "Brass Eagle": ["0x34135CC3", 50.0],
+            "Poplar Platypus": ["0x3E40711D", 50.0],
+            "Steel Diablo": ["0x9AD2AA40", 50.0],
+            "Maple Platypus": ["0xC6C381F5", 50.0],
+            "Pine Dally": ["0xDBE6AC3B", 50.0],
+            "Viper redemption": ["0xE1B1B8F1", 50.0],
+            "Steel Dally": ["0xE1DC3856", 50.0],
+            "Steel Ten Crowns": ["0xED0BCEB5", 50.0],
+            "Birch Pot-bellied": ["0xF09C56EE", 50.0],
+            "Poplar Wide Neck": ["0xF826E4EB", 50.0],
+            "Birch Torquemada": ["0xF8CAE723", 50.0]
+        }],
+        "Saddlebags": [{
+            "Worn out": ["0x1D4EDB88", "0x20AA8620", "0x293E17B3", "0x2AEFF6CA", "0x5277E9BA", "0x577EF434", "0x8BE10F93", "0x9D593283", "0xAE110017", "0xB4F40DD9", "0xC019F804", "0xC05AA4AA", "0xD048C482", "0xE2ADE94C", "0xE4108D59", "0xE57042B4", "0xE893DFD", "0xEEC77E72", "0xF0C30271", "0xF8FB69CA", 50.0]
+        }],
+        "Tails": [{
+            "With dreadlocks": ["0x12DBBBAF", "0x3B8A8D0C", "0x4951F22", "0x49CD2991", "0x607956E9", "0x6DB6F164", "0x7522834F", "0x84269E43", "0x876B27E0", "0x88A2AA53", "0x96EDC3D1", "0x972AC447", "0xA8A4673A", "0xBCD412B1", "0xCE62B5CE", "0xDD9F5447", "0xEFA67855", 50.0],
+            "Braided": ["0x17EB79D3", "0x1A3B721B", "0x25B51566", "0x33E7B1CB", "0x4124CC49", "0x4F5268A4", "0xA3DA055A", "0xA62C9657", "0xA7438C29", "0xB4AB3354", "0xC2FA4FF2", "0xC74FCC45", "0xD143E02D", "0xEBC7218B", "0xED0397AC", "0xF6B0AB06", 50.0],
+            "Short": ["0x1BB5EAA1", "0x1E9A18C2", "0x2E753874", "0x3B27D1DD", "0x3D212D77", "0x5062FC53", "0x508AD44A", "0x543203ED", "0x5F4871C5", "0x695B2E3F", "0x75C4C716", "0x82DB38EE", "0x84ADE4E4", "0xAFB492C", "0xC0AF3489", "0xDCE41557", "0xDDB48566", "0xEAEAB164", 50.0],
+            "Medium": ["0x383E86F3", "0x3D1F13D4", "0x4B51B039", "0x574BC82D", "0x66C266F", "0x69756C80", "0x740701A3", "0x7A248ABE", "0x84D6B90", "0x894C290D", "0x9CB1CFD8", "0xA0775A83", "0xA4F0E056", "0xB244FE1E", "0xCDFF359A", "0xE38F5D96", "0xEAA5EEE7", "0xED787168", 50.0],
+            "Long": ["0x1F7A99EA", "0x30603BB5", "0x3AE050B5", "0x5D7FA043", "0x607E6DD", "0x73073A2", "0x810A5CE0", "0xB4374DB1", "0xC304EB4C", "0xD7D68A7B", "0xD9288D47", "0xD9EA1916", "0xEABBBAB9", "0xF4294320", "0xF4A3443C", "0xF867D611", 50.0]
+        }],
+        "Manes": [{
+            "With dreadlocks": ["0x1FDC6D0F", "0x241D7FBD", "0x3A7C2C86", "0x483AC803", "0x512377B", "0x6038F7FF", "0x6D9412B5", "0x83563E39", "0x96FE6589", "0x9A640A3", "0xB2FB934B", "0xC929BFA7", "0xCDC9C8E7", "0xDCF5321", "0xE02377D6", "0xFF17AB82", "0xFFF3B76A", 50.0],
+            "Braided": ["0x25627B98", "0x2E378E8A", "0x3BFE2A17", "0x4FCC51B3", "0x54A3CB0", "0x5D596CCD", "0x6F4510C4", "0x7D902D5A", "0x92B2579E", "0x97105EF6", "0xA0F4F423", "0xA64BFD6D", "0xB13D134B", "0xCF434F57", "0xD4E65BE5", "0xDC62E996", "0xE9FE04D0", 50.0],
+            "Short": ["0x18199F48", "0x354F6B7", "0x3F1FEE4C", "0x4F148D45", "0x52DC15C8", "0x5DE62AE8", "0x648A3924", "0x7098D141", "0x86457C9A", "0x960C1B33", "0x99F5A3FA", "0xA4E1B8DE", "0xABA8475F", "0xB288D42C", "0xBD7B6B05", "0xC15371C1", "0xF2E555D8", 50.0],
+            "Medium": ["0x130E341A", "0x16923E26", "0x1A5A45B6", "0x2FCAF0CB", "0x419D9470", "0x41EA9196", "0x5445B9C0", "0x5ED14B9F", "0x66215D77", "0x817B10F6", "0xA7A4DD49", "0xB5F379E6", "0xD894BF28", "0xE1435081", "0xEA46E28C", "0xFF020F3A", 50.0],
+            "Long": ["0x235DBF1", "0x446A6F01", "0x5F0395A3", "0x5FE29755", "0x632F2B7", "0x6CB9310E", "0x838E5EB8", "0x94F58186", "0x97D095F4", "0xA193A97A", "0xAA3FAC1A", "0xAFB7C24", "0xB881489D", "0xC8646863", "0xC9D16B31", "0xE0BC27A6", "0xFC74DF3B", 50.0]
+        }],
+        "Saddles": [{
+            "McClelland Lumley": ["0x106961A8", "0x150D0DAA", "0x17153A45", "0x1C14443F", "0x1F7C4C5", "0x2E4668A3", "0x2ECD9E70", "0x3D0C3AED", "0x3F9F62CE", "0x4B372288", "0x5D717C9", "0x78F07DFA", "0xC04FE429", "0xD97573C1", "0xDE47F51", "0xEB1139AB", "0xF3BEA853", "0xF94D5623", 50.0],
+            "Mother Hubbard Kneller": ["0x14168240", "0x2844E292", "0x3E949A74", "0x5B6390D9", "0x5BBC54C3", "0x6D403492", "0x70BB7EC1", "0x7FD859C2", "0x87F421F7", "0x8D163776", "0x8D9D754C", "0x9CD94BC1", "0xBA6A921E", "0xBB335077", "0xC1AF1568", "0xCE8C2F22", "0xD11CBF82", "0xF36A78DE", 50.0],
+            "Dakota Kneller": ["0x15FB6791", "0x3827D232", "0x40C53D24", "0x47D2CB3F", "0x9533FA8E", "0xA7AC9F7B", "0xB7B33F88", "0xB9BE555D", "0xC7FC601A", "0xDA36048D", "0xE039FC0F", "0xE36C8274", "0xE52BAC3F", "0xEC882931", "0xF2F0045", "0xF4B14B4A", "0xF687A8AA", 50.0],
+            "Gerden cowboy": ["0x189F7005", "0x1D0BF8F2", "0x1EC65C0", "0x219D85E2", "0x4C1A5ADB", "0x522CCED", "0x5546EB7A", "0x5B45F932", "0x7092A211", "0x7DBB3E1C", "0x8E64DDB5", "0x8FFCF06B", "0xA39D34E", "0xAD4A6355", "0xBE703DF7", "0xBFD09512", "0xC0C04297", "0xD2FA64BC", "0xE5510BB8", "0xE6488B58", "0xF1BAA60D", "0xF7682D97", 50.0],
+            "Trail Gerden": ["0x1EE21489", "0x20359E53", "0x24F24446", "0x2E3F3A62", "0x306806F", "0x335DC49F", "0x534A7D59", "0x660B29F9", "0x6C622F8C", "0x70C65BED", "0x8E22730C", "0x93B7057", "0xC454830C", "0xD6BF27E1", "0xD7FC86BF", "0xE9B7AA35", "0xF4118E4", "0xFCE1D7A4", 50.0],
+            "Roping Stenger": ["0x21E8DDFA", "0x2E216DBC", "0x2F8C7941", "0x5A9E4F6C", "0x60DE5335", "0x6384D886", "0x64CEC6DF", "0x694DE418", "0x76887E89", "0x8DABACD7", "0x90489DD2", "0x9E0C3959", "0xB61F0668", "0xBC52F5E6", "0xC7D58D0B", "0xD61B2996", "0xDA84CF33", "0xFD4E14C5", 50.0],
+            "Lumley rancher": ["0x6FEABF89", "0x7A23C686", "0x7C19770A", "0x7C2C580C", "0x88C363C5", "0x8DD09A7C", "0x93DA8768", "0x9B1C95F8", "0x9FF23EBF", "0xA1154105", "0xA21923E5", "0xA8DB3175", "0xB357E58A", "0xC10B5450", "0xD2C8F7CB", "0xE5B31D9F", "0xF373B920", "0xFC6AF7AF", 50.0],
+            "Roping beaver": ["0x2BEA8ED4", 50.0],
+            "McClelland cougar": ["0x353FC03C", 50.0],
+            "Cowboy snake": ["0x7D795D72", 50.0],
+            "Rancher alligator": ["0xB5802A5F", 50.0],
+            "Trail panther": ["0xC76C46D9", 50.0],
+            "Mother Hubbard wild pig": ["0xD225CCA0", 50.0],
+            "Dakota bear": ["0xDE5A2905", 50.0]
+        }],
+        "Stirrups": [{
+            "Security": ["0x3B3AB08", 50.0],
+            "Horseshoe bell": ["0x587DD49F", 50.0],
+            "Long Roper": ["0x67AF7302", 50.0],
+            "Thin strap": ["0x75178DD2", 50.0],
+            "English": ["0x8246282F", 50.0],
+            "Bell": ["0x8D0BC7DA", 50.0],
+            "Horseshoe": ["0x9EE8E174", 50.0],
+            "Covered": ["0xBDF19F85", 50.0],
+            "Baroque": ["0xCB9A3AD6", 50.0],
+            "Hooded": ["0xD8AE54FE", 50.0],
+            "Fine iron strap": ["0xE73FF221", 50.0]
+        }],
+        "Bedrolls": [{
+            "Wool": ["0x12F0DF9F", "0x18BB6B30", "0x1B43F045", "0x55A0E4FE", "0x69B21ADD", "0x7B55D476", "0x8C9F7709", "0x9FD99D7D", "0xAC1F34C", "0xD8258E14", "0xFFB0391E", 50.0],
+            "Canvas": ["0x27543EBB", "0x36BEDD90", "0x4B7E0712", "0x73D157B4", "0x841C784A", "0xA1FD8B43", "0xB4532FEE", "0xBC664014", "0xD020E789", 50.0],
+            "Quilted wool": ["0x45FEA6D8", "0x69B29DC5", "0x72FCB059", "0x7C8A149A", "0x84E5AFA", "0x8DD7B735", "0x98214B1C", "0x9D868568", "0xA643680C", "0xD258EF10", 50.0]
+        }],
+        "Lantern": [{
+            "Normal": ["0x635E387C", 50.0]
+        }],
+        "Mask": [{
+            "Normal": ["0xFA5B72BB", "0xF606EC4A", "0xEEF65F11", "0xEC10D626", "0xE3278C28", "0xDDCDB9A0", "0xD70C73EA", "0xC907FCA9", "0xC70D8F40", "0xBD887906", "0xB567EBF5", "0xB395D1C5", "0xB0395F88", "0xA45049C6", "0x9DB125FC", "0x9A11B219", "0x9946F874", "0x90A62272", "0x8DCC1CBE", "0x8DB38601", "0x8C471684", "0x872A0C5A", "0x7BFA791B", "0x7A773AC1", "0x702A4AF3", "0x6B355791", "0x69CD996E", "0x68FB97DE", "0x68DB4FAD", "0x62C5B02A", "0x61BEAE08", "0x4E22622C", "0x4C8C83A4", "0x406FC6C7", "0x30044BAC", "0x226B2F76", "0x13AC6E51", "0x08A78F53", "0xF0ED62FF", "0xF17728C7", 50.0]
+        }]
+    }],
+
+    "Carts": [
+        { "huntercart01": 250 },
+        { "ArmySupplyWagon": 250 },
+        { "buggy01": 250 },
+        { "buggy02": 250 },
+        { "buggy03": 250 },
+        { "cart01": 250 },
+        { "cart02": 250 },
+        { "cart03": 250 },
+        { "cart04": 250 },
+        { "cart05": 250 },
+        { "cart06": 250 },
+        { "cart07": 250 },
+        { "cart08": 250 },
+        { "chuckwagon000x": 250 },
+        { "chuckwagon002x": 250 },
+        { "gatchuck": 250 },
+        { "utilliwag": 250 },
+        { "wagon02x": 250 },
+        { "wagon03x": 250 },
+        { "wagon04x": 250 },
+        { "wagon05x": 250 },
+        { "wagon06x": 250 },
+        { "coach2": 250 },
+        { "coach3": 250 },
+        { "coach4": 250 },
+        { "coach5": 250 },
+        { "coach6": 250 },
+        { "coal_wagon": 250 },
+        { "logwagon": 250 },
+        { "logwagon2": 250 },
+        { "oilWagon01x": 250 },
+        { "oilWagon02x": 250 },
+        { "stagecoach001x": 250 },
+        { "stagecoach002x": 250 },
+        { "stagecoach003x": 250 },
+        { "stagecoach004x": 250 },
+        { "stagecoach005x": 250 },
+        { "stagecoach006x": 250 },
+        { "supplywagon": 250 },
+        { "supplywagon2": 250 },
+        { "wagonarmoured01x": 250 },
+        { "wagonCircus01x": 250 },
+        { "wagonCircus02x": 250 },
+        { "wagondairy01x": 250 },
+        { "wagondoc01x": 250 },
+        { "wagonPrison01x": 250 },
+        { "wagontraveller01x": 250 },
+        { "wagonwork01x": 250 }
+    ],
+
+    "Horses": [{
+        "American Paint": [{
+            "A_C_Horse_AmericanPaint_Greyovero": 100,
+            "A_C_Horse_AmericanPaint_Overo": 100,
+            "A_C_Horse_AmericanPaint_SplashedWhite": 100,
+            "A_C_Horse_AmericanPaint_Tobiano": 100
+        }],
+        "American Standardbred": [{
+            "A_C_Horse_AmericanStandardbred_Black": 100,
+            "A_C_Horse_AmericanStandardbred_Buckskin": 100,
+            "A_C_Horse_AmericanStandardbred_PalominoDapple": 100,
+            "A_C_Horse_AmericanStandardbred_SilverTailBuckskin": 100
+        }],
+        "Andalusian": [{
+            "A_C_Horse_Andalusian_DarkBay": 100,
+            "A_C_Horse_Andalusian_Perlino": 100,
+            "A_C_Horse_Andalusian_RoseGray": 100
+        }],
+        "Appaloosa": [{
+            "A_C_Horse_Appaloosa_BlackSnowflake": 100,
+            "A_C_Horse_Appaloosa_Blanket": 100,
+            "A_C_Horse_Appaloosa_BrownLeopard": 100,
+            "A_C_Horse_Appaloosa_FewSpotted_PC": 100,
+            "A_C_Horse_Appaloosa_Leopard": 100,
+            "A_C_Horse_Appaloosa_LeopardBlanket": 100
+        }],
+        "Arabian": [{
+            "A_C_Horse_Arabian_Black": 100,
+            "A_C_Horse_Arabian_Grey": 100,
+            "A_C_Horse_Arabian_RedChestnut": 100,
+            "A_C_Horse_Arabian_RoseGreyBay": 100,
+            "A_C_Horse_Arabian_WarpedBrindle_PC": 100,
+            "A_C_Horse_Arabian_White": 100
+        }],
+        "Ardennes": [{
+            "A_C_Horse_Ardennes_BayRoan": 100,
+            "A_C_Horse_Ardennes_IronGreyRoan": 100,
+            "A_C_Horse_Ardennes_StrawberryRoan": 100
+        }],
+        "Belgian": [{
+            "A_C_Horse_Belgian_BlondChestnut": 100,
+            "A_C_Horse_Belgian_MealyChestnut": 100
+        }],
+        "Dutch Warmblood": [{
+            "A_C_Horse_DutchWarmblood_ChocolateRoan": 100,
+            "A_C_Horse_DutchWarmblood_SealBrown": 100,
+            "A_C_Horse_DutchWarmblood_SootyBuckskin": 100
+        }],
+        "Hungarian Halfbred": [{
+            "A_C_Horse_HungarianHalfbred_DarkDappleGrey": 100,
+            "A_C_Horse_HungarianHalfbred_FlaxenChestnut": 100,
+            "A_C_Horse_HungarianHalfbred_LiverChestnut": 100,
+            "A_C_Horse_HungarianHalfbred_PiebaldTobiano": 100
+        }],
+        "Kentucky Saddle": [{
+            "A_C_Horse_KentuckySaddle_Black": 100,
+            "A_C_Horse_KentuckySaddle_ButterMilkBuckskin_PC": 100,
+            "A_C_Horse_KentuckySaddle_ChestnutPinto": 100,
+            "A_C_Horse_KentuckySaddle_Grey": 100,
+            "A_C_Horse_KentuckySaddle_SilverBay": 100
+        }],
+        "Kladruber": [{
+            "A_C_Horse_Kladruber_Black": 100,
+            "A_C_Horse_Kladruber_Silver": 100,
+            "A_C_Horse_Kladruber_Cremello": 100,
+            "A_C_Horse_Kladruber_Grey": 100,
+            "A_C_Horse_Kladruber_DappleRoseGrey": 100,
+            "A_C_Horse_Kladruber_White": 100
+        }],
+        "Missouri Fox Trotter": [{
+            "A_C_Horse_MissouriFoxTrotter_AmberChampagne": 100,
+            "A_C_Horse_MissouriFoxTrotter_SableChampagne": 100,
+            "A_C_Horse_MissouriFoxTrotter_SilverDapplePinto": 100
+        }],
+        "Morgan": [{
+            "A_C_Horse_Morgan_Bay": 100,
+            "A_C_Horse_Morgan_BayRoan": 100,
+            "A_C_Horse_Morgan_FlaxenChestnut": 100,
+            "A_C_Horse_Morgan_LiverChestnut_PC": 100,
+            "A_C_Horse_Morgan_Palomino": 100
+        }],
+        "Old Penco": [{ "A_C_Horse_MP_Mangy_Backup": 100 }],
+        "Mustang": [{
+            "A_C_Horse_Mustang_GoldenDun": 100,
+            "A_C_Horse_Mustang_GrulloDun": 100,
+            "A_C_Horse_Mustang_TigerStripedBay": 100,
+            "A_C_Horse_Mustang_WildBay": 100
+        }],
+        "Nokota": [{
+            "A_C_Horse_Nokota_BlueRoan": 100,
+            "A_C_Horse_Nokota_ReverseDappleRoan": 100,
+            "A_C_Horse_Nokota_WhiteRoan": 100
+        }],
+        "Shire": [{
+            "A_C_Horse_Shire_DarkBay": 100,
+            "A_C_Horse_Shire_LightGrey": 100,
+            "A_C_Horse_Shire_RavenBlack": 100
+        }],
+        "Suffolk Punch": [{
+            "A_C_Horse_SuffolkPunch_RedChestnut": 100,
+            "A_C_Horse_SuffolkPunch_Sorrel": 100
+        }],
+        "Tennessee Walker": [{
+            "A_C_Horse_TennesseeWalker_BlackRabicano": 100,
+            "A_C_Horse_TennesseeWalker_Chestnut": 100,
+            "A_C_Horse_TennesseeWalker_DappleBay": 100,
+            "A_C_Horse_TennesseeWalker_FlaxenRoan": 100,
+            "A_C_Horse_TennesseeWalker_MahoganyBay": 100,
+            "A_C_Horse_TennesseeWalker_RedRoan": 100,
+            "A_C_Horse_TennesseeWalker_GoldPalomino_PC": 100
+        }],
+        "Thoroughbred": [{
+            "A_C_Horse_Thoroughbred_BlackChestnut": 100,
+            "A_C_Horse_Thoroughbred_BloodBay": 100,
+            "A_C_Horse_Thoroughbred_Brindle": 100,
+            "A_C_Horse_Thoroughbred_DappleGrey": 100,
+            "A_C_Horse_Thoroughbred_ReverseDappleBlack": 100
+        }],
+        "Turkoman": [{
+            "A_C_Horse_Turkoman_DarkBay": 100,
+            "A_C_Horse_Turkoman_Gold": 100,
+            "A_C_Horse_Turkoman_Silver": 100
+        }],
+        "Criollo": [{
+            "A_C_Horse_Criollo_Dun": 100,
+            "A_C_Horse_Criollo_MarbleSabino": 100,
+            "A_C_Horse_Criollo_BayFrameOvero": 100,
+            "A_C_Horse_Criollo_BayBrindle": 100,
+            "A_C_Horse_Criollo_SorrelOvero": 100,
+            "A_C_Horse_Criollo_BlueRoanOvero": 100
+        }],
+        "Breton": [{
+            "A_C_Horse_Breton_SteelGrey": 100,
+            "A_C_Horse_Breton_MealyDapple": 100,
+            "A_C_Horse_Breton_SealBrown": 100,
+            "A_C_Horse_Breton_GrulloDun": 100,
+            "A_C_Horse_Breton_Sorrel": 100,
+            "A_C_Horse_Breton_RedRoan": 100
+        }],
+        "Norfolk Roadster": [
+            {
+              "A_C_HORSE_NORFOLKROADSTER_BLACK": 100,
+              "A_C_HORSE_NORFOLKROADSTER_SPECKLEDGREY": 100,
+              "A_C_HORSE_NORFOLKROADSTER_PIEBALDROAN": 100,
+              "A_C_HORSE_NORFOLKROADSTER_ROSEGREY": 100,
+              "A_C_HORSE_NORFOLKROADSTER_DAPPLEDBUCKSKIN": 100,
+              "A_C_HORSE_NORFOLKROADSTER_SPOTTEDTRICOLOR": 100
+            }
+        ],
+        "Zebra": [{ "A_C_HorseMulePainted_01": 100 }],
+        "Mule": [{ "A_C_HorseMule_01": 100 }],
+        "Donkey": [{ "A_C_Donkey_01": 100 }]
+    }],
+
+
+    "Stables": [{
+            "name": "Saint Denis Stable",
+            "BlipIcon": 1938782895,
+            "EnterStable": [2510.58, -1456.83, 46.31, 2.0],
+            "StableNPC": [2512.35, -1456.89, 45.2, 91.68],
+            "SpawnHorse": [2508.59, -1449.96, 45.5, 90.09],
+            "CamHorse": [2506.807, -1452.29, 48.61699, -34.77003, 0.0, -35.20742],
+            "CamHorseGear": [2508.876, -1451.953, 48.67999, -35.29771, 0.0, -0.4993192],
+            "SpawnCart": [2503.47, -1441.89, 46.31, 0.24],
+            "CamCart": [2506.428, -1437.7, 50.57832, -39.4497, 0.0, 120.535]
+        },
+        {
+            "name": "Valentine Stable",
+            "BlipIcon": 1938782895,
+            "EnterStable": [-365.87, 789.51, 116.17, 2.0],
+            "StableNPC": [-365.15, 792.68, 115.18, 178.47],
+            "SpawnHorse": [-366.07, 781.81, 115.14, 5.97],
+            "CamHorse": [-367.9267, 783.0237, 117.7778, -36.42624, 0.0, -100.9786],
+            "CamHorseGear": [-367.9267, 783.0237, 117.7778, -36.42624, 0.0, -100.9786],
+            "SpawnCart": [-370.11, 786.99, 115.16, 274.18],
+            "CamCart": [-363.5831, 792.1113, 118.0419, -16.35144, 0.0, 143.9759]
+        },
+        {
+            "name": "Strawberry Stable",
+            "BlipIcon": 1938782895,
+            "EnterStable": [-1816.81, -561.99, 156.07, 2.0],
+            "StableNPC": [-1818.45, -564.83, 155.06, 347.22],
+            "SpawnHorse": [-1820.26, -555.84, 155.16, 163.01],
+            "CamHorse": [-1819.512, -558.6999, 157.6765, -23.95241, 0.0, 28.46066],
+            "CamHorseGear": [-1819.512, -558.6999, 157.6765, -23.95241, 0.0, 28.46066],
+            "SpawnCart": [-1821.46, -561.41, 155.06, 256.24],
+            "CamCart": [-1816.372, -560.2017, 157.6678, -22.02157, 0.0, 124.3779]
+        },
+        {
+            "name": "Blackwater Stable",
+            "BlipIcon": 1938782895,
+            "EnterStable": [-876.57, -1365.1, 43.53, 2.0],
+            "StableNPC": [-878.35, -1364.81, 42.53, 266.28],
+            "SpawnHorse": [-864.25, -1361.8, 42.7, 177.48],
+            "CamHorse": [-862.6163, -1362.927, 45.58158, -40.96593, 0.0, 71.8129],
+            "CamHorseGear": [-862.6163, -1362.927, 45.58158, -40.96593, 0.0, 71.8129],
+            "SpawnCart": [-872.58, -1366.57, 42.53, 270.35],
+            "CamCart": [-869.7852, -1361.103, 45.26991, -17.11994, 0.0, 161.4039]
+        },
+        {
+            "name": "Tumbleweed Stable",
+            "BlipIcon": 1938782895,
+            "EnterStable": [-5514.24, -3041.81, -2.39, 2.0],
+            "StableNPC": [-5515.07, -3039.51, -3.39, 179.88],
+            "SpawnHorse": [-5519.47, -3039.32, -3.31, 181.62],
+            "CamHorse": [-5517.651, -3041.113, -0.50949, -33.14523, 0.0, 55.47822],
+            "CamHorseGear": [-5517.651, -3041.113, -0.50949, -33.14523, 0.0, 55.47822],
+            "SpawnCart": [-5520.65, -3044.3, -3.39, 270.83],
+            "CamCart": [-5514.191, -3040.633, -0.5108569, -18.79705, 0.0, 141.3175]
+        }
+    ]
+}

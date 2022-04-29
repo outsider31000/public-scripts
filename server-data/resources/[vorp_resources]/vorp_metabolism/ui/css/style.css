@@ -1,0 +1,39 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/rdrlino-regular-webfont.woff);
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/rdrlino-regular-webfont.woff);
+    font-weight: normal;
+}
+
+* {
+    font-family: myFirstFont;
+    box-sizing: inherit;
+    touch-action: manipulation;
+}
+
+body {
+    background-color: transparent;
+    height: auto;
+    max-height: 150%;
+    overflow: auto;
+}
+
+.pb-vorp-water {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1.65vw;
+    padding-left: 3.047vw;
+}
+
+.pb-vorp-food {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1.20vw;
+    padding-left: 2.65vw;
+}

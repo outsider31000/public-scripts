@@ -1,0 +1,256 @@
+{
+
+    "ButtonTransferHorse": "Transferir Caballo",
+    "InputServerId": "ID de la persona",
+
+    "PressToOpen": "Pulsa [~e~Espacio~q~] para acceder al establo",
+
+    "PlaceHolderInputName": "El nombre tiene que tener un mínimo de 3 caracteres",
+
+    "TitleMenuStables": "Establos",
+    "SubTitleMenuStables": "Elije una opción",
+
+    "TitleMenuBuyHorses": "Comprar Caballos",
+    "SubTitleMenuBuyHorses": "Elije un caballo",
+
+    "TitleMenuHorses": "Gestionar Caballos",
+    "SubTitleMenuHorses": "Gestiona tus caballos",
+
+    "TitleMenuBuyCarts": "Comprar Carros",
+    "SubTitleMenuBuyCarts": "Elije un carro",
+
+    "TitleMenuCarts": "Gestionar Carros",
+    "SubTitleMenuCarts": "Gestiona tus carros",
+
+    "subTitleConfirmBuy": "El precio de {0} es de {1}$",
+    "ConfirmBuyButton": "Comprar por {0}$",
+    "ConfirmBuyButtonDesc": "Comprar el caballo",
+    "CancelBuyButton": "Cancelar Compra",
+    "CancelBuyButtonDesc": "Volver atras",
+
+    "ButtonCart": "{0} por {1}$",
+    "ConfirmBuyComplements": "Comprar complementos por {0}$",
+
+    "StableIsFull": "Tu establo está lleno, no puedes comprarlo hasta tener un hueco libre",
+
+    "InputNameButton": "Comprar Caballo",
+    "InputNamePlaceholder": "Escribe el nombre de tu caballo",
+
+    "InputCartNameButton": "Comprar Carro",
+    "InputCartNamePlaceholder": "Escribe el nombre de tu carro",
+
+    "SuccessfulBuyComp": "Has comprado el complemento por {0}$",
+    "SuccessfulBuyHorse": "Has comprado a {0} por {1}$",
+    "NoMoney": "No tienes suficiente dinero",
+    "NoDefaultHorses": "No tienes ningun caballo asignado por defecto",
+    "NoDefaultCarts": "No tienes ningun carro asignado por defecto",
+    "HorseIsOcuppied": "Tu caballo está siendo usado por otra persona",
+    "CartIsOcuppied": "Tu carro está siendo usado por otra persona",
+
+    "ButtonDeleteHorse": "Liberar Caballo",
+    "HorseDeleted": "Se ha liberado el caballo",
+    "DeleteConfirmation": "Escribe el nombre de tu caballo",
+
+    "ButtonDeleteCart": "Desechar Carro",
+    "CartDeleted": "Se ha desechado el carro",
+
+    "SubMenuBuyComplements": "Comprar Complementos",
+    "ButtonSetDefaultHorse": "Convertir en principal",
+    "PriceComplements": "Precio: ",
+    "BuyButtonComplements": "Sí, Comprar - {0} por {1}$",
+    "YouBuyedThisComp": "Ya lo tenías comprado",
+    "SetThisComp": "Poner {0} a este caballo",
+
+    "HorseIsDead": "{0} ha muerto recientemente, necesitas esperar {1} segundos",
+    "HorseDead": "{0} ha muerto, deberas esperar {1} segundos para volver a llamarlo",
+    "CartIsDead": "{0} ha muerto recientemente, necesitas esperar {1} segundos",
+    "CartDead": "{0} ha muerto, deberas esperar {1} segundos para volver a llamarlo",
+    "NoComplement": "Sin complemento",
+
+    "ErrorQuantity": "Cantidad errónea",
+    "WeaponsNotAllowed": "Las armas aun no se pueden guardan en el inventario del vehiculo",
+    "ItemInBlacklist": "Este articulo no puede ser transferido al vehiculo",
+
+    "MaxWeightQuantity": "Superas el peso maximo de la montura {0}/{1}",
+
+    //Horses
+    "A_C_Horse_AmericanPaint_Greyovero": "Overo gris",
+    "A_C_Horse_AmericanPaint_Overo": "Overo",
+    "A_C_Horse_AmericanPaint_SplashedWhite": "Blanco con manchas",
+    "A_C_Horse_AmericanPaint_Tobiano": "Tobiano",
+
+    "A_C_Horse_AmericanStandardbred_Black": "Negro",
+    "A_C_Horse_AmericanStandardbred_Buckskin": "Isabelo",
+    "A_C_Horse_AmericanStandardbred_PalominoDapple": "Tordo palomino",
+    "A_C_Horse_AmericanStandardbred_SilverTailBuckskin": "Isabelo de cola plateada",
+
+    "A_C_Horse_Andalusian_DarkBay": "Bayo oscuro",
+    "A_C_Horse_Andalusian_Perlino": "Perlino",
+    "A_C_Horse_Andalusian_RoseGray": "Gris rosado",
+
+    "A_C_Horse_Appaloosa_BlackSnowflake": "Negro con copos de nieve",
+    "A_C_Horse_Appaloosa_Blanket": "Lomo manchado",
+    "A_C_Horse_Appaloosa_BrownLeopard": "Leopardo marrón",
+    "A_C_Horse_Appaloosa_FewSpotted_PC": "Moteado",
+    "A_C_Horse_Appaloosa_Leopard": "Leopardo",
+    "A_C_Horse_Appaloosa_LeopardBlanket": "Lomo manchado leopardo",
+
+    "A_C_Horse_Arabian_Black": "Negro",
+    "A_C_Horse_Arabian_Grey": "Gris",
+    "A_C_Horse_Arabian_RedChestnut": "Alazán rojo",
+    "A_C_Horse_Arabian_RoseGreyBay": "Bayo gris rosado",
+    "A_C_Horse_Arabian_WarpedBrindle_PC": "Atigrado",
+    "A_C_Horse_Arabian_White": "Blanco",
+
+    "A_C_Horse_Ardennes_BayRoan": "Ruano bayo",
+    "A_C_Horse_Ardennes_IronGreyRoan": "Ruano gris hierro",
+    "A_C_Horse_Ardennes_StrawberryRoan": "Ruano fresa",
+
+    "A_C_Horse_Belgian_BlondChestnut": "Alazán rubio",
+    "A_C_Horse_Belgian_MealyChestnut": "Alazán harinoso",
+
+    "A_C_Horse_DutchWarmblood_ChocolateRoan": "Ruano chocolate",
+    "A_C_Horse_DutchWarmblood_SealBrown": "Pardo oscuro",
+    "A_C_Horse_DutchWarmblood_SootyBuckskin": "Isabelo hollín",
+
+    "A_C_Horse_HungarianHalfbred_DarkDappleGrey": "Gris oscuro tordo",
+    "A_C_Horse_HungarianHalfbred_FlaxenChestnut": "Alazán platino",
+    "A_C_Horse_HungarianHalfbred_LiverChestnut": "Alazán rojo higado",
+    "A_C_Horse_HungarianHalfbred_PiebaldTobiano": "Tobiano piebald",
+
+    "A_C_Horse_KentuckySaddle_Black": "Negro",
+    "A_C_Horse_KentuckySaddle_ButterMilkBuckskin_PC": "Isabelo leche cortada",
+    "A_C_Horse_KentuckySaddle_ChestnutPinto": "Alazán pinto",
+    "A_C_Horse_KentuckySaddle_Grey": "Gris",
+    "A_C_Horse_KentuckySaddle_SilverBay": "Bayo plateado",
+
+    "A_C_Horse_Kladruber_Black": "Negro",
+    "A_C_Horse_Kladruber_Silver": "Plateado",
+    "A_C_Horse_Kladruber_Cremello": "Cremello",
+    "A_C_Horse_Kladruber_Grey": "Gris",
+    "A_C_Horse_Kladruber_DappleRoseGrey": "Gris tordo rosado",
+    "A_C_Horse_Kladruber_White": "Blanco",
+
+    "A_C_Horse_MissouriFoxTrotter_AmberChampagne": "Champán ámbar",
+    "A_C_Horse_MissouriFoxTrotter_SableChampagne": "Champán negro",
+    "A_C_Horse_MissouriFoxTrotter_SilverDapplePinto": "Pinto con manchas plateadas",
+
+    "A_C_Horse_Morgan_Bay": "Bayo",
+    "A_C_Horse_Morgan_BayRoan": "Ruano bayo",
+    "A_C_Horse_Morgan_FlaxenChestnut": "Alazán platino",
+    "A_C_Horse_Morgan_LiverChestnut_PC": "Alazán rojo higado",
+    "A_C_Horse_Morgan_Palomino": "Palomino",
+
+    "A_C_Horse_MP_Mangy_Backup": "Penco viejo",
+
+    "A_C_Horse_Mustang_GoldenDun": "Rucio dorado",
+    "A_C_Horse_Mustang_GrulloDun": "Rucio grullo",
+    "A_C_Horse_Mustang_TigerStripedBay": "Bayo atigrado",
+    "A_C_Horse_Mustang_WildBay": "Bayo salvaje",
+
+    "A_C_Horse_Nokota_BlueRoan": "Ruano azul",
+    "A_C_Horse_Nokota_ReverseDappleRoan": "Ruano tordo invertido",
+    "A_C_Horse_Nokota_WhiteRoan": "Ruano blanco",
+
+    "A_C_Horse_Shire_DarkBay": "Bayo oscuro",
+    "A_C_Horse_Shire_LightGrey": "Gris claro",
+    "A_C_Horse_Shire_RavenBlack": "Negro cuervo",
+
+    "A_C_Horse_SuffolkPunch_RedChestnut": "Alazán rojo",
+    "A_C_Horse_SuffolkPunch_Sorrel": "Cobrizo",
+
+    "A_C_Horse_TennesseeWalker_BlackRabicano": "Rabicano negro",
+    "A_C_Horse_TennesseeWalker_Chestnut": "Alazán",
+    "A_C_Horse_TennesseeWalker_DappleBay": "Bayo tordo",
+    "A_C_Horse_TennesseeWalker_FlaxenRoan": "Ruano platino",
+    "A_C_Horse_TennesseeWalker_MahoganyBay": "Bayo caoba",
+    "A_C_Horse_TennesseeWalker_RedRoan": "Ruano rojizo",
+    "A_C_Horse_TennesseeWalker_GoldPalomino_PC": "Palomino dorado",
+
+    "A_C_Horse_Thoroughbred_BlackChestnut": "Alazán negro",
+    "A_C_Horse_Thoroughbred_BloodBay": "Bayo sangre",
+    "A_C_Horse_Thoroughbred_Brindle": "Atigrado",
+    "A_C_Horse_Thoroughbred_DappleGrey": "Gris tordo",
+    "A_C_Horse_Thoroughbred_ReverseDappleBlack": "Negro tordo invertido",
+
+    "A_C_Horse_Turkoman_DarkBay": "Bayo oscuro",
+    "A_C_Horse_Turkoman_Gold": "Dorado",
+    "A_C_Horse_Turkoman_Silver": "Plateado",
+
+    "A_C_Horse_Criollo_Dun": "Rucio",
+    "A_C_Horse_Criollo_MarbleSabino": "Sabino mármol",
+    "A_C_Horse_Criollo_BayFrameOvero": "Overo bayo",
+    "A_C_Horse_Criollo_BayBrindle": "Bayo atigrado",
+    "A_C_Horse_Criollo_SorrelOvero": "Overo cobrizo",
+    "A_C_Horse_Criollo_BlueRoanOvero": "Overo ruano azul",
+
+    "A_C_Horse_Breton_SteelGrey": "Gris acero",
+    "A_C_Horse_Breton_MealyDapple": "Bayo tordo harinoso",
+    "A_C_Horse_Breton_SealBrown": "Pardo oscuro",
+    "A_C_Horse_Breton_GrulloDun": "Rucio grullo",
+    "A_C_Horse_Breton_Sorrel": "Cobrizo",
+    "A_C_Horse_Breton_RedRoan": "Ruano rojizo",
+
+    "A_C_HORSE_NORFOLKROADSTER_BLACK": "Negro",
+    "A_C_HORSE_NORFOLKROADSTER_SPECKLEDGREY": "Gris manchado",
+    "A_C_HORSE_NORFOLKROADSTER_PIEBALDROAN": "Ruano piebald",
+    "A_C_HORSE_NORFOLKROADSTER_ROSEGREY": "Gris rosado",
+    "A_C_HORSE_NORFOLKROADSTER_DAPPLEDBUCKSKIN": "Isabelo tordo",
+    "A_C_HORSE_NORFOLKROADSTER_SPOTTEDTRICOLOR": "Tricolor moteado",
+
+    "A_C_HorseMulePainted_01": "Cebra",
+
+    "A_C_HorseMule_01": "Mula",
+
+    "A_C_Donkey_01": "Burro",
+
+    // Carts
+    "huntercart01": "Carro de caza",
+    "ArmySupplyWagon": "Carro de suministros de la armada",
+    "buggy01": "Calesa 1",
+    "buggy02": "Calesa 2",
+    "buggy03": "Calesa 3",
+    "cart01": "Carreta 1",
+    "cart02": "Carreta 2",
+    "cart03": "Carreta 3",
+    "cart04": "Carreta 4",
+    "cart05": "Carreta 5",
+    "cart06": "Carreta 6",
+    "cart07": "Carreta 7",
+    "cart08": "Carreta 8",
+    "chuckwagon000x": "Carro 1",
+    "chuckwagon002x": "Carro 2",
+    "gatchuck": "Carro 3",
+    "utilliwag": "Carro 4",
+    "wagon02x": "Carro 5",
+    "wagon03x": "Carro 6",
+    "wagon04x": "Carro 7",
+    "wagon05x": "Carro 8",
+    "wagon06x": "Carro 9",
+    "coach2": "Carroza 1",
+    "coach3": "Carroza 2",
+    "coach4": "Carroza 3",
+    "coach5": "Carroza 4",
+    "coach6": "Carroza 5",
+    "coal_wagon": "Carro para carbón",
+    "logwagon": "Carro para troncos 1",
+    "logwagon2": "Carro para troncos 2",
+    "oilWagon01x": "Carro para aceite 1",
+    "oilWagon02x": "Carro para aceite 2",
+    "stagecoach001x": "Carro de transporte 1",
+    "stagecoach002x": "Carro de transporte 2",
+    "stagecoach003x": "Carro de transporte 3",
+    "stagecoach004x": "Carro de transporte 4",
+    "stagecoach005x": "Carro de transporte 5",
+    "stagecoach006x": "Carro de transporte 6",
+    "supplywagon": "Carro de suministros 1",
+    "supplywagon2": "Carro de suministros 2",
+    "wagonarmoured01x": "Carro blindado",
+    "wagonCircus01x": "Carro del circo 1",
+    "wagonCircus02x": "Carro del circo 2",
+    "wagondairy01x": "Carro del lechero",
+    "wagondoc01x": "Carro del doctor",
+    "wagonPrison01x": "Carro de prisioneros",
+    "wagontraveller01x": "Carro de viaje",
+    "wagonwork01x": "Carro del panadero"
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Vorp Metabolism</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Water -->
+    <div class="pb-vorp-water">
+        <div class="water"></div>
+    </div>
+
+    <!-- Food -->
+    <div class="pb-vorp-food">
+        <div class="food"></div>
+    </div>
+
+    <script type="text/javascript">
+        $("document").ready(function() {
+
+            var sizeWater = 224.90;
+            var sizeFood = 240.0;
+
+            if ($(window).width() == 1920 && $(window).height() == 1080) {
+
+            } else if ($(window).height() != 1080) {
+                sizeWater = (($(window).height() * sizeWater) / 1080);
+                sizeFood = (($(window).height() * sizeFood) / 1080);
+            }
+
+            var barwater = $('.water');
+            var barfood = $('.food');
+
+            barwater.circleProgress({
+                value: 0.0,
+                size: sizeWater,
+                thickness: 4,
+                fill: {
+                    gradient: ['#05D5EA']
+                },
+            });
+            barfood.circleProgress({
+                value: 0.0,
+                size: sizeFood,
+                thickness: 4,
+                fill: {
+                    color: ['#FF5733']
+                },
+            });
+
+            window.addEventListener("message", function(event) {
+                if (event.data.action == "update") {
+                    barwater.circleProgress('value', event.data.water);
+                    barfood.circleProgress('value', event.data.food);
+                } else if (event.data.action == "hide") {
+                    $('.water').fadeOut();
+                    $('.food').fadeOut();
+                } else if (event.data.action == "show") {
+                    $('.water').fadeIn();
+                    $('.food').fadeIn();
+                }
+            });
+
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/circle-progress.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+{
+    "ButtonTransferHorse": "Transfer Horse",
+    "InputServerId": "ServerID of user for transfer",
+
+    "PressToOpen": "Press [~e~Space~q~] to access the stable",
+
+    "PlaceHolderInputName": "The name has to have a minimum of 3 letters",
+
+    "TitleMenuStables": "Stables",
+    "SubTitleMenuStables": "Choose an option",
+
+    "TitleMenuBuyHorses": "Horse Dealer",
+    "SubTitleMenuBuyHorses": "Choose a horse",
+
+    "TitleMenuHorses": "Horse Management",
+    "SubTitleMenuHorses": "Manage your horses",
+
+    "TitleMenuBuyCarts": "Carriage Dealer",
+    "SubTitleMenuBuyCarts": "Choose a carriage",
+
+    "TitleMenuCarts": "Carriage Management",
+    "SubTitleMenuCarts": "Manage your carriages",
+
+    "subTitleConfirmBuy": "The price of {0} is {1}$",
+    "ConfirmBuyButton": "Buy for {0}$",
+    "ConfirmBuyButtonDesc": "Buy horse",
+    "CancelBuyButton": "Cancel purchase",
+    "CancelBuyButtonDesc": "Go back",
+
+    "ButtonCart": "{0} for {1}$",
+    "ConfirmBuyComplements": "Buy complements for {0}$",
+
+    "StableIsFull": "Your stable is full, you can not buy it until you have a free slot",
+
+    "InputNameButton": "Buy Horse",
+    "InputNamePlaceholder": "Choose the name for your horse",
+    "InputCartNameButton": "Buy Carriage",
+    "InputCartNamePlaceholder": "Choose the name for your carriage",
+
+    "SuccessfulBuyComp": "You have bought the complement for {0}$",
+    "SuccessfulBuyHorse": "You have bought {0} for {1}$",
+    "NoMoney": "You do not have enough money",
+    "NoDefaultHorses": "You do not have any default horse",
+    "NoDefaultCarts": "You do not have any default carriage",
+    "HorseIsOcuppied": "Your horse is being used by someone else",
+    "CartIsOcuppied": "Your carriage is being used by someone else",
+
+    "ButtonDeleteHorse": "Free Horse",
+    "DeleteConfirmation": "Write your Horse's name",
+    "HorseDeleted": "Horse is free",
+
+    "ButtonDeleteCart": "Delete Carriage",
+    "CartDeleted": "You have deleted the carriage",
+    "ItemInBlacklist": "This item can't be saved in the vehicle yet",
+
+    "NoComplement": "No complement",
+    "SubMenuBuyComplements": "Complements Dealer",
+    "ButtonSetDefaultHorse": "Set it to default",
+    "PriceComplements": "Price: ",
+    "BuyButtonComplements": "Yes, Buy - {0} for {1}$",
+    "YouBuyedThisComp": "You already bought it",
+    "SetThisComp": "Equip {0} to this horse",
+
+    "HorseIsDead": "{0} has died recently, you need to wait {1} seconds",
+    "HorseDead": "{0} has died, you will need to wait {1} seconds to call it back",
+    "CartIsDead": "{0} has died recently, you need to wait {1} seconds",
+    "CartDead": "{0} has died, you will need to wait {1} seconds to call it back",
+
+    "ErrorQuantity": "Wrong quantity",
+    "WeaponsNotAllowed": "The weapons can't be saved in the vehicle yet",
+
+    "MaxWeightQuantity": "You have overpassed the maximum weight {0}/{1}",
+
+    //Horses
+    "A_C_Horse_AmericanPaint_Greyovero": "Greyovero",
+    "A_C_Horse_AmericanPaint_Overo": "Overo",
+    "A_C_Horse_AmericanPaint_SplashedWhite": "Splashed White",
+    "A_C_Horse_AmericanPaint_Tobiano": "Tobiano",
+
+    "A_C_Horse_AmericanStandardbred_Black": "Black",
+    "A_C_Horse_AmericanStandardbred_Buckskin": "Buckskin",
+    "A_C_Horse_AmericanStandardbred_PalominoDapple": "Palomino Dapple",
+    "A_C_Horse_AmericanStandardbred_SilverTailBuckskin": "Silver Tail Buckskin",
+
+    "A_C_Horse_Andalusian_DarkBay": "Dark Bay",
+    "A_C_Horse_Andalusian_Perlino": "Perlino",
+    "A_C_Horse_Andalusian_RoseGray": "Rose Gray",
+
+    "A_C_Horse_Appaloosa_BlackSnowflake": "Black Snowflake",
+    "A_C_Horse_Appaloosa_Blanket": "Blanket",
+    "A_C_Horse_Appaloosa_BrownLeopard": "Brown Leopard",
+    "A_C_Horse_Appaloosa_FewSpotted_PC": "Few Spotted",
+    "A_C_Horse_Appaloosa_Leopard": "Leopardo",
+    "A_C_Horse_Appaloosa_LeopardBlanket": "Leopard Blanket",
+
+    "A_C_Horse_Arabian_Black": "Black",
+    "A_C_Horse_Arabian_Grey": "Grey",
+    "A_C_Horse_Arabian_RedChestnut": "Red Chestnut",
+    "A_C_Horse_Arabian_RoseGreyBay": "Rose Grey Bay",
+    "A_C_Horse_Arabian_WarpedBrindle_PC": "Warped Brindle",
+    "A_C_Horse_Arabian_White": "White",
+
+    "A_C_Horse_Ardennes_BayRoan": "Bay Roan",
+    "A_C_Horse_Ardennes_IronGreyRoan": "Iron Grey Roan",
+    "A_C_Horse_Ardennes_StrawberryRoan": "Strawberry Roan",
+
+    "A_C_Horse_Belgian_BlondChestnut": "Blond Chestnut",
+    "A_C_Horse_Belgian_MealyChestnut": "Mealy Chestnut",
+
+    "A_C_Horse_DutchWarmblood_ChocolateRoan": "Chocolate Roan",
+    "A_C_Horse_DutchWarmblood_SealBrown": "Seal Brown",
+    "A_C_Horse_DutchWarmblood_SootyBuckskin": "Sooty Buckskin",
+
+    "A_C_Horse_HungarianHalfbred_DarkDappleGrey": "Dark Dapple Grey",
+    "A_C_Horse_HungarianHalfbred_FlaxenChestnut": "Flaxen Chestnut",
+    "A_C_Horse_HungarianHalfbred_LiverChestnut": "Liver Chestnut",
+    "A_C_Horse_HungarianHalfbred_PiebaldTobiano": "Piebald Tobiano",
+
+    "A_C_Horse_KentuckySaddle_Black": "Black",
+    "A_C_Horse_KentuckySaddle_ButterMilkBuckskin_PC": "Butter Milk Buckskin",
+    "A_C_Horse_KentuckySaddle_ChestnutPinto": "Chestnut Pinto",
+    "A_C_Horse_KentuckySaddle_Grey": "Grey",
+    "A_C_Horse_KentuckySaddle_SilverBay": "Silver Bay",
+
+    "A_C_Horse_Kladruber_Black": "Black",
+    "A_C_Horse_Kladruber_Silver": "Silver",
+    "A_C_Horse_Kladruber_Cremello": "Cremello",
+    "A_C_Horse_Kladruber_Grey": "Grey",
+    "A_C_Horse_Kladruber_DappleRoseGrey": "Dapple Rose Grey",
+    "A_C_Horse_Kladruber_White": "White",
+
+    "A_C_Horse_MissouriFoxTrotter_AmberChampagne": "Amber Champagne",
+    "A_C_Horse_MissouriFoxTrotter_SableChampagne": "Sable Champagne",
+    "A_C_Horse_MissouriFoxTrotter_SilverDapplePinto": "Silver Dapple Pinto",
+
+    "A_C_Horse_Morgan_Bay": "Bay",
+    "A_C_Horse_Morgan_BayRoan": "Bay Roan",
+    "A_C_Horse_Morgan_FlaxenChestnut": "Flaxen Chestnut",
+    "A_C_Horse_Morgan_LiverChestnut_PC": "Liver Chestnut",
+    "A_C_Horse_Morgan_Palomino": "Palomino",
+
+    "A_C_Horse_MP_Mangy_Backup": "Old Penco",
+
+    "A_C_Horse_Mustang_GoldenDun": "Golden Dun",
+    "A_C_Horse_Mustang_GrulloDun": "Grullo Dun",
+    "A_C_Horse_Mustang_TigerStripedBay": "Tiger Striped Bay",
+    "A_C_Horse_Mustang_WildBay": "Wild Bay",
+
+    "A_C_Horse_Nokota_BlueRoan": "Blue Roan",
+    "A_C_Horse_Nokota_ReverseDappleRoan": "Reverse Dapple Roan",
+    "A_C_Horse_Nokota_WhiteRoan": "White Roan",
+
+    "A_C_Horse_Shire_DarkBay": "Dark Bay",
+    "A_C_Horse_Shire_LightGrey": "Light Grey",
+    "A_C_Horse_Shire_RavenBlack": "Raven Black",
+
+    "A_C_Horse_SuffolkPunch_RedChestnut": "Red Chestnut",
+    "A_C_Horse_SuffolkPunch_Sorrel": "Sorrel",
+
+    "A_C_Horse_TennesseeWalker_BlackRabicano": "Black Rabicano",
+    "A_C_Horse_TennesseeWalker_Chestnut": "Chestnut",
+    "A_C_Horse_TennesseeWalker_DappleBay": "Dapple Bay",
+    "A_C_Horse_TennesseeWalker_FlaxenRoan": "Flaxen Roan",
+    "A_C_Horse_TennesseeWalker_MahoganyBay": "Mahogany Bay",
+    "A_C_Horse_TennesseeWalker_RedRoan": "Red Roan",
+    "A_C_Horse_TennesseeWalker_GoldPalomino_PC": "Gold Palomino",
+
+    "A_C_Horse_Thoroughbred_BlackChestnut": "Black Chestnut",
+    "A_C_Horse_Thoroughbred_BloodBay": "Blood Bay",
+    "A_C_Horse_Thoroughbred_Brindle": "Brindle",
+    "A_C_Horse_Thoroughbred_DappleGrey": "Dapple Grey",
+    "A_C_Horse_Thoroughbred_ReverseDappleBlack": "Reverse Dapple Black",
+
+    "A_C_Horse_Turkoman_DarkBay": "Dark Bay",
+    "A_C_Horse_Turkoman_Gold": "Gold",
+    "A_C_Horse_Turkoman_Silver": "Silver",
+
+    "A_C_Horse_Criollo_Dun": "Dun",
+    "A_C_Horse_Criollo_MarbleSabino": "Marble Sabino",
+    "A_C_Horse_Criollo_BayFrameOvero": "Bay Frame Overo",
+    "A_C_Horse_Criollo_BayBrindle": "Bay Brindle",
+    "A_C_Horse_Criollo_SorrelOvero": "Sorrel Overo",
+    "A_C_Horse_Criollo_BlueRoanOvero": "Blue Roan Overo",
+
+    "A_C_Horse_Breton_SteelGrey": "Steel Grey",
+    "A_C_Horse_Breton_MealyDapple": "Mealy Dapple",
+    "A_C_Horse_Breton_SealBrown": "Seal Brown",
+    "A_C_Horse_Breton_GrulloDun": "Grullo Dun",
+    "A_C_Horse_Breton_Sorrel": "Sorrel",
+    "A_C_Horse_Breton_RedRoan": "Red Roan",
+
+    "A_C_HORSE_NORFOLKROADSTER_BLACK": "Black",
+    "A_C_HORSE_NORFOLKROADSTER_SPECKLEDGREY": "Speckled Grey",
+    "A_C_HORSE_NORFOLKROADSTER_PIEBALDROAN": "Pieblad Roan",
+    "A_C_HORSE_NORFOLKROADSTER_ROSEGREY": "Rose Grey",
+    "A_C_HORSE_NORFOLKROADSTER_DAPPLEDBUCKSKIN": "Dapple Buckskin",
+    "A_C_HORSE_NORFOLKROADSTER_SPOTTEDTRICOLOR": "Spotted Tricolor",
+
+    "A_C_HorseMulePainted_01": "Zebra",
+
+    "A_C_HorseMule_01": "Mule",
+
+    "A_C_Donkey_01": "Donkey",
+
+    // Carts
+    "huntercart01": "Hunting cart",
+    "ArmySupplyWagon": "Army Supply Wagon",
+    "buggy01": "Buggy 1",
+    "buggy02": "Buggy 2",
+    "buggy03": "Buggy 3",
+    "cart01": "Cart 1",
+    "cart02": "Cart 2",
+    "cart03": "Cart 3",
+    "cart04": "Cart 4",
+    "cart05": "Cart 5",
+    "cart06": "Cart 6",
+    "cart07": "Cart 7",
+    "cart08": "Cart 8",
+    "chuckwagon000x": "Chuck Wagon 1",
+    "chuckwagon002x": "Chuck Wagon 2",
+    "gatchuck": "Gat Chuck 3",
+    "utilliwag": "Utillity Wagon 4",
+    "wagon02x": "Wagon 5",
+    "wagon03x": "Wagon 6",
+    "wagon04x": "Wagon 7",
+    "wagon05x": "Wagon 8",
+    "wagon06x": "Wagon 9",
+    "coach2": "Coach 1",
+    "coach3": "Coach 2",
+    "coach4": "Coach 3",
+    "coach5": "Coach 4",
+    "coach6": "Coach 5",
+    "coal_wagon": "Coal Wagon",
+    "logwagon": "Log Wagon 1",
+    "logwagon2": "Log Wagon 2",
+    "oilWagon01x": "Oil Wagon 1",
+    "oilWagon02x": "Oil Wagon 2",
+    "stagecoach001x": "Stage Coach 1",
+    "stagecoach002x": "Stage Coach 2",
+    "stagecoach003x": "Stage Coach 3",
+    "stagecoach004x": "Stage Coach 4",
+    "stagecoach005x": "Stage Coach 5",
+    "stagecoach006x": "Stage Coach 6",
+    "supplywagon": "Supply Wagon 1",
+    "supplywagon2": "Supply Wagon 2",
+    "wagonarmoured01x": "Armoured Wagon",
+    "wagonCircus01x": "Circus Wagon 1",
+    "wagonCircus02x": "Circus Wagon 2",
+    "wagondairy01x": "Dairy Wagon",
+    "wagondoc01x": "Doctor Wagon",
+    "wagonPrison01x": "Prison Wagon",
+    "wagontraveller01x": "Traveller Wagon",
+    "wagonwork01x": "Baker Wagon"
+}
