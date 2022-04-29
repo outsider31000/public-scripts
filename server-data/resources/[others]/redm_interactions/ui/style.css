@@ -1,0 +1,36 @@
+@font-face {
+	font-family: "Chinese Rocks";
+	src: url("chineserocks.ttf");
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: none;
+	font-family: "Chinese Rocks";
+	font-size: 1vw;
+}
+
+#interaction-picker {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translate(0, -50%);
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
+#interaction-picker-title {
+	text-align: center;
+	padding: 0.5vh 0.5vw;
+	background: rgba(0, 0, 0, 0.75);
+	font-size: 1.25vw;
+}
+
+.interaction.selected {
+	background: white;
+	color: black;
+}

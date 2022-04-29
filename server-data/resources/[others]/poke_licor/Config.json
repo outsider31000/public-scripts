@@ -1,0 +1,35 @@
+{
+  "defaultlang": "En",
+
+  "drunkTime": 120, //Drunk time in seconds
+
+  "ItemsToUse": [
+    {
+      "Name": "whisky",
+      "Label": "whisky",
+      "CoreType": 0, // -1 To disable core
+      "ObjectModel": "p_bottlejd01x",
+      "propId": "p_bottleJD01x_ph_r_hand", // You need iteminteractioninfo.meta file
+      "itemInteraction": "DRINK_BOTTLE@Bottle_Cylinder_D1-3_H30-5_Neck_A13_B2-5_TABLE_HOLD", // You need iteminteractioninfo.meta file
+      "AnimFxType": "PlayerDrunk01"
+    },
+    {
+      "Name": "moonshine",
+      "Label": "Moonshine",
+      "CoreType": 0, // -1 To disable core
+      "ObjectModel": "p_bottlejd01x",
+      "propId": "p_bottleJD01x_ph_r_hand", // You need iteminteractioninfo.meta file
+      "itemInteraction": "DRINK_BOTTLE@Bottle_Cylinder_D1-3_H30-5_Neck_A13_B2-5_TABLE_HOLD", // You need iteminteractioninfo.meta file
+      "AnimFxType": "PlayerDrunk01"
+    },
+    {
+      "Name": "beer",
+      "Label": "cerveza",
+      "CoreType": 0, // -1 To disable core
+      "ObjectModel": "p_bottlebeer01a",
+      "propId": "p_bottleBeer01x_PH_R_HAND", // You need iteminteractioninfo.meta file
+      "itemInteraction": "DRINK_BOTTLE@Bottle_Cylinder_D1-55_H18_Neck_A8_B1-8_TABLE_HOLD", // You need iteminteractioninfo.meta file
+      "AnimFxType": "PlayerDrunk01"
+    }
+  ]
+}
