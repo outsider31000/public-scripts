@@ -25,6 +25,7 @@ Complete premade VORP server free to use
 - download the `artifacts` see `server-files folder` for the `readme.md`
 - then start the FXServer.exe  and add tx admin to your server 
 - configure your server
+- [youtube video "not up to date"](https://www.youtube.com/watch?v=32xG3fqCj8Q&ab_channel=RIBSOSAY)
 
 that's all
 
