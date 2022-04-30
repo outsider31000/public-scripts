@@ -9,7 +9,7 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
         weapons = {
             ["Melee"] = {
                 ["Tradders Knife"] = {	
-                    hashname = "weapon_melee_knife_trader",
+                    hashname = "WEAPON_MELEE_KNIFE_TRADER",
                     price = 5,    
                 
                 },
@@ -37,7 +37,7 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                     price = 5.5,  
                 },
                 ["Collector Machete"] = {	
-                    hashname = "weapon_melee_machete_collector",   
+                    hashname = "WEAPON_MELEE_MACHETE_COLLECTOR",   
                     price = 5.5,  
                 },
             },
@@ -48,14 +48,14 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                --[[  ["Improved Bow"] = {	
-                    hashname = "weapon_bow_improved",   
+                    hashname = "WEAPON_BOW_IMPROVED",   
                     price = 15,  
                 
                 }, ]]
             },
             ["Rifles"] = {
                 ["Elephant Rifle"] = {	
-                    hashname = "weapon_rifle_elephant",  
+                    hashname = "WEAPON_RIFLE_ELEPHANT",  
                     price = 400,   
                 
                 },
@@ -153,7 +153,7 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Navy Revolver"] = {	
-                    hashname = "weapon_revolver_navy",    
+                    hashname = "WEAPON_REVOLVER_NAVY",    
                     price = 60, 
                 
                 },
@@ -172,22 +172,22 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Poison Bottle"] = {	
-                    hashname = "weapon_thrown_poisonbottle",    
+                    hashname = "WEAPON_THROWN_POISONBOTTLE",    
                     price = 15, 
                 
                 },
                 ["Bolas"] = {	
-                    hashname = "weapon_thrown_bolas",    
+                    hashname = "WEAPON_THROWN_BOLAS",    
                     price = 4, 
                 
                 },
                --[[  ["Dynamite"] = {	
-                    hashname = "weapon_thrown_dynamite",    
+                    hashname = "WEAPON_THROWN_DYNAMITE",    
                     price = 100, 
                 
                 },
                 ["Molotov"] = {	
-                    hashname = "weapon_thrown_molotov",    
+                    hashname = "WEAPON_THROWN_MOLOTOV",    
                     price = 100, 
                 
                 }, ]]
@@ -227,17 +227,17 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Reinforced Lasso"] = {	
-                    hashname = "weapon_lasso_reinforced",    
+                    hashname = "WEAPON_LASSO_REINFORCED",    
                     price = 10, 
                 
                 },
                 ["Improved Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars_improved",    
+                    hashname = "WEAPON_KIT_BINOCULARS_IMPROVED",    
                     price = 10, 
                 
                 },
                 ["Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars",    
+                    hashname = "WEAPON_kIT_BINOCULARS",    
                     price = 5, 
                 
                 },
@@ -252,17 +252,17 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Advanced Camera"] = {	
-                    hashname = "weapon_kit_camera_advanced",    
+                    hashname = "WEAPON_kIT_CAMERA_ADVANCED",    
                     price = 200, 
                 
                 },
                 ["Lantern"] = {	
-                    hashname = "weapon_melee_lantern",    
+                    hashname = "WEAPON_MELEE_LANTERN",    
                     price = 9.75, 
                 
                 },
                 ["Davy Lantern"] = {	
-                    hashname = "weapon_melee_davy_lantern",    
+                    hashname = "WEAPON_MELEE_DAVY_LANTERN",    
                     price = 15, 
                 
                 },
@@ -547,23 +547,23 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
         weapons = {
             ["Melee"] = {
                 ["Tradders Knife"] = {	
-                    hashname = "weapon_melee_knife_trader",
-                    price = 8,    
+                    hashname = "WEAPON_MELEE_KNIFE_TRADER",
+                    price = 5,    
                 
                 },
                 ["Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE",  
-                    price = 8,      
+                    price = 5,      
                 
                 },
                 ["JawBone Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE_JAWBONE",  
-                    price = 5,   
+                    price = 2,   
                 
                 },
                 ["Cleaver"] = {	
                     hashname = "WEAPON_MELEE_CLEAVER",    
-                    price = 3, 
+                    price = 2, 
                 
                 },
                 ["Hunter Hatchet"] = {	
@@ -572,34 +572,34 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Machete"] = {	
                     hashname = "WEAPON_MELEE_MACHETE",   
-                    price = 8,  
+                    price = 5.5,  
                 },
                 ["Collector Machete"] = {	
-                    hashname = "weapon_melee_machete_collector",   
-                    price = 10,  
+                    hashname = "WEAPON_MELEE_MACHETE_COLLECTOR",   
+                    price = 5.5,  
                 },
             },
             ["Bows"] = {
                 ["Bow"] = {	
                     hashname = "WEAPON_BOW",    
-                    price = 15, 
+                    price = 10.75, 
                 
                 },
                --[[  ["Improved Bow"] = {	
-                    hashname = "weapon_bow_improved",   
-                    price = 20,  
+                    hashname = "WEAPON_BOW_IMPROVED",   
+                    price = 15,  
                 
                 }, ]]
             },
-             ["Rifles"] = {
-               --[[ ["Elephant Rifle"] = {	
-                    hashname = "weapon_rifle_elephant",  
-                    price = 100,   
+            ["Rifles"] = {
+                ["Elephant Rifle"] = {	
+                    hashname = "WEAPON_RIFLE_ELEPHANT",  
+                    price = 400,   
                 
-                }, ]]
+                },
                 ["Varmint Rifle"] = {	
                     hashname = "WEAPON_RIFLE_VARMINT",   
-                    price = 50.75,  
+                    price = 30.75,  
                 
                 },
                 ["Rollingblock Rifle"] = {	
@@ -609,7 +609,7 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Carcano Rifle"] = {	
                     hashname = "WEAPON_SNIPERRIFLE_CARCANO",  
-                    price = 1000.50,   
+                    price = 1000,   
                 
                 },
                 ["Springfield Rifle"] = {	
@@ -617,31 +617,31 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                     price = 1000,    
                 
                 },
-                --[[ ["Boltaction Rifle"] = {	
+                ["Boltaction Rifle"] = {	
                     hashname = "WEAPON_RIFLE_BOLTACTION",    
-                    price = 100, 
+                    price = 250, 
                 
-                }, ]]
+                },
             },
             ["Repeaters"] = {
                 ["Winchester Repeater"] = {	
                     hashname = "WEAPON_REPEATER_WINCHESTER",   
-                    price = 145,  
+                    price = 70,  
                 
                 },
                 ["Henry Repeater"] = {	
                     hashname = "WEAPON_REPEATER_HENRY",    
-                    price = 130, 
+                    price = 75.5, 
                 
                 },
                 ["Evans Repeater"] = {	
                     hashname = "WEAPON_REPEATER_EVANS",    
-                    price = 125, 
+                    price = 80, 
                 
                 },
                 ["Carbine Repeater"] = {	
                     hashname = "WEAPON_REPEATER_CARBINE",    
-                    price = 100, 
+                    price = 50, 
                 
                 },
             },
@@ -656,43 +656,43 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                     price = 10000, 
                 
                 },
-                --[[ ["SemiAuto Pistol "] = {	
+               --[[  ["SemiAuto Pistol "] = {	
                     hashname = "WEAPON_PISTOL_SEMIAUTO",    
-                    price = 100, 
+                    price = 1000, 
                 
-                },
-                ["Mauser Pistol "] = {	
+                }, ]]
+             --[[    ["Mauser Pistol "] = {	
                     hashname = "WEAPON_PISTOL_MAUSER",    
-                    price = 100, 
+                    price = 1000, 
                 
                 },
-                ]]
+                 ]]
 
             },
             ["Revolvers"] = {
                 ["Schofield Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_SCHOFIELD",    
-                    price = 60, 
+                    price = 50, 
                 
                 },
                 ["Lemat Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_LEMAT",    
-                    price = 55, 
+                    price = 40, 
                 
                 },
                 ["Double Action Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_DOUBLEACTION",    
-                    price = 75, 
+                    price = 55, 
                 
                 },
                 ["Cattleman Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_CATTLEMAN",    
-                    price = 45, 
+                    price = 25, 
                 
                 },
                 ["Navy Revolver"] = {	
-                    hashname = "weapon_revolver_navy",    
-                    price = 80, 
+                    hashname = "WEAPON_REVOLVER_NAVY",    
+                    price = 60, 
                 
                 },
             },
@@ -701,52 +701,52 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
             -- only then will the throwable show up in their weapon wheel 
                 ["Tomahawk"] = {	
                     hashname = "WEAPON_THROWN_TOMAHAWK",    
-                    price = 8, 
+                    price = 10, 
                 
                 },
                 ["Knives"] = {	
                     hashname = "WEAPON_THROWN_THROWING_KNIVES",    
-                    price = 6, 
+                    price = 8, 
                 
                 },
                 ["Poison Bottle"] = {	
-                    hashname = "weapon_thrown_poisonbottle",    
-                    price = 100, 
+                    hashname = "WEAPON_THROWN_POISONBOTTLE",    
+                    price = 15, 
                 
                 },
                 ["Bolas"] = {	
-                    hashname = "weapon_thrown_bolas",    
-                    price = 10, 
+                    hashname = "WEAPON_THROWN_BOLAS",    
+                    price = 4, 
                 
                 },
                --[[  ["Dynamite"] = {	
-                    hashname = "weapon_thrown_dynamite",    
+                    hashname = "WEAPON_THROWN_DYNAMITE",    
                     price = 100, 
                 
                 },
                 ["Molotov"] = {	
-                    hashname = "weapon_thrown_molotov",    
+                    hashname = "WEAPON_THROWN_MOLOTOV",    
                     price = 100, 
                 
-                },
- ]]
+                }, ]]
+
             },
             ["Shotguns"] = {
-               --[[  ["Semiauto Shotgun"] = {	
+                --[[ ["Semiauto Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_SEMIAUTO",    
                     price = 100, 
                 
                 }, ]]
-               --[[  ["Sawedoff Shotgun"] = {	
+                ["Sawedoff Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_SAWEDOFF",    
-                    price = 100, 
+                    price = 250, 
                 
-                }, ]]
-                --[[ ["Repeating Shotgun"] = {	
+                },
+                ["Repeating Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_REPEATING",    
-                    price = 100, 
+                    price = 1000, 
                 
-                }, ]]
+                },
                 ["Pump Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_PUMP",    
                     price = 1000, 
@@ -754,54 +754,54 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Doublebarrel Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_DOUBLEBARREL",    
-                    price = 800, 
+                    price = 500, 
                 
                 },
             },
             ["Misc."] = {
                 ["Lasso"] = {	
                     hashname = "WEAPON_LASSO",    
-                    price = 10, 
+                    price = 2, 
                 
                 },
                 ["Reinforced Lasso"] = {	
-                    hashname = "weapon_lasso_reinforced",    
-                    price = 30, 
+                    hashname = "WEAPON_LASSO_REINFORCED",    
+                    price = 10, 
                 
                 },
                 ["Improved Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars_improved",    
-                    price = 100, 
+                    hashname = "WEAPON_KIT_BINOCULARS_IMPROVED",    
+                    price = 10, 
                 
                 },
                 ["Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars",    
-                    price = 20, 
+                    hashname = "WEAPON_kIT_BINOCULARS",    
+                    price = 5, 
                 
                 },
                 ["Fishing Rod"] = {	
                     hashname = "WEAPON_FISHINGROD",    
-                    price = 15, 
+                    price = 3, 
                 
                 },
                 ["Camera"] = {	
                     hashname = "WEAPON_KIT_CAMERA",    
-                    price = 25, 
+                    price = 40, 
                 
                 },
                 ["Advanced Camera"] = {	
-                    hashname = "weapon_kit_camera_advanced",    
-                    price = 250, 
+                    hashname = "WEAPON_kIT_CAMERA_ADVANCED",    
+                    price = 200, 
                 
                 },
                 ["Lantern"] = {	
-                    hashname = "weapon_melee_lantern",    
-                    price = 8, 
+                    hashname = "WEAPON_MELEE_LANTERN",    
+                    price = 9.75, 
                 
                 },
                 ["Davy Lantern"] = {	
-                    hashname = "weapon_melee_davy_lantern",    
-                    price = 20, 
+                    hashname = "WEAPON_MELEE_DAVY_LANTERN",    
+                    price = 15, 
                 
                 },
             },
@@ -1076,7 +1076,7 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
 
         }
     },
---[[     Rhodes = {	  
+  --[[  Rhodes = {	  
         Pos = {x=1323.04, y=-1321.56, z=77.889}, 
         blipsprite = 202506373,
         showblip = true,
@@ -1084,18 +1084,18 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
         weapons = {
             ["Melee"] = {
                 ["Tradders Knife"] = {	
-                    hashname = "weapon_melee_knife_trader",
-                    price = 4,    
+                    hashname = "WEAPON_MELEE_KNIFE_TRADER",
+                    price = 5,    
                 
                 },
                 ["Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE",  
-                    price = 2,      
+                    price = 5,      
                 
                 },
                 ["JawBone Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE_JAWBONE",  
-                    price = 4,   
+                    price = 2,   
                 
                 },
                 ["Cleaver"] = {	
@@ -1105,38 +1105,38 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Hunter Hatchet"] = {	
                     hashname = "WEAPON_MELEE_HATCHET_HUNTER",  
-                    price = 5,   
+                    price = 8,   
                 },
                 ["Machete"] = {	
                     hashname = "WEAPON_MELEE_MACHETE",   
-                    price = 6,  
+                    price = 5.5,  
                 },
                 ["Collector Machete"] = {	
-                    hashname = "weapon_melee_machete_collector",   
-                    price = 9.75,  
+                    hashname = "WEAPON_MELEE_MACHETE_COLLECTOR",   
+                    price = 5.5,  
                 },
             },
             ["Bows"] = {
                 ["Bow"] = {	
                     hashname = "WEAPON_BOW",    
-                    price = 10, 
+                    price = 10.75, 
                 
                 },
                 ["Improved Bow"] = {	
-                    hashname = "weapon_bow_improved",   
-                    price = 25,  
+                    hashname = "WEAPON_BOW_IMPROVED",   
+                    price = 15,  
                 
                 },
             },
             ["Rifles"] = {
                 ["Elephant Rifle"] = {	
-                    hashname = "weapon_rifle_elephant",  
-                    price = 100,   
+                    hashname = "WEAPON_RIFLE_ELEPHANT",  
+                    price = 400,   
                 
                 },
                 ["Varmint Rifle"] = {	
                     hashname = "WEAPON_RIFLE_VARMINT",   
-                    price = 50,  
+                    price = 30.75,  
                 
                 },
                 ["Rollingblock Rifle"] = {	
@@ -1146,17 +1146,17 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Carcano Rifle"] = {	
                     hashname = "WEAPON_SNIPERRIFLE_CARCANO",  
-                    price = 100,   
+                    price = 1000,   
                 
                 },
                 ["Springfield Rifle"] = {	
                     hashname = "WEAPON_RIFLE_SPRINGFIELD", 
-                    price = 100,    
+                    price = 1000,    
                 
                 },
                 ["Boltaction Rifle"] = {	
                     hashname = "WEAPON_RIFLE_BOLTACTION",    
-                    price = 100, 
+                    price = 250, 
                 
                 },
             },
@@ -1183,24 +1183,24 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
             },
             ["Pistols"] = {
-                ["SemiAuto Pistol "] = {	
-                    hashname = "WEAPON_PISTOL_SEMIAUTO",    
-                    price = 100, 
-                
-                },
-                ["Mauser Pistol "] = {	
-                    hashname = "WEAPON_PISTOL_MAUSER",    
-                    price = 100, 
-                
-                },
                 ["Volcanic Pistol "] = {	
                     hashname = "WEAPON_PISTOL_VOLCANIC",    
-                    price = 100, 
+                    price = 1000, 
                 
                 },
                 ["M1899 Pistol "] = {	
                     hashname = "WEAPON_PISTOL_M1899",    
-                    price = 100, 
+                    price = 10000, 
+                
+                },
+                ["SemiAuto Pistol "] = {	
+                    hashname = "WEAPON_PISTOL_SEMIAUTO",    
+                    price = 1000, 
+                
+                },
+                ["Mauser Pistol "] = {	
+                    hashname = "WEAPON_PISTOL_MAUSER",    
+                    price = 1000, 
                 
                 },
 
@@ -1218,16 +1218,16 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Double Action Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_DOUBLEACTION",    
-                    price = 65, 
+                    price = 55, 
                 
                 },
                 ["Cattleman Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_CATTLEMAN",    
-                    price = 28, 
+                    price = 25, 
                 
                 },
                 ["Navy Revolver"] = {	
-                    hashname = "weapon_revolver_navy",    
+                    hashname = "WEAPON_REVOLVER_NAVY",    
                     price = 60, 
                 
                 },
@@ -1246,23 +1246,23 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Poison Bottle"] = {	
-                    hashname = "weapon_thrown_poisonbottle",    
-                    price = 12, 
+                    hashname = "WEAPON_THROWN_POISONBOTTLE",    
+                    price = 15, 
                 
                 },
                 ["Bolas"] = {	
-                    hashname = "weapon_thrown_bolas",    
-                    price = 2, 
+                    hashname = "WEAPON_THROWN_BOLAS",    
+                    price = 4, 
                 
                 },
                 ["Dynamite"] = {	
-                    hashname = "weapon_thrown_dynamite",    
+                    hashname = "WEAPON_THROWN_DYNAMITE",    
                     price = 100, 
                 
                 },
                 ["Molotov"] = {	
-                    hashname = "weapon_thrown_molotov",    
-                    price = 15, 
+                    hashname = "WEAPON_THROWN_MOLOTOV",    
+                    price = 100, 
                 
                 },
 
@@ -1290,7 +1290,7 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Doublebarrel Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_DOUBLEBARREL",    
-                    price = 700, 
+                    price = 500, 
                 
                 },
             },
@@ -1301,17 +1301,17 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Reinforced Lasso"] = {	
-                    hashname = "weapon_lasso_reinforced",    
+                    hashname = "WEAPON_LASSO_REINFORCED",    
                     price = 10, 
                 
                 },
                 ["Improved Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars_improved",    
+                    hashname = "WEAPON_KIT_BINOCULARS_IMPROVED",    
                     price = 10, 
                 
                 },
                 ["Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars",    
+                    hashname = "WEAPON_kIT_BINOCULARS",    
                     price = 5, 
                 
                 },
@@ -1326,17 +1326,17 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 
                 },
                 ["Advanced Camera"] = {	
-                    hashname = "weapon_kit_camera_advanced",    
-                    price = 190, 
+                    hashname = "WEAPON_kIT_CAMERA_ADVANCED",    
+                    price = 200, 
                 
                 },
                 ["Lantern"] = {	
-                    hashname = "weapon_melee_lantern",    
+                    hashname = "WEAPON_MELEE_LANTERN",    
                     price = 9.75, 
                 
                 },
                 ["Davy Lantern"] = {	
-                    hashname = "weapon_melee_davy_lantern",    
+                    hashname = "WEAPON_MELEE_DAVY_LANTERN",    
                     price = 15, 
                 
                 },
@@ -1620,59 +1620,59 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
         weapons = {
             ["Melee"] = {
                 ["Tradders Knife"] = {	
-                    hashname = "weapon_melee_knife_trader",
-                    price = 100,    
+                    hashname = "WEAPON_MELEE_KNIFE_TRADER",
+                    price = 5,    
                 
                 },
                 ["Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE",  
-                    price = 100,      
+                    price = 5,      
                 
                 },
                 ["JawBone Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE_JAWBONE",  
-                    price = 100,   
+                    price = 2,   
                 
                 },
                 ["Cleaver"] = {	
                     hashname = "WEAPON_MELEE_CLEAVER",    
-                    price = 100, 
+                    price = 2, 
                 
                 },
                 ["Hunter Hatchet"] = {	
                     hashname = "WEAPON_MELEE_HATCHET_HUNTER",  
-                    price = 100,   
+                    price = 8,   
                 },
                 ["Machete"] = {	
                     hashname = "WEAPON_MELEE_MACHETE",   
-                    price = 100,  
+                    price = 5.5,  
                 },
                 ["Collector Machete"] = {	
-                    hashname = "weapon_melee_machete_collector",   
-                    price = 100,  
+                    hashname = "WEAPON_MELEE_MACHETE_COLLECTOR",   
+                    price = 5.5,  
                 },
             },
             ["Bows"] = {
                 ["Bow"] = {	
                     hashname = "WEAPON_BOW",    
-                    price = 100, 
+                    price = 10.75, 
                 
                 },
-              --[[   ["Improved Bow"] = {	
-                    hashname = "weapon_bow_improved",   
-                    price = 100,  
+               --[[  ["Improved Bow"] = {	
+                    hashname = "WEAPON_BOW_IMPROVED",   
+                    price = 15,  
                 
                 }, ]]
             },
             ["Rifles"] = {
                 ["Elephant Rifle"] = {	
-                    hashname = "weapon_rifle_elephant",  
-                    price = 500,   
+                    hashname = "WEAPON_RIFLE_ELEPHANT",  
+                    price = 400,   
                 
                 },
                 ["Varmint Rifle"] = {	
                     hashname = "WEAPON_RIFLE_VARMINT",   
-                    price = 100,  
+                    price = 30.75,  
                 
                 },
                 ["Rollingblock Rifle"] = {	
@@ -1692,43 +1692,33 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Boltaction Rifle"] = {	
                     hashname = "WEAPON_RIFLE_BOLTACTION",    
-                    price = 300, 
+                    price = 250, 
                 
                 },
             },
             ["Repeaters"] = {
                 ["Winchester Repeater"] = {	
                     hashname = "WEAPON_REPEATER_WINCHESTER",   
-                    price = 100,  
+                    price = 70,  
                 
                 },
                 ["Henry Repeater"] = {	
                     hashname = "WEAPON_REPEATER_HENRY",    
-                    price = 100, 
+                    price = 75.5, 
                 
                 },
                 ["Evans Repeater"] = {	
                     hashname = "WEAPON_REPEATER_EVANS",    
-                    price = 100, 
+                    price = 80, 
                 
                 },
                 ["Carbine Repeater"] = {	
                     hashname = "WEAPON_REPEATER_CARBINE",    
-                    price = 100, 
+                    price = 50, 
                 
                 },
             },
             ["Pistols"] = {
-                --[[ ["SemiAuto Pistol "] = {	
-                    hashname = "WEAPON_PISTOL_SEMIAUTO",    
-                    price = 100, 
-                
-                },
-                ["Mauser Pistol "] = {	
-                    hashname = "WEAPON_PISTOL_MAUSER",    
-                    price = 100, 
-                
-                }, ]]
                 ["Volcanic Pistol "] = {	
                     hashname = "WEAPON_PISTOL_VOLCANIC",    
                     price = 1000, 
@@ -1739,32 +1729,43 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                     price = 10000, 
                 
                 },
+               --[[  ["SemiAuto Pistol "] = {	
+                    hashname = "WEAPON_PISTOL_SEMIAUTO",    
+                    price = 1000, 
+                
+                }, ]]
+             --[[    ["Mauser Pistol "] = {	
+                    hashname = "WEAPON_PISTOL_MAUSER",    
+                    price = 1000, 
+                
+                },
+                 ]]
 
             },
             ["Revolvers"] = {
                 ["Schofield Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_SCHOFIELD",    
-                    price = 100, 
+                    price = 50, 
                 
                 },
                 ["Lemat Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_LEMAT",    
-                    price = 100, 
+                    price = 40, 
                 
                 },
                 ["Double Action Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_DOUBLEACTION",    
-                    price = 100, 
+                    price = 55, 
                 
                 },
                 ["Cattleman Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_CATTLEMAN",    
-                    price = 100, 
+                    price = 25, 
                 
                 },
                 ["Navy Revolver"] = {	
-                    hashname = "weapon_revolver_navy",    
-                    price = 100, 
+                    hashname = "WEAPON_REVOLVER_NAVY",    
+                    price = 60, 
                 
                 },
             },
@@ -1773,42 +1774,42 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
             -- only then will the throwable show up in their weapon wheel 
                 ["Tomahawk"] = {	
                     hashname = "WEAPON_THROWN_TOMAHAWK",    
-                    price = 100, 
+                    price = 10, 
                 
                 },
                 ["Knives"] = {	
                     hashname = "WEAPON_THROWN_THROWING_KNIVES",    
-                    price = 100, 
+                    price = 8, 
                 
                 },
                 ["Poison Bottle"] = {	
-                    hashname = "weapon_thrown_poisonbottle",    
-                    price = 100, 
+                    hashname = "WEAPON_THROWN_POISONBOTTLE",    
+                    price = 15, 
                 
                 },
                 ["Bolas"] = {	
-                    hashname = "weapon_thrown_bolas",    
+                    hashname = "WEAPON_THROWN_BOLAS",    
+                    price = 4, 
+                
+                },
+               --[[  ["Dynamite"] = {	
+                    hashname = "WEAPON_THROWN_DYNAMITE",    
                     price = 100, 
                 
                 },
-                ["Dynamite"] = {	
-                    hashname = "weapon_thrown_dynamite",    
+                ["Molotov"] = {	
+                    hashname = "WEAPON_THROWN_MOLOTOV",    
                     price = 100, 
                 
-                },
-              --[[   ["Molotov"] = {	
-                    hashname = "weapon_thrown_molotov",    
-                    price = 100, 
-                
-                },
- ]]
+                }, ]]
+
             },
             ["Shotguns"] = {
-                ["Semiauto Shotgun"] = {	
+                --[[ ["Semiauto Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_SEMIAUTO",    
-                    price = 1000, 
+                    price = 100, 
                 
-                },
+                }, ]]
                 ["Sawedoff Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_SAWEDOFF",    
                     price = 250, 
@@ -1826,54 +1827,54 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Doublebarrel Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_DOUBLEBARREL",    
-                    price = 700, 
+                    price = 500, 
                 
                 },
             },
             ["Misc."] = {
                 ["Lasso"] = {	
                     hashname = "WEAPON_LASSO",    
-                    price = 100, 
+                    price = 2, 
                 
                 },
                 ["Reinforced Lasso"] = {	
-                    hashname = "weapon_lasso_reinforced",    
-                    price = 100, 
+                    hashname = "WEAPON_LASSO_REINFORCED",    
+                    price = 10, 
                 
                 },
                 ["Improved Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars_improved",    
-                    price = 100, 
+                    hashname = "WEAPON_KIT_BINOCULARS_IMPROVED",    
+                    price = 10, 
                 
                 },
                 ["Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars",    
-                    price = 100, 
+                    hashname = "WEAPON_kIT_BINOCULARS",    
+                    price = 5, 
                 
                 },
                 ["Fishing Rod"] = {	
                     hashname = "WEAPON_FISHINGROD",    
-                    price = 100, 
+                    price = 3, 
                 
                 },
                 ["Camera"] = {	
                     hashname = "WEAPON_KIT_CAMERA",    
-                    price = 100, 
+                    price = 40, 
                 
                 },
                 ["Advanced Camera"] = {	
-                    hashname = "weapon_kit_camera_advanced",    
-                    price = 100, 
+                    hashname = "WEAPON_kIT_CAMERA_ADVANCED",    
+                    price = 200, 
                 
                 },
                 ["Lantern"] = {	
-                    hashname = "weapon_melee_lantern",    
-                    price = 100, 
+                    hashname = "WEAPON_MELEE_LANTERN",    
+                    price = 9.75, 
                 
                 },
                 ["Davy Lantern"] = {	
-                    hashname = "weapon_melee_davy_lantern",    
-                    price = 100, 
+                    hashname = "WEAPON_MELEE_DAVY_LANTERN",    
+                    price = 15, 
                 
                 },
             },
@@ -2156,59 +2157,59 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
         weapons = {
             ["Melee"] = {
                 ["Tradders Knife"] = {	
-                    hashname = "weapon_melee_knife_trader",
-                    price = 100,    
+                    hashname = "WEAPON_MELEE_KNIFE_TRADER",
+                    price = 5,    
                 
                 },
                 ["Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE",  
-                    price = 100,      
+                    price = 5,      
                 
                 },
                 ["JawBone Knife"] = {	
                     hashname = "WEAPON_MELEE_KNIFE_JAWBONE",  
-                    price = 100,   
+                    price = 2,   
                 
                 },
                 ["Cleaver"] = {	
                     hashname = "WEAPON_MELEE_CLEAVER",    
-                    price = 100, 
+                    price = 2, 
                 
                 },
                 ["Hunter Hatchet"] = {	
                     hashname = "WEAPON_MELEE_HATCHET_HUNTER",  
-                    price = 100,   
+                    price = 8,   
                 },
                 ["Machete"] = {	
                     hashname = "WEAPON_MELEE_MACHETE",   
-                    price = 100,  
+                    price = 5.5,  
                 },
                 ["Collector Machete"] = {	
-                    hashname = "weapon_melee_machete_collector",   
-                    price = 100,  
+                    hashname = "WEAPON_MELEE_MACHETE_COLLECTOR",   
+                    price = 5.5,  
                 },
             },
             ["Bows"] = {
                 ["Bow"] = {	
                     hashname = "WEAPON_BOW",    
-                    price = 100, 
+                    price = 10.75, 
                 
                 },
                --[[  ["Improved Bow"] = {	
-                    hashname = "weapon_bow_improved",   
-                    price = 100,  
+                    hashname = "WEAPON_BOW_IMPROVED",   
+                    price = 15,  
                 
                 }, ]]
             },
             ["Rifles"] = {
                 ["Elephant Rifle"] = {	
-                    hashname = "weapon_rifle_elephant",  
-                    price = 300,   
+                    hashname = "WEAPON_RIFLE_ELEPHANT",  
+                    price = 400,   
                 
                 },
                 ["Varmint Rifle"] = {	
                     hashname = "WEAPON_RIFLE_VARMINT",   
-                    price = 100,  
+                    price = 30.75,  
                 
                 },
                 ["Rollingblock Rifle"] = {	
@@ -2228,43 +2229,33 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Boltaction Rifle"] = {	
                     hashname = "WEAPON_RIFLE_BOLTACTION",    
-                    price = 200, 
+                    price = 250, 
                 
                 },
             },
             ["Repeaters"] = {
                 ["Winchester Repeater"] = {	
                     hashname = "WEAPON_REPEATER_WINCHESTER",   
-                    price = 100,  
+                    price = 70,  
                 
                 },
                 ["Henry Repeater"] = {	
                     hashname = "WEAPON_REPEATER_HENRY",    
-                    price = 100, 
+                    price = 75.5, 
                 
                 },
                 ["Evans Repeater"] = {	
                     hashname = "WEAPON_REPEATER_EVANS",    
-                    price = 100, 
+                    price = 80, 
                 
                 },
                 ["Carbine Repeater"] = {	
                     hashname = "WEAPON_REPEATER_CARBINE",    
-                    price = 100, 
+                    price = 50, 
                 
                 },
             },
             ["Pistols"] = {
-                --[[ ["SemiAuto Pistol "] = {	
-                    hashname = "WEAPON_PISTOL_SEMIAUTO",    
-                    price = 100, 
-                
-                },
-                ["Mauser Pistol "] = {	
-                    hashname = "WEAPON_PISTOL_MAUSER",    
-                    price = 100, 
-                
-                }, ]]
                 ["Volcanic Pistol "] = {	
                     hashname = "WEAPON_PISTOL_VOLCANIC",    
                     price = 1000, 
@@ -2275,32 +2266,43 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                     price = 10000, 
                 
                 },
+               --[[  ["SemiAuto Pistol "] = {	
+                    hashname = "WEAPON_PISTOL_SEMIAUTO",    
+                    price = 1000, 
+                
+                }, ]]
+             --[[    ["Mauser Pistol "] = {	
+                    hashname = "WEAPON_PISTOL_MAUSER",    
+                    price = 1000, 
+                
+                },
+                 ]]
 
             },
             ["Revolvers"] = {
                 ["Schofield Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_SCHOFIELD",    
-                    price = 100, 
+                    price = 50, 
                 
                 },
                 ["Lemat Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_LEMAT",    
-                    price = 100, 
+                    price = 40, 
                 
                 },
                 ["Double Action Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_DOUBLEACTION",    
-                    price = 100, 
+                    price = 55, 
                 
                 },
                 ["Cattleman Revolver"] = {	
                     hashname = "WEAPON_REVOLVER_CATTLEMAN",    
-                    price = 100, 
+                    price = 25, 
                 
                 },
                 ["Navy Revolver"] = {	
-                    hashname = "weapon_revolver_navy",    
-                    price = 100, 
+                    hashname = "WEAPON_REVOLVER_NAVY",    
+                    price = 60, 
                 
                 },
             },
@@ -2309,42 +2311,42 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
             -- only then will the throwable show up in their weapon wheel 
                 ["Tomahawk"] = {	
                     hashname = "WEAPON_THROWN_TOMAHAWK",    
-                    price = 100, 
+                    price = 10, 
                 
                 },
                 ["Knives"] = {	
                     hashname = "WEAPON_THROWN_THROWING_KNIVES",    
-                    price = 100, 
+                    price = 8, 
                 
                 },
                 ["Poison Bottle"] = {	
-                    hashname = "weapon_thrown_poisonbottle",    
-                    price = 100, 
+                    hashname = "WEAPON_THROWN_POISONBOTTLE",    
+                    price = 15, 
                 
                 },
                 ["Bolas"] = {	
-                    hashname = "weapon_thrown_bolas",    
-                    price = 100, 
+                    hashname = "WEAPON_THROWN_BOLAS",    
+                    price = 4, 
                 
                 },
-             --[[    ["Dynamite"] = {	
-                    hashname = "weapon_thrown_dynamite",    
+               --[[  ["Dynamite"] = {	
+                    hashname = "WEAPON_THROWN_DYNAMITE",    
                     price = 100, 
                 
                 },
                 ["Molotov"] = {	
-                    hashname = "weapon_thrown_molotov",    
+                    hashname = "WEAPON_THROWN_MOLOTOV",    
                     price = 100, 
                 
-                },
- ]]
+                }, ]]
+
             },
             ["Shotguns"] = {
-                ["Semiauto Shotgun"] = {	
+                --[[ ["Semiauto Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_SEMIAUTO",    
-                    price = 1000, 
+                    price = 100, 
                 
-                },
+                }, ]]
                 ["Sawedoff Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_SAWEDOFF",    
                     price = 250, 
@@ -2362,58 +2364,58 @@ Config5.weaponshops = { -- money for houses bought goes here. sellers have it to
                 },
                 ["Doublebarrel Shotgun"] = {	
                     hashname = "WEAPON_SHOTGUN_DOUBLEBARREL",    
-                    price = 700, 
+                    price = 500, 
                 
                 },
             },
             ["Misc."] = {
                 ["Lasso"] = {	
                     hashname = "WEAPON_LASSO",    
-                    price = 100, 
+                    price = 2, 
                 
                 },
                 ["Reinforced Lasso"] = {	
-                    hashname = "weapon_lasso_reinforced",    
-                    price = 100, 
+                    hashname = "WEAPON_LASSO_REINFORCED",    
+                    price = 10, 
                 
                 },
                 ["Improved Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars_improved",    
-                    price = 100, 
+                    hashname = "WEAPON_KIT_BINOCULARS_IMPROVED",    
+                    price = 10, 
                 
                 },
                 ["Binoculars"] = {	
-                    hashname = "weapon_kit_binoculars",    
-                    price = 100, 
+                    hashname = "WEAPON_kIT_BINOCULARS",    
+                    price = 5, 
                 
                 },
                 ["Fishing Rod"] = {	
                     hashname = "WEAPON_FISHINGROD",    
-                    price = 100, 
+                    price = 3, 
                 
                 },
                 ["Camera"] = {	
                     hashname = "WEAPON_KIT_CAMERA",    
-                    price = 100, 
+                    price = 40, 
                 
                 },
                 ["Advanced Camera"] = {	
-                    hashname = "weapon_kit_camera_advanced",    
-                    price = 100, 
+                    hashname = "WEAPON_kIT_CAMERA_ADVANCED",    
+                    price = 200, 
                 
                 },
                 ["Lantern"] = {	
-                    hashname = "weapon_melee_lantern",    
-                    price = 100, 
+                    hashname = "WEAPON_MELEE_LANTERN",    
+                    price = 9.75, 
                 
                 },
                 ["Davy Lantern"] = {	
-                    hashname = "weapon_melee_davy_lantern",    
-                    price = 100, 
+                    hashname = "WEAPON_MELEE_DAVY_LANTERN",    
+                    price = 15, 
                 
                 },
             },
-        }, 
+        },
         ammo = {
             ["Repeater"] = {
                 ["Repeater Ammo Normal"] = {

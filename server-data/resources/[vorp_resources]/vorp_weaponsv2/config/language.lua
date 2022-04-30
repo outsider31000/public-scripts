@@ -1,16 +1,16 @@
 Config2 = {}
 Config2.Language = {
-    ["presstobuy"] = "Press ~e~G~q~ To Customize Weapons",
-    ["presstocraft"] = "Press ~e~G~q~ To Craft Weapons",
-    ["presstoshop"] = "Press ~e~G~q~ For Weapons Shop",
+    ["presstobuy"] = "Customize Weapons",
+    ["presstocraft"] = " Craft Weapons",
+    ["presstoshop"] = "Gunsmith Shop",
     ["tooclose"] = "Someone is too close",
+    ["openmenu"] = "Open",
     ["rotateitem1"] = "Press ~e~1~q~ To Rotate Weapon",
     ["rotateitem2"] = "Press ~e~2~q~ To Rotate Weapon",
     ["rotateitem3"] = "Press ~e~3~q~ To Rotate Weapon",
     ["rotateitem4"] = "Press ~e~4~q~ To Rotate Weapon",
 
     ["dollar"] = " $",
-
 
 
 

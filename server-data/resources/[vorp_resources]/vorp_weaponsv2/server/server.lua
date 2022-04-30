@@ -283,7 +283,7 @@ AddEventHandler("syn_weapons:buyweapon", function(itemtobuy,itemprice,itemlabel)
                 local components =  {["nothing"] = 0}
                 if Config.syndual == false then
                     VorpInv.createWeapon(tonumber(_source), itemtobuy, ammo, components)
-                    TriggerClientEvent("vorp:TipRight", _source, Config2.Language.youboughta..itemtobuy..Config2.Language.fors..itemprice..Config2.Language.dollar, 3000)
+                    TriggerClientEvent("vorp:TipRight", _source, Config2.Language.youboughta..itemlabel..Config2.Language.fors..itemprice..Config2.Language.dollar, 3000)
                 else
                     VorpInv.createWeapon(tonumber(_source), itemtobuy, itemlabel)
                     TriggerClientEvent("vorp:TipRight", _source, Config2.Language.youboughta..itemlabel..Config2.Language.fors..Config2.Language.dollar..itemprice, 3000)

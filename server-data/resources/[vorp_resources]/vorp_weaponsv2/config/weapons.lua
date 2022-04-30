@@ -2,7 +2,7 @@ Config4 = {}
 Config4.weapons = {  
     ["Melee"] = {
         ["Tradders Knife"] = {	
-            hashname = "weapon_melee_knife_trader",   
+            hashname = "WEAPON_MELEE_KNIFE_TRADER",   
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
             jobonly = false, -- turn this to true if you want crafting this weapon to only be allowed for a certain job
             jobs = {"police","gunsmith"}, -- jobs that can craft this weapon is job only is true 
@@ -66,7 +66,7 @@ Config4.weapons = {
             }, 
         },
         ["Collector Machete"] = {	
-            hashname = "weapon_melee_machete_collector",    
+            hashname = "WEAPON_MELEE_MACHETE_COLLECTOR",    
             jobonly = true,
             jobs = {"police","gunsmith","rguns"},
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable 
@@ -91,7 +91,7 @@ Config4.weapons = {
             }, 
         },
         ["Improved Bow"] = {	
-            hashname = "weapon_bow_improved",   
+            hashname = "WEAPON_BOW_IMPROVED",   
             jobonly = false,
             jobs = {"police","gunsmith"},  
             letcraft = false, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -104,7 +104,7 @@ Config4.weapons = {
     },
     ["Rifles"] = {
         ["Elephant Rifle"] = {	
-            hashname = "weapon_rifle_elephant",   
+            hashname = "WEAPON_RIFLE_ELEPHANT",   
             jobonly = true,
             jobs = {"police","gunsmith","rguns"},
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable  
@@ -309,7 +309,7 @@ Config4.weapons = {
             }, 
         },
         ["Navy Revolver"] = {	
-            hashname = "weapon_revolver_navy",     
+            hashname = "WEAPON_REVOLVER_NAVY",     
             jobonly = true,
             jobs = {"police","gunsmith","rguns"},
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -346,7 +346,7 @@ Config4.weapons = {
             }, 
         },
         ["Poison Bottle"] = {	
-            hashname = "weapon_thrown_poisonbottle", 
+            hashname = "WEAPON_THROWN_POISONBOTTLE", 
             jobonly = false,
             jobs = {"police","gunsmith","rguns"},   
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -357,7 +357,7 @@ Config4.weapons = {
             }, 
         },
         ["Bolas"] = {	
-            hashname = "weapon_thrown_bolas",  
+            hashname = "WEAPON_THROWN_BOLAS",  
             jobonly = false,
             jobs = {"police","gunsmith","rguns"},   
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -368,7 +368,7 @@ Config4.weapons = {
             }, 
         },
         ["Dynamite"] = {	
-            hashname = "weapon_thrown_dynamite",  
+            hashname = "WEAPON_THROWN_DYNAMITE",  
             jobonly = true,
             jobs = {"police","gunsmith","rguns"},   
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -379,7 +379,7 @@ Config4.weapons = {
             }, 
         },
         ["Molotov"] = {	
-            hashname = "weapon_thrown_molotov",
+            hashname = "WEAPON_THROWN_MOLOTOV",
             jobonly = true,
             jobs = {"police","gunsmith","rguns"},    
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -461,7 +461,7 @@ Config4.weapons = {
             }, 
         },
         ["Reinforced Lasso"] = {	
-            hashname = "weapon_lasso_reinforced",   
+            hashname = "WEAPON_LASSO_REINFORCED",   
             jobonly = true,
             jobs = {"police","gunsmith","rguns"},
             letcraft = false, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable  
@@ -472,7 +472,7 @@ Config4.weapons = {
             }, 
         },
         ["Improved Binoculars"] = {	
-            hashname = "weapon_kit_binoculars_improved",  
+            hashname = "WEAPON_KIT_BINOCULARS_IMPROVED",  
             jobonly = true,
             jobs = {"police","gunsmith"},
             letcraft = false, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable   
@@ -483,7 +483,7 @@ Config4.weapons = {
             }, 
         },
         ["Binoculars"] = {	
-            hashname = "weapon_kit_binoculars",  
+            hashname = "WEAPON_kIT_BINOCULARS",  
             jobonly = true,
             jobs = {"police","gunsmith"}, 
             letcraft = false, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable  
@@ -516,7 +516,7 @@ Config4.weapons = {
             }, 
         },
         ["Advanced Camera"] = {	
-            hashname = "weapon_kit_camera_advanced",    
+            hashname = "WEAPON_kIT_CAMERA_ADVANCED",    
             jobonly = false,
             jobs = {"police","gunsmith"},
             letcraft = false, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable 
@@ -527,7 +527,7 @@ Config4.weapons = {
             }, 
         },
         ["Lantern"] = {	
-            hashname = "weapon_melee_lantern",     
+            hashname = "WEAPON_MELEE_LANTERN",     
             jobonly = false,
             jobs = {"police","gunsmith","rguns"},
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -538,7 +538,7 @@ Config4.weapons = {
             }, 
         },
         ["Davy Lantern"] = {	
-            hashname = "weapon_melee_davy_lantern",    
+            hashname = "WEAPON_MELEE_DAVY_LANTERN",    
             jobonly = false,
             jobs = {"police","gunsmith","rguns"}, 
             letcraft = true, -- show in crafting u can toggle this to false if you want to make this weapon sellable but not craftable
@@ -546,8 +546,7 @@ Config4.weapons = {
                 item1 = {name = "iron", amount = 12},
                 item2 = {name = "provision_coal", amount = 2},
                 item3 = {name = "Small_Leather", amount = 5},
-            }, 
+            },
         },
-    },
-   
+    },  
 }

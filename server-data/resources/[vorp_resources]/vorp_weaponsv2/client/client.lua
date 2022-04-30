@@ -27,10 +27,11 @@ local craftingwepitem2
 local inshop = false
 local currentshop
 local itemprice
-local catagory
+local category
 local itemtobuy
 local blip
 local label 
+local prompts = GetRandomIntInRange(0, 0xffffff)
 
 function RemoveWeaponComponentFromPed(ped, componentHash, weaponHash)
 	return Citizen.InvokeNative(0x19F70C4D80494FF8, ped, componentHash, weaponHash)
@@ -61,6 +62,22 @@ function LoadModel(model)
 
 	return true
 end
+
+Citizen.CreateThread(function()
+    Citizen.Wait(5000)
+    local str = Config2.Language.openmenu
+	openmenu = PromptRegisterBegin()
+	PromptSetControlAction(openmenu, Config.keys["G"])
+	str = CreateVarString(10, 'LITERAL_STRING', str)
+	PromptSetText(openmenu, str)
+	PromptSetEnabled(openmenu, 1)
+	PromptSetVisible(openmenu, 1)
+	PromptSetStandardMode(openmenu,1)
+    PromptSetHoldMode(openmenu, 1)
+	PromptSetGroup(openmenu, prompts)
+	Citizen.InvokeNative(0xC5F428EE08FA7F2C,openmenu,true)
+	PromptRegisterEnd(openmenu)
+end)
 
 RegisterNetEvent("vorp:SelectedCharacter")
 AddEventHandler("vorp:SelectedCharacter", function(charid)
@@ -387,10 +404,12 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         local sleep = true
 		if createdobject then
-			drawtext(Config2.Language.rotateitem1, 0.15, 0.40, 0.3, 0.3, true, 255, 255, 255, 255, true, 10000)
-			drawtext(Config2.Language.rotateitem2, 0.15, 0.43, 0.3, 0.3, true, 255, 255, 255, 255, true, 10000)
-			drawtext(Config2.Language.rotateitem3, 0.15, 0.46, 0.3, 0.3, true, 255, 255, 255, 255, true, 10000)
-			drawtext(Config2.Language.rotateitem4, 0.15, 0.49, 0.3, 0.3, true, 255, 255, 255, 255, true, 10000)
+			drawtext(Config2.Language.rotateitem1, 0.25, 0.74, 0.3, 0.2, true, 255, 255, 255, 255, true, 10000)
+			drawtext(Config2.Language.rotateitem2, 0.25, 0.76, 0.3, 0.2, true, 255, 255, 255, 255, true, 10000)
+			drawtext(Config2.Language.rotateitem3, 0.25, 0.78, 0.3, 0.2, true, 255, 255, 255, 255, true, 10000)
+			drawtext(Config2.Language.rotateitem4, 0.25, 0.80, 0.3, 0.2, true, 255, 255, 255, 255, true, 10000)
+			HasStreamedTextureDictLoaded("menu_textures")
+			DrawSprite("menu_textures", "translate_bg_1a", 0.25, 0.78, 0.14, 0.12, 1.8, 0, 0, 0, 255, 1)
 			if whenKeyJustPressed(Config.keys["1"]) then
 				h = h + 10
 				SetEntityRotation(wepobject,roll % 360,0,h % 360,1,true)
@@ -407,6 +426,7 @@ Citizen.CreateThread(function()
 				roll = roll + 20
 				SetEntityRotation(wepobject,roll % 360,0,h % 360,1,true)
 			end
+			
 		end
 	end
 end)
@@ -420,8 +440,11 @@ Citizen.CreateThread(function()
 				local dist = GetDistanceBetweenCoords(coords.x,coords.y,coords.z, v.Pos.x,v.Pos.y,v.Pos.z, 1)
 				if dist < 1 then
 					letSleep = false  
-        		   		DrawText3D(v.Pos.x, v.Pos.y, v.Pos.z, Config2.Language.presstobuy)
-						if whenKeyJustPressed(Config.keys["G"]) then
+        		   		--DrawText3D(v.Pos.x, v.Pos.y, v.Pos.z, Config2.Language.presstobuy)
+
+						   local label  = CreateVarString(10, 'LITERAL_STRING', Config2.Language.presstobuy)
+						   PromptSetActiveGroupThisFrame(prompts, label)
+						if Citizen.InvokeNative(0xC92AC953F0A982AE,openmenu) then
 							print(weaponid)
 							if Config.jobonly then
 								TriggerServerEvent("syn_weapons:getjob")
@@ -444,8 +467,8 @@ Citizen.CreateThread(function()
 													TriggerEvent("syn_weapons:wepcomp")
 													Citizen.Wait(1000)
 													WarMenu.OpenMenu('wepcomp')
-													TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
-													FreezeEntityPosition(PlayerPedId(),true)
+													--TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
+													--FreezeEntityPosition(PlayerPedId(),true)
 													createobject(v.Pos2.x, v.Pos2.y, v.Pos2.z,globalhash)
 												else
 													TriggerEvent("vorp:TipBottom", Config2.Language.pleaserequip, 4000)
@@ -474,8 +497,8 @@ Citizen.CreateThread(function()
 												TriggerEvent("syn_weapons:wepcomp")
 												Citizen.Wait(1000)
 												WarMenu.OpenMenu('wepcomp')
-												TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
-												FreezeEntityPosition(PlayerPedId(),true)
+												--TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
+												--FreezeEntityPosition(PlayerPedId(),true)
 												createobject(v.Pos2.x, v.Pos2.y, v.Pos2.z,globalhash)
 											else
 												TriggerEvent("vorp:TipBottom", Config2.Language.pleaserequip, 4000)
@@ -505,16 +528,19 @@ Citizen.CreateThread(function()
 				local dist = GetDistanceBetweenCoords(coords.x,coords.y,coords.z, v.Pos.x,v.Pos.y,v.Pos.z, 1)
 				if dist < 1 then
 					letSleep = false  
-        		   	DrawText3D(v.Pos.x, v.Pos.y, v.Pos.z, Config2.Language.presstocraft)
-					if whenKeyJustPressed(Config.keys["G"]) then
+        		   --	DrawText3D(v.Pos.x, v.Pos.y, v.Pos.z, Config2.Language.presstocraft)
+					   local label  = CreateVarString(10, 'LITERAL_STRING', Config2.Language.presstocraft)
+					   PromptSetActiveGroupThisFrame(prompts, label)
+					if Citizen.InvokeNative(0xC92AC953F0A982AE,openmenu) then
+					
 						if Config.jobonly then
 							TriggerServerEvent("syn_weapons:getjob")
 							Citizen.Wait(400)
 							if jobcheck(Config.job, playerjob) and playerrank >= Config.jobrankcrafting then
 								crafting = true
 								WarMenu.OpenMenu('crafting')
-								TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
-								FreezeEntityPosition(PlayerPedId(),true)
+								--TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
+								--FreezeEntityPosition(PlayerPedId(),true)
 							else
 								TriggerEvent("vorp:TipBottom", Config2.Language.wrongjobcrafting, 4000)
 							end
@@ -523,8 +549,8 @@ Citizen.CreateThread(function()
 							Citizen.Wait(400)
 							crafting = true
 							WarMenu.OpenMenu('crafting')
-							TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
-							FreezeEntityPosition(PlayerPedId(),true)
+							--TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
+							--FreezeEntityPosition(PlayerPedId(),true)
 						end	
 					end
         		end
@@ -547,13 +573,16 @@ Citizen.CreateThread(function()
 					local dist = GetDistanceBetweenCoords(coords.x,coords.y,coords.z, v.Pos.x,v.Pos.y,v.Pos.z, 1)
 					if dist < 2 then
 						letSleep = false  
-   	     		   		DrawText3D(v.Pos.x, v.Pos.y, v.Pos.z, Config2.Language.presstoshop)
-						if whenKeyJustPressed(Config.keys["G"]) then
+   	     		   		--DrawText3D(v.Pos.x, v.Pos.y, v.Pos.z, Config2.Language.presstoshop)
+							local label  = CreateVarString(10, 'LITERAL_STRING', Config2.Language.presstoshop)
+							PromptSetActiveGroupThisFrame(prompts, label)
+						if Citizen.InvokeNative(0xC92AC953F0A982AE,openmenu) then
+						
 							currentshop = k
 							inshop = true
 							WarMenu.OpenMenu('shop')
-							TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
-							FreezeEntityPosition(PlayerPedId(),true)
+							--TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)
+							--FreezeEntityPosition(PlayerPedId(),true)
 						end
 					end
 					
@@ -675,7 +704,7 @@ Citizen.CreateThread( function()
 				if k == currentshop then 
 					for l,m in pairs(v.weapons) do 
 						if WarMenu.MenuButton(""..l.."","weaponz2") then
-							catagory = l
+							category = l
 						end  
 					end
 				end
@@ -685,7 +714,7 @@ Citizen.CreateThread( function()
 				if k == currentshop then 
 					for l,m in pairs(v.ammo) do 
 						if WarMenu.MenuButton(""..l.."","ammoz2") then
-							catagory = l
+							category = l
 						end  
 					end
 				end
@@ -694,7 +723,7 @@ Citizen.CreateThread( function()
 			for k,v in pairs(Config5.weaponshops) do 
 				if k == currentshop then 
 					for l,m in pairs(v.ammo) do 
-						if catagory == l then 
+						if category == l then 
 							for j,d in pairs(m) do
 								if WarMenu.MenuButton(""..j.." / "..Config2.Language.cost..d.price..Config2.Language.dollar,"shop") then
 									FreezeEntityPosition(PlayerPedId(),false)
@@ -707,7 +736,7 @@ Citizen.CreateThread( function()
 											itemtobuy = d.item
 											TriggerServerEvent("syn_weapons:buyammo",itemtobuy,itemprice,count)
 										else
-										  TriggerEvent("vorp:TipBottom", Config.Language.invalidamount, 4000)
+										  TriggerEvent("vorp:TipBottom", Config2.Language.invalidamount, 4000)
 										end
 									end)
 								end 
@@ -719,21 +748,21 @@ Citizen.CreateThread( function()
 		elseif WarMenu.IsMenuOpened('weaponz2') then
 			for k,v in pairs(Config5.weaponshops) do 
 				if k == currentshop then 
-					for l,m in pairs(v.weapons) do 
-						if catagory == l then 
-							for j,d in pairs(m) do
+					for l,m in pairs(v.weapons) do     ----- more readable added weapon name instead of hash name. 
+						if category == l then 
+							for weapon,weaponData in pairs(m) do
 								if Config.syndual then 
-									if WarMenu.MenuButton(""..j.." / "..Config2.Language.cost..Config2.Language.dollar..d.price,"shop") then
-										itemprice = d.price
-										itemlabel = j
-										itemtobuy = d.hashname
+									if WarMenu.MenuButton(""..weapon.." / "..Config2.Language.cost..Config2.Language.dollar..weaponData.price,"shop") then
+										itemprice = weaponData.price
+										itemlabel = weapon
+										itemtobuy = weaponData.hashname
 										TriggerServerEvent("syn_weapons:buyweapon",itemtobuy,itemprice,itemlabel)
 									end 
 								else
-									if WarMenu.MenuButton(""..j.." / "..Config2.Language.cost..d.price..Config2.Language.dollar,"shop") then
-										itemlabel = 0
-										itemprice = d.price
-										itemtobuy = d.hashname
+									if WarMenu.MenuButton(""..weapon.." / "..Config2.Language.cost..weaponData.price..Config2.Language.dollar,"shop") then
+										itemlabel = weapon
+										itemprice = weaponData.price
+										itemtobuy = weaponData.hashname
 										TriggerServerEvent("syn_weapons:buyweapon",itemtobuy,itemprice,itemlabel)
 									end 
 								end
@@ -2767,6 +2796,7 @@ end)
 
 
 function whenKeyJustPressed(key)
+	
     if Citizen.InvokeNative(0x580417101DDB492F, 0, key) then
         return true
     else
