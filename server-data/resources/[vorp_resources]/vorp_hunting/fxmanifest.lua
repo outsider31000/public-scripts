@@ -8,10 +8,15 @@ version 'alpha'
 
 client_script {
     'config.lua',
-    'client/main.lua'    
+    'client/main.lua',
+    'client/main.js' 
 }
 
 server_script {
     'config.lua',
     'server/main.lua'    
+}
+
+exports {
+	'DataViewNativeGetEventData'
 }
