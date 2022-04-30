@@ -1,14 +1,15 @@
-local LastCoordsInCache = {}
-        
+LastCoordsInCache = {}
+
 RegisterNetEvent('vorp:saveLastCoords', function(lastCoords, lastHeading)
     local source = source
     local identifier = GetSteamID(source)
 
-    LastCoordsInCache[source] = {lastCoords, lastHeading}
-    
-    local characterCoords = json.encode({x = math.floor(lastCoords.x)+0.0, y = math.floor(lastCoords.y)+0.0, z = math.floor(lastCoords.z)+0.0, heading = math.floor(lastHeading)+0.0})
+    LastCoordsInCache[source] = { lastCoords, lastHeading }
 
-    _users[identifier].GetUsedCharacter().Coords(characterCoords)
+    local characterCoords = json.encode({ x = math.floor(lastCoords.x) + 0.0, y = math.floor(lastCoords.y) + 0.0, z = math.floor(lastCoords.z) + 0.0, heading = math.floor(lastHeading) + 0.0 })
+    if _users[identifier] then
+        _users[identifier].GetUsedCharacter().Coords(characterCoords)
+    end
 end)
 
 RegisterNetEvent('vorp:ImDead', function(isDead)
