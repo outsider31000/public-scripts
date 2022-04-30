@@ -1,0 +1,16 @@
+﻿{
+  "PressToBuy": "House for sale\n~COLOR_GREEN~{0}$~q~\nPress ~e~[ENTER]~q~ to buy",
+  "PressToBuyRoom": "Room for sale\n~COLOR_GREEN~{0}$~q~\nPress ~e~[ENTER]~q~ to buy",
+  "NoMoney": "You don't have enough money,",
+  "YouBoughtHouse": "You now own this property",
+  "PressToOpen": "~e~Door closed\n~q~Press ~e~[ENTER]~q~ to open",
+  "PressToClose": "~COLOR_GREEN~Open door\n~q~Press ~e~[ENTER]~q~ to close",
+  "PressToEnter": "~COLOR_GREEN~Log in\n~q~Press ~e~[ENTER]~q~ to enter",
+  "PressToLeave": "Press [ENTER] to exit",
+  "OpenInventory": "Press ~e~[ENTER]~q~ for inventory",
+  "ErrorQuantity": "Wrong quantity",
+  "WeaponsNotAllowed": "Weapons cannot yet be stored in the vehicle's inventory",
+  "ItemInBlacklist": "This item cannot be transferred",
+  "MaxWeightQuantity": "You exceed the maximum house weight {0}/{1}"
+
+}

@@ -1,0 +1,16 @@
+﻿{
+  "PressToBuy": "Casa in vendita\n~COLOR_GREEN~{0}$~q~\nPremi ~e~[INVIO]~q~ per comprarla",
+  "PressToBuyRoom": "Stanza in vendita\n~COLOR_GREEN~{0}$~q~\nPremi ~e~[INVIO]~q~ per comprarla",
+  "NoMoney": "Non hai abbastanza soldi,",
+  "YouBoughtHouse": "Ora possiedi questa proprietà",
+  "PressToOpen": "~e~Porta chiusa\n~q~Premi ~e~[INVIO]~q~ per aprirla",
+  "PressToClose": "~COLOR_GREEN~Apri porta\n~q~Premi ~e~[INVIO]~q~ per chiuderla",
+  "PressToEnter": "~COLOR_GREEN~Log in\n~q~Premi ~e~[INVIO]~q~ per entrare",
+  "PressToLeave": "Premi [INVIO] per uscire",
+  "OpenInventory": "Premi ~e~[INVIO]~q~ per aprire l'inventario",
+  "ErrorQuantity": "Quantità errata",
+  "WeaponsNotAllowed": "Le armi non possono ancora essere inserite nell'inventario del veicolo",
+  "ItemInBlacklist": "Questo articolo non può essere trasferito",
+  "MaxWeightQuantity": "Supera il peso massimo della casa {0}/{1}"
+
+}

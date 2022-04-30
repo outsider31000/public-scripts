@@ -1,4 +1,6 @@
-<h1 align='center'><a href='https://overextended.github.io/oxmysql/'>Documentation</a></h2>
+
+
+[ORIGINAL SOURCE](https://github.com/overextended/oxmysql/)
 
 
 ### Introduction
@@ -32,14 +34,14 @@ end)
 ```
 ```js
 // JS
-exports.oxmysql.query('SELECT * from users WHERE identifier = ?', [identifier], (result) => {
+exports.ghmattimysql.query('SELECT * from users WHERE identifier = ?', [identifier], (result) => {
     // callback response
 })
 (async() => {
-    const result = await exports.oxmysql.query_async('SELECT * from users WHERE identifier = ?', [identifier])
+    const result = await exports.ghmattimysql.query_async('SELECT * from users WHERE identifier = ?', [identifier])
     // await a promise to resolve
 })()
-exports.oxmysql.query_async('SELECT * from users WHERE identifier = ?', [identifier]).then((result) => {
+exports.ghmattimysql.query_async('SELECT * from users WHERE identifier = ?', [identifier]).then((result) => {
     // utilise .then to resolve a promise like a callback
 })
 ```
