@@ -11,4 +11,5 @@ client_scripts {
 	'config.lua',
 	'warmenu.lua',
 	'client/client.lua',
+	--'client/bt-menu.lua'
 }

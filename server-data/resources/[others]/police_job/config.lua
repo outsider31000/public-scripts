@@ -1,26 +1,26 @@
 Config = {}
 
 OffDutyJobs = {
-    'offpolice',
+    'offranger',
     'offmarshal',
 
 }
 
 Marshal_Jobs = {
-    'police',
+    'ranger',
     'marshal',
 
 }
 
-Config.MaxJailDistance = 200
-Config.IncreaseSentence = false
+Config.MaxJailDistance = 60
+Config.IncreaseSentence = true
 Config.IncreaseTime = 2
-Config.MaxCops = 40
+Config.MaxCops = 12
 
-Config.ExitFromJail = { ["x"] = -169.14, ["y"] = 629.3, ["z"] = 113.0 }
+Config.ExitFromJail = { ["x"] = 2670.49, ["y"] = -1545.06, ["z"] = 45.97 }
 
 Jail = {
-    { x = 3359.64, y = -668.57, z = 44.78 }
+    { x = 3359.64, y = -668.57, z = 45.78 }
 }
 
 Marshal_DutyWeapons = {

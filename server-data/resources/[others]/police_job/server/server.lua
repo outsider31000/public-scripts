@@ -7,14 +7,6 @@ TriggerEvent("getCore",function(core)
     VorpCore = core
 end)
 
-
-RegisterServerEvent("lawmen:checkmyjob")
-AddEventHandler("lawmen:checkmyjob", function()
-    local player = VorpCore.getUser(source).getUsedCharacter
-    local pJob = player.job
-    TriggerClientEvent("lawmen:thejob",source,pJob)
-end)
-
 RegisterServerEvent("lawmen:goondutysv")
 AddEventHandler("lawmen:goondutysv", function(ptable)
     local cops = 0
@@ -26,13 +18,14 @@ AddEventHandler("lawmen:goondutysv", function(ptable)
 
         for k,v in pairs(Marshal_Jobs) do
             if pJob == v then
-                if (pJob == 'police' or pJob == 'wepolice' or pJob == 'nhpolice' or pJob == 'lepolice' or pJob == 'marshal' or pJob == 'pinkerton' or pJob == 'ranger') then
+                if (pJob == 'ranger' or pJob == 'weranger' or pJob == 'nhranger' or pJob == 'leranger' or pJob == 'marshal' or pJob == 'pinkerton' or pJob == 'ranger') then
                     cops = cops + 1
                 end
             end
         end
     end
 
+    print("cops online server", cops)
 
     for k,v in pairs(OffDutyJobs) do
         local _source = source
@@ -41,43 +34,25 @@ AddEventHandler("lawmen:goondutysv", function(ptable)
         local grade = player.jobGrade
         local playername = player.firstname.. ' ' ..player.lastname
         if cops < Config.MaxCops then
-            if job == 'offpolice' then
-                player.setJob('police', grade)
-                local message = playername.. " Went On Duty as police " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
+            if job == 'offranger' then
+                player.setJob('ranger', grade)
+                local message = playername.. " Went On Duty as ranger " ..grade
+                TriggerEvent('Log', webhook, "ranger Duty", message, 255)
                 TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
-            elseif job == 'offwepolice' then
-                player.setJob('wepolice', grade)
-                local message = playername.. " Went On Duty as wepolice " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
-                TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
-            elseif job == 'offnhpolice' then
-                player.setJob('nhpolice', grade)
-                local message = playername.. " Went On Duty as nhpolice " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
-                TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
-            elseif job == 'offlepolice' then
-                player.setJob('lepolice', grade)
-                local message = playername.. " Went On Duty as lepolice " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
-                TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
+                TriggerClientEvent("lawmen:onduty", _source, true)
             elseif job == 'offmarshal' then
                 player.setJob('marshal', grade)
                 local message = playername.. " Went On Duty as marshal " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
+                TriggerEvent('Log', webhook, "ranger Duty", message, 255)
                 TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
+                TriggerClientEvent("lawmen:onduty", _source, true)
             elseif job == 'offpinkerton' then
                 player.setJob('pinkerton', grade)
                 local message = playername.. " Went On Duty as pinkerton " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
+                TriggerEvent('Log', webhook, "ranger Duty", message, 255)
                 TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
-            elseif job == 'offranger' then
-                player.setJob('ranger', grade)
-                local message = playername.. " Went On Duty as ranger " ..grade
-                TriggerEvent('Log', webhook, "Police Duty", message, 255)
-                TriggerClientEvent('vorp:TipRight', _source, 'You are now On Duty')
+                TriggerClientEvent("lawmen:onduty", _source, true)
             end
-            TriggerClientEvent("lawmen:onduty", _source, true)
         else
             TriggerClientEvent("vorp:TipRight", _source, "You cannot take duty. Max cops online: "..Config.MaxCops, 2000)
         end
@@ -96,7 +71,7 @@ AddEventHandler("lawmen:gooffdutysv", function()
         if v == job then
             player.setJob('off'..job, grade)
             local message = playername.. " Went Off Duty as off"..job.. ' ' ..grade
-            TriggerEvent('Log', webhook, "Police Duty", message, 255)
+            TriggerEvent('Log', webhook, "ranger Duty", message, 255)
             TriggerClientEvent('vorp:TipRight', _source, 'You are now Off Duty')
             TriggerClientEvent("lawmen:offdutycl", _source, false)
         end
@@ -108,10 +83,11 @@ RegisterServerEvent('lawmen:FinePlayer')
 AddEventHandler('lawmen:FinePlayer', function(player, amount)
     local _source = source
     local User = VorpCore.getUser(player)
-    local Police = VorpCore.getUser(_source)
+    local ranger = VorpCore.getUser(_source)
     local Target = User.getUsedCharacter
-    local pCharacter = Police.getUsedCharacter
+    local pCharacter = ranger.getUsedCharacter
     local fine = tonumber(amount)
+    print("fine", fine)
 
     for i,v in pairs(Marshal_Jobs) do
         if v == pCharacter.job then
@@ -132,18 +108,7 @@ AddEventHandler('lawmen:FinePlayer', function(player, amount)
     end
 end)
 
-RegisterServerEvent('lawmen:savetime')
-AddEventHandler('lawmen:savetime', function(player, amount)
-    local _source = source
-    local User = VorpCore.getUser(_source)
-    local Character = User.getUsedCharacter
-    local identifier = Character.identifier
-    local characterid = Character.charIdentifier
-    local time_s = --[[ getTime() + ]] amount
-    exports.ghmattimysql:executeSync('UPDATE jail SET time_s =@time_s WHERE identifier = @identifier AND characterid = @characterid ', { time_s =time_s, identifier = identifier, characterid = characterid})
-end)
-
-RegisterServerEvent('lawmen:JailPlayer')
+--[[RegisterServerEvent('lawmen:JailPlayer')
 AddEventHandler('lawmen:JailPlayer', function(player, amount)
     local _source = source
     local user_name = GetPlayerName(player)
@@ -181,7 +146,7 @@ AddEventHandler("lawmen:unjail", function(target_id)
             TriggerClientEvent("vorp:TipRight", _source, 'An error occurred in that query', 5000)
         end
     end)
-end)
+end)]]
 
 RegisterServerEvent('lawmen:GetID')
 AddEventHandler('lawmen:GetID', function(player)
@@ -248,12 +213,12 @@ AddEventHandler('lawmen:drag', function(target)
         if user.job == v then
             TriggerClientEvent('lawmen:drag', target, _source)
         else
-            print(('lawmen: %s attempted to drag a player (is not police)!'):format(GetPlayerName(_source)))
+            print(('lawmen: %s attempted to drag a player (is not ranger)!'):format(GetPlayerName(_source)))
         end
     end
 end)
 
-RegisterServerEvent("lawmen:check_jail")
+--[[RegisterServerEvent("lawmen:check_jail")
 AddEventHandler("lawmen:check_jail", function()
     local _source = source
 
@@ -269,11 +234,13 @@ AddEventHandler("lawmen:check_jail", function()
 
         if result[1] ~= nil then
             local time = result[1]["time_s"]
+            local id = result[1]["id"]
+            exports.ghmattimysql:execute("UPDATE jail SET time = @time WHERE id = @id", {["@time"] = getTime() + time, ["@id"] = id})
             time = tonumber(time)
             TriggerClientEvent("lawmen:JailPlayer", _source, time)
         end
     end)
-end)
+end)]]
 
 RegisterServerEvent("lawmen:guncabinet")
 AddEventHandler("lawmen:guncabinet", function(weapon, ammoList, compList)
@@ -288,15 +255,15 @@ end
 RegisterServerEvent('lawmen:lockpick:break')
 AddEventHandler('lawmen:lockpick:break', function()
     local _source = source
-	local user = VorpCore.getUser(_source).getUsedCharacter
-	VorpInv.subItem(_source, "lockpick", 1)
-	TriggerClientEvent("vorp:TipBottom", _source, "Gosh Darnit!, My Lockpick broke!", 2000)	
+    local user = VorpCore.getUser(_source).getUsedCharacter
+    VorpInv.subItem(_source, "lockpick", 1)
+    TriggerClientEvent("vorp:TipBottom", _source, "Gosh Darnit!, My Lockpick broke!", 2000) 
 end)
 
---[[ VORP_INV.RegisterUsableItem("lockpick", function(data)
+VORP_INV.RegisterUsableItem("lockpick", function(data)
     VORP_INV.CloseInv(data.source)
     TriggerClientEvent("lawmen:lockpick", data.source)
-end) ]]
+end)
 
 VORP_INV.RegisterUsableItem("handcuffs", function(data)
     VORP_INV.CloseInv(data.source)

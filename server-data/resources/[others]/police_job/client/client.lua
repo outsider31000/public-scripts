@@ -8,51 +8,29 @@ local isboss = false
 local societyMenuOpened = false
 local playerJob
 local isDead = IsPedDeadOrDying(PlayerPedId())
-local policeOnDuty = true
-local pjob
+
 local dragStatus = {}
 dragStatus.isDragged = false
 
 local jailed = false
 
 
-Citizen.CreateThread(function()
+--[[ Citizen.CreateThread(function() -- custom edit 
     while true do
-        Wait(1)
-        local sleep = true 
-        for i,v in pairs(Marshal_Jobs) do
-            if v == pjob then
-                sleep = false 
-                if IsControlPressed(0, 0x8AAA0AD4) then
-                    if IsDisabledControlPressed(0, 0xE30CD707) then 
-                        HandcuffPlayer()
-                        Wait(1000)
-                    end
-                end
-                if IsControlPressed(0, 0x8AAA0AD4) then
-                    if IsDisabledControlPressed(0, 0x760A9C6F) then 
-                        local closestPlayer, closestDistance = GetClosestPlayer()
-                        if closestPlayer ~= -1 and closestDistance <= 3.0 then
-                            TriggerServerEvent('lawmen:drag', GetPlayerServerId(closestPlayer))
-                        end
-                        Wait(1000)
-                    end
-                end
+        Wait(10)
+        if jailed then 
+            local coords = GetEntityCoords(PlayerPedId())
+            local currentCheck = GetDistanceBetweenCoords(coords.x, coords.y, coords.z, 3325.59, -614.74, 44.11, false)
+            if currentCheck > 1000 then 
+                SetEntityCoords(PlayerPedId(), 3350.2, -685.6 , 43.99, false)
             end
         end
-        if sleep then 
-            Wait(5000)
-        end
     end
-end)
-Citizen.CreateThread(function()
-    Wait(1000)
-    TriggerServerEvent("lawmen:checkmyjob")
-end)
+end) ]]
 
 RegisterNetEvent("vorp:SelectedCharacter")
 AddEventHandler("vorp:SelectedCharacter", function(charid)
-    TriggerServerEvent("lawmen:checkmyjob")
+    TriggerServerEvent("police:checkjob")
     TriggerServerEvent("lawmen:check_jail")
 end)
 
@@ -60,6 +38,8 @@ RegisterNetEvent("lawmen:onduty")
 AddEventHandler("lawmen:onduty", function(duty)
     if not duty then
         policeOnDuty = false
+    else
+        policeOnDuty = true
     end
 end)
 
@@ -113,8 +93,6 @@ end)
 
 -- Disable player actions
 Citizen.CreateThread(function()
-    TriggerServerEvent("lawmen:check_jail")
-
 	while true do
 		Citizen.Wait(0)
 
@@ -142,11 +120,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent('lawmen:thejob')
-AddEventHandler('lawmen:thejob', function(v)
-    pjob = v
-end)
-
 function GetPlayers()
     local players = {}
 
@@ -159,48 +132,67 @@ function GetPlayers()
     return players
 end
 
+RegisterCommand("clockin", function(rawCommand)
+    TriggerEvent("lawmen:goonduty")
+        Citizen.Wait(700)
+            TriggerServerEvent("syn_society:checkjob")
+end)
+
+RegisterCommand("clockoff", function(rawCommand)
+    TriggerEvent("lawmen:gooffduty")
+        Citizen.Wait(700)
+            TriggerServerEvent("syn_society:checkjob")
+end)
+
+
 RegisterCommand("mmenu", function()
-    TriggerServerEvent("lawmen:checkmyjob")
-    while pjob == nil do 
-        Wait(500)
+    if policeOnDuty and not isDead then
+        OpenMarshalMenu()
+    else
+        return
     end
-    for i,v in pairs(Marshal_Jobs) do
-        if v == pjob then
-            OpenMarshalMenu()
-        end
+end)
+
+RegisterCommand("fine", function(source, args, rawCommand)
+    local target = args[1]
+    local fine = args[2]
+    print("target", target)
+    print("fine", fine)
+    if policeOnDuty and not isDead then
+        TriggerServerEvent("lawmen:FinePlayer", tonumber(target), tonumber(fine))
     end
 end)
 
 RegisterCommand("jail", function(source, args, rawCommand)
     local target = args[1]
     local jailtime = args[2]
-    TriggerServerEvent("lawmen:checkmyjob")
-    while pjob == nil do 
-        Wait(500)
-    end
-    for i,v in pairs(Marshal_Jobs) do
-        if v == pjob then
-            TriggerServerEvent('lawmen:JailPlayer', tonumber(target), tonumber(jailtime))
-        end
+    if policeOnDuty and not isDead then
+        TriggerServerEvent('lawmen:JailPlayer', tonumber(target), tonumber(jailtime))
     end
 end)
 
 RegisterCommand('unjail', function(source, args, rawCommand)
     local target = args[1]
-    TriggerServerEvent("lawmen:checkmyjob")
-    while pjob == nil do 
-        Wait(500)
-    end
-    for i,v in pairs(Marshal_Jobs) do
-        if v == pjob then
-            TriggerServerEvent("lawmen:unjail", tonumber(target))
-        end
+    if policeOnDuty and not isDead then
+        TriggerServerEvent("lawmen:unjail", tonumber(target))
     end
 end)
 
 RegisterNetEvent('lawmen:setBoss')
 AddEventHandler('lawmen:setBoss', function(boss)
     isboss = boss
+end)
+
+-- open Marshal menu with left bracket ([)
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(5)
+        if IsControlJustReleased(0, 0x430593AA) then
+            if policeOnDuty and not isDead then
+                OpenMarshalMenu()
+            end
+        end
+    end
 end)
 
 function OpenMarshalMenu()
@@ -223,15 +215,8 @@ function OpenMarshalMenu()
                     end
                 end
                 if WarMenu.Button('Badge') then
-                    if IsPedMale(PlayerPedId()) then
-                        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),  0x1FC12C9C, true, true, true)
-                    else
-                        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),  0x0929677D, true, true, true)
-                    end
+                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),  0x0A8CAFE6, true, false, true)
                     WarMenu.CloseMenu()
-                end
-                if WarMenu.Button('Badge2') then
-                    Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),  0x0A5074E9, true, true, true)
                 end
                 if WarMenu.Button('Exit') then
                     WarMenu.CloseMenu()
@@ -284,6 +269,7 @@ RegisterNetEvent("lawmen:JailPlayer")
 AddEventHandler("lawmen:JailPlayer", function(time)
     local ped = PlayerPedId()
     local time_minutes = math.floor(time/60)
+
     for k, v in pairs(Jail) do
         if not jailed then
             DoScreenFadeOut(500)
@@ -304,6 +290,7 @@ RegisterNetEvent("lawmen:UnjailPlayer")
 AddEventHandler("lawmen:UnjailPlayer", function()
     local local_ped = PlayerPedId()
     local local_player = PlayerId()
+
     TriggerEvent("vorp:TipBottom", "~pa~Police~q~: You have been released from prison. Now straighten up and fly right!", 5000)
     jailed = false
     jail_time = 0
@@ -436,17 +423,6 @@ end
 
 Citizen.CreateThread(function()
     while true do
-        Wait(1)
-        if jailed then
-            Wait(60000)
-            TriggerServerEvent('lawmen:savetime', player_server_id, jail_time)
-        end
-    end
-end)
-
-Citizen.CreateThread(function()
-    while true do
-        Wait(1)
         if jailed then
             local ped = PlayerPedId()
             local local_player = PlayerId()
