@@ -4,7 +4,7 @@
 
 Config  = {
 
-  Debug = true, -- if your server is live set this to false.  to true only if you are testing things
+  Debug = false, -- if your server is live set this to false.  to true only if you are testing things
   DevMode = false, -- if your server is live set this to false.  to true only if you are testing things (auto load inventory when script restart and before character selection. Alos add /getInv command)
   
   defaultlang = "en_lang",
