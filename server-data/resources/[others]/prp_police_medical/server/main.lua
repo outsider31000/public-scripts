@@ -50,7 +50,7 @@ AddEventHandler('police_medical:reviveplayer', function(closestPlayer)
     local Character = VorpCore.getUser(_source).getUsedCharacter
     local count = Inventory.getItemCount(_source, "syringe")
     local job = Character.job
-    if job == "police" pr job == "marshal" then 
+    if job == "police" or job == "marshal" then 
         TriggerClientEvent('police_medical:revive', closestPlayer)
     end
     if job == 'doctor' and count > 0 then
