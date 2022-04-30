@@ -2,7 +2,7 @@
 
 Complete premade VORP server free to use
 
-# HELP THE COMMUNITTY
+# help others
 
 - fork it and send pul requests
 
