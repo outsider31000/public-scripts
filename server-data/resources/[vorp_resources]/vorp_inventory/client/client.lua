@@ -17,7 +17,7 @@ AddEventHandler('syn:getnuistuff', function(x,y,mon,gol)
     })
 end)
 
-if Config.Debug then
+if Config.DevMode then
     AddEventHandler('onClientResourceStart', function (resourceName)
         if (GetCurrentResourceName() ~= resourceName) then
           return

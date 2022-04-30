@@ -60,18 +60,6 @@ Utils.addItems = function(name, amount)
 	end
 end
 
-Utils.DrawText3D = function(position, text)
-	local _, _x, _y = GetScreenCoordFromWorldCoord(position.x, position.y, position.z)
-
-	SetTextScale(0.35, 0.35)
-	SetTextFontForCurrentCommand(1)
-	SetTextColor(255, 255, 255, 215)
-	local str = CreateVarString(10, "LITERAL_STRING", text)
-	Citizen.InvokeNative(0xBE5261939FBECB8C, 1)
-	DisplayText(str, _x, _y)
-	local factor = #text / 150.0
-	DrawSprite("generic_textures", "hud_menu_4a", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
-end
 
 Utils.expandoProcessing = function(object)
 	local _obj = {}
@@ -119,7 +107,10 @@ end
 
 function Utils.GetHashreadableLabel(hash, weaponId)
 	if weaponId <= 1 then
-		return DB_Items[hash].label
+		if DB_Items[hash] ~= nil then
+			return DB_Items[hash].label
+		end
+		return hash
 	else
 		return Utils.GetWeaponLabel(hash)
 	end

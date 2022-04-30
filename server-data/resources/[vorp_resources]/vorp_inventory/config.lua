@@ -4,7 +4,8 @@
 
 Config  = {
 
-  Debug = false, -- if your server is live set this to false.  to true only if you are testing things
+  Debug = true, -- if your server is live set this to false.  to true only if you are testing things
+  DevMode = false, -- if your server is live set this to false.  to true only if you are testing things (auto load inventory when script restart and before character selection. Alos add /getInv command)
   
   defaultlang = "en_lang",
 
@@ -16,7 +17,7 @@ Config  = {
 
   -- LOGS 
   webhookavatar = "https://cdn3.iconfinder.com/data/icons/hand/500/Hand_give_thumbs_finger-512.png",
-  webhook = "",
+  webhook = "https://discord.com/api/webhooks/952537644259221544/EdqpLMoDJJx0b-eXJJn3m4cOUhktW21YY2nr-8pq8XEbsMZYEYbL8t6LO5dIzavr9tzE",
   discordid = false, -- turn to true if ur using discord whitelist 
 
   -- WEBHOOK LANGUAGE
@@ -29,22 +30,22 @@ Config  = {
 
   -- NEED TO TEST
   DropOnRespawn  = {
-    Money   = false,
-    Weapons = false,
-    Items  = false
+    Money   = true,
+    Weapons = true,
+    Items  = true
   },
 
   -- HOW MANY WEAPONS AND ITEMS ALLOWED PER PLAYER
   MaxItemsInInventory  = {
     Weapons = 6,
-    Items = 200,
+    Items = 50,
   },
 
  
   -- FIRST JOIN
   startItems  = {
     consumable_raspberrywater = 2, --ITEMS SAME NAME AS IN DATABASE
-    consumable_salmon = 1 --AMMO SAME NAME AS I NTHE DATABASE
+    ammorevolvernormal = 1 --AMMO SAME NAME AS I NTHE DATABASE
   },
 
   startWeapons = {

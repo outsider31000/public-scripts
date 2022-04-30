@@ -210,7 +210,7 @@ NUIService.NUIGiveItem = function (obj)
 						-- TODO error message: Invalid amount of item
 					end
 				else
-					TriggerServerEvent("vorpinventory:serverGiveWeapon2", tonumber(data2.id), target)
+					TriggerServerEvent("vorpinventory:serverGiveWeapon", tonumber(data2.id), target)
 					TriggerServerEvent("vorpinventory:weaponlog", target, data2)
 				end
 

@@ -127,7 +127,7 @@ end
 
 
 
-if Config.Debug then
+if Config.DevMode then
   RegisterCommand("getInv", function(source, args, rawCommand)
       -- If the source is > 0, then that means it must be a player.
       if (source > 0) then

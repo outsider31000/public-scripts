@@ -56,8 +56,8 @@ InventoryService.giveMoneyToPlayer = function(target, amount)
 		sourceCharacter.removeCurrency(0, amount)
 		targetCharacter.addCurrency(0, amount)
 
-		TriggerClientEvent("vorp:TipRight", _source, _U("YouPaid", amount, targetCharacter.firstname .. " " .. targetCharacter.lastname), 3000)
-		TriggerClientEvent("vorp:TipRight", _target, _U("YouReceived", amount, sourceCharacter.firstname .. " " .. sourceCharacter.lastname), 3000)
+		TriggerClientEvent("vorp:TipRight", _source, _U("YouPaid", tostring(amount), targetCharacter.firstname .. " " .. targetCharacter.lastname), 3000)
+		TriggerClientEvent("vorp:TipRight", _target, _U("YouReceived", tostring(amount), sourceCharacter.firstname .. " " .. sourceCharacter.lastname), 3000)
 		Wait(3000)
 		TriggerClientEvent("vorp_inventory:ProcessingReady", _source)
 	end
@@ -185,7 +185,7 @@ InventoryService.onPickup = function(obj)
 						local totalAmount = amount + sourceItemCount
 
 						if svItems[name]:getLimit() < totalAmount then
-							TriggerClientEvent(_source, "vorp:TipRight", _U("fullInventory"), 2000)
+							TriggerClientEvent("vorp:TipRight", _source, _U("fullInventory"), 2000)
 							return
 						end
 					end
@@ -196,7 +196,7 @@ InventoryService.onPickup = function(obj)
 					sourceInventoryItemCount = sourceInventoryItemCount + amount
 
 					if sourceInventoryItemCount > Config.MaxItemsInInventory.Items then
-						TriggerClientEvent("vorp:TipRight", _source, _U(fullInventory), 2000)
+						TriggerClientEvent("vorp:TipRight", _source, _U("fullInventory"), 2000)
 						return
 					end
 				end
@@ -212,8 +212,7 @@ InventoryService.onPickup = function(obj)
 			end
 		else
 			if Config.MaxItemsInInventory.Weapons ~= 0 then
-				local sourceInventoryWeaponCount = InventoryAPI.getUserTotalCountWeapons(identifier, charId)
-				sourceInventoryWeaponCount = sourceInventoryWeaponCount + 1
+				local sourceInventoryWeaponCount = InventoryAPI.getUserTotalCountWeapons(identifier, charId) + 1
 
 				if sourceInventoryWeaponCount <= Config.MaxItemsInInventory.Weapons then
 					local weaponId = ItemPickUps[obj].weaponid
@@ -226,6 +225,8 @@ InventoryService.onPickup = function(obj)
 					TriggerClientEvent("vorpInventory:receiveWeapon", _source, weaponId, UsersWeapons[weaponId]:getPropietary(), UsersWeapons[weaponId]:getName(), UsersWeapons[weaponId]:getAllAmmo())
 					TriggerClientEvent("vorpInventory:playerAnim", _source, obj)
 					ItemPickUps[obj] = nil
+				else
+					TriggerClientEvent("vorp:TipRight", _source,  _U("fullInventoryWeapon"), 2000)
 				end
 			end
 		end
@@ -294,19 +295,7 @@ InventoryService.GiveWeapon = function(weaponId, target)
 	local _target = target
 
 	if UsersWeapons[weaponId] ~= nil then
-		InventoryService.subWeapon(_source, weaponId)
-		InventoryService.addWeapon(_target, weaponId)
-
-		local propietary = UsersWeapons[weaponId]:getPropietary()
-		local name = UsersWeapons[weaponId]:getName()
-		local allAmmo = UsersWeapons[weaponId]:getAllAmmo()
-
-		--NOTIFY
-		TriggerClientEvent("vorp:TipRight", _source, _U("youGaveWeapon"), 2000)
-		TriggerClientEvent("vorp:TipRight", _target, _U("youReceivedWeapon"), 2000)
-
-		TriggerClientEvent("vorpInventory:receiveWeapon", _target, weaponId, propietary, name, allAmmo)
-
+		InventoryAPI.giveWeapon(_target, weaponId, _source)
 	end
 end
 
@@ -344,7 +333,7 @@ InventoryService.GiveItem = function(itemName, amount, target)
 		targetItemAmount = targetItem:getCount()
 		targetItemLimit = targetItem:getLimit()
 
-		if targetItemAmount + amount >= targetItemLimit then
+		if targetItemAmount + amount > targetItemLimit then
 			canGiveItemToTarget = false
 		end
 	end
@@ -392,9 +381,13 @@ InventoryService.GiveItem = function(itemName, amount, target)
 	TriggerClientEvent("vorpInventory:receiveItem", _target, itemName, amount)
 	TriggerClientEvent("vorpInventory:removeItem", _source, itemName, amount)
 
+	
+	
+       local ItemsLabel = svItems[itemName]:getLabel()
 	--NOTIFY
-	TriggerClientEvent("vorp:TipRight", _source, _U("yougaveitem"), 2000)
-	TriggerClientEvent("vorp:TipRight", _target, _U("YouReceivedItem"), 2000)
+	
+	TriggerClientEvent("vorp:TipRight", _source, "you gave " .. amount .. " of " .. ItemsLabel .. "", 2000)
+	TriggerClientEvent("vorp:TipRight", _target, "you gave " .. amount .. " of " .. ItemsLabel .. "", 2000)
 	TriggerEvent("vorpinventory:itemlog", _source, _target, itemName, amount)
 end
 
@@ -435,44 +428,43 @@ InventoryService.getInventory = function()
 				characterInventory[item.item] = newItem
 			end
 		end
-	end
-	UsersInventories[sourceIdentifier] = characterInventory
-
-	TriggerClientEvent("vorpInventory:giveInventory", _source, json.encode(sourceInventory))
-
-	exports.ghmattimysql:execute('SELECT * FROM loadout WHERE identifier = @identifier AND charidentifier = @charid', {
-		['identifier'] = sourceIdentifier,
-		['charid'] = sourceCharId,
-	},
-		function(result)
-			if result ~= nil then
-				for _, weapon in pairs(result) do
-					local db_Ammo = json.decode(weapon.ammo)
-					local weaponAmmo = {}
-					local used = false
-					local used2 = false
-
-					for _, ammo in pairs(db_Ammo) do
-						weaponAmmo[_] = ammo
+		UsersInventories[sourceIdentifier] = characterInventory
+	
+		TriggerClientEvent("vorpInventory:giveInventory", _source, json.encode(sourceInventory))
+		exports.ghmattimysql:execute('SELECT * FROM loadout WHERE identifier = @identifier AND charidentifier = @charid', {
+			['identifier'] = sourceIdentifier,
+			['charid'] = sourceCharId,
+		},
+			function(result)
+				if result ~= nil then
+					for _, weapon in pairs(result) do
+						local db_Ammo = json.decode(weapon.ammo)
+						local weaponAmmo = {}
+						local used = false
+						local used2 = false
+	
+						for _, ammo in pairs(db_Ammo) do
+							weaponAmmo[_] = ammo
+						end
+	
+						if weapon.used == 1 then used = true end
+						if weapon.used2 == 1 then used2 = true end
+	
+						if weapon.dropped == nil or weapon.dropped == 0 then
+							local newWeapon = Weapon:New({
+								id = weapon.id,
+								propietary = weapon.identifier,
+								name = weapon.name,
+								ammo = weaponAmmo,
+								used = used,
+								used2 = used2,
+								charId = sourceCharId,
+							})
+							UsersWeapons[newWeapon:getId()] = newWeapon
+						end
 					end
-
-					if weapon.used == 1 then used = true end
-					if weapon.used2 == 1 then used2 = true end
-
-					if weapon.dropped == nil or weapon.dropped == 0 then
-						local newWeapon = Weapon:New({
-							id = weapon.id,
-							propietary = weapon.identifier,
-							name = weapon.name,
-							ammo = weaponAmmo,
-							used = used,
-							used2 = used2,
-							charId = sourceCharId,
-						})
-						UsersWeapons[newWeapon:getId()] = newWeapon
-					end
+					TriggerClientEvent("vorpInventory:giveLoadout", _source, result)
 				end
-				TriggerClientEvent("vorpInventory:giveLoadout", _source, result)
-			end
-		end)
+			end)
+	end
 end
