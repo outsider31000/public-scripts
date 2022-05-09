@@ -1,5 +1,8 @@
 # VORP-Premade-server
 
+## Visitor Count
+  <img src="https://profile-counter.glitch.me/VORP-Premade-server/count.svg" />
+  
 Complete premade VORP server free to use
 
 # help others
