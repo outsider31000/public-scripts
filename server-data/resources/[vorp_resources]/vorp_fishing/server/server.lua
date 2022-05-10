@@ -88,8 +88,8 @@ AddEventHandler("vorp_fishing:FishToInventory", function(fishModel)
 	TriggerClientEvent("vorp:TipBottom", _source, 'You got a '..fish_name, 4000)
 end)
 
-RegisterServerEvent('vorp_fishing:discord_keep2')
-AddEventHandler("vorp_fishing:discord_keep2", function(fishModel, fishWeight)
+RegisterServerEvent('vorp_fishing:discord_keep')
+AddEventHandler("vorp_fishing:discord_keep", function(fishModel, fishWeight)
     local _source = source
     local User = VorpCore.getUser(source)
     local Character = User.getUsedCharacter

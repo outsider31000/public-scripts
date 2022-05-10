@@ -7,8 +7,6 @@ local fishForce = 0.6
 local nextAttTime = 0
 local horizontalMove = 0
 local lastState = 0
-local showInfo = false
-local infobox = 0
 
 local fishing_data = {
     fish                   = { weight = 0, rodweight },
@@ -52,26 +50,26 @@ RegisterNetEvent("vorp_fishing:UseBait")
 AddEventHandler("vorp_fishing:UseBait", function(UsableBait)
 Citizen.CreateThread(function()
         Citizen.InvokeNative(0x1096603B519C905F, "MMFSH")
-		 prepareMyPrompt()    
-		fishing = true
-		local sleep = 1500
-		currentLure = UsableBait
-		UsableBait = nil
-		ready = false
+        prepareMyPrompt()    
+        fishing = true
+        local sleep = 1500
+        currentLure = UsableBait
+        UsableBait = nil
+        ready = false
         while fishing do
-			Citizen.Wait(0)
+            Citizen.Wait(0)
             GET_TASK_FISHING_DATA()
             if FISHING_GET_MINIGAME_STATE() == 1 and ready == false then
-				ready = true  
-				if Config.Debug then
-					print("Current bait: "..currentLure)
-				end
-				TaskSwapFishingBait(PlayerPedId(), currentLure, 0)    
-				Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), currentLure, 0, 1)
+                ready = true  
+                if Config.Debug then
+                    print("Current bait: "..currentLure)
+                end
+                TaskSwapFishingBait(PlayerPedId(), currentLure, 0)    
+                Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), currentLure, 0, 1)
             end
 
             if hasMinigameOn then
-				sleep = 4
+                sleep = 4
                 local playerPed = PlayerPedId()
 
                 if FISHING_GET_MINIGAME_STATE() == 2 then
@@ -79,25 +77,25 @@ Citizen.CreateThread(function()
                 end
 
                 if FISHING_GET_MINIGAME_STATE() == 6 then
-								
+                                
                     if IsControlJustPressed(0, 0x8FFC75D6) then
                         FISHING_SET_F_(6, 128)
                     end
-					
+                    
                     local bobberPosition = FISHING_GET_BOBBER_HANDLE()
 
                     local hookHandle = FISHING_GET_HOOK_HANDLE()
                     local hookPosition = GetEntityCoords(hookHandle)
                     local lured = false
-					
-					if IsControlPressed(0, GetHashKey("INPUT_DUCK")) then
-						local actualReelSpeed = Config.ReelSpeed
-						local playerCoords = GetEntityCoords(PlayerPedId(), true, true)
-						distance = playerCoords - hookPosition
-						
-						distance = hookPosition + distance * actualReelSpeed
-						SetEntityCoords(hookHandle, distance.x, distance.y, distance.z, false, false, false, false)					
-					end
+                    
+                    if IsControlPressed(0, GetHashKey("INPUT_DUCK")) then
+                        local actualReelSpeed = Config.ReelSpeed
+                        local playerCoords = GetEntityCoords(PlayerPedId(), true, true)
+                        distance = playerCoords - hookPosition
+                        
+                        distance = hookPosition + distance * actualReelSpeed
+                        SetEntityCoords(hookHandle, distance.x, distance.y, distance.z, false, false, false, false)                    
+                    end
 
                     if FISHING_GET_LINE_DISTANCE() < 4.0 then
                         FISHING_SET_F_(14, 1.0)
@@ -105,12 +103,12 @@ Citizen.CreateThread(function()
                         FISHING_SET_F_(14, 0.4)
                     end
 
-                    local fishHandle					
+                    local fishHandle                    
                     for _, f in pairs(GetNearbyFishs(hookPosition, 50.0)) do
                         local fishPosition = GetEntityCoords(f)
-						if Config.Debug then
-							Citizen.InvokeNative(GetHashKey("DRAW_LINE") & 0xFFFFFFFF, fishPosition, fishPosition + vec3(0, 0, 2.0), 255, 255, 0, 255)
-						end
+                        if Config.Debug then
+                            Citizen.InvokeNative(GetHashKey("DRAW_LINE") & 0xFFFFFFFF, fishPosition, fishPosition + vec3(0, 0, 2.0), 255, 255, 0, 255)
+                        end
                         if fishing_lure_cooldown <= GetGameTimer() then
                             local dist = #(hookPosition - fishPosition)
                             if dist <= 1.6 then
@@ -125,7 +123,7 @@ Citizen.CreateThread(function()
                                 lured = true
                             end
                         end
-                    end										
+                    end                                        
 
                     if lured then
                         fishing_lure_cooldown = GetGameTimer() + (1 * 1000)
@@ -177,7 +175,7 @@ Citizen.CreateThread(function()
                     end
                     FISHING_SET_F_(22, horizontalMove)
 
-                    -- Unused?
+
                     if FISHING_GET_LINE_DISTANCE() < 4.0 then
                         FISHING_SET_F_(6, 12)
                         FISHING_SET_F_(14, 1.0)
@@ -198,16 +196,16 @@ Citizen.CreateThread(function()
 
                             local r = exports["vorp_fishing"]:VERTICAL_PROBE(x, y,  z, 1)
                             local valid, height = r[1], r[2]
-														
+                                                        
                         -- import from ptfx on vorp_fishing c# version
-						local particlecoords = GetEntityCoords(fishHandle)
-						RequestNamedPtfxAsset(GetHashKey('scr_mg_fishing'))
-							while not HasNamedPtfxAssetLoaded(GetHashKey('scr_mg_fishing')) do
-								Wait(5)
-							end						
-						UseParticleFxAsset("scr_mg_fishing")
-						local Fisheffect = StartParticleFxNonLoopedAtCoord("scr_mg_fish_struggle", particlecoords, 0.0, 0.0, math.random(0, 360) + 0.0001, 1.5, 0, 0, 0)
-						SetParticleFxLoopedAlpha(Fisheffect, 1.0)
+                        local particlecoords = GetEntityCoords(fishHandle)
+                        RequestNamedPtfxAsset(GetHashKey('scr_mg_fishing'))
+                            while not HasNamedPtfxAssetLoaded(GetHashKey('scr_mg_fishing')) do
+                                Wait(5)
+                            end                        
+                        UseParticleFxAsset("scr_mg_fishing")
+                        local Fisheffect = StartParticleFxNonLoopedAtCoord("scr_mg_fish_struggle", particlecoords, 0.0, 0.0, math.random(0, 360) + 0.0001, 1.5, 0, 0, 0)
+                        SetParticleFxLoopedAlpha(Fisheffect, 1.0)
 
                       --  animDict = "mini_games@fishing@shore@hooked_med@struggle"
 
@@ -218,7 +216,7 @@ Citizen.CreateThread(function()
                       --      end
                       --  end
 
-						else
+                        else
                             fishForce = 0
                             tempoPuxando = math.random(2, 5) * 1000
                             fishStatus = 0 --calmo
@@ -246,16 +244,16 @@ Citizen.CreateThread(function()
                             end
                         end
                         TaskSmartFleeCoord(fishHandle, GetEntityCoords(playerPed), 40.0, 50, 8, 1077936128)
-												
-						 -- import from ptfx on vorp_fishing c# version
-						local particlecoords = GetEntityCoords(fishHandle)
-						RequestNamedPtfxAsset(GetHashKey('scr_mg_fishing'))
-							while not HasNamedPtfxAssetLoaded(GetHashKey('scr_mg_fishing')) do
-								Wait(5)
-							end						
-						UseParticleFxAsset("scr_mg_fishing")
-						local Fisheffect = StartParticleFxNonLoopedAtCoord("scr_mg_fish_struggle", particlecoords, 0.0, 0.0, math.random(0, 360) + 0.0001, 1.5, 0, 0, 0)
-						SetParticleFxLoopedAlpha(Fisheffect, 1.0)
+                                                
+                         -- import from ptfx on vorp_fishing c# version
+                        local particlecoords = GetEntityCoords(fishHandle)
+                        RequestNamedPtfxAsset(GetHashKey('scr_mg_fishing'))
+                            while not HasNamedPtfxAssetLoaded(GetHashKey('scr_mg_fishing')) do
+                                Wait(5)
+                            end                        
+                        UseParticleFxAsset("scr_mg_fishing")
+                        local Fisheffect = StartParticleFxNonLoopedAtCoord("scr_mg_fish_struggle", particlecoords, 0.0, 0.0, math.random(0, 360) + 0.0001, 1.5, 0, 0, 0)
+                        SetParticleFxLoopedAlpha(Fisheffect, 1.0)
 
                     else
                         if IsControlJustPressed(0, GetHashKey("INPUT_GAME_MENU_OPTION")) or (IsControlPressed(0, GetHashKey("INPUT_GAME_MENU_OPTION")) and GetGameTimer() % 25 == 0) then
@@ -286,75 +284,84 @@ Citizen.CreateThread(function()
 
                     if IsControlJustReleased(0, GetHashKey("INPUT_ATTACK")) then
                         FISHING_SET_ROD_POSITION_UD(0.0)
-                    end			
+                    end            
                 end
 
                 if FISHING_GET_MINIGAME_STATE() == 12 then
                     if IsControlJustPressed(0, GetHashKey("INPUT_ATTACK")) then
-                        if fishing then 
-                            fishing = false	
+                        if fishing then
                             FISHING_SET_TRANSITION_FLAG(32)
-						    local entity = FISHING_GET_FISH_HANDLE()
-						    local fishModel = GetEntityModel(entity)
-						    TriggerServerEvent("vorp_fishing:FishToInventory", fishModel)
-						    TriggerServerEvent("vorp_fishing:discord_keep2", fishModel, fishing_data.fish.weight)
-						    SetEntityAsMissionEntity(entity, true, true)
-						    Citizen.Wait(3000)
-						    DeleteEntity(entity)
-						    Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)
+                            fishing = false
+                            local entity = FISHING_GET_FISH_HANDLE()
+                            local fishModel = GetEntityModel(entity)
+                            TriggerServerEvent("vorp_fishing:FishToInventory", fishModel)
+                            if Config.DiscordIntegration == true then
+                                TriggerServerEvent("vorp_fishing:discord_keep", fishModel, fishing_data.fish.weight)
+                            end
+                            SetEntityAsMissionEntity(entity, true, true)
+                            Citizen.Wait(3000)
+                            DeleteEntity(entity)
+                            Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)
                         end
                     end
 
                     if IsControlJustPressed(0, GetHashKey("INPUT_AIM")) then
-						fishing = false
-                        FISHING_SET_TRANSITION_FLAG(64)
+                        if fishing then
+                            fishing = false
+                            local entity = FISHING_GET_FISH_HANDLE()
+                            Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)
+                            FISHING_SET_TRANSITION_FLAG(64)
+                            SetEntityAsMissionEntity(entity, true, true)
+                            Citizen.Wait(3000)
+                            DeleteEntity(entity)
+                        end
                     end
 
                     if FISHING_GET_F_(5) == 96 and FISHING_GET_F_(6) == 0 then
-						fishing = false
-						Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)						
-						local entity = FISHING_GET_FISH_HANDLE()
-						SetEntityAsMissionEntity(entity, true, true)
-						Citizen.Wait(3000)
-						DeleteEntity(entity)
+                        fishing = false
+                        Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)                        
+                        local entity = FISHING_GET_FISH_HANDLE()
+                        SetEntityAsMissionEntity(entity, true, true)
+                        Citizen.Wait(3000)
+                        DeleteEntity(entity)
                     end
                 end
 
                 if IsControlJustPressed(0, GetHashKey("INPUT_TOGGLE_HOLSTER")) then
-					fishing = false
-                    FISHING_SET_TRANSITION_FLAG(8)				
-					Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)
+                    fishing = false
+                    FISHING_SET_TRANSITION_FLAG(8)                
+                    Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)
                 end
             end
             lastState = FISHING_GET_MINIGAME_STATE()
-			Citizen.Wait(sleep)
+            Citizen.Wait(sleep)
         end
     end)
 end)
 
 Citizen.CreateThread(function()
-	prepareMyPrompt()
-	while true do
-		Citizen.Wait(0)
-		if FISHING_GET_MINIGAME_STATE() == 1 then
-			PromptSetActiveGroupThisFrame(fishing_data.prompt_prepare_fishing.group, CreateVarString(10, "LITERAL_STRING", Config.Lang.ReadyToFish))
-		end	
-		
-		if FISHING_GET_MINIGAME_STATE() == 6 then
-			PromptSetActiveGroupThisFrame(fishing_data.prompt_waiting_hook.group, CreateVarString(10, "LITERAL_STRING", Config.Lang.Fishing))
-		end
+    prepareMyPrompt()
+    while true do
+        Citizen.Wait(0)
+        if FISHING_GET_MINIGAME_STATE() == 1 then
+            PromptSetActiveGroupThisFrame(fishing_data.prompt_prepare_fishing.group, CreateVarString(10, "LITERAL_STRING", Config.Lang.ReadyToFish))
+        end    
+        
+        if FISHING_GET_MINIGAME_STATE() == 6 then
+            PromptSetActiveGroupThisFrame(fishing_data.prompt_waiting_hook.group, CreateVarString(10, "LITERAL_STRING", Config.Lang.Fishing))
+        end
 
-		if FISHING_GET_MINIGAME_STATE() == 7 then
-			fishing_data.fish.weight = FISHING_GET_F_(8)
-			PromptSetActiveGroupThisFrame(fishing_data.prompt_hook.group, CreateVarString(10, "LITERAL_STRING", Config.Lang.MiniGame))
-		end
-		if FISHING_GET_MINIGAME_STATE() == 12 then
-			if fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] ~= nil then
-				PromptSetActiveGroupThisFrame(fishing_data.prompt_finish.group, CreateVarString(10, "LITERAL_STRING",Config.Lang.FishName..": "..fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] .." // "..Config.Lang.FishWeight..": "..string.format("%.2f%%", (fishing_data.fish.weight * 54.25)):gsub("%%", "").."Kg"))
+        if FISHING_GET_MINIGAME_STATE() == 7 then
+            fishing_data.fish.weight = FISHING_GET_F_(8)
+            PromptSetActiveGroupThisFrame(fishing_data.prompt_hook.group, CreateVarString(10, "LITERAL_STRING", Config.Lang.MiniGame))
+        end
+        if FISHING_GET_MINIGAME_STATE() == 12 then
+            if fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] ~= nil then
+                PromptSetActiveGroupThisFrame(fishing_data.prompt_finish.group, CreateVarString(10, "LITERAL_STRING",Config.Lang.FishName..": "..fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] .." // "..Config.Lang.FishWeight..": "..string.format("%.2f%%", (fishing_data.fish.weight * 54.25)):gsub("%%", "").."Kg"))
 
-			end
-		end
-	end
+            end
+        end
+    end
 end)
 
 function GET_TASK_FISHING_DATA()
@@ -589,8 +596,8 @@ function GetRandomFishWeightForWeightIndex(index)
 end
 
 function prepareMyPrompt()
-	fishing_data.prompt_prepare_fishing.group = GetRandomIntInRange(0, 0xffffff)
-	local prompt = PromptRegisterBegin()
+    fishing_data.prompt_prepare_fishing.group = GetRandomIntInRange(0, 0xffffff)
+    local prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, GetHashKey("INPUT_AIM")) -- MOUSE LEFT CLICK
     PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.Lang.PrepRod))
     PromptSetEnabled(prompt, true)
@@ -631,7 +638,7 @@ function prepareMyPrompt()
     PromptSetGroup(prompt, fishing_data.prompt_waiting_hook.group)
     PromptRegisterEnd(prompt)
     fishing_data.prompt_waiting_hook.cancel = prompt
-	
+    
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, 0xDB096B85) -- LEFT CONTROL
     PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.Lang.ReelLure))
@@ -685,17 +692,17 @@ function prepareMyPrompt()
     PromptSetGroup(prompt, fishing_data.prompt_finish.group)
     PromptRegisterEnd(prompt)
     fishing_data.prompt_finish.throw_fish = prompt
-	
+    
 end
 
 AddEventHandler("onResourceStop", function(resourceName)
-	if resourceName == GetCurrentResourceName() then
-		PromptDelete(fishing_data.prompt_prepare_fishing.throw_hook)
-		PromptDelete(fishing_data.prompt_waiting_hook.hook_fish)
-		PromptDelete(fishing_data.prompt_waiting_hook.cancel)
-		PromptDelete(fishing_data.prompt_hook.reel)
-		PromptDelete(fishing_data.prompt_hook.cancel)
-		PromptDelete(fishing_data.prompt_finish.keep_fish)
-		PromptDelete(fishing_data.prompt_finish.throw_fish)
-	end
+    if resourceName == GetCurrentResourceName() then
+        PromptDelete(fishing_data.prompt_prepare_fishing.throw_hook)
+        PromptDelete(fishing_data.prompt_waiting_hook.hook_fish)
+        PromptDelete(fishing_data.prompt_waiting_hook.cancel)
+        PromptDelete(fishing_data.prompt_hook.reel)
+        PromptDelete(fishing_data.prompt_hook.cancel)
+        PromptDelete(fishing_data.prompt_finish.keep_fish)
+        PromptDelete(fishing_data.prompt_finish.throw_fish)
+    end
 end)
