@@ -271,6 +271,7 @@ Citizen.CreateThread(function()
                         local skinAnimal = Config.SkinnableAnimals[model]
                         local givenItem = skinAnimal.givenItem
                         local givenAmount = skinAnimal.givenAmount
+                        local givenDisplay = skinAnimal.givenDisplay
                         local money = skinAnimal.money
                         local gold = skinAnimal.gold
                         local rolPoints = skinAnimal.rolPoints
@@ -278,14 +279,28 @@ Citizen.CreateThread(function()
 
                         local output = ''
                         -- Check array length of items
-                        if #givenItem == 1 and #givenAmount == 1 then
-                            if givenAmount[1] > 1 then
-                                output = givenItem[1] .. 's'
-                            else
-                                output = givenItem[1]
+                        if #givenDisplay > 0 and #givenAmount >= 0 then
+                            for i, v in ipairs(givenDisplay) do
+                                if i > 1 then 
+                                    output = output.. Config.Language.join
+                                end
+
+                                if givenAmount[i] > 1 then
+                                    output = output.. v .. 's'
+                                else
+                                    output = output.. v
+                                end
                             end
                         else
-                            output = 'Items'
+                            if #givenItem == 1 and #givenAmount == 1 then
+                                if givenAmount[1] > 1 then
+                                    output = givenItem[1] .. 's'
+                                else
+                                    output = givenItem[1]
+                                end
+                            else
+                                output = 'Items'
+                            end
                         end
 
                         TriggerServerEvent("vorp_hunting:giveReward", givenItem, money, gold, rolPoints, xp, givenAmount)
@@ -363,21 +378,31 @@ end, false)
 ----------- spawn an animal to make tests ------------------
 
 RegisterCommand("hunt", function(source, args, rawCommand)
-
+    local animal = args[1]
+    local freeze = args[2]
     local player = PlayerPedId()
     local playerCoords = GetEntityCoords(player)
-    local farm2 = `a_c_goat_01`
+    
+    if animal == nil then
+        animal = 'a_c_goat_01'
+    end
+
+    if freeze == nil then
+        freeze = '2000'
+    end
+
+    freeze = tonumber(freeze)
 
     if Config.DevMode then
-        RequestModel(farm2)
-        while not HasModelLoaded(farm2) do
+        RequestModel(animal)
+        while not HasModelLoaded(animal) do
             Wait(10)
         end
 
-        farm2 = CreatePed("a_c_goat_01", playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
-        Citizen.InvokeNative(0x77FF8D35EEC6BBC4, farm2, 1, 0)
-        Wait(2000)
-        FreezeEntityPosition(farm2,true)
+        animal = CreatePed(animal, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
+        Citizen.InvokeNative(0x77FF8D35EEC6BBC4, animal, 1, 0)
+        Wait(freeze)
+        FreezeEntityPosition(animal,true)
     end
 end, false)
 
