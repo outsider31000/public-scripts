@@ -55,7 +55,7 @@ exports('vorp_inventoryApi',function()
     self.getUserWeapons = function(source)
         local weapList
         TriggerEvent("vorpCore:getUserWeapons",source,function(weapons)
-            weap = weapons
+            weapList = weapons
         end)
         return weapList
     end
