@@ -16,7 +16,8 @@ Config.Language = {
     sell = "Sell",
     notabutcher = "You Dont Have The Right Job",
     dollar = " $",
-    join = " and "
+    join = " and ",
+    FullInventory = "Inventory is too full."
 }
 
 
@@ -48,7 +49,9 @@ Config.Butchers = {
     { butchername = "Van Horn Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "S_M_M_UNIBUTCHERS_01", coords = vector3(2991.844, 572.0218, 43.36182), heading = 259.52850341797, radius = 3.0 },
     { butchername = "Rhodes Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "S_M_M_UNIBUTCHERS_01", coords = vector3(1297.578, -1277.589, 74.88102), heading = 146.60472106934, radius = 3.0 },
     { butchername = "Armadillo Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "S_M_M_UNIBUTCHERS_01", coords = vector3(-3691.438, -2623.152, -14.75121), heading = 0.46632757782936, radius = 3.0 },
-    { butchername = "Tumbleweed Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "S_M_M_UNIBUTCHERS_01", coords = vector3(-5510.371, -2947.005, -1.894515), heading = 251.54911804199, radius = 3.0 }
+    { butchername = "Tumbleweed Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "S_M_M_UNIBUTCHERS_01", coords = vector3(-5510.371, -2947.005, -1.894515), heading = 251.54911804199, radius = 3.0 },
+    { butchername = "Landing Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "CS_MP_SHAKY", coords = vector3(-1435.61, -2330.28, 43.66), heading = 1.15, radius = 4.0 },
+    { butchername = "Saint Denis Butcher", butcherjob = "butcher", blip = 1369919445, npcmodel = "S_M_M_UNIBUTCHERS_01", coords = vector3(2819.54, -1331.21, 45.00), heading = 51.8221321532, radius = 4.0 }
 }
 
 -----------------ANIMAL INSTRUCTIONS  -----------------
@@ -159,6 +162,4 @@ Config.Animals = {
     [2410477101]   = { name = "Smallmouth bass", givenItem = { "fish" }, givenAmount = { 0 }, money = 2, gold = 0, rolPoints = 0, xp = 3, poorQualityMultiplier = 1.0, goodQualityMultiplier = 1.5, perfectQualityMultiplier = 2, poor = nil, good = nil, perfect = nil },
     [543892122]    = { name = "Salmon Redfish", givenItem = { "fish" }, givenAmount = { 0 }, money = 2, gold = 0, rolPoints = 0, xp = 3, poorQualityMultiplier = 1.0, goodQualityMultiplier = 1.5, perfectQualityMultiplier = 2, poor = nil, good = nil, perfect = nil },
     [1702636991]   = { name = "Salmon sockeye", givenItem = { "fish" }, givenAmount = { 0 }, money = 2, gold = 0, rolPoints = 0, xp = 3, poorQualityMultiplier = 1.0, goodQualityMultiplier = 1.5, perfectQualityMultiplier = 2, poor = nil, good = nil, perfect = nil },
-
-
 }
