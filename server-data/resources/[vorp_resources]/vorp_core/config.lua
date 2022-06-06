@@ -12,7 +12,7 @@ Config = {
   initJob                  = "unemployed", -- leave it like this
   initJobGrade             = 0, -- leave it like this
   initGroup                = "user", -- leave it like this
-  Whitelist                = false, -- LEAVE TO FALSE IT'S NOT WORKING
+  Whitelist                = false, -- if true set up webhook bellow thats where you get the user id to whitelist them when they try to join,  then in game use the command to whitelist a user. or remove
   AllowWhitelistAutoUpdate = false,
   MaxCharacters            = 5, --MAX ALLOWED TO BE CREATED
   maxHealth                = 4, -- 10 is FULL 0 IS EMPTY define max outer core for players
@@ -43,6 +43,7 @@ Config = {
   DelHorseWebhook   = "", --DELHORSE
   HealPlayerWebhook = "", --HEALPLAYER
   ReviveWebhook     = "", --REVIVE
+  WhitelistWebhook  = "", --WHITELIST
 
   ------------------------------------------------------------------------------
   ---------------------------- VOICE -------------------------------------------
@@ -143,7 +144,7 @@ Config = {
   Langs = {
     IsConnected        = "🚫 Duplicated account connected (steam | rockstar)",
     NoSteam            = "🚫 You have to have Steam open, please open Steam & restart RedM",
-    NoInWhitelist      = "🚫 You are not in the Whitelist",
+    NoInWhitelist      = "🚫 You are not in the Whitelist. Send in discord channel #user-id your user-id: ",
     NoPermissions      = "You don't have enough permissions",
     CheckingIdentifier = "Checking Identifiers",
     LoadingUser        = "Loading User",
@@ -160,6 +161,9 @@ Config = {
     mustBeSeated       = "VORP: You must be in the driver's seat!",
     wagonInFront       = "VORP: You must be seated or near a wagon to delete it!",
     cantCarry          = "VORP: Can't carry more weapons!",
+    Hold               = "HOLD ON!!",
+    Load               = "You are loading in",
+    Almost             = "Almost there..."
   },
 
 
