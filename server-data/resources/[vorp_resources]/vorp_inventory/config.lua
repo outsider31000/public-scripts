@@ -8,6 +8,9 @@ Config  = {
   DevMode = false, -- if your server is live set this to false.  to true only if you are testing things (auto load inventory when script restart and before character selection. Alos add /getInv command)
   
   defaultlang = "en_lang",
+  
+  -- DEATH FUNCTIONS
+  DisableDeathInventory = true, -- prevent the ability to access inventory while dead
 
    --{ I } OPEN INVENTORY
   OpenKey = 0xC1989F95, 
@@ -17,7 +20,7 @@ Config  = {
 
   -- LOGS 
   webhookavatar = "https://cdn3.iconfinder.com/data/icons/hand/500/Hand_give_thumbs_finger-512.png",
-  webhook = "",
+  webhook = "https://discord.com/api/webhooks/952537644259221544/EdqpLMoDJJx0b-eXJJn3m4cOUhktW21YY2nr-8pq8XEbsMZYEYbL8t6LO5dIzavr9tzE",
   discordid = false, -- turn to true if ur using discord whitelist 
 
   -- WEBHOOK LANGUAGE

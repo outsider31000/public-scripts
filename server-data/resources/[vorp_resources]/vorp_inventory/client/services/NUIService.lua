@@ -381,6 +381,12 @@ Citizen.CreateThread(function()
                 NUIService.OpenInv()
             end
         end
+
+		if Config.DisableDeathInventory then
+			if InInventory and IsPedDeadOrDying(PlayerPedId()) then
+				NUIService.CloseInv()
+			end
+		end
         Wait(1)
     end
 end)

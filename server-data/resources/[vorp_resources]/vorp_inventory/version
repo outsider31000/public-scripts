@@ -1,1 +1,5 @@
+<1.0.3>
+- fixed duplication items when spamclick users name when giving items
+- update server/services/ inventoryService.lua file 
+- update your fxmanifest version to 1.0.3 if you dont do this your version check will fail
 <1.0.2>
