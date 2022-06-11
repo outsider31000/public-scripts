@@ -1,3 +1,7 @@
+<1.0.4>
+- fix exploit for decimal values being and when moving giving droping items that would make items be unlimited and not even removable
+- update fxmanifest << yes update
+- updated ui.html file in the html folder
 <1.0.3>
 - fixed duplication items when spamclick users name when giving items
 - update server/services/ inventoryService.lua file 

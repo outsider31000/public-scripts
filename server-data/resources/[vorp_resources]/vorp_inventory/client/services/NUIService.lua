@@ -143,7 +143,7 @@ NUIService.NUIGetNearPlayers = function (obj)
 	for _, player in pairs(nearestPlayers) do
 		isAnyPlayerFound = true
 		table.insert(closePlayersArr, {
-			label = GetPlayerServerId(player),
+			label = GetPlayerServerId(player),-- show server id instead of steam name
 			player = GetPlayerServerId(player)
 		})
 	end

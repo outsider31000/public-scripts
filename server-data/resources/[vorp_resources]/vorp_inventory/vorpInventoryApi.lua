@@ -69,15 +69,27 @@ exports('vorp_inventoryApi',function()
     end
 
     self.canCarryItem = function(source, item, amount) 
-        local can
-        exports.ghmattimysql:execute( "SELECT limit FROM items WHERE item=@id;", {['@id'] = item}, 
-        function(result) 
-            if self.getItemCount(source, item) + amount <= tonumber(result) then
+        local can = false
+        local done = false
+        
+        -- Limit is a restricted field in sql. Query for it directly gives an error.
+        exports.ghmattimysql:execute( "SELECT * FROM items WHERE item=@id;", {['@id'] = item}, 
+        function(result)
+            local reqCount = self.getItemCount(source, item) + amount
+            local limit = tonumber(result[1].limit)
+            if reqCount <= limit then
                 can = true
             else
                 can = false
             end
+            done = true
         end)
+
+        -- Wait for the call to finish (aka makes this task more syncronous)
+        while done == false do
+            Wait(500)
+        end
+
         return can
     end
 
@@ -103,6 +115,10 @@ exports('vorp_inventoryApi',function()
 
     self.CloseInv = function(source) -- TODO NOT IMPLEMENTED
         TriggerClientEvent("vorp_inventory:CloseInv",source)
+    end
+
+    self.OpenInv = function(source)
+        TriggerClientEvent("vorp_inventory:OpenInv",source)
     end
     
     return self
