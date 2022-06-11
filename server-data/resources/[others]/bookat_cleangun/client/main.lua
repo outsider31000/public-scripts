@@ -24,14 +24,14 @@ AddEventHandler('cleaning:startcleaningshort', function()
         TriggerEvent("vorp_inventory:CloseInv");
         Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actshort, 1, 0, -1.0)   
         Wait(15000)
-        TriggerEvent("vorp:TipBottom", _source, "You Need Cleaning Rags to clean your gun", 4000)
+        TriggerEvent("vorp:Tip", Config["notif"], 5000)
         Citizen.InvokeNative(0xA7A57E89E965D839,object,0.0,0)
         Citizen.InvokeNative(0x812CE61DEBCAB948,object,0.0,0)
     else
         TriggerEvent("vorp_inventory:CloseInv");
         Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actlong, 1, 0, -1.0)   
         Wait(15000)
-        TriggerEvent("vorp:TipBottom", _source, "You have cleaned your gun", 4000)
+        TriggerEvent("vorp:Tip", Config["notif"], 5000)
         Citizen.InvokeNative(0xA7A57E89E965D839,object,0.0,0)
         Citizen.InvokeNative(0x812CE61DEBCAB948,object,0.0,0)
     end
@@ -75,109 +75,3 @@ RegisterCommand('text',function(source,args,raw)
     if not DoesEntityExist(object) then return end
     --print(Citizen.InvokeNative(0xD56E5F336C675EFA,object))
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---weaponHash = {
---    "WEAPON_PISTOL_M1899",      
---    "WEAPON_PISTOL_MAUSER",       
---    "WEAPON_PISTOL_SEMIAUTO",        
---    "WEAPON_PISTOL_VOLCANIC",       
---    "WEAPON_REVOLVER_CATTLEMAN",       
---    "WEAPON_REVOLVER_DOUBLEACTION",       
---    "WEAPON_REVOLVER_LEMAT",        
---    "WEAPON_REVOLVER_SCHOFIELD",
---    "WEAPON_REPEATER_CARBINE",
---	"WEAPON_REPEATER_HENRY",
---	"WEAPON_RIFLE_VARMINT",
---    "WEAPON_REPEATER_WINCHESTER",
---    "WEAPON_SHOTGUN_DOUBLEBARREL",
---	"WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC",
---	"WEAPON_SHOTGUN_PUMP",
---	"WEAPON_SHOTGUN_REPEATING",
---	"WEAPON_SHOTGUN_SAWEDOFF",
---	"WEAPON_SHOTGUN_SEMIAUTO",
---    "WEAPON_SNIPERRIFLE_ROLLINGBLOCK_EXOTIC",
---    "WEAPON_SNIPERRIFLE_ROLLINGBLOCK",
---    "WEAPON_SNIPERRIFLE_CARCANO"
---}                                        
---
----- for cleaning your gun with animation ENJOY
---RegisterNetEvent('cleaning:startcleaningshort')
---AddEventHandler('cleaning:startcleaningshort', function(cleaning)
---    while cleaning do 
---           Citizen.Wait(0) 
---        for i = 1, #weaponHash, 1 do
---            local ped = PlayerPedId()
---            local Cloth= CreateObject(GetHashKey('s_balledragcloth01x'), GetEntityCoords(PlayerPedId()), false, true, false, false, true)
---            local PropId = GetHashKey("CLOTH")
---            local actshort = GetHashKey("SHORTARM_CLEAN_ENTER")
---            local actlong = GetHashKey("LONGARM_CLEAN_ENTER")
---            local retval, weaponName = GetCurrentPedWeapon(PlayerPedId(), false, GetHashKey(weaponHash[i]), false)
---            if i <= 9 then
---                TriggerEvent("vorp_inventory:CloseInv");
---                Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actshort, 1, 0, -1.0)   
---                Wait(15000)
---                TriggerEvent("vorp:NotifyLeft", Language.translate[Config.lang]['word'], Language.translate[Config.lang]['notif'], "generic_textures", "tick", 5000)
---                --Citizen.InvokeNative(0xA7A57E89E965D839, weaponHash, 0.0)
---                Citizen.InvokeNative(0xA7A57E89E965D839, weaponName, 0.0)
---                cleaning = false
---            else
---                TriggerEvent("vorp_inventory:CloseInv");
---                Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actlong, 1, 0, -1.0)   
---                Wait(15000)
---                TriggerEvent("vorp:NotifyLeft", Language.translate[Config.lang]['word'], Language.translate[Config.lang]['notif'], "generic_textures", "tick", 5000)
---                Citizen.InvokeNative(0xA7A57E89E965D839, weaponName, 0.0)
---                cleaning = false            
---            end
---            if cleaning == false then 
---                break
---            end
---        end 
---    end
---end)
--- 
---
---RegisterCommand('weapon', function(source, args, rawCommand)
---    local retval --[[ boolean ]], weaponHash = GetCurrentPedWeapon(PlayerPedId(), false, weaponHash , false)
---    local weaponName = Citizen.InvokeNative(0x89CF5FF3D363311E, weaponHash)
---    ----print("Weapon name --> "..weaponName)
---    --print("Weapon hash --> "..weaponHash)
---    ----print("Weappon hash --> "..GetHashKey(weaponHash))
---end)

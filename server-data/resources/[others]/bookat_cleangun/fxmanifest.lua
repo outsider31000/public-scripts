@@ -9,7 +9,6 @@ server_scripts {
 
 client_scripts {
 	'config.lua',
-	'locales/language.lua',
 	'client/main.lua'
 }
 

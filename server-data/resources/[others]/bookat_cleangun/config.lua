@@ -1,3 +1,5 @@
-Config = {}
+Config = {
 
-Config.lang = 'en'
+['notif'] = 'You cleaned your weapon'
+
+}
