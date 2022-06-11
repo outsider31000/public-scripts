@@ -18,7 +18,30 @@ function SetupAnimalPrompt()
     end)
 end
 
-local models = {-1758092337}
+local models = {
+	-1758092337,
+	1596452133,
+	-283162583, 
+	661519966, 
+	47200842, 
+	219205323, 
+	-824257932, 
+	-1347283941, 
+	-570691410, 
+	-377157708, 
+	1770617692, 
+	87577242, 
+	-1698498246, 
+	-1308375373, 
+	822759307,
+	-1753201617,
+	-332781688,
+	-1866132622,
+	1874711736,
+	1172094279,
+	1016623270
+}
+
 Citizen.CreateThread(function()
 	while true do 
 		Wait(10)
@@ -41,15 +64,15 @@ Citizen.CreateThread(function()
 		Wait(100)
 		local ped = PlayerPedId()
 		coords = GetEntityCoords(ped)
-		forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
+		local forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
 		local Pos2 = GetEntityCoords(ped)
 		local targetPos = GetOffsetFromEntityInWorldCoords(obj3, -0.0, 1.1,-0.1)
 		local rayCast = StartShapeTestRay(Pos2.x, Pos2.y, Pos2.z, forwardoffset.x, forwardoffset.y, forwardoffset.z,-1,ped,7)
 		local A,hit,C,C,spot = GetShapeTestResult(rayCast)                
 		local model = GetEntityModel(spot)
-		cartcoords = GetEntityCoords(spot)
+		local cartcoords = GetEntityCoords(spot)
 		for k,v in pairs(models) do 
-			if  model == v  then-- or  then --1758092337 : WAGON05X
+			if  model == v  then
 				local animal = Citizen.InvokeNative(0xD806CD2A4F2C2996, ped)
 				if animal ~= false then
 					if prompt == false then
@@ -64,22 +87,19 @@ Citizen.CreateThread(function()
 						animalcheck = Citizen.InvokeNative(0xD806CD2A4F2C2996, ped)
 						pedid = NetworkGetNetworkIdFromEntity(animalcheck)
 						Citizen.InvokeNative(0xC7F0B43DCDC57E3D, PlayerPedId(), animalcheck, GetEntityCoords(PlayerPedId()), 10.0, true)
-						DoScreenFadeOut(1800)
-						Wait(2000)
-						TriggerServerEvent('EveryoneTeleportEntity',pedid,cartcoords.x,cartcoords.y,cartcoords.z+1.5)
-						SetEntityCoords(animalcheck,cartcoords.x,cartcoords.y,cartcoords.z+1.5,false)
-						--FreezeEntityPosition(animalcheck, true)
-						DoScreenFadeIn(3000)
-						Wait(2000)
+						Wait(1200)
+						TriggerServerEvent('EveryoneTeleportEntity',pedid,cartcoords.x,cartcoords.y,cartcoords.z+1.0)
+						SetEntityCoords(animalcheck,cartcoords.x,cartcoords.y,cartcoords.z+1.0,false)
+						Wait(1200)
 					end
 
-					forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
+					local forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
 					local Pos2 = GetOffsetFromEntityInWorldCoords(ped, -0.0, 0.0,0.5)
 					local targetPos = GetOffsetFromEntityInWorldCoords(obj3, -0.0, 1.1,-0.1)
 					local rayCast = StartShapeTestRay(Pos2.x, Pos2.y, Pos2.z, forwardoffset.x, forwardoffset.y, forwardoffset.z,-1,ped,7)
-					A,hit,B,C,spot = GetShapeTestResult(rayCast)
+					local A,hit,B,C,spot = GetShapeTestResult(rayCast)
 					NetworkRequestControlOfEntity(animalcheck)
-					model = GetEntityModel(spot)
+					local model = GetEntityModel(spot)
 				else
 					PromptSetEnabled(AnimalPrompt, false)
 					PromptSetVisible(AnimalPrompt, false)
