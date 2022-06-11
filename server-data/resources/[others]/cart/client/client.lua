@@ -1,5 +1,3 @@
-
------------------------------Place Animals /peds in cart nearby
 local prompt = false
 local AnimalPrompt
 
@@ -57,7 +55,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-
 Citizen.CreateThread(function()
 	SetupAnimalPrompt()
 	while true do 
@@ -105,6 +102,7 @@ Citizen.CreateThread(function()
 					PromptSetVisible(AnimalPrompt, false)
 					prompt = false
 				end
+				break
 			else
 				PromptSetEnabled(AnimalPrompt, false)
 				PromptSetVisible(AnimalPrompt, false)
@@ -113,7 +111,6 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
-
 
 RegisterNetEvent('EveryoneTeleportEntity')
 AddEventHandler('EveryoneTeleportEntity', function(netid,x,y,z)
