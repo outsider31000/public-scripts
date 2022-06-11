@@ -1167,7 +1167,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `identifier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `group` varchar(50) DEFAULT 'user',
   `warnings` int(11) DEFAULT 0,
-  `banned` tinyint(4) DEFAULT 0,
+  `banned` boolean,
+  `banneduntil` int(10) DEFAULT 0,
   PRIMARY KEY (`identifier`),
   UNIQUE KEY `identifier` (`identifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
