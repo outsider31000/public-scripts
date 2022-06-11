@@ -21,4 +21,4 @@ Cleaning weapon script
 - Made between [Le Bookmaker](https://github.com/LeBookmaker) and [alphatule](https://github.com/alphatule)
 
 ## 4. Last Update
-- 08/19/2020
+- 11/06/2022

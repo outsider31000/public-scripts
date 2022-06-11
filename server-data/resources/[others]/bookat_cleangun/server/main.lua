@@ -10,5 +10,3 @@ Citizen.CreateThread(function()
 		VORP.subItem(data.source,"cleanshort", 1)
 	end)
 end)
-
-
