@@ -1212,6 +1212,8 @@ CREATE TABLE IF NOT EXISTS `wagon_water` (
 CREATE TABLE IF NOT EXISTS `whitelist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `status` boolean,
+  `firstconnection` boolean DEFAULT TRUE,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `identifier` (`identifier`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
