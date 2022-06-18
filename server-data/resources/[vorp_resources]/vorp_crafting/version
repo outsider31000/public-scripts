@@ -1,0 +1,28 @@
+<1.2.4>
+- Folder/File Restructure.
+- Vorp_Boilerplate standards added
+- Location Blip Support
+- Resource optimizations
+<1.2.3>
+- Job Restrictions for locations, campfires, and individual items.
+- Location Restrictions for individual items.
+- Added Vue.js as a local vendor vs CDN (Some countries get blocked on CDN's so supporting those folks)
+<1.2.2>
+- Adds a new animation/prop system! (You can select a pre-configured animation for each craftable item, if none is set, it will use a default)
+<1.2.1>
+- Adds Inventory Check (REQUIRES NEWEST VERSION OF VORP INVENTORY)
+<1.2.0>
+- Minor Bug fixes
+- /extinguish will despawn the fire after an animation
+- Easy Locale(Language) Support
+- Font Size Presets (s, m, l)
+- Open Inventory when in the crafting window (Press I) THIS REQUIRES LATEST VERSION OF VORP_CORE-LUA
+- Quick Close Crafting (Press esc)
+- Implements UIPrompt
+- Locations can have names for the UIPrompt
+<1.1.0>
+- Stable VORP Revamp Release
+- New UI
+- Unlimited Crafting Recipe Length
+- Code Refactor
+<1.0>

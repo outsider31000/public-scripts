@@ -1,0 +1,399 @@
+@font-face {
+  font-family: rdr;
+  src: url(assets/fonts/rdrlino-regular-webfont.woff);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#app {
+  font-family: rdr;
+  touch-action: manipulation;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 6px;
+  text-align: center;
+  background-image: url(assets/header.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+h2 {
+  color: rgb(124, 119, 119);
+  padding: 0;
+  margin: 0;
+}
+
+.temp {
+  color:rgb(159, 145, 40)
+}
+
+.panel-wrap {
+  z-index: 99;
+
+  background-size: cover;
+  width: 16vw;
+  max-height: 70vh;
+  padding: 20px;
+  background-image: url(assets/inkroller.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translate(-20%, -50%);
+}
+
+.panel-content {
+  max-height: 60vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto; 
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(124, 45, 45);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(170, 74, 74);
+}
+
+.craftable-wrap {
+  height: 90%;
+}
+
+.bcc-button {
+  border: 1px solid #948A8A;
+  text-align: center;
+  background-image: url(assets/selection_box_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: none;
+  background-size: 100% 100%;
+
+  width: 90%;
+  min-height: 60px;
+  margin: 0 auto;
+
+  position: relative;
+  user-select: none;
+  transition: all .3s;
+}
+
+.description {
+  display: none;
+}
+
+.button-content {
+  width: 100%;
+  height: 100%;
+}
+
+.button-content:hover + .description, .description:hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url(assets/selection_box_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.description div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  padding-top: 8px;
+}
+
+.statictext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.subtext {
+  color:rgb(28, 99, 171);
+}
+
+.bcc-button:hover {
+  cursor: pointer;
+  transition: all .3s;
+  filter: brightness(2);
+}
+
+.bcc-button:active {
+  transition: all .3s;
+  filter: brightness(0.9);
+}
+
+.active {
+  filter: brightness(0.9);
+}
+
+.input-wrap {
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inputs {
+  width: 300px;
+  text-align: center;
+  background-image: url(assets/inkroller.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  padding: 20px;
+}
+
+.add-button {
+  background-image: url(assets/cta-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: 100% 100%; */
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 8px;
+  display: block;
+  line-height: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  user-select: none;
+  cursor: pointer;
+  width: 100px;
+  transition: all .3s;
+}
+
+.cancel-button {
+  background-image: url(assets/selection_box_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: 100% 100%; */
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 8px;
+  display: block;
+  line-height: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  user-select: none;
+  cursor: pointer;
+  width: 100px;
+  transition: all .3s;
+}
+
+.add-button:hover, .cancel-button:hover {
+  opacity: .8;
+  transition: all .3s;
+}
+
+.add-button:active, .cancel-button:active {
+  opacity: .6;
+  transition: all .3s;
+}
+
+.message {
+  margin-bottom: 4px;
+}
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #948A8A;
+  margin: 0px;
+  width: 42px;
+  height: 20px;
+  margin-top: -4px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #948A8A;
+  user-select: none;
+  transition: all .3s;
+}
+
+#increase {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+#decrease {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.value-button:hover {
+  cursor: pointer;
+  background-color: rgba(143, 70, 70, 0.618);
+  border: 1px solid rgba(143, 70, 70, 0.618);
+  transition: all .3s;
+}
+
+.value-button:active {
+  background-color: rgba(94, 44, 44, 0.618);
+  border: 1px solid rgba(143, 70, 70, 0.618);
+  transition: all .3s;
+}
+
+input#number {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Font Sizes */
+.smallfont {
+  font-size: 10pt;
+}
+
+.smallfont h1 {
+  font-size: 28pt;
+}
+
+.smallfont h2 {
+  font-size: 11pt;
+}
+
+.smallfont .description {
+  font-size: 6pt;
+}
+
+.smallfont .subtext {
+  font-size: 6pt;
+}
+
+.smallfont .message {
+  font-size: 10pt;
+}
+
+.smallfont .add-button, .smallfont .cancel-button {
+  font-size: 10pt;
+}
+
+.mediumfont {
+  font-size: 14pt;
+}
+
+.mediumfont h1 {
+  font-size: 32pt;
+}
+
+.mediumfont h2 {
+  font-size: 15pt;
+}
+
+.mediumfont .description {
+  font-size: 9pt;
+}
+
+.mediumfont .subtext {
+  font-size: 10pt;
+}
+
+.mediumfont .message {
+  font-size: 14pt;
+}
+
+.mediumfont .add-button, .mediumfont .cancel-button {
+  font-size: 14pt;
+}
+
+.largefont {
+  font-size: 18pt;
+}
+
+.largefont h1 {
+  font-size: 36pt;
+}
+
+.largefont h2 {
+  font-size: 19pt;
+}
+
+.largefont .description {
+  font-size: 13pt;
+}
+
+.largefont .subtext {
+  font-size: 14pt;
+}
+
+.largefont .message {
+  font-size: 18pt;
+}
+
+.largefont .add-button, .largefont .cancel-button {
+  font-size: 18pt;
+  width: 140px;
+}
+
+.value-button {
+  font-size: 12pt;
+}
+
+/* Resolution support */
+@media (max-width: 1920px) {
+  .bc-hr {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+ 
+}

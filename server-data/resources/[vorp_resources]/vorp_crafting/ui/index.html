@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div :class="fontClass">
+        <div v-show="visible && language" class="panel-wrap">
+          <h1>{{language.CraftHeader}}</h1>
+          <div class="panel-content">
+            <div class="categories" v-show="currentRoute == 'home'">
+              <div class="bcc-button" v-for="(cat, index) in categories" :key="cat.ident+index" @click="currentRoute = cat.ident">
+                <span class="statictext">{{cat.text}}</span>
+              </div>
+              <div class="bcc-button" @click="closeView()">
+                <span class="statictext">{{language.ExitButton}}</span>
+              </div>
+            </div>
+  
+            <div class="craftable-wrap" v-for="(cata, index) in Object.keys(consumables)" :key="'catitems'+index"   v-show="currentRoute == cata" >
+              <div class="bcc-button" v-for="(it, index) in consumables[cata]" @click="handleItemClick(it)">
+                <div class="button-content">
+                  <div class="text">{{it.Text}}</div>
+                  <div class="subtext" v-if="it.SubText">{{it.SubText}}</div>
+                </div>
+                <div class="description">
+                  <div>{{it.Desc}}</div>
+                </div>
+              </div>
+              <div class="bcc-button" @click="currentRoute = 'home'"><span class="statictext">{{language.BackButton}}</span></div>
+            </div>
+          </div>
+        </div>
+        <div v-if="showInput" class="input-wrap">
+          <div class="inputs">
+            <div class="message">{{InputCraftText}}</div>
+            <div class="value-button" id="decrease" @click="decrease">-</div>
+            <input type="number" id="number" v-model="quantity" @keyup="formatQuantity" />
+            <div class="value-button" id="increase" @click="increase">+</div>
+            <div class="add-button" @click="craftItem">{{language.InputCraft}}{{ quantity > 1 ? 's' : '' }}</div>
+            <div class="cancel-button" @click="showInput = false">{{language.InputCancel}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="vendor/vue.js"></script>
+<script src="app.js"></script>
