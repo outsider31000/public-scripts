@@ -1,0 +1,31 @@
+<1.6>
+- fix for npcs not spawning when  StoreHoursAllowed is set to false
+- update client.lua
+- and important! the fxmanifest.lua
+<1.5>
+- fixed duplicate item entries
+- Blips Toggle depending on whether store is open or closed
+- Added a RandomPrices option
+- if randomPrices is enabled, the store will have randomised prices **chosen on server restart**
+- NPCs toggle depending on whether store is open or closed
+<1.4>
+- update stores now have opening hours and closed hours
+- changes were made in the config add this bellow to each store you have created so you dont have to redo all over again
+-  * ------------------------------------------------------------------------------------------
+-  StoreHoursAllowed = true, -- if you want the stores to use opening and closed hours
+-  StoreOpen = 7, -- am
+-  StoreCLose = 21 -- pm
+-  * -----------------------------------------------------------------------------------------
+- client files update them 
+- fxmanifest update them to get version check to work
+- update all those
+<1.3>
+- fixed selling and buying quantity
+<1.2>
+- minor fixes for notification not displaying
+- if menu is center added a check
+- fix for radar not showing and ped stuck
+<1.1>
+- remove radar and hud when in store
+- fix minor things
+<1.0>
