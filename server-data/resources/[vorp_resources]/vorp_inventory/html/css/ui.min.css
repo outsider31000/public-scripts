@@ -144,6 +144,15 @@ body {
     overflow-x: hidden;
     z-index: 1;
 }
+
+
+.capacity {
+    /* Tested at 2k res */
+    margin-left: 775px;
+    margin-top: 47vh;
+    font-size: 17px;
+}
+
 /* description*/
 #information { 
     text-align: center;

@@ -15,5 +15,8 @@ Locales["no_lang"] = {
     yougaveitem       = "Du ga en ting",
     itemerror         = "Ugyldig",
     youReceivedWeapon = "Du mottok et våpen",
-    yougaveWeapon     = "Du ga et våpen"
+    yougaveWeapon     = "Du ga et våpen",
+    weppickup         = "Våpen plukket opp",
+    itempickup        = "Varen er hentet",
+    itempickup2       = "Plukket opp: ",
 }

@@ -32,14 +32,16 @@
         </div>
 
 
-
+        
     </div>
     <div id="secondInventoryHud">
         <div id="titleHorse"></div>
         <div id="secondInventoryElement">
         </div>
         <p id="information2"></p>
-
+        <div class="capacity">
+            <a id="current-cap-value"></a>/<a id="capacity-value"></a>
+        </div>
     </div>
 
     <script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"></script>
@@ -67,7 +69,7 @@
         var Containerid = 0
         var horseid = 0
         var wagonid = 0
-
+        var secondaryCapacityAvailable = false
 
         function OverSetTitle(title) {
             document.getElementById("information").innerHTML = title;
@@ -77,8 +79,35 @@
             document.getElementById("information2").innerHTML = title;
         }
 
-        function HorseSetTitle(title) {
+        function secondarySetTitle(title) {
             document.getElementById("titleHorse").innerHTML = title;
+        }
+
+        function secondarySetCurrentCapacity(cap) {
+            document.getElementById('current-cap-value').innerHTML = cap
+        }
+
+        function secondarySetCapacity(cap) {
+            secondaryCapacityAvailable = true
+            document.getElementById('capacity-value').innerHTML = cap
+            secondarySetCurrentCapacity('0')
+        }
+
+        function hideSecondaryCapacity() {
+            secondaryCapacityAvailable = false
+            $(".capacity").remove();
+        }
+
+        function initiateSecondaryInventory(id, title, capacity) {
+            $("#secondInventoryHud").fadeIn();
+            secondarySetTitle(title);
+
+            if (capacity) {
+                secondarySetCapacity(capacity);
+            } else {
+                // Backwards compatible, inventory capacity will not show
+                hideSecondaryCapacity();
+            }
         }
 
         window.addEventListener('message', function (event) {
@@ -782,52 +811,34 @@
 
 
                     if (event.data.type == "horse") {
-                        $("#secondInventoryHud").fadeIn();
-
                         horseid = event.data.horseid;
-                        HorseSetTitle(event.data.title);
+                        initiateSecondaryInventory(horseid, event.data.title, event.data.capacity)
                     }
 
                     if (event.data.type == "cart") {
-                        $("#secondInventoryHud").fadeIn();
                         wagonid = event.data.wagonid;
-                        HorseSetTitle(event.data.title);
+                        initiateSecondaryInventory(wagonid, event.data.title, event.data.capacity)
                     }
 
                     if (event.data.type == "house") {
-                        $("#secondInventoryHud").fadeIn();
-
-                        HorseSetTitle(event.data.title);
-
                         houseId = event.data.houseId;
+                        initiateSecondaryInventory(houseId, event.data.title, event.data.capacity)
                     }
                     if (event.data.type == "hideout") {
-                        $("#secondInventoryHud").fadeIn();
-
-                        HorseSetTitle(event.data.title);
-
                         hideoutId = event.data.hideoutId;
+                        initiateSecondaryInventory(hideoutId, event.data.title, event.data.capacity)
                     }
                     if (event.data.type == "clan") {
-                        $("#secondInventoryHud").fadeIn();
-
-                        HorseSetTitle(event.data.title);
-
                         clanid = event.data.clanid;
+                        initiateSecondaryInventory(clanid, event.data.title, event.data.capacity)
                     }
                     if (event.data.type == "steal") {
-                        $("#secondInventoryHud").fadeIn();
-
-                        HorseSetTitle(event.data.title);
-
                         stealid = event.data.stealId;
+                        initiateSecondaryInventory(stealid, event.data.title, event.data.capacity)
                     }
                     if (event.data.type == "Container") {
-                        $("#secondInventoryHud").fadeIn();
-
-                        HorseSetTitle(event.data.title);
-
-                        Containerid = event.data.Containerid;
+                       Containerid = event.data.Containerid;
+                       initiateSecondaryInventory(Containerid, event.data.title, event.data.capacity)
                     }
 
                     disabled = false;
@@ -891,7 +902,17 @@
 
                 } else if (event.data.action == "setSecondInventoryItems") {
                     secondInventorySetup(event.data.itemList);
-
+                    if (secondaryCapacityAvailable == true) {
+                        // Get how many items are in inventory
+                        let l = event.data.itemList.length
+                        let itemlist = event.data.itemList
+                        let total = 0
+                        let p = 0
+                        for (p; p < l; p++) {
+                            total += Number(itemlist[p].count)
+                        }
+                        secondarySetCurrentCapacity(total)
+                    }
                 } else if (event.data.action == "nearPlayers") {
                     if (event.data.what == "give") {
                         selectPlayerToGive(event.data);

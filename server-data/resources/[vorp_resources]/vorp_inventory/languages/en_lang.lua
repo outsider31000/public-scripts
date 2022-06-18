@@ -16,5 +16,8 @@ Locales["en_lang"] = {
     yougaveitem       = "You have gave an item",
     itemerror         = "Invalid",
     youReceivedWeapon = "You have received a weapon",
-    youGaveWeapon     = "You have gave a weapon"
+    youGaveWeapon     = "You have gaven a weapon",
+    weppickup         = "Weapon picked up",
+    itempickup        = "Item picked up",
+    itempickup2       = "Picked up: ",
 }

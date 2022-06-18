@@ -10,9 +10,9 @@ end
 
 -- OpenContainerInventory
 
-NUIService.OpenClanInventory = function (clanName, clanId)
+NUIService.OpenClanInventory = function (clanName, clanId, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type= "clan", title= "" .. clanName .. "", clanid= clanId})
+	SendNUIMessage({action= "display", type= "clan", title= "" .. clanName .. "", clanid= clanId, capacity= capacity})
 	InInventory = true
 end
 
@@ -24,9 +24,9 @@ NUIService.NUITakeFromClan = function (obj)
 	TriggerServerEvent("syn_clan:TakeFromClan", json.encode(obj))
 end
 
-NUIService.OpenContainerInventory = function (ContainerName, Containerid)
+NUIService.OpenContainerInventory = function (ContainerName, Containerid, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type= "Container", title= "" .. ContainerName .. "", Containerid= Containerid})
+	SendNUIMessage({action= "display", type= "Container", title= "" .. ContainerName .. "", Containerid= Containerid, capacity= capacity})
 	InInventory = true
 end
 
@@ -44,9 +44,9 @@ NUIService.CloseInventory = function ()
 	InInventory = false
 end
 
-NUIService.OpenHorseInventory = function (horseTitle, horseId)
+NUIService.OpenHorseInventory = function (horseTitle, horseId, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type= "horse", title= horseTitle, horseid= horseId})
+	SendNUIMessage({action= "display", type= "horse", title= horseTitle, horseid= horseId, capacity= capacity})
 	InInventory = true
 	TriggerEvent("vorp_stables:setClosedInv", true)
 end
@@ -59,9 +59,9 @@ NUIService.NUITakeFromHorse = function (obj)
 	TriggerServerEvent("vorp_stables:TakeFromHorse", json.encode(obj))
 end
 
-NUIService.OpenstealInventory = function (stealName, stealId)
+NUIService.OpenstealInventory = function (stealName, stealId, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type=  "steal", title= stealName, stealId= stealId})
+	SendNUIMessage({action= "display", type=  "steal", title= stealName, stealId= stealId, capacity= capacity})
 	InInventory = true
 	TriggerEvent("vorp_stables:setClosedInv", true)
 end
@@ -74,9 +74,9 @@ NUIService.NUITakeFromsteal = function (obj)
 	TriggerServerEvent("syn_search:TakeFromsteal", json.encode(obj))
 end
 
-NUIService.OpenCartInventory = function (cartName, wagonId)
+NUIService.OpenCartInventory = function (cartName, wagonId, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type= "cart", title= cartName, wagonid= wagonId})
+	SendNUIMessage({action= "display", type= "cart", title= cartName, wagonid= wagonId, capacity= capacity})
 	InInventory = true
 
 	TriggerEvent("vorp_stables:setClosedInv", true)
@@ -91,9 +91,9 @@ NUIService.NUITakeFromCart = function (obj)
 end
 
 
-NUIService.OpenHouseInventory = function (houseName, houseId)
+NUIService.OpenHouseInventory = function (houseName, houseId, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type= "house", title= houseName, houseId= houseId})
+	SendNUIMessage({action= "display", type= "house", title= houseName, houseId= houseId, capacity= capacity})
 	InInventory = true
 end
 
@@ -105,9 +105,9 @@ NUIService.NUITakeFromHouse = function (obj)
 	TriggerServerEvent("vorp_housing:TakeFromHouse", json.encode(obj))
 end
 
-NUIService.OpenHideoutInventory = function (hideoutName, hideoutId)
+NUIService.OpenHideoutInventory = function (hideoutName, hideoutId, capacity)
 	SetNuiFocus(true, true)
-	SendNUIMessage({action= "display", type= "hideout", title= hideoutName , hideoutId= hideoutId})
+	SendNUIMessage({action= "display", type= "hideout", title= hideoutName , hideoutId= hideoutId, capacity= capacity})
 	InInventory = true
 end
 

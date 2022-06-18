@@ -6,7 +6,7 @@ Locales["pt_lang"] = {
 
     fullInventory     = "Muito peso nao podes dar mais coisas",
     fullInventoryGive = "A pessoa leva muito peso nao podes dar mais coisas",
-    fullInventoryWeapon = "You are carrying to much weapons, you cant receive anything else", -- translate this to pt
+    fullInventoryWeapon = "Você está carregando muitas armas, você não pode receber mais nada",
     TryExploits       = "nao tentes ser mais esperto que o systema",
     TakeFromFloor     = "Apanhar",
     NotEnoughMoney    = "Nao tens assim tanto diheiro",
@@ -15,6 +15,9 @@ Locales["pt_lang"] = {
     YouReceivedItem   = "Recebeste uma coisa",
     yougaveitem       = "Deste uma coisa",
     itemerror         = "Invalido ",
-    youReceivedWeapon = "You have received a weapon", -- translate this to pt
-    yougaveWeapon     = "You have gave a weapon" -- translate this to pt
+    youReceivedWeapon = "Você recebeu uma arma",
+    yougaveWeapon     = "Você deu uma arma",
+    weppickup         = "Arma recolhida",
+    itempickup        = "Item retirado",
+    itempickup2       = "Pegou: ",
 }
