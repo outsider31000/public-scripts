@@ -2,9 +2,10 @@ RegisterNetEvent('vorp:NotifyLeft')
 AddEventHandler('vorp:NotifyLeft', function(firsttext, secondtext, dict, icon, duration, color)
     local _dict = dict
     local _icon = icon
+    local _color = color or "COLOR_WHITE"
     LoadTexture(_dict)
 
-    exports.vorp_core:DisplayLeftNotification(tostring(firsttext), tostring(secondtext), tostring(_dict), tostring(_icon), tonumber(duration), tostring(color))
+    exports.vorp_core:DisplayLeftNotification(tostring(firsttext), tostring(secondtext), tostring(_dict), tostring(_icon), tonumber(duration), tostring(_color))
 end)
 
 
@@ -77,8 +78,8 @@ end)
 
 --new
 RegisterNetEvent('vorp:updatemissioNotify')
-AddEventHandler('vorp:updatemissioNotify', function(notifid, utitle, umsg, duration)
-    exports.vorp_core:updatemissioNotify(notifid, tostring(utitle), tostring(umsg), tonumber(duration))
+AddEventHandler('vorp:updatemissioNotify', function(utitle, umsg, duration)
+    exports.vorp_core:updatemissioNotify(tostring(utitle), tostring(umsg), tonumber(duration))
 end)
 
 --new
@@ -100,7 +101,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(10)
         local event = GetNumberOfEvents(0)
         if event > 0 then
-            for i = 0, size - 1 do
+            for i = 0, event - 1 do
                 local eventAtIndex = GetEventAtIndex(0, i)
                 if eventAtIndex == GetHashKey("EVENT_CHALLENGE_GOAL_COMPLETE") or eventAtIndex == GetHashKey("EVENT_CHALLENGE_REWARD") or eventAtIndex == GetHashKey("EVENT_DAILY_CHALLENGE_STREAK_COMPLETED") then
                     Citizen.InvokeNative(0x6035E8FBCA32AC5E)
@@ -126,5 +127,5 @@ end)
 --TriggerEvent('vorp:ShowBottomRight', "your text", 4000)
 --TriggerEvent('vorp:failmissioNotifY', "your text", "msg", 4000)
 --TriggerEvent('vorp:deadplayerNotifY', title, audioRef, audioName, duration)
---TriggerEvent('vorp:updatemissioNotify', notifid, "title ", "msg , duration) notifid leave it like that.
+--TriggerEvent('vorp:updatemissioNotify', "title ", "msg , duration) 
 --TriggerEvent('vorp:warningNotify', title, msg, audioRef, audioName, duration)

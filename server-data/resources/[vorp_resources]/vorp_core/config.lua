@@ -12,7 +12,7 @@ Config = {
   initJob                  = "unemployed", -- leave it like this
   initJobGrade             = 0, -- leave it like this
   initGroup                = "user", -- leave it like this
-  Whitelist                = false, -- if true set up webhook bellow thats where you get the user id to whitelist them when they try to join,  then in game use the command to whitelist a user. or remove
+  Whitelist                = false,
   AllowWhitelistAutoUpdate = false,
   MaxCharacters            = 5, --MAX ALLOWED TO BE CREATED
   maxHealth                = 4, -- 10 is FULL 0 IS EMPTY define max outer core for players
@@ -44,6 +44,8 @@ Config = {
   HealPlayerWebhook = "", --HEALPLAYER
   ReviveWebhook     = "", --REVIVE
   WhitelistWebhook  = "", --WHITELIST
+  BanWarnWebhook    = "", --BANS/WARNS
+  NewPlayerWebhook  = "", --NEWPLAYER
 
   ------------------------------------------------------------------------------
   ---------------------------- VOICE -------------------------------------------
@@ -55,11 +57,12 @@ Config = {
   ------------------------------------------------------------------------------
   ------------------------- SHOW OR HIDE UI's ----------------------------------
 
-  HideUi          = true, --show or hide the UI includes  gold cash ID and level bar  the cash gold ID are now being displayed in the inventory. you can disable this one if yo u like it more
-  mapTypeOnFoot   = 3, -- 0 = Off(no radar), 1 = Regular 2 = Expanded  3 = Simple(compass), for on foot
-  mapTypeOnMount  = 3, -- 0 = Off(no radar), 1 = Regular 2 = Expanded  3 = Simple(compass), for on horse
-  enableTypeRadar = false, --- if true the above will work, if false players can choose their radar type in the game settings.
-
+  HideUi            = true, --show or hide the UI includes  gold cash ID and level bar  the cash gold ID are now being displayed in the inventory. you can disable this one if yo u like it more
+  mapTypeOnFoot     = 3, -- 0 = Off(no radar), 1 = Regular 2 = Expanded  3 = Simple(compass), for on foot
+  mapTypeOnMount    = 3, -- 0 = Off(no radar), 1 = Regular 2 = Expanded  3 = Simple(compass), for on horse
+  enableTypeRadar   = false, --- if true the above will work, if false players can choose their radar type in the game settings.
+  Loadinscreen      = true, --ENABLE LOADING SCREENS on spawn and while spawn dead
+  LoadinScreenTimer = 10000, -- miliseconds
   -------------------------------------------------------------------------------
   ------------------------------- RESPAWN ---------------------------------------
 
@@ -117,6 +120,7 @@ Config = {
   KeyShowIds = "0x8CC9CD42", -- Press X
   ActiveEagleEye = true,
   ActiveDeadEye = false,
+  TimeZoneDifference = 1, -- Your time zone difference with UTC in winter time
 
   ----------------------------------------------------------------------------
   --------------------------- COMMAND PERMISSION -----------------------------
@@ -148,7 +152,12 @@ Config = {
     NoPermissions      = "You don't have enough permissions",
     CheckingIdentifier = "Checking Identifiers",
     LoadingUser        = "Loading User",
-    BannedUser         = "You Are Banned",
+    BannedUser         = "You Are Banned Until ",
+    DateTimeFormat     = "%d/%m/%y %H:%M:%S", -- Set wished DateTimeFormat for output in ban notification
+    TimeZone           = " CET", -- Set your timezone
+    DropReasonBanned   = "You were banned from the server until ",
+    Warned             = "You were warned",
+    Unwarned           = "You were unwarned",
     TitleOnDead        = "Do /alertdoctor in chat to request doctors aid",
     SubTitleOnDead     = "You can respawn in %s seconds",
     RespawnIn          = "You can respawn in ",
@@ -163,7 +172,12 @@ Config = {
     cantCarry          = "VORP: Can't carry more weapons!",
     Hold               = "HOLD ON!!",
     Load               = "You are loading in",
-    Almost             = "Almost there..."
+    Almost             = "Almost there...",
+    Holddead           = "YOU ARE DEAD",
+    Loaddead           = "you left the server while dead",
+    forcedrespawn      = "YOU WILL BE RESPAWNED",
+    forced             = "Because you left the server while dead",
+    sit                = "you need to be steated",
   },
 
 
