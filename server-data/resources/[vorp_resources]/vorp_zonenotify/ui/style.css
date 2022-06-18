@@ -1,0 +1,122 @@
+@font-face {
+  font-family: rdr;
+  src: url(assets/fonts/rdrlino-regular-webfont.woff);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#app {
+  font-family: rdr;
+  touch-action: manipulation;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 18pt;
+  margin-top: -10px;
+}
+
+h2 {
+  color: rgb(124, 119, 119);
+  padding: 0;
+  margin: 0;
+  font-size: 15pt;
+}
+
+h3,
+h4,
+h5 {
+  /* color: rgb(94, 32, 32); */
+  color: rgb(124, 119, 119);
+  padding: 0;
+  margin: 0;
+  margin-top: -30px;
+}
+
+.temp {
+  color:rgb(159, 145, 40)
+}
+
+.bc-wrapper {
+  text-align: center;
+  width: 20vw;
+  height: 25vh;
+
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%, -2%);
+
+  z-index: 999;
+  padding: 10px;
+}
+
+.bc-hr {
+  padding: 0;
+  margin: 0;
+  margin-top: -20px;
+}
+
+
+.bc-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  top: -170px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background-size: cover;
+  background-image: url(assets/inkroller.png);
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+}
+
+/* Resolution support */
+@media (max-width: 1920px) {
+  .bc-wrapper {
+    text-align: center;
+    width: 18vw;
+    height: 20vh;
+  
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    transform: translate(-50%, -2%);
+  
+    z-index: 999;
+    padding: 10px;
+  }
+  .bc-hr {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .bc-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -70px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-image: url(assets/inkroller.png);
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+  }
+}

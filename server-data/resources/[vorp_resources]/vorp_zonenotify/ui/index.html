@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="bc-wrapper" v-if="visible">
+          <h1>{{title}}</h1>
+          <h2>{{title == district ? '' :  district.replace(/[A-Z]/g, ' $&').trim()  }}</h2>
+          <img class="bc-hr" src="assets/scroller_right_bottom.png"/>
+          <h4>{{state != 'Unknown' ? state.replace(/[A-Z]/g, ' $&').trim() : ''}}</h4>
+          <div class="extra">{{ time }} <span class="temp">{{temp}}</span></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://unpkg.com/vue@3.1.1/dist/vue.global.prod.js"></script>
+<script src="app.js"></script>

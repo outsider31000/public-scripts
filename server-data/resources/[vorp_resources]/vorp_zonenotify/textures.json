@@ -1,0 +1,1248 @@
+[
+    {
+      "hashname": "district_bayou_nwa",
+      "Texture": "district_bayou_nwa",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_big_valley",
+      "Texture": "district_big_valley",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_bluewater_marsh",
+      
+      "Texture": "district_bluewater_marsh",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_cholla_springs",
+      
+      "Texture": "district_cholla_springs",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_cumberland_forest",
+      
+      "Texture": "district_cumberland_forest",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_gaptooth_ridge",
+      
+      "Texture": "district_gaptooth_ridge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_great_plains",
+      
+      "Texture": "district_great_plains",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_grizzlies",
+      
+      "Texture": "district_grizzlies",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_guarma",
+      
+      "Texture": "district_guarma",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_heartlands",
+      
+      "Texture": "district_heartlands",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_hennigans_stead",
+      
+      "Texture": "district_hennigans_stead",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_rio_bravo",
+      
+      "Texture": "district_rio_bravo",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_roanoake_ridge",
+      
+      "Texture": "district_roanoake_ridge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_scarlett_meadows",
+      
+      "Texture": "district_scarlett_meadows",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "district_tall_trees",
+      
+      "Texture": "district_tall_trees",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_beaver_hollow",
+      
+      "Texture": "hideout_beaver_hollow",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_clemens_point",
+      
+      "Texture": "hideout_clemens_point",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_colter",
+      
+      "Texture": "hideout_colter",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_fort_mercer",
+      
+      "Texture": "hideout_fort_mercer",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_gaptooth_breach",
+      
+      "Texture": "hideout_gaptooth_breach",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_hanging_dog_ranch",
+      
+      "Texture": "hideout_hanging_dog_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_horseshoe_overlook",
+      
+      "Texture": "hideout_horseshoe_overlook",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_lakay",
+      
+      "Texture": "hideout_lakay",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_pikes_basin",
+      
+      "Texture": "hideout_pikes_basin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_shady_belle",
+      
+      "Texture": "hideout_shady_belle",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_six_point_cabin",
+      
+      "Texture": "hideout_six_point_cabin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_solomons_folly",
+      
+      "Texture": "hideout_solomons_folly",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hideout_twin_rocks",
+      
+      "Texture": "hideout_twin_rocks",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_aberdeen_pig_farm",
+      
+      "Texture": "homestead_aberdeen_pig_farm",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_adler_ranch",
+      
+      "Texture": "homestead_adler_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_carmody_dell",
+      
+      "Texture": "homestead_carmody_dell",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_catfish_jacksons",
+      
+      "Texture": "homestead_catfish_jacksons",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_chadwick_farm",
+      
+      "Texture": "homestead_chadwick_farm",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_chez_porter",
+      
+      "Texture": "homestead_chez_porter",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_clingman",
+      
+      "Texture": "homestead_clingman",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_compsons_stead",
+      
+      "Texture": "homestead_compsons_stead",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_doverhill",
+      
+      "Texture": "homestead_doverhill",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_downes_ranch",
+      
+      "Texture": "homestead_downes_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_firwood_rise",
+      
+      "Texture": "homestead_firwood_rise",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_guthrie_farm",
+      
+      "Texture": "homestead_guthrie_farm",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_hill_haven_ranch",
+      
+      "Texture": "homestead_hill_haven_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_larned_sod",
+      
+      "Texture": "homestead_larned_sod",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_lone_mule_stead",
+      
+      "Texture": "homestead_lone_mule_stead",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_lonnies_shack",
+      
+      "Texture": "homestead_lonnies_shack",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_macleans_house",
+      
+      "Texture": "homestead_macleans_house",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_painted_sky",
+      
+      "Texture": "homestead_painted_sky",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_shepherds_rise",
+      
+      "Texture": "homestead_shepherds_rise",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_watsons_cabin",
+      
+      "Texture": "homestead_watsons_cabin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "homestead_willards_rest",
+      
+      "Texture": "homestead_willards_rest",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "hud_location_bg",
+      
+      "Texture": "hud_location_bg",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_bacchus_bridge",
+      
+      "Texture": "landmark_bacchus_bridge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_bards_crossing",
+      
+      "Texture": "landmark_bards_crossing",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_bear_claw",
+      
+      "Texture": "landmark_bear_claw",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_benedict_pass",
+      
+      "Texture": "landmark_benedict_pass",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_beryls_dream",
+      
+      "Texture": "landmark_beryls_dream",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_black_balsam_rise",
+      
+      "Texture": "landmark_black_balsam_rise",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_black_bone_forest",
+      
+      "Texture": "landmark_black_bone_forest",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_bolger_glade",
+      
+      "Texture": "landmark_bolger_glade",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_brandywine_drop",
+      
+      "Texture": "landmark_brandywine_drop",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_brittlebush_trawl",
+      
+      "Texture": "landmark_brittlebush_trawl",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_broken_tree",
+      
+      "Texture": "landmark_broken_tree",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_calibans_seat",
+      
+      "Texture": "landmark_calibans_seat",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_calumet_ravine",
+      
+      "Texture": "landmark_calumet_ravine",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_canebreak_manor",
+      
+      "Texture": "landmark_canebreak_manor",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_cinco_torres",
+      
+      "Texture": "landmark_cinco_torres",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_citadel_rock",
+      
+      "Texture": "landmark_citadel_rock",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_copperhead_landing",
+      
+      "Texture": "landmark_copperhead_landing",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_cueva_seca",
+      
+      "Texture": "landmark_cueva_seca",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_cumberland_falls",
+      
+      "Texture": "landmark_cumberland_falls",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_dewberry_creek",
+      
+      "Texture": "landmark_dewberry_creek",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_diablo_ridge",
+      
+      "Texture": "landmark_diablo_ridge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_donner_falls",
+      
+      "Texture": "landmark_donner_falls",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_eris_field",
+      
+      "Texture": "landmark_eris_field",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_ewing_basin",
+      
+      "Texture": "landmark_ewing_basin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_face_rock",
+      
+      "Texture": "landmark_face_rock",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_flatneck_station",
+      
+      "Texture": "landmark_flatneck_station",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_fort_brennand",
+      
+      "Texture": "landmark_fort_brennand",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_grangers_hoggery",
+      
+      "Texture": "landmark_grangers_hoggery",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_granite_pass",
+      
+      "Texture": "landmark_granite_pass",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_greenhollow",
+      
+      "Texture": "landmark_greenhollow",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_hagen_orchards",
+      
+      "Texture": "landmark_hagen_orchards",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_heartland_overflow",
+      
+      "Texture": "landmark_heartland_overflow",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_jorges_gap",
+      
+      "Texture": "landmark_jorges_gap",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_la_capilla",
+      
+      "Texture": "landmark_la_capilla",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_luckys_cabin",
+      
+      "Texture": "landmark_luckys_cabin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_macombs_end",
+      
+      "Texture": "landmark_macombs_end",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_manteca_falls",
+      
+      "Texture": "landmark_manteca_falls",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_mercer_station",
+      
+      "Texture": "landmark_mercer_station",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_merkins_waller",
+      
+      "Texture": "landmark_merkins_waller",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_mescalero",
+      
+      "Texture": "landmark_mescalero",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_millesani_claim",
+      
+      "Texture": "landmark_millesani_claim",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_montos_rest",
+      
+      "Texture": "landmark_montos_rest",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_mossy_flats",
+      
+      "Texture": "landmark_mossy_flats",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_mount_hagen",
+      
+      "Texture": "landmark_mount_hagen",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_nekoti_rock",
+      
+      "Texture": "landmark_nekoti_rock",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_oddfellows_rest",
+      
+      "Texture": "landmark_oddfellows_rest",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_old_greenbank_mill",
+      
+      "Texture": "landmark_old_greenbank_mill",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_owanjila_dam",
+      
+      "Texture": "landmark_owanjila_dam",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_pacific_union_railroad",
+      
+      "Texture": "landmark_pacific_union_railroad",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_pleasance_house",
+      
+      "Texture": "landmark_pleasance_house",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_quakers_cove",
+      
+      "Texture": "landmark_quakers_cove",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_radleys_pasture",
+      
+      "Texture": "landmark_radleys_pasture",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_rattlesnake_hollow",
+      
+      "Texture": "landmark_rattlesnake_hollow",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_repentance",
+      
+      "Texture": "landmark_repentance",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_riggs_station",
+      
+      "Texture": "landmark_riggs_station",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_rileys_charge",
+      
+      "Texture": "landmark_rileys_charge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_rio_del_lobo_house",
+      
+      "Texture": "landmark_rio_del_lobo_house",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_rio_del_lobo_rock",
+      
+      "Texture": "landmark_rio_del_lobo_rock",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_roanoke_valley",
+      
+      "Texture": "landmark_roanoke_valley",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_scratching_post",
+      
+      "Texture": "landmark_scratching_post",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_silent_stead",
+      
+      "Texture": "landmark_silent_stead",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_siltwater_strand",
+      
+      "Texture": "landmark_siltwater_strand",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_tanners_reach",
+      
+      "Texture": "landmark_tanners_reach",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_tempest_rim",
+      
+      "Texture": "landmark_tempest_rim",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_the_hanging_rock",
+      
+      "Texture": "landmark_the_hanging_rock",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_the_loft",
+      
+      "Texture": "landmark_the_loft",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_the_old_bacchus_place",
+      
+      "Texture": "landmark_the_old_bacchus_place",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_three_sisters",
+      
+      "Texture": "landmark_three_sisters",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_twistack_pass",
+      
+      "Texture": "landmark_twistack_pass",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_two_crows",
+      
+      "Texture": "landmark_two_crows",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_valley_view",
+      
+      "Texture": "landmark_valley_view",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_venters_place",
+      
+      "Texture": "landmark_venters_place",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_wallace_station",
+      
+      "Texture": "landmark_wallace_station",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "landmark_window_rock",
+      
+      "Texture": "landmark_window_rock",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_aguasdulces",
+      
+      "Texture": "settlement_aguasdulces",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_appleseed_timber_co",
+      
+      "Texture": "settlement_appleseed_timber_co",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_beechers_hope",
+      
+      "Texture": "settlement_beechers_hope",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_benedict_point",
+      
+      "Texture": "settlement_benedict_point",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_braithwaite_manor",
+      
+      "Texture": "settlement_braithwaite_manor",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_butcher_creek",
+      
+      "Texture": "settlement_butcher_creek",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_caliga_hall",
+      
+      "Texture": "settlement_caliga_hall",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_castors_ridge",
+      
+      "Texture": "settlement_castors_ridge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_central_union_railroad_camp",
+      
+      "Texture": "settlement_central_union_railroad_camp",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_cinco_torres",
+      
+      "Texture": "settlement_cinco_torres",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_coots_chapel",
+      
+      "Texture": "settlement_coots_chapel",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_cornwall_kerosene_tar",
+      
+      "Texture": "settlement_cornwall_kerosene_tar",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_el_nido",
+      
+      "Texture": "settlement_el_nido",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_emerald_ranch",
+      
+      "Texture": "settlement_emerald_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_flatneck_station",
+      
+      "Texture": "settlement_flatneck_station",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_fort_riggs_holding_camp",
+      
+      "Texture": "settlement_fort_riggs_holding_camp",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_fort_wallace",
+      
+      "Texture": "settlement_fort_wallace",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_grand_korrigan",
+      
+      "Texture": "settlement_grand_korrigan",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_lagras",
+      
+      "Texture": "settlement_lagras",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_limpany",
+      
+      "Texture": "settlement_limpany",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_manzanita_post",
+      
+      "Texture": "settlement_manzanita_post",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_plainview",
+      
+      "Texture": "settlement_plainview",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_pleasance",
+      
+      "Texture": "settlement_pleasance",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_pronghorn_ranch",
+      
+      "Texture": "settlement_pronghorn_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_rathskeller_fork",
+      
+      "Texture": "settlement_rathskeller_fork",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_ridgewood_farm",
+      
+      "Texture": "settlement_ridgewood_farm",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_sisika_penitentiary",
+      
+      "Texture": "settlement_sisika_penitentiary",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_tallulah_jetty",
+      
+      "Texture": "settlement_tallulah_jetty",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_thieves_landing",
+      
+      "Texture": "settlement_thieves_landing",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "settlement_wapiti",
+      
+      "Texture": "settlement_wapiti",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "state_ambarino",
+      
+      "Texture": "state_ambarino",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "state_guarma",
+      
+      "Texture": "state_guarma",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "state_lemoyne",
+      
+      "Texture": "state_lemoyne",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "state_new_austin",
+      
+      "Texture": "state_new_austin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "state_new_hanover",
+      
+      "Texture": "state_new_hanover",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "state_west_elizabeth",
+      
+      "Texture": "state_west_elizabeth",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_annesburg",
+      
+      "Texture": "town_annesburg",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_armadillo",
+      
+      "Texture": "town_armadillo",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_blackwater",
+      
+      "Texture": "town_blackwater",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_macfarlanes_ranch",
+      
+      "Texture": "town_macfarlanes_ranch",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_manicato",
+      
+      "Texture": "town_manicato",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_rhodes",
+      
+      "Texture": "town_rhodes",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_saintdenis",
+      
+      "Texture": "town_saintdenis",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_strawberry",
+      
+      "Texture": "town_strawberry",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_tumbleweed",
+      
+      "Texture": "town_tumbleweed",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_valentine",
+      
+      "Texture": "town_valentine",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "town_vanhorn",
+      
+      "Texture": "town_vanhorn",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_arroyo_de_la_vibora",
+      
+      "Texture": "water_arroyo_de_la_vibora",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_aurora_basin",
+      
+      "Texture": "water_aurora_basin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_bahia_de_la_paz",
+      
+      "Texture": "water_bahia_de_la_paz",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_barrow_lagoon",
+      
+      "Texture": "water_barrow_lagoon",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_cairn_lake",
+      
+      "Texture": "water_cairn_lake",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_cattail_pond",
+      
+      "Texture": "water_cattail_pond",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_cotorra_springs",
+      
+      "Texture": "water_cotorra_springs",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_dakota_river",
+      
+      "Texture": "water_dakota_river",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_deadboot_creek",
+      
+      "Texture": "water_deadboot_creek",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_elysian_pool",
+      
+      "Texture": "water_elysian_pool",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_flat_iron_lake",
+      
+      "Texture": "water_flat_iron_lake",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_hawks_eye_creek",
+      
+      "Texture": "water_hawks_eye_creek",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_kamassa_river_bayou_nwa",
+      
+      "Texture": "water_kamassa_river_bayou_nwa",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_kamassa_river_bluewater_marsh",
+      
+      "Texture": "water_kamassa_river_bluewater_marsh",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_kamassa_river",
+      
+      "Texture": "water_kamassa_river",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_lake_don_julio",
+      
+      "Texture": "water_lake_don_julio",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_lake_isabella",
+      
+      "Texture": "water_lake_isabella",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_lannahechee_river_bayou_nwa",
+      
+      "Texture": "water_lannahechee_river_bayou_nwa",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_lannahechee_river",
+      
+      "Texture": "water_lannahechee_river",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_lannahechee_river_roanoke_ridge",
+      
+      "Texture": "water_lannahechee_river_roanoke_ridge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_little_creek_river",
+      
+      "Texture": "water_little_creek_river",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_lower_montana_river",
+      
+      "Texture": "water_lower_montana_river",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_manteca_falls",
+      
+      "Texture": "water_manteca_falls",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_mattock_pond",
+      
+      "Texture": "water_mattock_pond",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_moonstone_pond",
+      
+      "Texture": "water_moonstone_pond",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_mount_shann",
+      
+      "Texture": "water_mount_shann",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_ocreaghs_run",
+      
+      "Texture": "water_ocreaghs_run",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_owanjila",
+      
+      "Texture": "water_owanjila",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_ringneck_creek",
+      
+      "Texture": "water_ringneck_creek",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_san_luis_river_new_austin",
+      
+      "Texture": "water_san_luis_river_new_austin",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_san_luis_river_west_elizabeth",
+      
+      "Texture": "water_san_luis_river_west_elizabeth",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_sea_of_coronado",
+      
+      "Texture": "water_sea_of_coronado",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_southfield_flats",
+      
+      "Texture": "water_southfield_flats",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_spider_gorge",
+      
+      "Texture": "water_spider_gorge",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_stillwater_creek",
+      
+      "Texture": "water_stillwater_creek",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_upper_montana_river",
+      
+      "Texture": "water_upper_montana_river",
+      "Download": "with bg / without bg"
+    },
+    {
+      "hashname": "water_whinyard_strait",
+      
+      "Texture": "water_whinyard_strait",
+      "Download": "with bg / without bg"
+    }
+   ]
