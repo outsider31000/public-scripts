@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>InputUI</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="hidden bg-transparent">
+    <div class="container flex flex-row items-center justify-center min-h-screen mx-auto">
+        <div class="w-3/12 h-48 bg-form">
+            <form id="formInputs" method="submit" class="h-full">
+                <div class="flex flex-col h-full px-8 py-3">
+                    <div class="self-end">
+                        <button id="closeButton" type="button" class="font-rdr-lino" title="close">X</button>
+                    </div>
+                    <div class="flex flex-col items-center justify-center flex-grow w-full">
+                        <span id="inputHeader" class="hidden pb-2 font-rdr-lino"></span>
+                        <div class="form-group hidden" id="vorpSingleInput">
+                            <input class="w-full px-4 py-2 font-bold text-black bg-gray-300 rounded" type="text"
+                                name="value" id="inputUser" placeholder="">
+                        </div>
+                        <div class="form-group hidden" id="vorpTextarea">
+                            <textarea class="w-full px-4 py-2 font-bold text-black bg-gray-300 rounded" name="value"
+                                id="inpTextarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center w-full mt-auto">
+                        <button id="submitButton" type="submit"
+                            class="w-10/12 px-4 py-2 font-bold text-gray-400 bg-black border-b hover:text-gray-100 font-rdr-lino border-b-gray-500">
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./assets/script.js" type="text/javascript"></script>
+</body>
+
+</html>
