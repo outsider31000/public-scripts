@@ -992,6 +992,9 @@
                             dialog.close()
                             return;
                         }
+                        if (!isInt(value)) {
+                                return;
+                            } 
                         $.post("http://vorp_inventory/DropItem", JSON.stringify({
                             item: item,
                             type: type,
@@ -1027,6 +1030,9 @@
                             dialog.close()
                             return;
                         }
+                        if (!isInt(value)) {
+                                return;
+                            } 
                         $.post("http://vorp_inventory/GetNearPlayers", JSON.stringify({
                             type: type,
                             what: "give",
