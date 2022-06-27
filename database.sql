@@ -1169,10 +1169,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `warnings` int(11) DEFAULT 0,
   `banned` boolean,
   `banneduntil` int(10) DEFAULT 0,
+  `char` varchar(50) NOT NULL DEFAULT 'false',
   PRIMARY KEY (`identifier`),
   UNIQUE KEY `identifier` (`identifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- Dumping data for table vorpv2.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
