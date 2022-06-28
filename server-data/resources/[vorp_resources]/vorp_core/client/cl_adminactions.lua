@@ -151,20 +151,17 @@ function DelHorse()
     end
 end
 
-function BanPlayerByUserId(target, banTime)
-    TriggerServerEvent("vorpbans:addtodb", true, target, banTime)
+function BanPlayerByUserId(target, status, banTime)
+    TriggerServerEvent("vorpbans:addtodb", status, target, banTime)
 end
 
-function UnbanPlayerByUserId(target)
-    TriggerServerEvent("vorpbans:addtodb", false, target, 0)
+function WarnPlayerByUserId(target, status)
+    TriggerServerEvent("vorpwarns:addtodb", status, target)
 end
 
-function WarnPlayerByUserId(target)
-    TriggerServerEvent("vorpwarns:addtodb", true, target)
-end
-
-function UnwarnPlayerByUserId(target)
-    TriggerServerEvent("vorpwarns:addtodb", false, target)
+function CharPlayerByUserId(target, status)
+    local player = PlayerPedId()
+    TriggerServerEvent("vorpchar:addtodb", status, target)
 end
 
 RegisterNetEvent('vorp:deleteVehicle')
@@ -228,20 +225,30 @@ end)
 
 RegisterNetEvent('vorp:ban')
 AddEventHandler('vorp:ban', function(target, banTime)
-    BanPlayerByUserId(target, banTime)
+    BanPlayerByUserId(target, true, banTime)
 end)
 
 RegisterNetEvent('vorp:unban')
 AddEventHandler('vorp:unban', function(target)
-    UnbanPlayerByUserId(target)
+    BanPlayerByUserId(target, false, 0)
 end)
 
 RegisterNetEvent('vorp:warn')
 AddEventHandler('vorp:warn', function(target)
-    WarnPlayerByUserId(target)
+    WarnPlayerByUserId(target, true)
 end)
 
 RegisterNetEvent('vorp:unwarn')
 AddEventHandler('vorp:unwarn', function(target)
-    UnwarnPlayerByUserId(target)
+    WarnPlayerByUserId(target, false)
+end)
+
+RegisterNetEvent('vorp:addchar')
+AddEventHandler('vorp:addchar', function(target)
+    CharPlayerByUserId(target, true)
+end)
+
+RegisterNetEvent('vorp:removechar')
+AddEventHandler('vorp:removechar', function(target)
+    CharPlayerByUserId(target, false)
 end)

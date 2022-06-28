@@ -6,12 +6,20 @@ local mapTypeOnMount = Config.mapTypeOnMount
 local mapTypeOnFoot = Config.mapTypeOnFoot
 local enableTypeRadar = Config.enableTypeRadar
 
-
-
+pvp = Config.PVP
 
 function setPVP()
-    NetworkSetFriendlyFireOption(true)
-    SetRelationshipBetweenGroups(5, playerHash, playerHash)
+    NetworkSetFriendlyFireOption(pvp)
+    
+    if not active then
+        if pvp then
+            SetRelationshipBetweenGroups(5, playerHash, playerHash)
+        else
+            SetRelationshipBetweenGroups(1, playerHash, playerHash)
+        end 
+    else
+        SetRelationshipBetweenGroups(1, playerHash, playerHash)
+    end
 end
 
 --------------------------- UI RADAR SHOW OR HIDE ---------------------
@@ -50,7 +58,7 @@ RegisterNetEvent('vorp:initCharacter', function(coords, heading, isdead)
             TriggerEvent("vorp:PlayerForceRespawn")
             resspawnPlayer()
             Wait(Config.LoadinScreenTimer)
-            -- ExecuteCommand("rc")
+            ExecuteCommand("rc")
             Wait(1000)
             --shut down loading screen
             ShutdownLoadingScreen()
@@ -82,7 +90,7 @@ RegisterNetEvent('vorp:initCharacter', function(coords, heading, isdead)
         if Config.Loadinscreen then
             Citizen.InvokeNative(0x1E5B70E53DB661E5, 0, 0, 0, Config.Langs.Hold, Config.Langs.Load, Config.Langs.Almost)
             Wait(Config.LoadinScreenTimer) -- wait to load in
-            --ExecuteCommand("rc") -- reload clothing
+            ExecuteCommand("rc") -- reload clothing
             Wait(1000)
             ShutdownLoadingScreen()
 
@@ -124,16 +132,23 @@ RegisterNetEvent('vorp:SelectedCharacter', function()
     end
 
     setPVP()
-   -- DisplayHud(true) -- show HUD
-   -- SetMinimapHideFow(true) -- enable FOW
+    DisplayRadar(true) -- show HUD
+    SetMinimapHideFow(true) -- enable FOW
+    TriggerServerEvent("vorp:chatSuggestion") --- chat add suggestion trigger 
 end)
 
 AddEventHandler('playerSpawned', function(spawnInfo)
-    Citizen.Wait(4000)
+    Wait(2000)
+    Citizen.InvokeNative(0x1E5B70E53DB661E5, 0, 0, 0, Config.Langs.Hold, Config.Langs.Load, Config.Langs.Almost)
+    DisplayRadar(false) --hide HUD on player select char
+    SetMinimapHideFow(false) -- hide map fog of war
+    Wait(2000)
     TriggerServerEvent("vorp:playerSpawn")
-    TriggerServerEvent("vorp:chatSuggestion") --- chat add suggestion trigger 
-   -- DisplayHud(false) --hide HUD on player select char it disables all huds
-  -- SetMinimapHideFow(false) -- hide map fog of war
+    Wait(6000) -- wait to load in
+    ExecuteCommand("rc") --reload char
+    Wait(2000)
+    ExecuteCommand("rc") --ensure it was reloaded
+    ShutdownLoadingScreen()
 end)
 
 -- disable RDR HUDS
@@ -148,29 +163,30 @@ Citizen.CreateThread(function()
     end
 end)
 
-
-
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         local pped = PlayerPedId()
 
         if IsControlPressed(0, 0xCEFD9220) then
-            SetRelationshipBetweenGroups(1, playerHash, playerHash)
             active = true
+            setPVP()
             Citizen.Wait(4000)
         end
 
         if not IsPedOnMount(pped) and not IsPedInAnyVehicle(pped, false) and active then
-            SetRelationshipBetweenGroups(5, playerHash, playerHash)
+            -- When you press E to get off a horse or carriage
             active = false
+            setPVP()
         elseif active and IsPedOnMount(pped) or IsPedInAnyVehicle(pped, false) then
             if IsPedInAnyVehicle(pped, false) then
                 --Nothing?
             elseif GetPedInVehicleSeat(GetMount(pped), -1) == pped then
-                SetRelationshipBetweenGroups(5, playerHash, playerHash)
                 active = false
+                setPVP()
             end
+        else
+            setPVP() --Set pvp defaults
         end
     end
 end)
