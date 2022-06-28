@@ -8,10 +8,10 @@ Config.keys = {
     ["4"] = 0x8F9F9E58,
 }
 
----------------------- new line
-Config.syndual = false --- true if you own syn dual. 
+---------------------- 
+Config.syndual = false --- always false 
 -----------------------
-
+Config.updatedinventoryammo = true -- use if using updated inventory with new ammo system 
 
 Config.adminwebhook = "https://discord.com/api/webhooks/792119960432148480/pe_FudhkrXZTQsOTRPimLj569T0kwLf4E0RFhLIz1nwe-XTZ_ROFfEIUVxaHOWrSoAEw"
 Config.jobonly = true -- only players with mentioned jobs below can access crafting/customization station

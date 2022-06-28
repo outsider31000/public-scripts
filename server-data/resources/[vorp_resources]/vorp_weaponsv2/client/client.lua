@@ -268,8 +268,6 @@ AddEventHandler("syn_weapons:initalizing", function()
 						l.price = Config.price.copper
 					elseif l.label == "Nickel" then
 						l.price = Config.price.nickle
-					elseif l.label == "Nickel" then
-						l.price = Config.price.nickle
 					elseif l.label == "Brass" then
 						l.price = Config.price.brass
 					elseif l.label == "Iron" then
@@ -288,8 +286,6 @@ AddEventHandler("syn_weapons:initalizing", function()
 						l.price = Config.price.blacksteel
 					elseif l.label == "Copper" then
 						l.price = Config.price.copper
-					elseif l.label == "Nickel" then
-						l.price = Config.price.nickle
 					elseif l.label == "Nickel" then
 						l.price = Config.price.nickle
 					elseif l.label == "Brass" then
@@ -449,7 +445,7 @@ Citizen.CreateThread(function()
 							if Config.jobonly then
 								TriggerServerEvent("syn_weapons:getjob")
 								Citizen.Wait(400)
-								if jobcheck(Config.job, playerjob) and playerrank >= Config.jobrankcustomization then
+								if jobcheck(Config.job, playerjob) and tonumber(playerrank) >= Config.jobrankcustomization then
 									local closestPlayer, closestDistance, playerid, tgt1 = GetClosestPlayer()
         		   	    			if closestPlayer ~= -1 and closestDistance <= 2.0 then
         		   	    			    TriggerEvent("vorp:TipBottom", Config2.Language.tooclose, 4000)
@@ -536,7 +532,7 @@ Citizen.CreateThread(function()
 						if Config.jobonly then
 							TriggerServerEvent("syn_weapons:getjob")
 							Citizen.Wait(400)
-							if jobcheck(Config.job, playerjob) and playerrank >= Config.jobrankcrafting then
+							if jobcheck(Config.job, playerjob) and tonumber(playerrank) >= Config.jobrankcrafting then
 								crafting = true
 								WarMenu.OpenMenu('crafting')
 								--TriggerEvent("vorp:TipBottom", Config2.Language.scrolltoexit, 4000)

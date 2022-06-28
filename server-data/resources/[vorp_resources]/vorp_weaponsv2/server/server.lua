@@ -70,7 +70,7 @@ AddEventHandler("syn_weapons:removeused", function(data)
   local used = 0
   local used2 = 0
   local Parameters = { ['identifier'] = identifier,['used'] = used,['used2'] = used2, ['charidentifier'] = charidentifier } 
-  exports.ghmattimysql:execute("UPDATE loadout Set used=@used AND used2=@used2 WHERE identifier=@identifier AND charidentifier = @charidentifier", Parameters) 
+  exports.ghmattimysql:execute("UPDATE loadout Set used=@used,used2=@used2 WHERE identifier=@identifier AND charidentifier = @charidentifier", Parameters) 
 end)
 
 RegisterServerEvent("syn_weapons:cleanup")
@@ -131,6 +131,34 @@ AddEventHandler("syn_weapons:getjob", function()
 end)
 
 
+function containsammo(table, element)
+    for k, v in pairs(table) do
+          if k == element then
+            return true, v
+        end
+    end
+  return false , 0
+end
+
+RegisterServerEvent("syn_weapons:getandcheckammo")
+AddEventHandler("syn_weapons:getandcheckammo", function(player,key,qt,item,max)
+    local _source = player 
+    local Character = VorpCore.getUser(_source).getUsedCharacter
+    local charidentifier = Character.charIdentifier
+    exports.ghmattimysql:execute('SELECT ammo FROM characters WHERE charidentifier = @charidentifier ' , {['charidentifier'] = charidentifier}, function(result)
+		local ammo = json.decode(result[1].ammo)
+        local contains, count = containsammo(ammo, key)
+        if contains then 
+            if count >= max then 
+                TriggerClientEvent("syn_weapons:givebackbox",_source,item)
+            else
+                qt = max - count
+            end
+        end
+        TriggerEvent("vorpCore:addBullets", _source, key, qt)
+    end)
+end)
+
 Citizen.CreateThread(function()
     Citizen.Wait(1000)
     for k,v in pairs(Config3.ammo) do 
@@ -145,7 +173,11 @@ Citizen.CreateThread(function()
             end
             VorpInv.RegisterUsableItem(m.item, function(data)
     	    VorpInv.subItem(data.source, m.item, 1)
-    	    TriggerClientEvent('syn_weapons:getgun', data.source,m.key,m.guncheck,m.qt,m.item,guncheck2,playeritem)
+            if Config.updatedinventoryammo then 
+                TriggerEvent("syn_weapons:getandcheckammo", data.source, m.key, m.qt,m.item,m.maxammo)
+            else 
+                TriggerClientEvent('syn_weapons:getgun', data.source,m.key,m.guncheck,m.qt,m.item,guncheck2,playeritem)
+            end
             end) 
         end
     end
@@ -282,7 +314,7 @@ AddEventHandler("syn_weapons:buyweapon", function(itemtobuy,itemprice,itemlabel)
                 local ammo = {["nothing"] = 0}
                 local components =  {["nothing"] = 0}
                 if Config.syndual == false then
-                    VorpInv.createWeapon(tonumber(_source), itemtobuy, ammo, components)
+                    VorpInv.createWeapon(tonumber(_source), itemtobuy:upper(), ammo, components)
                     TriggerClientEvent("vorp:TipRight", _source, Config2.Language.youboughta..itemlabel..Config2.Language.fors..itemprice..Config2.Language.dollar, 3000)
                 else
                     VorpInv.createWeapon(tonumber(_source), itemtobuy, itemlabel)
