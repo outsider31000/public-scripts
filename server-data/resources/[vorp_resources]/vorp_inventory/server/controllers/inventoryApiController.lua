@@ -13,11 +13,17 @@ AddEventHandler("vorpCore:addItem", InventoryAPI.addItem)
 RegisterServerEvent("vorpCore:subItem")
 AddEventHandler("vorpCore:subItem", InventoryAPI.subItem)
 
+RegisterServerEvent("vorpCore:getItem")
+AddEventHandler("vorpCore:getItem", InventoryAPI.getItem)
+
 RegisterServerEvent("vorpCore:getItemCount")
 AddEventHandler("vorpCore:getItemCount", InventoryAPI.getItems)
 
 RegisterServerEvent("vorpCore:getUserInventory")
 AddEventHandler("vorpCore:getUserInventory", InventoryAPI.getInventory)
+
+RegisterServerEvent("vorpCore:LoadAllAmmo")
+AddEventHandler("vorpCore:LoadAllAmmo", InventoryAPI.LoadAllAmmo)
 
 RegisterServerEvent("vorpCore:canCarryItems")
 AddEventHandler("vorpCore:canCarryItems", InventoryAPI.canCarryAmountItem)

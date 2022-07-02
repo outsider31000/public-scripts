@@ -2,26 +2,43 @@
 --------------------------------------- CONFIG -----------------------------------------------------
 -- VORP INVENTORY LUA*
 
-Config  = {
+Config = {
 
   Debug = false, -- if your server is live set this to false.  to true only if you are testing things
   DevMode = false, -- if your server is live set this to false.  to true only if you are testing things (auto load inventory when script restart and before character selection. Alos add /getInv command)
-  
+
   defaultlang = "en_lang",
-  
+
+  -- items that dont get added up torwards your max weapon count 
+  notweapons = {
+    "WEAPON_KIT_BINOCULARS_IMPROVED",
+    "WEAPON_KIT_BINOCULARS",
+    "WEAPON_FISHINGROD",
+    "WEAPON_KIT_CAMERA",
+    "WEAPON_kIT_CAMERA_ADVANCED",
+    "WEAPON_MELEE_LANTERN",
+    "WEAPON_MELEE_DAVY_LANTERN",
+    "WEAPON_MELEE_LANTERN_HALLOWEEN",
+    "WEAPON_KIT_METAL_DETECTOR",
+    "WEAPON_MELEE_HAMMER",
+  },
+  -- GOLD ITEM LIKE DOLLARS
+  UseGoldItem = false, -- IF TRUE YOU HAVE GOLD IN INVENTORY LIKE DOLLARS
+  -- CHANGE IN html/js/config.js TOO !!!
+
   -- DEATH FUNCTIONS
   DisableDeathInventory = true, -- prevent the ability to access inventory while dead
 
-   --{ I } OPEN INVENTORY
-  OpenKey = 0xC1989F95, 
+  --{ I } OPEN INVENTORY
+  OpenKey = 0xC1989F95,
 
   --RMB mouse PROMPT PICKUP
-  PickupKey = 0xF84FA74F, 
+  PickupKey = 0xF84FA74F,
 
-  -- LOGS 
+  -- LOGS
   webhookavatar = "https://cdn3.iconfinder.com/data/icons/hand/500/Hand_give_thumbs_finger-512.png",
-  webhook = "https://discord.com/api/webhooks/952537644259221544/EdqpLMoDJJx0b-eXJJn3m4cOUhktW21YY2nr-8pq8XEbsMZYEYbL8t6LO5dIzavr9tzE",
-  discordid = false, -- turn to true if ur using discord whitelist 
+  webhook = "",
+  discordid = true, -- turn to true if ur using discord whitelist
 
   -- WEBHOOK LANGUAGE
   Language = {
@@ -32,1103 +49,507 @@ Config  = {
   },
 
   -- NEED TO TEST
-  DropOnRespawn  = {
-    Money   = true,
-    Weapons = true,
-    Items  = true
+  DropOnRespawn = {
+    Money   = false,
+    Gold    = false, -- TRUE ONLY IF UseGoldItem = true
+    Weapons = false,
+    Items   = false
   },
 
   -- HOW MANY WEAPONS AND ITEMS ALLOWED PER PLAYER
-  MaxItemsInInventory  = {
+  MaxItemsInInventory = {
     Weapons = 6,
-    Items = 50,
+    Items = 200,
   },
 
- 
+
   -- FIRST JOIN
-  startItems  = {
+  startItems = {
     consumable_raspberrywater = 2, --ITEMS SAME NAME AS IN DATABASE
     ammorevolvernormal = 1 --AMMO SAME NAME AS I NTHE DATABASE
   },
 
   startWeapons = {
-    WEAPON_MELEE_KNIFE = {{}} --WEAPON HASH NAME
+    WEAPON_MELEE_KNIFE = {} --WEAPON HASH NAME
   },
 
+  Ammotypes = { 
+    ["416676503"] = {"AMMO_PISTOL","AMMO_PISTOL_EXPRESS","AMMO_PISTOL_EXPRESS_EXPLOSIVE","AMMO_PISTOL_HIGH_VELOCITY","AMMO_PISTOL_SPLIT_POINT"},
+    ["-594562071"] = {"AMMO_REPEATER","AMMO_REPEATER_EXPRESS","AMMO_REPEATER_EXPRESS_EXPLOSIVE","AMMO_REPEATER_HIGH_VELOCITY","AMMO_REPEATER_SPLIT_POINT"},
+    ["-1101297303"] = {"AMMO_REVOLVER","AMMO_REVOLVER_EXPRESS","AMMO_REVOLVER_EXPRESS_EXPLOSIVE","AMMO_REVOLVER_HIGH_VELOCITY","AMMO_REVOLVER_SPLIT_POINT","AMMO_SHOTGUN","AMMO_SHOTGUN_BUCKSHOT_INCENDIARY","AMMO_SHOTGUN_EXPRESS_EXPLOSIVE","AMMO_SHOTGUN_SLUG"},
+    ["970310034"] = {"AMMO_RIFLE","AMMO_RIFLE_ELEPHANT","AMMO_RIFLE_EXPRESS","AMMO_RIFLE_EXPRESS_EXPLOSIVE","AMMO_RIFLE_HIGH_VELOCITY","AMMO_RIFLE_SPLIT_POINT","AMMO_22","AMMO_22_TRANQUILIZER"},
+    ["-1212426201"] = {"AMMO_RIFLE","AMMO_RIFLE_EXPRESS","AMMO_RIFLE_EXPRESS_EXPLOSIVE","AMMO_RIFLE_HIGH_VELOCITY","AMMO_RIFLE_SPLIT_POINT"},
+    ["860033945"] = {"AMMO_SHOTGUN","AMMO_SHOTGUN_BUCKSHOT_INCENDIARY","AMMO_SHOTGUN_EXPRESS_EXPLOSIVE","AMMO_SHOTGUN_SLUG"},
+    ["-1241684019"] = {"AMMO_ARROW","AMMO_ARROW_DYNAMITE","AMMO_ARROW_FIRE","AMMO_ARROW_IMPROVED","AMMO_ARROW_SMALL_GAME","AMMO_ARROW_POISON"},
+    ["1548507267"] = {"AMMO_THROWING_KNIVES","AMMO_TOMAHAWK","AMMO_POISONBOTTLE","AMMO_BOLAS","AMMO_BOLAS_HAWKMOTH","AMMO_BOLAS_INTERTWINED","AMMO_BOLAS_IRONSPIKED","AMMO_DYNAMITE","AMMO_DYNAMITE_VOLATILE","AMMO_MOLOTOV","AMMO_MOLOTOV_VOLATILE"}
+  },
 
+  maxammo = { -- max ammo allowed to transfer between players
+    AMMO_PISTOL = 100,
+    AMMO_PISTOL_EXPRESS = 100,
+    AMMO_PISTOL_EXPRESS_EXPLOSIVE = 100,
+    AMMO_PISTOL_HIGH_VELOCITY = 100,
+    AMMO_PISTOL_SPLIT_POINT = 100,
+    AMMO_REPEATER = 100,
+    AMMO_REPEATER_EXPRESS = 100,
+    AMMO_REPEATER_EXPRESS_EXPLOSIVE = 100,
+    AMMO_REPEATER_HIGH_VELOCITY = 100,
+    AMMO_REPEATER_SPLIT_POINT = 100,
+    AMMO_REVOLVER = 100,
+    AMMO_REVOLVER_EXPRESS = 100,
+    AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 100,
+    AMMO_REVOLVER_HIGH_VELOCITY = 100,
+    AMMO_REVOLVER_SPLIT_POINT = 100,
+    AMMO_RIFLE = 100,
+    AMMO_RIFLE_ELEPHANT = 100,
+    AMMO_RIFLE_EXPRESS = 100,
+    AMMO_RIFLE_EXPRESS_EXPLOSIVE = 100,
+    AMMO_RIFLE_HIGH_VELOCITY = 100,
+    AMMO_RIFLE_SPLIT_POINT = 100,
+    AMMO_22 = 100,
+    AMMO_22_TRANQUILIZER = 100,
+    AMMO_SHOTGUN = 100,
+    AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 100,
+    AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 100,
+    AMMO_SHOTGUN_SLUG = 100,
+    AMMO_ARROW = 10,
+    AMMO_ARROW_DYNAMITE = 10,
+    AMMO_ARROW_FIRE = 10,
+    AMMO_ARROW_IMPROVED = 10,
+    AMMO_ARROW_SMALL_GAME = 10,
+    AMMO_ARROW_POISON = 10,
+    AMMO_THROWING_KNIVES = 10,
+    AMMO_TOMAHAWK = 10,
+    AMMO_POISONBOTTLE = 10,
+    AMMO_BOLAS = 10,
+    AMMO_BOLAS_HAWKMOTH = 10,
+    AMMO_BOLAS_INTERTWINED = 10,
+    AMMO_BOLAS_IRONSPIKED = 10,
+    AMMO_DYNAMITE = 5,
+    AMMO_DYNAMITE_VOLATILE = 5,
+    AMMO_MOLOTOV = 5,
+    AMMO_MOLOTOV_VOLATILE = 5
+  },
+  Ammolabels = { -- you can change this to your language
+    AMMO_PISTOL = "Normal Pistol",
+    AMMO_PISTOL_EXPRESS = "Express Pistol",
+    AMMO_PISTOL_EXPRESS_EXPLOSIVE = "Explosives Pistol",
+    AMMO_PISTOL_HIGH_VELOCITY = "Velocity Pistol",
+    AMMO_PISTOL_SPLIT_POINT = "Splitpoint Pistol",
+    AMMO_REPEATER = "Normal Repeater",
+    AMMO_REPEATER_EXPRESS = "Express Repeater",
+    AMMO_REPEATER_EXPRESS_EXPLOSIVE = "Explosives Repeater",
+    AMMO_REPEATER_HIGH_VELOCITY = "Velocity Repeater",
+    AMMO_REPEATER_SPLIT_POINT = "Splitpoint Repeater",
+    AMMO_REVOLVER = "Normal Revolver",
+    AMMO_REVOLVER_EXPRESS = "Express Revolver",
+    AMMO_REVOLVER_EXPRESS_EXPLOSIVE = "Explosives Revolver",
+    AMMO_REVOLVER_HIGH_VELOCITY = "Velocity Revolver",
+    AMMO_REVOLVER_SPLIT_POINT = "Splitpoint Revolver",
+    AMMO_RIFLE = "Normal Rifle",
+    AMMO_RIFLE_ELEPHANT = "Elephant Rifle",
+    AMMO_RIFLE_EXPRESS = "Express Rifle",
+    AMMO_RIFLE_EXPRESS_EXPLOSIVE = "Explosives Rifle",
+    AMMO_RIFLE_HIGH_VELOCITY = "Velocity Rifle",
+    AMMO_RIFLE_SPLIT_POINT = "Splitpoint Rifle",
+    AMMO_22 = "22 Rifle",
+    AMMO_22_TRANQUILIZER = "22 Tranquilizer Rifle",
+    AMMO_SHOTGUN = "Normal Shotgun",
+    AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = "Incendiary Shotgun",
+    AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = "Explosive Shotgun",
+    AMMO_SHOTGUN_SLUG = "Slug Shotgun",
+    AMMO_ARROW = "Normal Arrows",
+    AMMO_ARROW_DYNAMITE = "Dynamite Arrows",
+    AMMO_ARROW_FIRE = "Fire Arrows",
+    AMMO_ARROW_IMPROVED = "Improved Arrows",
+    AMMO_ARROW_SMALL_GAME = "Small Game Arrows",
+    AMMO_ARROW_POISON = "Poison Arrows",
+    AMMO_THROWING_KNIVES = "Throwing Knives",
+    AMMO_TOMAHAWK = "Tomahawk",
+    AMMO_POISONBOTTLE = "Poison Bottle",
+    AMMO_BOLAS = "Bolas",
+    AMMO_BOLAS_HAWKMOTH = "Hawkmoth Bolas",
+    AMMO_BOLAS_INTERTWINED = "Intertwined Bolas",
+    AMMO_BOLAS_IRONSPIKED = "Ironspiked Bolas",
+    AMMO_DYNAMITE = "Dynamite",
+    AMMO_DYNAMITE_VOLATILE = 'Volatile Dynamite',
+    AMMO_MOLOTOV = "Molotov",
+    AMMO_MOLOTOV_VOLATILE = "Volatile Molotov"
+  },
   --DON'T TOUCH BESIDES NAME OF WEAPON
   Weapons = {
     {
-      
-      Name = "Lasso", -- TRANSLATE NAME ONLY
-      HashName = "WEAPON_LASSO",
-      WeaponModel  = "w_melee_lasso01"
+      Name     = "Lasso", -- TRANSLATE NAME ONLY
+      Desc     = "An annoyingly useful rope", -- CHANGE DESCRIPTION ONLY
+      HashName = "WEAPON_LASSO", -- DONT TOUCH
     },
     {
-      Name = "Reinforced Lasso",
+      Name     = "Reinforced Lasso",
+      Desc     = "A super annoyingly useful role",
       HashName = "WEAPON_LASSO_REINFORCED",
-      WeaponModel  = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Knife",
+      Desc = "Knife used mainly for skinning animals",
       HashName = "WEAPON_MELEE_KNIFE",
-      WeaponModel = "w_melee_knife02",
-      AmmoHash = {},
-      CompsHash = {
-        {
-          w_melee_knife02_grip1  = 0
-        }
-      }
     },
     {
       Name = "Knife Rustic",
-      HashName =" WEAPON_MELEE_KNIFE_RUSTIC",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+      Desc = "old looking knife, could it be still useful ?",
+      HashName = "WEAPON_MELEE_KNIFE_RUSTIC",
     },
     {
       Name = "Knife Horror",
+      Desc = "This knife was used to do plenty of unpleasant things",
       HashName = "WEAPON_MELEE_KNIFE_HORROR",
-      WeaponModel = "w_melee_knife02",
-      AmmoHash = {},
-      CompsHash = {
-        {
-          w_melee_knife02_grip1 = 0
-        }
-      }
     },
     {
       Name = "Knife Civil War",
+      Desc = "A knife with a lot of history",
       HashName = "WEAPON_MELEE_KNIFE_CIVIL_WAR",
-      WeaponModel = "w_melee_knife16",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Knife Jawbone",
+      Desc = "A knife made of ancient bones",
       HashName = "WEAPON_MELEE_KNIFE_JAWBONE",
-      WeaponModel =" w_melee_knife03",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Knife Miner",
+      Desc = "Miners bestfriend",
       HashName = "WEAPON_MELEE_KNIFE_MINER",
-      WeaponModel = "w_melee_knife14",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Knife Vampire",
+      Desc = "They cant be real...",
       HashName = "WEAPON_MELEE_KNIFE_VAMPIRE",
-      WeaponModel = "w_melee_knife18",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Cleaver",
+      Desc = "Scary looking but useful",
       HashName = "WEAPON_MELEE_CLEAVER",
-      WeaponModel = "w_melee_hatchet02",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Hachet",
+      Desc = "A piece of wood with a blade",
       HashName = "WEAPON_MELEE_HATCHET",
-      WeaponModel = "w_melee_hatchet01",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Hachet Double Bit",
+      Desc = "A Piece of wood with twice the blade",
       HashName = "WEAPON_MELEE_HATCHET_DOUBLE_BIT",
-      WeaponModel = "w_melee_hatchet06",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Hachet Hewing",
+      Desc = "Some say this hatchet is magical",
       HashName = "WEAPON_MELEE_HATCHET_HEWING",
-      WeaponModel = "w_melee_hatchet05",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Hachet Hunter",
+      Desc = "A Hunters bestfriend",
       HashName = "WEAPON_MELEE_HATCHET_HUNTER",
-      WeaponModel = "w_melee_hatchet07",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Hachet Viking",
+      Desc = "Smells of fish and salt",
       HashName = "WEAPON_MELEE_HATCHET_VIKING",
-      WeaponModel = "w_melee_hatchet04",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Tomahawk",
+      Desc = "A weapon befitting a warrior",
       HashName = "WEAPON_THROWN_TOMAHAWK",
-      WeaponModel = "w_melee_tomahawk01",
-      AmmoHash = {
-        {
-          AMMO_TOMAHAWK = 2,
-          AMMO_TOMAHAWK_IMPROVED = 2,
-          AMMO_TOMAHAWK_HOMING = 2
-        }
-      },
-      CompsHash = {}
     },
     {
       Name = "Tomahawk Ancient",
+      Desc = "This one is Ancient",
       HashName = "WEAPON_THROWN_TOMAHAWK_ANCIENT",
-      WeaponModel = "w_melee_tomahawk02",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Throwing Knifes",
+      Desc = "Folks love playing with these",
       HashName = "WEAPON_THROWN_THROWING_KNIVES",
-      WeaponModel = "w_melee_knife05",
-      AmmoHash = {
-        {
-          AMMO_THROWING_KNIVES = 2,
-          AMMO_THROWING_KNIVES_IMPROVED = 2,
-          AMMO_THROWING_KNIVES_POISON = 2
-        }
-      },
-      CompsHash = {}
+
     },
     {
       Name = "Machete",
+      Desc = "Useful in the jungle",
       HashName = "WEAPON_MELEE_MACHETE",
-      WeaponModel = "w_melee_machete01",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Bow",
+      Desc = "A Simple but effective weapon",
       HashName = "WEAPON_BOW",
-      WeaponModel = "w_sp_bowarrow",
-      AmmoHash = {
-        {
-          AMMO_ARROW = 0.25,
-          AMMO_ARROW_DYNAMITE = 0.25,
-          AMMO_ARROW_FIRE = 0.25,
-          AMMO_ARROW_IMPROVED = 0.25,
-          AMMO_ARROW_POISON = 0.25,
-          AMMO_ARROW_SMALL_GAME = 0.25
-        }
-      },
-      CompsHash = {}
     },
     {
       Name = "Pistol Semi-Auto",
+      Desc = "repeating single-chamber handgun",
       HashName = 'WEAPON_PISTOL_SEMIAUTO',
-      WeaponModel = "w_pistol_semiauto01",
-      AmmoHash = {
-        {
-          AMMO_PISTOL = 0.25,
-          AMMO_PISTOL_EXPRESS = 0.25,
-          AMMO_PISTOL_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_PISTOL_HIGH_VELOCITY = 0.25,
-          AMMO_PISTOL_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_pistol_semiauto01_sight1 = 0,
-          w_pistol_semiauto01_sight2 = 10,
-          w_pistol_semiauto01_grip1 = 0,
-          w_pistol_semiauto01_grip2 = 10,
-          w_pistol_semiauto01_grip3 = 10,
-          w_pistol_semiauto01_grip4 = 10,
-          w_pistol_semiauto01_clip = 0,
-          w_pistol_semiauto01_barrel1 = 0,
-          w_pistol_semiauto01_barrel2 = 10
-        }
-      }
     },
     {
       Name = "Pistol Mauser",
+      Desc = "semi-automatic pistol that was originally produced by German arms manufacturer Mauser",
       HashName = "WEAPON_PISTOL_MAUSER",
-      WeaponModel = "w_pistol_mauser01",
-      AmmoHash = {
-        {
-          AMMO_PISTOL = 0.25,
-          AMMO_PISTOL_EXPRESS = 0.25,
-          AMMO_PISTOL_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_PISTOL_HIGH_VELOCITY = 0.25,
-          AMMO_PISTOL_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_pistol_mauser01_sight1 = 0,
-          w_pistol_mauser01_sight2 = 10,
-          w_pistol_mauser01_grip1 = 0,
-          w_pistol_mauser01_grip2 = 10,
-          w_pistol_mauser01_grip3 = 10,
-          w_pistol_mauser01_grip4 = 10,
-          w_pistol_mauser01_clip = 0,
-          w_pistol_mauser01_barrel1 = 0,
-          w_pistol_mauser01_barrel2 = 10
-        }
-      }
     },
     {
       Name = "Pistol Volcanic",
+      Desc = " an improved version of the Rocket Ball ammunition",
       HashName = "WEAPON_PISTOL_VOLCANIC",
-      WeaponModel = "w_pistol_volcanic01",
-      AmmoHash = {
-        {
-          AMMO_PISTOL = 0.25,
-          AMMO_PISTOL_EXPRESS = 0.25,
-          AMMO_PISTOL_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_PISTOL_HIGH_VELOCITY = 0.25,
-          AMMO_PISTOL_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_pistol_volcanic01_sight1 = 0,
-          w_pistol_volcanic01_sight2 = 10,
-          w_pistol_volcanic01_grip1 = 0,
-          w_pistol_volcanic01_grip2 = 10,
-          w_pistol_volcanic01_grip3 = 10,
-          w_pistol_volcanic01_grip4 = 10,
-          w_pistol_volcanic01_barrel01 = 0,
-          w_pistol_volcanic01_barrel02 = 10
-        }
-      }
     },
     {
       Name = "Pistol M1899",
+      Desc = "its magazine-loaded ammunition allows for a swift reload",
       HashName = "WEAPON_PISTOL_M1899",
-      WeaponModel = "w_pistol_m189902",
-      AmmoHash = {
-        {
-          AMMO_PISTOL = 0.25,
-          AMMO_PISTOL_EXPRESS = 0.25,
-          AMMO_PISTOL_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_PISTOL_HIGH_VELOCITY = 0.25,
-          AMMO_PISTOL_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_pistol_m189902_sight1 = 0,
-          w_pistol_m189902_sight2 = 10,
-          w_pistol_m189902_grip1 = 0,
-          w_pistol_m189902_grip2 = 10,
-          w_pistol_m189902_grip3 = 10,
-          w_pistol_m189902_grip4 = 10,
-          w_pistol_m189902_clip1 = 0,
-          w_pistol_m189902_barrel01 = 0,
-          w_pistol_m189902_barrel02 = 10
-        }
-      }
     },
     {
       Name = "Revolver Schofield",
+      Desc = "single-action, cartridge-firing, top-break revolver",
       HashName = "WEAPON_REVOLVER_SCHOFIELD",
-      WeaponModel = "w_revolver_schofield01",
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_revolver_schofield01_sight1 = 0,
-          w_revolver_schofield01_sight2 = 10,
-          w_revolver_schofield01_grip1 = 0,
-          w_revolver_schofield01_grip2 = 10,
-          w_revolver_schofield01_grip3 = 10,
-          w_revolver_schofield01_grip4 = 10,
-          w_revolver_schofield01_barrel01 = 0,
-          w_revolver_schofield01_barrel02 = 10
-        }
-      }
     },
     {
       Name = "Revolver Navy",
+      Desc = "cap and ball revolver that was designed by Samuel Colt",
       HashName = "WEAPON_REVOLVER_NAVY",
-      WeaponModel = "w_revolver_navy",
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          COMPONENT_REVOLVER_NAVY_BARREL_SHORT = 0,
-          COMPONENT_REVOLVER_NAVY_BARREL_LONG = 10,
-          COMPONENT_REVOLVER_NAVY_BARREL_CROSSOVER = 0,
-          COMPONENT_REVOLVER_NAVY_GRIP = 10,
-          COMPONENT_REVOLVER_NAVY_GRIP_IRONWOOD = 10,
-          COMPONENT_REVOLVER_NAVY_GRIP_PEARL = 10,
-          COMPONENT_REVOLVER_NAVY_GRIP_EBONY = 0,
-          COMPONENT_REVOLVER_NAVY_GRIP_CROSSOVER = 10,
-          COMPONENT_REVOLVER_NAVY_SIGHT_NARROW = 10,
-          COMPONENT_REVOLVER_NAVY_SIGHT_WIDE = 10,
-          COMPONENT_REVOLVER_NAVY_SIGHT_CROSSOVER = 10
-        }
-      }
     },
     {
       Name = "Revolver Navy Crossover",
+      Desc = "DESC IN config.lua",
       HashName = "WEAPON_REVOLVER_NAVY_CROSSOVER",
-      WeaponModel = "w_revolver_navy", -- need to find model name althoug this is not being used anyways
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          COMPONENT_REVOLVER_NAVY_BARREL_SHORT = 0,
-          COMPONENT_REVOLVER_NAVY_BARREL_LONG = 10,
-          COMPONENT_REVOLVER_NAVY_BARREL_CROSSOVER = 0,
-          COMPONENT_REVOLVER_NAVY_GRIP = 10,
-          COMPONENT_REVOLVER_NAVY_GRIP_IRONWOOD = 10,
-          COMPONENT_REVOLVER_NAVY_GRIP_PEARL = 10,
-          COMPONENT_REVOLVER_NAVY_GRIP_EBONY = 0,
-          COMPONENT_REVOLVER_NAVY_GRIP_CROSSOVER = 10,
-          COMPONENT_REVOLVER_NAVY_SIGHT_NARROW = 10,
-          COMPONENT_REVOLVER_NAVY_SIGHT_WIDE = 10,
-          COMPONENT_REVOLVER_NAVY_SIGHT_CROSSOVER = 10
-        }
-      }
     },
     {
       Name = "Revolver Lemat",
+      Desc = "a revolver that is also a shotgun",
       HashName = "WEAPON_REVOLVER_LEMAT",
-      WeaponModel = "w_revolver_lemat01",
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_revolver_lemat01_sight1 = 0,
-          w_revolver_lemat01_sight2 = 10,
-          w_revolver_lemat01_grip1 = 0,
-          w_revolver_lemat01_grip2 = 10,
-          w_revolver_lemat01_grip3 = 10,
-          w_revolver_lemat01_grip4 = 10,
-          w_revolver_lemat01_barrel01 = 0,
-          w_revolver_lemat01_barrel02 = 10
-        }
-      }
     },
     {
       Name = "Revolver Double Action",
+      Desc = "has a trigger that both cocks the hammer and releases it in one pull ",
       HashName = "WEAPON_REVOLVER_DOUBLEACTION",
-      WeaponModel = "w_revolver_doubleaction01",
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_revolver_doubleaction01_sight1 = 0,
-          w_revolver_doubleaction01_sight2 = 10,
-          w_revolver_doubleaction01_grip1 = 0,
-          w_revolver_doubleaction01_grip2 = 10,
-          w_revolver_doubleaction01_grip3 = 10,
-          w_revolver_doubleaction01_grip4 = 10,
-          w_revolver_doubleaction01_grip5 = 10,
-          w_revolver_doubleaction01_barrel01 = 0,
-          w_revolver_doubleaction01_barrel02 = 10
-        }
-      }
     },
     {
       Name = "Revolver Cattleman",
+      Desc = "A cowboys bestfriend",
       HashName = "WEAPON_REVOLVER_CATTLEMAN",
-      WeaponModel = "w_revolver_cattleman01",
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_revolver_cattleman01_sight1 = 0,
-          w_revolver_cattleman01_sight2 = 10,
-          w_revolver_cattleman01_grip1 = 0,
-          w_revolver_cattleman01_grip2 = 10,
-          w_revolver_cattleman01_grip3 = 10,
-          w_revolver_cattleman01_grip4 = 10,
-          w_revolver_cattleman01_grip5 = 10,
-          w_revolver_cattleman01_barrel01 = 0,
-          w_revolver_cattleman01_barrel02 = 10
-        }
-      }
     },
     {
       Name = "Revolver Cattleman mexican",
+      Desc = "a different flavor",
       HashName = "WEAPON_REVOLVER_CATTLEMAN_MEXICAN",
-      WeaponModel = "w_revolver_cattleman02",
-      AmmoHash = {
-        {
-          AMMO_REVOLVER = 0.25,
-          AMMO_REVOLVER_EXPRESS = 0.25,
-          AMMO_REVOLVER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REVOLVER_HIGH_VELOCITY = 0.25,
-          AMMO_REVOLVER_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {}
-      }
     },
     {
-      Name =  "Varmint Rifle",
+      Name = "Varmint Rifle",
+      Desc = "A rifle useful for hunting critters",
       HashName = "WEAPON_RIFLE_VARMINT",
-      WeaponModel = "w_repeater_pumpaction01",
-      AmmoHash = {
-        {
-          AMMO_22 = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_repeater_pumpaction01_wrap1 = 0,
-          w_repeater_pumpaction01_sight1 = 0,
-          w_repeater_pumpaction01_sight2 = 10,
-          w_repeater_pumpaction01_grip1 = 0,
-          w_repeater_pumpaction01_grip2 = 10,
-          w_repeater_pumpaction01_grip3 = 10,
-          w_repeater_pumpaction01_clip1 = 0,
-          w_repeater_pumpaction01_clip2 = 10,
-          w_repeater_pumpaction01_clip3 = 10
-        }
-      }
+
     },
     {
       Name = "Winchester Repeater",
+      Desc = "lever-action repeating rifles manufactured by the Winchester Repeating Arms Company",
       HashName = "WEAPON_REPEATER_WINCHESTER",
-      WeaponModel = "w_repeater_winchester01",
-      AmmoHash = {
-        {
-          AMMO_REPEATER = 0.25,
-          AMMO_REPEATER_EXPRESS = 0.25,
-          AMMO_REPEATER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REPEATER_HIGH_VELOCITY = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_repeater_winchester01_wrap1 = 0,
-          w_repeater_winchester01_sight1 = 0,
-          w_repeater_winchester01_sight2 = 10,
-          w_repeater_winchester01_grip1 = 0,
-          w_repeater_winchester01_grip2 = 10,
-          w_repeater_winchester01_grip3 = 10
-        }
-      }
+
     },
     {
       Name = "Henry Reapeater",
+      Desc = " lever-action tubular magazine rifle",
       HashName = "WEAPON_REPEATER_HENRY",
-      WeaponModel = "w_repeater_henry01",
-      AmmoHash = {
-        {
-          AMMO_REPEATER = 0.25,
-          AMMO_REPEATER_EXPRESS = 0.25,
-          AMMO_REPEATER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REPEATER_HIGH_VELOCITY = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_repeater_henry01_wrap1 = 0,
-          w_repeater_henry01_sight1 = 0,
-          w_repeater_henry01_sight2 = 10,
-          w_repeater_henry01_grip1 = 0,
-          w_repeater_henry01_grip2 = 10,
-          w_repeater_henry01_grip3 = 10
-        }
-      }
+
     },
     {
       Name = "Evans Repeater",
+      Desc = "a lever-action repeating rifle designed by Warren R. Evans as a high capacity rifle",
       HashName = "WEAPON_REPEATER_EVANS",
-      WeaponModel = "w_repeater_evans01",
-      AmmoHash = {
-        {
-          AMMO_REPEATER = 0.25,
-          AMMO_REPEATER_EXPRESS = 0.25,
-          AMMO_REPEATER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REPEATER_HIGH_VELOCITY = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_repeater_evans01_wrap1 = 0,
-          w_repeater_evans01_sight1 = 0,
-          w_repeater_evans01_sight2 = 10,
-          w_repeater_evans01_grip1 = 0,
-          w_repeater_evans01_grip2 = 10,
-          w_repeater_evans01_grip3 = 10
-        }
-      }
+
     },
     {
       Name = "Carabine Reapeater",
+      Desc = "A reliable and popular repeating rifle, the Buck Carbine provides medium damage and a decent firing rate",
       HashName = "WEAPON_REPEATER_CARBINE",
-      WeaponModel = "w_repeater_carbine01",
-      AmmoHash = {
-        {
-          AMMO_REPEATER = 0.25,
-          AMMO_REPEATER_EXPRESS = 0.25,
-          AMMO_REPEATER_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_REPEATER_HIGH_VELOCITY = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_repeater_carbine01_wrap1 = 0,
-          w_repeater_carbine01_sight1 = 0,
-          w_repeater_carbine01_sight2 = 10,
-          w_repeater_carbine01_grip1 = 0,
-          w_repeater_carbine01_grip2 = 10,
-          w_repeater_carbine01_grip3 = 10,
-          w_repeater_carbine01_clip1 = 0
-        }
-      }
     },
     {
       Name = "Rolling Block Rifle",
+      Desc = "Remington Rolling Block is a family of breech-loading rifles",
       HashName = "WEAPON_SNIPERRIFLE_ROLLINGBLOCK",
-      WeaponModel = "w_rifle_rollingblock01",
-      AmmoHash = {
-        {
-          AMMO_RIFLE = 0.25,
-          AMMO_RIFLE_EXPRESS = 0.25,
-          AMMO_RIFLE_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_RIFLE_HIGH_VELOCITY = 0.25,
-          AMMO_RIFLE_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_rifle_rollingblock01_wrap1 = 0,
-          w_rifle_rollingblock01_sight2 = 10,
-          w_rifle_rollingblock01_sight1 = 0,
-          w_rifle_rollingblock01_grip1 = 0,
-          w_rifle_rollingblock01_grip2 = 10,
-          w_rifle_rollingblock01_grip3 = 10,
-          w_rifle_scopeinner01 = 0,
-          w_rifle_scope04 = 10,
-          w_rifle_scope03 = 10,
-          w_rifle_scope02 = 10,
-          w_rifle_cs_strap01 = 0
-        }
-      }
     },
     {
       Name = "Carcano Rifle",
+      Desc = "The Carcano is an Italian, bolt action rifle",
       HashName = "WEAPON_SNIPERRIFLE_CARCANO",
-      WeaponModel = "w_rifle_carcano01",
-      AmmoHash = {
-        {
-          AMMO_RIFLE = 0.25,
-          AMMO_RIFLE_EXPRESS = 0.25,
-          AMMO_RIFLE_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_RIFLE_HIGH_VELOCITY = 0.25,
-          AMMO_RIFLE_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_rifle_carcano01_wrap1 = 0,
-          w_rifle_carcano01_sight2 = 10,
-          w_rifle_carcano01_sight1 = 0,
-          w_rifle_carcano01_grip1 = 0,
-          w_rifle_carcano01_grip2 = 10,
-          w_rifle_carcano01_grip3 = 10,
-          w_rifle_carcano01_clip = 0,
-          w_rifle_carcano01_clip2 = 10,
-          w_rifle_scopeinner01 = 0,
-          w_rifle_scope04 = 10,
-          w_rifle_scope03 = 10,
-          w_rifle_scope02 = 10,
-          w_rifle_cs_strap01 = 0
-        }
-      }
     },
     {
       Name = "Springfield Rifle",
+      Desc = "Army's standard issue rifle",
       HashName = "WEAPON_RIFLE_SPRINGFIELD",
-      WeaponModel = "w_rifle_springfield01",
-      AmmoHash = {
-        {
-          AMMO_RIFLE = 0.25,
-          AMMO_RIFLE_EXPRESS = 0.25,
-          AMMO_RIFLE_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_RIFLE_HIGH_VELOCITY = 0.25,
-          AMMO_RIFLE_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_rifle_springfield01_wrap1 = 0,
-          w_rifle_springfield01_sight2 = 10,
-          w_rifle_springfield01_sight1 = 0,
-          w_rifle_springfield01_grip1 = 0,
-          w_rifle_springfield01_grip2 = 10,
-          w_rifle_springfield01_grip3 = 10,
-          w_rifle_scopeinner01 = 0,
-          w_rifle_scope04 = 10,
-          w_rifle_scope03 = 10,
-          w_rifle_scope02 = 10,
-          w_rifle_cs_strap01 = 0
-        }
-      }
     },
     {
       Name = "Elephant Rifle",
+      Desc = "Best Weapon for a hunter looking to take down large prey",
       HashName = "WEAPON_RIFLE_ELEPHANT",
-      WeaponModel = "weapon_rifle_elephant",
-      AmmoHash = {
-        {
-          AMMO_RIFLE = 0.25,
-          AMMO_RIFLE_EXPRESS = 0.25,
-          AMMO_RIFLE_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_RIFLE_HIGH_VELOCITY = 0.25,
-          AMMO_RIFLE_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "BoltAction Rifle",
+      Desc = "manual firearm action that is operated by directly manipulating the bolt",
       HashName = "WEAPON_RIFLE_BOLTACTION",
-      WeaponModel = "w_rifle_boltaction01",
-      AmmoHash = {
-        {
-          AMMO_RIFLE = 0.25,
-          AMMO_RIFLE_EXPRESS = 0.25,
-          AMMO_RIFLE_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_RIFLE_HIGH_VELOCITY = 0.25,
-          AMMO_RIFLE_SPLIT_POINT = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_rifle_boltaction01_wrap1 = 0,
-          w_rifle_boltaction01_sight1 = 0,
-          w_rifle_boltaction01_sight2 = 10,
-          w_rifle_boltaction01_grip1 = 0,
-          w_rifle_boltaction01_grip2 = 10,
-          w_rifle_boltaction01_grip3 = 10
-        }
-      }
     },
     {
       Name = "Semi-Auto Shotgun",
+      Desc = "a repeating shotgun with a semi-automatic action, capable of automatically chambering a new shell",
       HashName = "WEAPON_SHOTGUN_SEMIAUTO",
-      WeaponModel = "w_shotgun_semiauto01",
-      AmmoHash = {
-        {
-          AMMO_SHOTGUN = 0.25,
-          AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 0.25,
-          AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_SHOTGUN_SLUG = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_shotgun_semiauto01_wrap1 = 0,
-          w_shotgun_semiauto01_sight1 = 0,
-          w_shotgun_semiauto01_sight2 = 10,
-          w_shotgun_semiauto01_grip1 = 0,
-          w_shotgun_semiauto01_grip2 = 10,
-          w_shotgun_semiauto01_grip3 = 10,
-          w_shotgun_semiauto01_barrel1 = 0,
-          w_shotgun_semiauto01_barrel2 = 10
-        }
-      }
     },
     {
       Name = "Sawedoff Shotgun",
+      Desc = "shotgun with a shorter gun barre",
       HashName = "WEAPON_SHOTGUN_SAWEDOFF",
-      WeaponModel = "w_shotgun_sawed01",
-      AmmoHash = {
-        {
-          AMMO_SHOTGUN = 0.25,
-          AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 0.25,
-          AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_SHOTGUN_SLUG = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_shotgun_sawed01_wrap1 = 0,
-          w_shotgun_sawed01_sight1 = 0,
-          w_shotgun_sawed01_sight2 = 10,
-          w_shotgun_sawed01_grip1 = 0,
-          w_shotgun_sawed01_grip2 = 10,
-          w_shotgun_sawed01_grip3 = 10,
-          w_shotgun_sawed01_stock1 = 0,
-          w_shotgun_sawed01_stock2 = 10,
-          w_shotgun_sawed01_stock3 = 10
-        }
-      }
     },
     {
       Name = "Repeating Shotgun",
+      Desc = "The Lancaster Repeating Shotgun",
       HashName = "WEAPON_SHOTGUN_REPEATING",
-      WeaponModel = "w_shotgun_repeating01",
-      AmmoHash = {
-        {
-          AMMO_SHOTGUN = 0.25,
-          AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 0.25,
-          AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_SHOTGUN_SLUG = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_shotgun_repeating01_wrap1 = 0,
-          w_shotgun_repeating01_sight1 = 0,
-          w_shotgun_repeating01_sight2 = 10,
-          w_shotgun_repeating01_grip1 = 0,
-          w_shotgun_repeating01_grip2 = 10,
-          w_shotgun_repeating01_grip3 = 10,
-          w_shotgun_repeating01_barrel1 = 0,
-          w_shotgun_repeating01_barrel2 = 10
-        }
-      }
     },
     {
       Name = "Double Barrel Exotic Shotgun",
+      Desc = "exotic-rarity variant of the Double Barrel Shotgun",
       HashName = "WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC",
-      WeaponModel = "w_shotgun_doublebarrel01",
-      AmmoHash = {
-        {
-          AMMO_SHOTGUN = 0.25,
-          AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 0.25,
-          AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_SHOTGUN_SLUG = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          COMPONENT_REVOLVER_DOUBLEACTION_GRIP_EXOTIC = 0
-        }
-      }
     },
     {
       Name = "Pump Shotgun",
+      Desc = "repeating firearm action that is operated manually by moving a sliding handguard",
       HashName = "WEAPON_SHOTGUN_PUMP",
-      WeaponModel = "w_shotgun_pumpaction01",
-      AmmoHash = {
-        {
-          AMMO_SHOTGUN = 0.25,
-          AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 0.25,
-          AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_SHOTGUN_SLUG = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_shotgun_pumpaction01_wrap1 = 0,
-          w_shotgun_pumpaction01_sight1 = 0,
-          w_shotgun_pumpaction01_sight2 = 10,
-          w_shotgun_pumpaction01_grip1 = 0,
-          w_shotgun_pumpaction01_grip2 = 10,
-          w_shotgun_pumpaction01_grip3 = 10,
-          w_shotgun_pumpaction01_barrel1 = 0,
-          w_shotgun_pumpaction01_barrel2 = 10,
-          w_shotgun_pumpaction01_clip1 = 0,
-          w_shotgun_pumpaction01_clip2 = 10,
-          w_shotgun_pumpaction01_clip3 = 10
-        }
-      }
+
     },
     {
       Name = "Double Barrel Shotgun",
+      Desc = "break-action shotgun with two parallel barrels, allowing two single shots to be fired in quick succession",
       HashName = "WEAPON_SHOTGUN_DOUBLEBARREL",
-      WeaponModel = "w_shotgun_doublebarrel01",
-      AmmoHash = {
-        {
-          AMMO_SHOTGUN = 0.25,
-          AMMO_SHOTGUN_BUCKSHOT_INCENDIARY = 0.25,
-          AMMO_SHOTGUN_EXPRESS_EXPLOSIVE = 0.25,
-          AMMO_SHOTGUN_SLUG = 0.25
-        }
-      },
-      CompsHash = {
-        {
-          w_shotgun_doublebarrel01_wrap1 = 0,
-          w_shotgun_doublebarrel01_sight1 = 0,
-          w_shotgun_doublebarrel01_sight2 = 10,
-          w_shotgun_doublebarrel01_grip1 = 0,
-          w_shotgun_doublebarrel01_grip2 = 10,
-          w_shotgun_doublebarrel01_grip3 = 10,
-          w_shotgun_doublebarrel01_barrel1 = 0,
-          w_shotgun_doublebarrel01_barrel2 = 10,
-          w_shotgun_doublebarrel01_mag1 = 0,
-          w_shotgun_doublebarrel01_mag2 = 10,
-          w_shotgun_doublebarrel01_mag3 = 10
-        }
-      }
     },
     {
       Name = "Camera",
+      Desc = "a journalists bestfriend",
       HashName = "WEAPON_KIT_CAMERA",
-      WeaponModel = "p_camerabox01x",
-      AmmoHash = {},
-      CompsHash = {
-        {
-          w_camera_inner01 = 0
-        }
-      }
     },
     {
       Name = "Improved Binoculars",
+      Desc = "See things clearly !",
       HashName = "WEAPON_KIT_BINOCULARS_IMPROVED",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Knife Trader",
+      Desc = "a traders bestfriend",
       HashName = "WEAPON_MELEE_KNIFE_TRADER",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Binoculars",
+      Desc = "lets you see far things",
       HashName = "WEAPON_KIT_BINOCULARS",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Advanced Camera",
+      Desc = "a camera thats slightly technologicaly better",
       HashName = "WEAPON_KIT_CAMERA_ADVANCED",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Lantern",
+      Desc = "lets you see better in the dark",
       HashName = "WEAPON_MELEE_LANTERN",
-      WeaponModel = "" ,
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Davy Lantern",
+      Desc = "safety lamp for use in flammable atmospheres",
       HashName = "WEAPON_MELEE_DAVY_LANTERN",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Halloween Lantern",
+      Desc = "made with a real human skull",
       HashName = "WEAPON_MELEE_LANTERN_HALLOWEEN",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Poison Bottle",
+      Desc = "who knows whats in this thing",
       HashName = "WEAPON_THROWN_POISONBOTTLE",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Metal Detector",
+      Desc = "helps you find valuables",
       HashName = "WEAPON_KIT_METAL_DETECTOR",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Dynamite",
+      Desc = "boomstick",
       HashName = "WEAPON_THROWN_DYNAMITE",
-      WeaponModel = "w_throw_dynamite01",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+
     },
     {
       Name = "Molotov",
+      Desc = "an arsonists bestfriend",
       HashName = "WEAPON_THROWN_MOLOTOV",
-      WeaponModel = "w_throw_molotov01",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+
     },
     {
       Name = "Improved Bow",
+      Desc = "a bow with better accuracy",
       HashName = "WEAPON_BOW_IMPROVED",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Machete Collector",
+      Desc = "every collector needs one",
       HashName = "WEAPON_MELEE_MACHETE_COLLECTOR",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Electric Lantern",
+      Desc = "a marvel of technology",
       HashName = "WEAPON_MELEE_LANTERN_ELECTRIC",
-      WeaponModel = "s_interact_lantern03x_pickup",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Torch",
+      Desc = "your basic stick on fire",
       HashName = "WEAPON_MELEE_TORCH",
-      WeaponModel = "s_interact_torch",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Moonshine Jug",
+      Desc = "those are very fun",
       HashName = "WEAPON_MOONSHINEJUG_MP",
-      WeaponModel = "s_interact_jug_pickup",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+
     },
     {
       Name = "Bolas",
+      Desc = "every badass cowboy needs one",
       HashName = "WEAPON_THROWN_BOLAS",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Bolas Hawkmoth",
+      Desc = "a bola with a twist",
       HashName = "WEAPON_THROWN_BOLAS_HAWKMOTH",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
     },
     {
       Name = "Bolas Ironspiked",
+      Desc = "a more edgy bola",
       HashName = "WEAPON_THROWN_BOLAS_IRONSPIKED",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+
     },
     {
       Name = "Bolas Intertwined",
+      Desc = "a stronger bola",
       HashName = "WEAPON_THROWN_BOLAS_INTERTWINED",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+
     },
     {
       Name = "Fishing Rod",
+      Desc = "whats better than catching fish",
       HashName = "WEAPON_FISHINGROD",
-      WeaponModel = "w_melee_fishingpole02",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Machete Horror",
+      Desc = "this one scares people",
       HashName = "WEAPON_MACHETE_HORROR",
-      WeaponModel = "",
-      AmmoHash = {},
-      CompsHash = {}
     },
     {
       Name = "Lantern Haloween",
+      Desc = "made with a real human skull",
       HashName = "WEAPON_MELEE_LANTERN_HALOWEEN",
-      WeaponModel = "" ,
-      AmmoHash = {},
-      CompsHash = {
-        {}
-      }
+
+    },
+    {
+      Name = "Hammer",
+      Desc = "Richards Hammer!",
+      HashName = "WEAPON_MELEE_HAMMER",
+
     }
   }
 }

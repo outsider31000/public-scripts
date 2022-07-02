@@ -1,3 +1,22 @@
+<1.1.0>
+- added  a different way to handle ammo
+- each ammo will use its ammo from the "belt"
+- fix infinite throwables ammo
+<1.0.9>
+- added bank compability
+<1.0.8>
+- added gold option to drop/give like money check config.
+- added items description check discord on how to add it to items database
+- added weapons description check config
+- fix giving invalid weapon names
+- fix for getsteamid
+- added loading timer when giving items to others to fix the spam give items.
+- update ALL FILES including fxmanifest to get versions checks
+<1.0.7>
+- Bugfix canCarryItem was erroring with invalid items.
+- Server API Feature getItem added!
+- Server API Feature getDBItem added!
+- Server API Enhancement canCarryWeapons added to API, was only available as serverEvent prior.
 <1.0.6>
 - Language updates and fixes
 - added option to display containers capacity

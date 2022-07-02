@@ -35,3 +35,6 @@ ROW_FORMAT=DYNAMIC
 ALTER TABLE `loadout` ADD COLUMN `dropped` INT(11) NOT NULL DEFAULT 0;
 ALTER TABLE `loadout` ADD COLUMN `comps` VARCHAR(5550) NOT NULL DEFAULT '{}';
 ALTER TABLE `loadout` ADD COLUMN `used2` tinyint(4) NOT NULL DEFAULT 0;
+
+-- if you need to upgrade desc in items
+ALTER TABLE `items` ADD COLUMN `desc` VARCHAR(5550) NOT NULL DEFAULT 'nice item';

@@ -8,6 +8,7 @@ Weapon.used = false
 Weapon.used2 = false
 Weapon.ammo = {}
 Weapon.components = {}
+Weapon.desc = nil
 
 function Weapon:setUsed(isUsed)
 	self.used = isUsed
@@ -55,6 +56,14 @@ end
 
 function Weapon:getName()
 	return self.name
+end
+
+function Weapon:setDesc(desc)
+	self.desc = desc
+end
+
+function Weapon:getDesc()
+	return self.desc
 end
 
 function Weapon:getAllAmmo()
