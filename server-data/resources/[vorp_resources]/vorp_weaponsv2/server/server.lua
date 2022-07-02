@@ -140,6 +140,21 @@ function containsammo(table, element)
   return false , 0
 end
 
+RegisterServerEvent("syn_weapons:removeallammoserver") -- new event 
+AddEventHandler("syn_weapons:removeallammoserver", function()
+    local _source = source
+    local Character = VorpCore.getUser(_source).getUsedCharacter
+    local charidentifier = Character.charIdentifier
+    exports.ghmattimysql:execute('SELECT ammo FROM characters WHERE charidentifier = @charidentifier ' , {['charidentifier'] = charidentifier}, function(result)
+		local ammo = json.decode(result[1].ammo)
+        if next(ammo) ~= nil then 
+            local Parameters = { ['charidentifier'] = charidentifier, ['ammo'] = json.encode({})}
+            exports.ghmattimysql:execute("UPDATE characters Set ammo=@ammo  WHERE charidentifier=@charidentifier", Parameters)    
+            TriggerEvent("vorpinventory:removeammo",_source) 
+        end
+    end)
+end)
+
 RegisterServerEvent("syn_weapons:getandcheckammo")
 AddEventHandler("syn_weapons:getandcheckammo", function(player,key,qt,item,max)
     local _source = player 
@@ -151,7 +166,7 @@ AddEventHandler("syn_weapons:getandcheckammo", function(player,key,qt,item,max)
         if contains then 
             if count >= max then 
                 TriggerClientEvent("syn_weapons:givebackbox",_source,item)
-            else
+            elseif (qt+count) >= max then 
                 qt = max - count
             end
         end
@@ -330,7 +345,7 @@ AddEventHandler("syn_weapons:buyweapon", function(itemtobuy,itemprice,itemlabel)
 end)
 
 RegisterServerEvent("syn_weapons:buyammo")
-AddEventHandler("syn_weapons:buyammo", function(itemtobuy,itemprice,count)
+AddEventHandler("syn_weapons:buyammo", function(itemtobuy,itemprice,count,itemlabel)
     local _source = source
     if count == nil then 
         count = 1
@@ -346,10 +361,10 @@ AddEventHandler("syn_weapons:buyammo", function(itemtobuy,itemprice,count)
             if canCarry and canCarry2 then
                 if total >= 0 then
                     Character.removeCurrency(0, take)
-                    local message = Config2.Language.syn_weapons..playername..Config2.Language.bought..itemtobuy
+                    local message = Config2.Language.syn_weapons..playername..Config2.Language.bought..itemlabel
                     SendWebhookMessage(Config.adminwebhook,message)
                     VorpInv.addItem(_source, itemtobuy, count)
-                    TriggerClientEvent("vorp:TipRight", _source, Config2.Language.youboughta..itemtobuy..Config2.Language.fors..take..Config2.Language.dollar, 3000)
+                    TriggerClientEvent("vorp:TipRight", _source, Config2.Language.youboughta..itemlabel..Config2.Language.fors..take..Config2.Language.dollar, 3000)
                 else
                     TriggerClientEvent("vorp:TipRight", _source, Config2.Language.nomoney, 3000)
                 end

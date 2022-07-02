@@ -27,11 +27,19 @@ local craftingwepitem2
 local inshop = false
 local currentshop
 local itemprice
+local itemlabel
 local category
 local itemtobuy
 local blip
 local label 
 local prompts = GetRandomIntInRange(0, 0xffffff)
+
+RegisterNetEvent("vorp_weapons:removeallammo") -- new event 
+AddEventHandler("vorp_weapons:removeallammo", function()
+	TriggerServerEvent("syn_weapons:removeallammoserver")
+	Citizen.InvokeNative(0xF25DF915FA38C5F3,PlayerPedId(),1,1)
+	Citizen.InvokeNative(0x1B83C0DEEBCBB214,PlayerPedId())
+end)
 
 function RemoveWeaponComponentFromPed(ped, componentHash, weaponHash)
 	return Citizen.InvokeNative(0x19F70C4D80494FF8, ped, componentHash, weaponHash)
@@ -728,9 +736,10 @@ Citizen.CreateThread( function()
 									TriggerEvent("vorpinputs:getInput",Config2.Language.confirm,Config2.Language.amount, function(cb)
 										local count =     tonumber(cb)
 										if count ~= nil and count ~= 0 and count > 0 then
+											itemlabel = j
 											itemprice = d.price
 											itemtobuy = d.item
-											TriggerServerEvent("syn_weapons:buyammo",itemtobuy,itemprice,count)
+											TriggerServerEvent("syn_weapons:buyammo",itemtobuy,itemprice,count,itemlabel)
 										else
 										  TriggerEvent("vorp:TipBottom", Config2.Language.invalidamount, 4000)
 										end
