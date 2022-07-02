@@ -1,4 +1,4 @@
-
+-- credits to @kadir for the conversion to lua from js
 
 exports("DisplayTip", function(text, duration)
     local string = CreateVarString(10, "LITERAL_STRING", text)
@@ -143,7 +143,7 @@ exports("showBottomRight", function(text, duration)
 end)
 
 
---new 
+--new
 
 exports("failmissioNotifY", function(title, subTitle, duration)
     local title = CreateVarString(10, "LITERAL_STRING", title)
@@ -176,7 +176,7 @@ end)
 
 
 
-exports("updatemissioNotify", function( utitle, umsg, duration)
+exports("updatemissioNotify", function(utitle, umsg, duration)
     local title = CreateVarString(10, "LITERAL_STRING", utitle)
     local msg = CreateVarString(10, "LITERAL_STRING", umsg)
     local duration = tonumber(duration) or 3000

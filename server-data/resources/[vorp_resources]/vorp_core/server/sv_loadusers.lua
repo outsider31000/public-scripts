@@ -23,15 +23,16 @@ function LoadUser(source, setKickReason, deferrals, identifier, license)
                 deferrals.done("You are banned permanently!")
                 setKickReason("You are banned permanently!")
             elseif bannedUntilTime > currentTime then
-                local bannedUntil = os.date(Config.Langs["DateTimeFormat"], bannedUntilTime+Config.TimeZoneDifference*3600)
-                deferrals.done(Config.Langs["BannedUser"]..bannedUntil..Config.Langs["TimeZone"])
-                setKickReason(Config.Langs["BannedUser"]..bannedUntil..Config.Langs["TimeZone"])
+                local bannedUntil = os.date(Config.Langs["DateTimeFormat"],
+                    bannedUntilTime + Config.TimeZoneDifference * 3600)
+                deferrals.done(Config.Langs["BannedUser"] .. bannedUntil .. Config.Langs["TimeZone"])
+                setKickReason(Config.Langs["BannedUser"] .. bannedUntil .. Config.Langs["TimeZone"])
             else
                 TriggerEvent("vorpbans:addtodb", false, GetUserId(identifier), 0)
             end
         end
 
-        if Config.UseCharPermission then 
+        if Config.UseCharPermission then
             _users[identifier] = User(source, identifier, user["group"], user["warnings"], license, user["char"])
         else
             _users[identifier] = User(source, identifier, user["group"], user["warnings"], license)
@@ -42,9 +43,12 @@ function LoadUser(source, setKickReason, deferrals, identifier, license)
         deferrals.done()
     else
         --New User
-        exports.ghmattimysql:executeSync("INSERT INTO users VALUES(?,'user',0,0,0,'false')", { identifier })
-        _users[identifier] = User(source, identifier, "user", 0, license)
-        deferrals.done()
+        if identifier then
+            exports.ghmattimysql:executeSync("INSERT INTO users VALUES(?,'user',0,0,0, 'false')", { identifier })
+
+            _users[identifier] = User(source, identifier, "user", 0, license)
+            deferrals.done()
+        end
     end
 end
 
@@ -59,8 +63,9 @@ AddEventHandler('playerDropped', function()
         print(string.format("Saved player %s.", GetPlayerName(source)))
     end
 
-    if Config.SaveSteamNameDB then 
-        exports.ghmattimysql:execute("UPDATE characters SET `steamname` = ? WHERE `identifier` = ? ", {steamName, identifier})
+    if Config.SaveSteamNameDB then
+        exports.ghmattimysql:execute("UPDATE characters SET `steamname` = ? WHERE `identifier` = ? ",
+            { steamName, identifier })
     end
 
 end)
@@ -71,8 +76,9 @@ AddEventHandler('playerJoining', function()
     local retvalList = exports.ghmattimysql:executeSync('SELECT * FROM whitelist WHERE identifier = ?', { identifier })
     if not Config.Whitelist then
         if #retvalList == 0 then
-            exports.ghmattimysql:executeSync("INSERT INTO whitelist (identifier, status, firstconnection) VALUES (@identifier, @status, @firstcon)",
-                                            {['@identifier'] = identifier, ['@status']=false, ['@firstcon'] = true})
+            exports.ghmattimysql:executeSync("INSERT INTO whitelist (identifier, status, firstconnection) VALUES (@identifier, @status, @firstcon)"
+                ,
+                { ['@identifier'] = identifier, ['@status'] = false, ['@firstcon'] = true })
             retvalList = exports.ghmattimysql:executeSync('SELECT * FROM whitelist WHERE identifier = ?', { identifier })
         end
     end
@@ -93,11 +99,14 @@ AddEventHandler('playerJoining', function()
     if not _whitelist[userid] then
         _whitelist[userid] = Whitelist(userid, identifier, false, true)
     end
-    local message = "**Steam name: **`" .. steamName .. "`**\nIdentifier:** `" .. identifier .. "` \n**Discord:** <@" .. discordId .. ">\n **User-Id:** `" .. userid .."`"
+    local message = "**Steam name: **`" ..
+        steamName ..
+        "`**\nIdentifier:** `" ..
+        identifier .. "` \n**Discord:** <@" .. discordId .. ">\n **User-Id:** `" .. userid .. "`"
     if _whitelist[userid].GetEntry().getFirstconnection() then
-            
-         if steamName then
-           TriggerEvent("vorp:newPlayerWebhook", "📋` New player joined server` ", message, color)
+
+        if steamName then
+            TriggerEvent("vorp:newPlayerWebhook", "📋` New player joined server` ", message, color)
         end
         _whitelist[userid].GetEntry().setFirstconnection(false)
     end
@@ -115,23 +124,26 @@ RegisterNetEvent('vorp:playerSpawn', function()
         if _users[identifier].Numofcharacters() <= 0 then
             TriggerEvent("vorp_CreateNewCharacter", source)
             Wait(7000)
-            TriggerClientEvent('vorp:NotifyLeft', source, "~e~IMPORTANT!",Config.Langs.NotifyChar,"minigames_hud", "five_finger_burnout", 6000,"COLOR_RED")
+            TriggerClientEvent('vorp:NotifyLeft', source, "~e~IMPORTANT!", Config.Langs.NotifyChar, "minigames_hud",
+                "five_finger_burnout", 6000, "COLOR_RED")
         else
-            if Config.UseCharPermission then 
+            if Config.UseCharPermission then
                 if _users[identifier]._charperm == "false" and _users[identifier].Numofcharacters() <= 1 then
                     TriggerEvent("vorp_SpawnUniqueCharacter", source)
                 elseif _users[identifier]._charperm == "true" then
                     TriggerEvent("vorp_GoToSelectionMenu", source)
                     Wait(14000)
-                    TriggerClientEvent('vorp:NotifyLeft', source, "~e~IMPORTANT!",Config.Langs.NotifyCharSelect, "minigames_hud", "five_finger_burnout",6000, "COLOR_RED")
+                    TriggerClientEvent('vorp:NotifyLeft', source, "~e~IMPORTANT!", Config.Langs.NotifyCharSelect,
+                        "minigames_hud", "five_finger_burnout", 6000, "COLOR_RED")
                 end
             else
                 if Config["MaxCharacters"] == 1 and _users[identifier].Numofcharacters() <= 1 then
                     TriggerEvent("vorp_SpawnUniqueCharacter", source)
-                else 
+                else
                     TriggerEvent("vorp_GoToSelectionMenu", source)
                     Wait(14000)
-                    TriggerClientEvent('vorp:NotifyLeft', source, "~e~IMPORTANT!",Config.Langs.NotifyCharSelect, "minigames_hud", "five_finger_burnout",6000, "COLOR_RED")
+                    TriggerClientEvent('vorp:NotifyLeft', source, "~e~IMPORTANT!", Config.Langs.NotifyCharSelect,
+                        "minigames_hud", "five_finger_burnout", 6000, "COLOR_RED")
                 end
             end
         end
@@ -164,7 +176,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent("vorpchar:addtodb")
-AddEventHandler("vorpchar:addtodb", function (status, id)
+AddEventHandler("vorpchar:addtodb", function(status, id)
 
     local resultList = exports.ghmattimysql:executeSync("SELECT * FROM users WHERE identifier = ?", { id })
 
@@ -184,8 +196,8 @@ AddEventHandler("vorpchar:addtodb", function (status, id)
                 break
             end
         end
-        
+
     end
-    
-    exports.ghmattimysql:execute("UPDATE users SET `char` = ? WHERE `identifier` = ? ", {char, id})
+
+    exports.ghmattimysql:execute("UPDATE users SET `char` = ? WHERE `identifier` = ? ", { char, id })
 end)

@@ -677,8 +677,8 @@ RegisterCommand("unwarn", function(source, args, rawCommand)
     end)
 end)
 
-if Config.UseCharPermission then 
-    RegisterCommand( "addchar", function(source, args, rawCommand)
+if Config.UseCharPermission then
+    RegisterCommand("addchar", function(source, args, rawCommand)
         local _source = source
         TriggerEvent("vorp:getCharacter", _source, function(user)
             local target = args[1]
@@ -694,7 +694,8 @@ if Config.UseCharPermission then
                 "`**\nIdentifier**`" ..
                 Identifier ..
                 "` \n**Discord:** <@" ..
-                discordId .. ">**\nIP: **`" .. ip .. "` \n **User-Id:** `" .. target .. "`\n **Action:** `" .. text .. "`"
+                discordId ..
+                ">**\nIP: **`" .. ip .. "` \n **User-Id:** `" .. target .. "`\n **Action:** `" .. text .. "`"
             if args then
                 if ace or user.group == Config.Group.Admin or user.group == Config.Group.Mod then
                     TriggerEvent("vorp:charWebhook", "📋` /addchar command` ", message, color)
@@ -707,7 +708,7 @@ if Config.UseCharPermission then
         end)
     end)
 
-    RegisterCommand( "removechar", function(source, args, rawCommand)
+    RegisterCommand("removechar", function(source, args, rawCommand)
         local _source = source
         TriggerEvent("vorp:getCharacter", _source, function(user)
             local target = args[1]
@@ -723,7 +724,8 @@ if Config.UseCharPermission then
                 "`**\nIdentifier**`" ..
                 Identifier ..
                 "` \n**Discord:** <@" ..
-                discordId .. ">**\nIP: **`" .. ip .. "` \n **User-Id:** `" .. target .. "`\n **Action:** `" .. text .. "`"
+                discordId ..
+                ">**\nIP: **`" .. ip .. "` \n **User-Id:** `" .. target .. "`\n **Action:** `" .. text .. "`"
             if args then
                 if ace or user.group == Config.Group.Admin or user.group == Config.Group.Mod then
                     TriggerEvent("vorp:charWebhook", "📋` /removechar command` ", message, color)
@@ -840,13 +842,15 @@ AddEventHandler("vorp:chatSuggestion", function()
             TriggerClientEvent("chat:addSuggestion", _source, "/unwarn", " VORPcore command to unwarn players.", {
                 { name = "Id", help = 'player ID from Discord user-id' },
             })
-            
-            if Config.UseCharPermission then 
-                TriggerClientEvent("chat:addSuggestion", _source, "/addchar", " VORPcore command to add multicharacter to players.", {
+
+            if Config.UseCharPermission then
+                TriggerClientEvent("chat:addSuggestion", _source, "/addchar",
+                    " VORPcore command to add multicharacter to players.", {
                     { name = "Steam Hex", help = 'steam:110000101010010' },
                 })
 
-                TriggerClientEvent("chat:addSuggestion", _source, "/removechar", " VORPcore command to remove multicharacter to players.", {
+                TriggerClientEvent("chat:addSuggestion", _source, "/removechar",
+                    " VORPcore command to remove multicharacter to players.", {
                     { name = "Steam Hex", help = 'steam:110000101010010' },
                 })
             end
