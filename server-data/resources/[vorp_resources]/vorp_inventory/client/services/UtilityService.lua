@@ -55,7 +55,8 @@ Utils.addItems = function(name, amount)
 			label = DB_Items[name].label,
 			type = "item_standard",
 			canUse = true,
-			canRemove = DB_Items[name].can_remove
+			canRemove = DB_Items[name].can_remove,
+			desc = DB_Items[name].desc
 		})
 	end
 end
@@ -94,6 +95,15 @@ Utils.GetWeaponLabel = function(hash)
 	for _, wp in pairs(Config.Weapons) do
 		if wp.HashName == hash then
 			return wp.Name
+		end
+	end
+	return hash
+end
+
+Utils.GetWeaponDesc = function(hash)
+	for k, v in pairs(Config.Weapons) do
+		if v.HashName == hash then
+			return v.Desc
 		end
 	end
 	return hash

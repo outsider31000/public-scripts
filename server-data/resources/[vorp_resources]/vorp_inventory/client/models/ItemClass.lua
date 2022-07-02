@@ -7,6 +7,7 @@ Item.name = nil
 Item.type = nil
 Item.canUse = false
 Item.canRemove = false
+Item.desc = nil
 
 
 function Item:setCount(amount)
@@ -75,6 +76,14 @@ end
 
 function Item:getCanRemove()
 	return self.canRemove
+end
+
+function Item:setDesc(desc)
+	self.desc = desc
+end
+
+function Item:getDesc()
+	return self.desc
 end
 
 function Item:New (t)

@@ -8,6 +8,7 @@ Weapon.ammo = {}
 Weapon.components = {}
 Weapon.used = false
 Weapon.used2 = false
+Weapon.desc = nil
 
 function Weapon:UnequipWeapon()
 	local hash = GetHashKey(self.name)
@@ -24,7 +25,7 @@ function Weapon:RemoveWeaponFromPed()
 	RemoveWeaponFromPed(PlayerPedId(), GetHashKey(self.name), true, 0)
 end
 
-function Weapon:loadAmmo()
+function Weapon:equipwep()
 	local pattern = 'WEAPON_MELEE'
 	if self.name:sub(1, #pattern) == pattern then
 		Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey(self.name), 500, true, 0)
@@ -39,10 +40,10 @@ function Weapon:loadAmmo()
 		else
 			GiveDelayedWeaponToPed(PlayerPedId(), GetHashKey(self.name), 0, true, 0)
 		end
-		SetPedAmmo(PlayerPedId(), GetHashKey(self.name), 0)
+		--[[ SetPedAmmo(PlayerPedId(), GetHashKey(self.name), 0)
 		for key, value in pairs(self.ammo) do
 			SetPedAmmoByType(PlayerPedId(), GetHashKey(key), value)
-		end
+		end ]]
 	end
 end
 
@@ -172,4 +173,12 @@ function FindIndexOf(table, value)
 		end
 	end
 	return false
+end
+
+function Weapon:setDesc(desc)
+	self.desc = desc
+end
+
+function Weapon:getDesc()
+	return self.desc
 end

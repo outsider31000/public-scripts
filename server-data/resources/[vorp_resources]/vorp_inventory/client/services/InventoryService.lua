@@ -19,7 +19,8 @@ InventoryService.receiveItem = function (name, amount)
 		name = name,
 		type = "item_standard",
 		canUse = true,
-		canRemove = DB_Items[name].can_remove
+		canRemove = DB_Items[name].can_remove,
+		desc = DB_Items[name].desc
 	})
 	NUIService.LoadInv()
 end
@@ -51,7 +52,8 @@ InventoryService.receiveWeapon = function (id, propietary, name, ammos)
 			label = Utils.GetWeaponLabel(name),
 			ammo = weaponAmmo,
 			used = false,
-			used2 = false
+			used2 = false,
+			desc = Utils.GetWeaponDesc(name)
 		})
 
 		UserWeapons[newWeapon:getId()] = newWeapon
@@ -59,7 +61,6 @@ InventoryService.receiveWeapon = function (id, propietary, name, ammos)
 	end
 
 end
-
 InventoryService.onSelectedCharacter = function (charId)
 	SetNuiFocus(false, false)
 	SendNUIMessage({action= "hide"})
@@ -67,6 +68,11 @@ InventoryService.onSelectedCharacter = function (charId)
 	TriggerServerEvent("vorpinventory:getItemsTable")
 	Wait(300)
 	TriggerServerEvent("vorpinventory:getInventory")
+	Wait(5000)
+	TriggerServerEvent("vorpCore:LoadAllAmmo")
+	Wait(2500)
+	print("ammo loaded")
+	TriggerEvent("vorpinventory:loaded")
 end
 
 InventoryService.processItems = function (items)
@@ -78,7 +84,8 @@ InventoryService.processItems = function (items)
 			limit = item.limit,
 			can_remove = item.can_remove,
 			type = item.type,
-			usable = item.usable
+			usable = item.usable,
+			desc = item.desc
 		}
 	end
 end
@@ -105,7 +112,8 @@ InventoryService.getLoadout = function (loadout)
 				name = weapon.name,
 				ammo = weaponAmmo,
 				used = weaponUsed,
-				used2 = weaponUsed2
+				used2 = weaponUsed2,
+				desc = Utils.GetWeaponDesc(weapon.name)
 			})
 	
 			UserWeapons[newWeapon:getId()] = newWeapon
@@ -132,6 +140,7 @@ InventoryService.getInventory = function (inventory)
 				local itemCanRemove = item.can_remove
 				local itemType = item.type
 				local itemCanUse = item.usable
+				local itemDesc = item.desc
 
 				local newItem = Item:New({
 					count = itemAmount,
@@ -140,7 +149,8 @@ InventoryService.getInventory = function (inventory)
 					name = itemName,
 					type = itemType,
 					canUse = itemCanUse,
-					canRemove = itemCanRemove
+					canRemove = itemCanRemove,
+					desc = itemDesc
 				})
 
 				UserInventory[itemName] = newItem
@@ -150,23 +160,3 @@ InventoryService.getInventory = function (inventory)
 end
 
 
--- Threads
-Citizen.CreateThread(function()
-	while true do
-		Wait(500)
-
-		local isArmed = Citizen.InvokeNative(0xCB690F680A3EA971, PlayerPedId(), 4)
-		
-		if isArmed then
-			for _, weapon in pairs(UserWeapons) do
-				if weapon:getUsed() then
-					local ammo = weapon:getAllAmmo()
-					for ammoName, _ in pairs(ammo) do
-						local ammoQty = Citizen.InvokeNative(0x39D22031557946C1, PlayerPedId(), GetHashKey(ammoName))
-						weapon:setAmmo(ammoName, ammoQty)
-					end
-				end
-			end
-		end
-	end
-end)

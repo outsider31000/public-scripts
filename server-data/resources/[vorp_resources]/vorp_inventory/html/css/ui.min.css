@@ -165,6 +165,21 @@ body {
     color: white;
 }
 
+#description { 
+    text-align: center;
+    position: absolute;
+    top: 880px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    color: white;
+    word-wrap: break-word;
+    width: 399px;
+    left: 400px;
+
+}
+
 #information2 {
     text-align: center;
     position: absolute;
@@ -342,58 +357,163 @@ span.emoji {
     line-height: 2;
 } 
 
+#transaction-loader {
+    display: none;
+    background-image: url(../img/bgPanel2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 180px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0px 0px 40px #1b1b1b);
+    z-index: 99;
+    opacity: 0.9;
+}
+
+#transaction-loader .wrap-model {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    padding: 10px;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+
+#transaction-loader #loading-text {
+    margin-top: 16px;
+    text-align: center;
+}
+
+#transaction-loader .revolver {
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    background: #ccc;
+    transform: rotate(30deg);
+    animation: rotateAnimation 6.5s cubic-bezier(0.74, 0.61, 0, 1.33) infinite;
+    text-align: middle;
+    position: relative;
+}
+
+#transaction-loader .revolver-part {
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+    transform-origin: bottom center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+#transaction-loader .revolver-part:after, #transaction-loader .revolver-part:before {
+    content: " ";
+    display: block;
+    background: #000000;
+    height: 26px;
+    width: 26px;
+    border-radius: 13px;
+    margin-top: -18px;
+}
+
+#transaction-loader .revolver-part:before {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    margin-top: 11px;
+    right: -5px;
+    background: #000000;
+    border: 2px solid #000000;
+}
+
+#transaction-loader section:nth-of-type(1) {
+    transform: rotateZ(calc(60deg * 1));
+}
+
+#transaction-loader section:nth-of-type(2) {
+    transform: rotateZ(calc(60deg * 2));
+}
+
+#transaction-loader section:nth-of-type(3) {
+    transform: rotateZ(calc(60deg * 3));
+}
+
+#transaction-loader section:nth-of-type(4) {
+    transform: rotateZ(calc(60deg * 4));
+}
+
+#transaction-loader section:nth-of-type(5) {
+    transform: rotateZ(calc(60deg * 5));
+}
+
+#transaction-loader section:nth-of-type(6) {
+    transform: rotateZ(calc(60deg * 6));
+}
+
 @media (max-width:1920px){
 
-#title {
-    margin-top: 11rem;
-}
+    #title {
+        margin-top: 11rem;
+    }
 
-#inventoryHud {
-    min-width: 1200px;
-    min-height: 1120px;
-    background-size: 510px 800px;
-    margin-left: -100px;
-}
+    #inventoryHud {
+        min-width: 1200px;
+        min-height: 1120px;
+        background-size: 510px 800px;
+        margin-left: -100px;
+    }
 
-#inventoryElement {
-    top: -100px;
-    width: 500px;
-    height: 398px;
-    margin-right: 310px;
-}
+    #inventoryElement {
+        top: -100px;
+        width: 500px;
+        height: 398px;
+        margin-right: 310px;
+    }
 
-#information { 
-    top: 750px;
-}
+    #information { 
+        top: 750px;
+    }
 
-.controls {
-    top: 240px;
-    left: 390px;
-}
+    #description { 
+        top: 790px;
 
-#secondInventoryHud {
-    min-width: 1200px;
-    min-height: 1120px;
-    background-size: 510px 800px;
-    margin-left: 900px;
-}
+    }
 
-#secondInventoryElement {
-    top: -100px;
-    width: 500px;
-    height: 398px;
-    margin-right: 310px;
-}
+    .controls {
+        top: 240px;
+        left: 390px;
+    }
 
-#information2 {
-    top: 750px;
-  
-}
+    #secondInventoryHud {
+        min-width: 1200px;
+        min-height: 1120px;
+        background-size: 510px 800px;
+        margin-left: 900px;
+    }
 
-#titleHorse {
-    margin-top: 11rem;
-  
-}
+    #secondInventoryElement {
+        top: -100px;
+        width: 500px;
+        height: 398px;
+        margin-right: 310px;
+    }
+
+    #information2 {
+        top: 750px;
+    
+    }
+
+    #titleHorse {
+        margin-top: 11rem;
+    
+    }
 
 }
 
@@ -421,6 +541,11 @@ span.emoji {
     
     #information { 
         top: 800px;
+        left: 10px;
+    }
+    
+    #description { 
+        top: 840px;
         left: 10px;
     }
     
@@ -483,4 +608,30 @@ span.emoji {
         height: 35px;   
     }
     
+}
+
+/* Animations */
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(30deg);
+    }
+    16% {
+        transform: rotate(90deg);
+    }
+    32% {
+        transform: rotate(150deg);
+    }
+    48% {
+        transform: rotate(210deg);
+    }
+    64% {
+        transform: rotate(270deg);
+    }
+    82% {
+        transform: rotate(330deg);
+    }
+    100% {
+        transform: rotate(390deg);
+    }
 }

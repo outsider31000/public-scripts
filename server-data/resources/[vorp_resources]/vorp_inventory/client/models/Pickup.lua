@@ -4,6 +4,7 @@ Pickup.name = ''
 Pickup.entityId = ''
 Pickup.amount = ''
 Pickup.isMoney = false
+Pickup.isGold = false
 Pickup.weaponId = ''
 Pickup.coords = vector3(0, 0, 0)
 Pickup.prompt = nil
