@@ -138,6 +138,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `crafting` longtext COLLATE utf8mb4_bin DEFAULT '{"medical":0,"blacksmith":0,"basic":0,"survival":0,"brewing":0,"food":0}',
   `info` longtext COLLATE utf8mb4_bin DEFAULT '{}',
   `gunsmith` double(11,2) DEFAULT 0.00,
+  `ammo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4 DEFAULT '{}',
   UNIQUE KEY `identifier_charidentifier` (`identifier`,`charidentifier`) USING BTREE,
   KEY `charidentifier` (`charidentifier`) USING BTREE,
   KEY `clanid` (`clanid`),
@@ -149,11 +150,11 @@ CREATE TABLE IF NOT EXISTS `characters` (
   KEY `money` (`money`),
   KEY `meta` (`meta`),
   KEY `steamname` (`steamname`),
+  INDEX `ammo` (`ammo`) USING BTREE,
   CONSTRAINT `FK_characters_users` FOREIGN KEY (`identifier`) REFERENCES `users` (`identifier`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=629 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
-ALTER TABLE `characters` ADD COLUMN `ammo` longtext DEFAULT '{}';
-ALTER TABLE `characters` ADD INDEX `ammo` (`ammo`);
+
 -- Dumping data for table vorpv2.characters: ~190 rows (approximately)
 /*!40000 ALTER TABLE `characters` DISABLE KEYS */;
 /*!40000 ALTER TABLE `characters` ENABLE KEYS */;
