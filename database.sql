@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `bounty` (
 /*!40000 ALTER TABLE `bounty` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bounty` ENABLE KEYS */;
 
+
 -- Dumping structure for table vorpv2.characters
 CREATE TABLE IF NOT EXISTS `characters` (
   `identifier` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
@@ -141,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `ammo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4 DEFAULT '{}',
   UNIQUE KEY `identifier_charidentifier` (`identifier`,`charidentifier`) USING BTREE,
   KEY `charidentifier` (`charidentifier`) USING BTREE,
+  INDEX `ammo` (`ammo`) USING BTREE,
   KEY `clanid` (`clanid`),
   KEY `crafting` (`crafting`(768)),
   KEY `compPlayer` (`compPlayer`(768)),
@@ -150,9 +152,8 @@ CREATE TABLE IF NOT EXISTS `characters` (
   KEY `money` (`money`),
   KEY `meta` (`meta`),
   KEY `steamname` (`steamname`),
-  INDEX `ammo` (`ammo`) USING BTREE,
   CONSTRAINT `FK_characters_users` FOREIGN KEY (`identifier`) REFERENCES `users` (`identifier`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=629 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 
 -- Dumping data for table vorpv2.characters: ~190 rows (approximately)
