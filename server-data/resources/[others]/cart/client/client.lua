@@ -3,7 +3,7 @@ local AnimalPrompt
 
 function SetupAnimalPrompt()
     Citizen.CreateThread(function()
-        local str = 'In Kutsche legen'
+        local str = 'Put in cart'
         AnimalPrompt = PromptRegisterBegin()
         PromptSetControlAction(AnimalPrompt, 0xE8342FF2)
         str = CreateVarString(10, 'LITERAL_STRING', str)
