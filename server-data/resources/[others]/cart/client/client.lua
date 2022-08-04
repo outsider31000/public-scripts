@@ -41,37 +41,38 @@ local models = {
 }
 
 Citizen.CreateThread(function()
-	while true do 
-		Wait(10)
+	while true do
 		local veh = GetVehiclePedIsIn(PlayerPedId(),false)
 		local model = GetEntityModel(veh)
 		for k,v in pairs(models) do 
-			if  model == v  then
+			if  model == v then
 				Citizen.InvokeNative(0x081FB9D6422F804C, veh,5,false)    
-            	Citizen.InvokeNative(0xA9F1D75195CC40F6, veh,5,true) 
-            	Citizen.InvokeNative(0x6A3C24B91FD0EA09, veh,5,true)
+				Citizen.InvokeNative(0xA9F1D75195CC40F6, veh,5,true) 
+				Citizen.InvokeNative(0x6A3C24B91FD0EA09, veh,5,true)
 			end
+			Wait(500)
 		end
 	end
 end)
 
+
 Citizen.CreateThread(function()
 	SetupAnimalPrompt()
 	while true do 
-		Wait(100)
+		Wait(300)
 		local ped = PlayerPedId()
-		coords = GetEntityCoords(ped)
-		local forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
-		local Pos2 = GetEntityCoords(ped)
-		local targetPos = GetOffsetFromEntityInWorldCoords(obj3, -0.0, 1.1,-0.1)
-		local rayCast = StartShapeTestRay(Pos2.x, Pos2.y, Pos2.z, forwardoffset.x, forwardoffset.y, forwardoffset.z,-1,ped,7)
-		local A,hit,C,C,spot = GetShapeTestResult(rayCast)                
-		local model = GetEntityModel(spot)
-		local cartcoords = GetEntityCoords(spot)
-		for k,v in pairs(models) do 
-			if  model == v  then
-				local animal = Citizen.InvokeNative(0xD806CD2A4F2C2996, ped)
-				if animal ~= false then
+		local animal = Citizen.InvokeNative(0xD806CD2A4F2C2996, ped)
+		if animal ~= false then
+			coords = GetEntityCoords(ped)
+			local forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
+			local Pos2 = GetEntityCoords(ped)
+			local targetPos = GetOffsetFromEntityInWorldCoords(obj3, -0.0, 1.5,-0.1)
+			local rayCast = StartShapeTestRay(Pos2.x, Pos2.y, Pos2.z, forwardoffset.x, forwardoffset.y, forwardoffset.z,-1,ped,7)
+			local A,hit,B,C,spot = GetShapeTestResult(rayCast)                
+			local cartcoords = GetEntityCoords(spot)
+			local model = GetEntityModel(spot)
+			for k,v in pairs(models) do
+				if  model == v  then
 					if prompt == false then
 						PromptSetEnabled(AnimalPrompt, true)
 						PromptSetVisible(AnimalPrompt, true)
@@ -84,15 +85,14 @@ Citizen.CreateThread(function()
 						animalcheck = Citizen.InvokeNative(0xD806CD2A4F2C2996, ped)
 						pedid = NetworkGetNetworkIdFromEntity(animalcheck)
 						Citizen.InvokeNative(0xC7F0B43DCDC57E3D, PlayerPedId(), animalcheck, GetEntityCoords(PlayerPedId()), 10.0, true)
-						Wait(1200)
+						Wait(1000)
 						TriggerServerEvent('EveryoneTeleportEntity',pedid,cartcoords.x,cartcoords.y,cartcoords.z+1.0)
 						SetEntityCoords(animalcheck,cartcoords.x,cartcoords.y,cartcoords.z+1.0,false)
-						Wait(1200)
+						Wait(1000)
 					end
-
 					local forwardoffset = GetOffsetFromEntityInWorldCoords(ped,0.0,2.0,0.0)
 					local Pos2 = GetOffsetFromEntityInWorldCoords(ped, -0.0, 0.0,0.5)
-					local targetPos = GetOffsetFromEntityInWorldCoords(obj3, -0.0, 1.1,-0.1)
+					local targetPos = GetOffsetFromEntityInWorldCoords(obj3, -0.0, 1.5,-0.1)
 					local rayCast = StartShapeTestRay(Pos2.x, Pos2.y, Pos2.z, forwardoffset.x, forwardoffset.y, forwardoffset.z,-1,ped,7)
 					local A,hit,B,C,spot = GetShapeTestResult(rayCast)
 					NetworkRequestControlOfEntity(animalcheck)
@@ -103,23 +103,18 @@ Citizen.CreateThread(function()
 					prompt = false
 				end
 				break
-			else
-				PromptSetEnabled(AnimalPrompt, false)
-				PromptSetVisible(AnimalPrompt, false)
-				prompt = false
 			end
-		end
+	    else
+		    PromptSetEnabled(AnimalPrompt, false)
+		    PromptSetVisible(AnimalPrompt, false)
+		    prompt = false
+	    end
 	end
 end)
 
 RegisterNetEvent('EveryoneTeleportEntity')
 AddEventHandler('EveryoneTeleportEntity', function(netid,x,y,z)
 	ent = NetworkGetEntityFromNetworkId(netid)
-	Wait(150)
+	Wait(300)
 	SetEntityCoords(ent,x,y,z)
 end)
-----------------------------------------------------------------------------------------
-
-
-
-
