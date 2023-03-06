@@ -6,20 +6,8 @@ TriggerEvent("getCore",function(core)
 end)
 
 local Animations = exports.vorp_animations.initiate()
-
 local started = false
-
-
-
-
-
-
-local item
-
 local Playerjob
-
-
-
 
 RegisterNetEvent('RSG:sendjob')
 AddEventHandler('RSG:sendjob', function(job,count)
