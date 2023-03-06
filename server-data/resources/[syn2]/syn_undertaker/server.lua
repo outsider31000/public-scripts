@@ -18,15 +18,11 @@ function contains(table, element)
 return false
 end
 
-
 RegisterServerEvent('RSG:checkjob', function()
-    print('working')
     local _source = source
     local Character = VORPcore.getUser(_source).getUsedCharacter
     local job = Character.job
     local count = VORPInv.getItemCount(_source, Config.shovelitem)
-   print (count)
-    print(job)
     TriggerClientEvent('RSG:sendjob', _source, job,count)
 end)
 
