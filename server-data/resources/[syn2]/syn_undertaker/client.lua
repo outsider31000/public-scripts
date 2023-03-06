@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
                         else
                             VORPcore.NotifyRightTip("you dont have the job fo this ",4000)
                             Citizen.Wait(500)
-
+			    started = false
                                 end
                             end
                         end
