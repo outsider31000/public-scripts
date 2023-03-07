@@ -20,8 +20,8 @@ Config.grave = {
 		Pos = vector3(-238.22, 820.13, 123.89),
         blipName = "Graveyard",
     },
-    annesburg= {
-        Pos = vector3(2737.39, 1084.97,47.15), -- location 
+    sd= {
+        Pos = vector3(2765.23, -1258.09, 48.51), -- location  
         blipName = "Graveyard",
 
     },
@@ -31,7 +31,7 @@ Config.grave = {
 
     },
     bw = {
-        Pos = vector3(993.35, -1193.28, 58.90), -- location 
+        Pos = vector3(-993.35, -1193.28, 58.90), -- location 
         blipName = "Graveyard",
 
     },
