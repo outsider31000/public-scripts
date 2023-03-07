@@ -36,7 +36,7 @@ Config.grave = {
 
     },
     strw = {
-        Pos = vector3(1756.98, -240.66, 182.89), -- location 
+        Pos = vector3(-1756.98, -240.66, 182.89), -- location 
         blipName = "Graveyard",
 
     },
